@@ -1,4 +1,4 @@
-{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% capture root %}{{ site.root | strip_slash }}{% endcapture %}
 {% include head.html %}
 <body 
 {% if page.body_id %} 
@@ -21,8 +21,7 @@
       <div class="col-md-3"></div>
     </div>
   </section>
-  
-  <footer role="contentinfo">{% include footer.html %} </footer>
+  <footer role="contentinfo" class="footer_color">{% include footer.html %}</footer>
   
   {% include after_footer.html %}
 </body>

@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 0 Why learn to draw"
 comments: true
-categories: design
+categories: design web
 ---
 
 ### Learning an all time amazement

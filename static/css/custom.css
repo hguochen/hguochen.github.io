@@ -1,3 +1,9 @@
+/* GENERAL */
+body>header {
+	padding-top: 1.5em;
+	padding-bottom: 0;
+}
+
 /* FONTS */
 .entry-content{
 	font-family: 'Helvetica Neue', 'Droid Serif', serif;
@@ -22,7 +28,7 @@
 
 	.image-full {
 		display: block;
-		width: 100%;
+		
 		margin: 0 0 2em 0;
 	}
 	.image-full {
@@ -41,4 +47,12 @@
 	padding-top: 10px;
 	padding-left: 10px;
 	margin-bottom: 0;
+}
+
+/* FOOTER */
+.footer_color {
+	color:#a1a1a1;
+}
+.footer_color>a {
+	color: #000;
 }

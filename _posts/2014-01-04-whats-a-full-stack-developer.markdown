@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What's a full stack developer?"
-date: 2014-01-04 18:30:44 +0800
+date: 2013-10-04 18:30:44 +0800
 comments: true
 categories: 
 ---
