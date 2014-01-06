@@ -57,7 +57,7 @@ Lorem ipsum d...">
   <!-- Bootstrap -->
   <link href="/static/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="/static/css/custom.css">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -78,16 +78,31 @@ Lorem ipsum d...">
 
 >
   <header role="banner"><hgroup>
-  <div id="header-inner">
-    <span class="first"><a href="/">GuoChen | Blog</a></span>
-    <span class="last"><a href="/atom.xml" title="subscribe via RSS">rss</a></span>
-  </div>
+	<div class="container">
+		<div class="row">
+			<br>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<span class="me image image-full"><a href="/"><img src="/static/img/guochen.jpg" alt="" /></a></span>
+			</div>
+			<div class="col-md-6">
+				<h1 class="intro">Hi. I'm <a href="/"><strong>GuoChen</strong></a></h1>				
+				<p class="intro_text">I'm a web designer &amp; developer, my portfolio at <a href="http://hguochen.com">hguochen</a>.</p>
+				<p class="intro_text">I blog about the web and run marathons.</p>
+				<div class="intro_text">Catch a glimpse of my life, my passion and my thoughts.</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
 </hgroup>
 </header>
   
-  <div id="main">
-    <div id="content">
-      <div>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div>
 <article class="hentry" role="article">
   
   
@@ -131,9 +146,7 @@ urna arcu sit amet felis. Duis nisl augue, scelerisque quis iaculis non, co\
 mmodo a tellus. Class aptent taciti sociosqu ad litora torquent per conubia\
 nostra, per inceptos himenaeos. Etiam tincidunt porttitor nibh at semper.</p>
 
-<blockquote><p>hello, this is a quote!
-<a href="http://hguochen.github.io">http://hguochen.github.io</a>
-/2013/12/24/merry-christmas/</p></blockquote>
+<blockquote><p>hello, this is a quote!</p></blockquote>
 </div>
 
 
@@ -174,7 +187,7 @@ nostra, per inceptos himenaeos. Etiam tincidunt porttitor nibh at semper.</p>
     <p class="meta">
       
       
-        <a class="basic-alignment right" href="/2014/01/04/hello-octopress/" title="Next Post: Hello Octopress">Hello Octopress &raquo;</a>
+        <a class="basic-alignment right" href="/2014/01/01/lesson-0-why-learn-to-draw/" title="Next Post: Lesson 0 Why learn to draw">Lesson 0 Why learn to draw &raquo;</a>
       
     </p>
   </footer>
@@ -193,17 +206,19 @@ nostra, per inceptos himenaeos. Etiam tincidunt porttitor nibh at semper.</p>
 </aside>
 
 
+      </div>
+      <div class="col-md-3"></div>
     </div>
-  </div>
+  </section>
   
   <footer role="contentinfo">    <p>
   		2014 - Handcrafted by Hou GuoChen -
   		<span class="credit">Powered by <a href="http://jekyllrb.com">Jekyll</a></span>
 	</p>
 	
-	<script src="js/bootstrap.min.js"></script>
-	<script src="//static/js/modernizr-2.0.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>    
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
   </body>
 </html> </footer>
   

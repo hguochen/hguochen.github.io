@@ -1,0 +1,44 @@
+/* FONTS */
+.entry-content{
+	font-family: 'Helvetica Neue', 'Droid Serif', serif;
+	font-size: 1.1em;
+	font-weight: 200;
+	line-height: 1.5em;
+}
+
+/* IMAGES */
+.me {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.image {
+	display: inline-block;
+}
+	.image img {
+		display: block;
+		width: 100%;
+	}
+
+	.image-full {
+		display: block;
+		width: 100%;
+		margin: 0 0 2em 0;
+	}
+	.image-full {
+		position: relative;
+	}
+
+/* INTRO TEXT */
+.intro {
+	text-align: left;
+	padding-left: 10px;
+	font-size: 2em;
+}
+.intro_text {
+	font-size: 0.8em;
+	color: #aaa;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-bottom: 0;
+}

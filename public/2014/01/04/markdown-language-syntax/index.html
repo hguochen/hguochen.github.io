@@ -58,7 +58,7 @@ Mou
   <!-- Bootstrap -->
   <link href="/static/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="/static/css/custom.css">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -79,16 +79,31 @@ Mou
 
 >
   <header role="banner"><hgroup>
-  <div id="header-inner">
-    <span class="first"><a href="/">GuoChen | Blog</a></span>
-    <span class="last"><a href="/atom.xml" title="subscribe via RSS">rss</a></span>
-  </div>
+	<div class="container">
+		<div class="row">
+			<br>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<span class="me image image-full"><a href="/"><img src="/static/img/guochen.jpg" alt="" /></a></span>
+			</div>
+			<div class="col-md-6">
+				<h1 class="intro">Hi. I'm <a href="/"><strong>GuoChen</strong></a></h1>				
+				<p class="intro_text">I'm a web designer &amp; developer, my portfolio at <a href="http://hguochen.com">hguochen</a>.</p>
+				<p class="intro_text">I blog about the web and run marathons.</p>
+				<div class="intro_text">Catch a glimpse of my life, my passion and my thoughts.</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
 </hgroup>
 </header>
   
-  <div id="main">
-    <div id="content">
-      <div>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div>
 <article class="hentry" role="article">
   
   
@@ -144,7 +159,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#101;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#x40;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a> link.</p>
+<p>An email <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x65;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;">&#101;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#64;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://smallerapp.com">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 
@@ -429,6 +444,9 @@ a start and end fence lines to delimit the code block.
 <p>Follow <a href="http://twitter.com/chenluois">@chenluois</a> on Twitter for the latest news.</p>
 
 <p>For feedback, use the menu <code>Help</code> &ndash; <code>Send Feedback</code></p>
+
+<p><a href="http://hguochen.github.io">http://hguochen.github.io</a>
+/2014/01/04/markdown-language-syntax/</p>
 <div class="footnotes">
 <hr/>
 <ol>
@@ -498,17 +516,19 @@ a start and end fence lines to delimit the code block.
 </aside>
 
 
+      </div>
+      <div class="col-md-3"></div>
     </div>
-  </div>
+  </section>
   
   <footer role="contentinfo">    <p>
   		2014 - Handcrafted by Hou GuoChen -
   		<span class="credit">Powered by <a href="http://jekyllrb.com">Jekyll</a></span>
 	</p>
 	
-	<script src="js/bootstrap.min.js"></script>
-	<script src="//static/js/modernizr-2.0.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>    
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
   </body>
 </html> </footer>
   

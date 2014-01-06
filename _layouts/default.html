@@ -12,11 +12,15 @@
 {% endif %}>
   <header role="banner">{% include header.html %}</header>
   
-  <div id="main">
-    <div id="content">
-      {{ content | expand_urls: root }}
+  <section class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        {{ content | expand_urls: root }}
+      </div>
+      <div class="col-md-3"></div>
     </div>
-  </div>
+  </section>
   
   <footer role="contentinfo">{% include footer.html %} </footer>
   
