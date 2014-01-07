@@ -5,4 +5,4 @@ comments: true
 categories: [Design]
 ---
 
-We are going to draw cubes in this lesson.
+We are going to draw cubes in this lesson. HAHAHHA
