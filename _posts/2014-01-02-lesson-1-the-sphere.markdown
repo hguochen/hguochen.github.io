@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 1 The Sphere"
 comments: true
-categories: design
+categories: [Design]
 ---
 
 Learning drawing has a lot to do with controlling the lighting in the picture. This lesson teaches how to identify the light source and where to shade objects in your drawing. We will draw a 3D sphere.

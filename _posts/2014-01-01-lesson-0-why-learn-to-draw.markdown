@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 0 Why learn to draw"
 comments: true
-categories: design web
+categories: [Design, Web]
 ---
 
 ### Learning an all time amazement
@@ -25,4 +25,4 @@ Don't worry if your drawing is hideous, no one has to see it! So now that you ha
 
 ![Drawing_lesson_0](http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg)
 
-Ok now chuck it aside and hop on to [Lesson 1 The Sphere]({{URL}}/2014/01/02/lesson-1-the-sphere/)!
+Ok now chuck it aside and hop on to [Lesson 1 The Sphere](/2014/01/02/lesson-1-the-sphere/)!

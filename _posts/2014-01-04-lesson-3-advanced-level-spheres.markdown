@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 3 Advanced Level Spheres"
 comments: true
-categories: design
+categories: [Design]
 ---
 
 Feeling comfortable with drawing 3D spheres yet? This lesson we are going to draw a lot more overlapping spheres, to get a feel of how things look like when they are grouped together.

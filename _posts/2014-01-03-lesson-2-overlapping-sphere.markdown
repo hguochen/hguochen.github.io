@@ -2,7 +2,7 @@
 layout: post
 title: "Lesson 2 Overlapping Sphere"
 comments: true
-categories: design
+categories: [Design]
 ---
 
 We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let's do this again.

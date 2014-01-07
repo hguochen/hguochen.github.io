@@ -9,7 +9,13 @@ body>header {
 	font-family: 'Helvetica Neue', 'Droid Serif', serif;
 	font-size: 1.1em;
 	font-weight: 200;
-	line-height: 1.5em;
+	line-height: 1.6em;
+}
+.read_time {
+	color:#a1a1a1;
+	font-size: 0.7em;
+	float: right;
+	font-weight: 300;
 }
 
 /* IMAGES */
@@ -27,12 +33,14 @@ body>header {
 	}
 
 	.image-full {
-		display: block;
-		
+		display: block;		
 		margin: 0 0 2em 0;
 	}
 	.image-full {
 		position: relative;
+	}
+	.image-small {
+		margin:0 0 2em 0;
 	}
 
 /* INTRO TEXT */
@@ -52,7 +60,12 @@ body>header {
 /* FOOTER */
 .footer_color {
 	color:#a1a1a1;
+	margin-bottom: 1em;
 }
 .footer_color>a {
 	color: #000;
+}
+.sharing {
+	text-align: left;
+	padding-bottom: 1em;
 }

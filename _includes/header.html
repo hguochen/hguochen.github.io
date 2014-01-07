@@ -2,7 +2,16 @@
 	<div class="container">
 		<div class="row">
 			<br>
-			
+			{% if page.id %}
+			<div class="col-md-2"></div>
+			<div class="col-md-2"></div>			
+			<div class="col-md-1">
+				<span class="me image image-small"><a href="/"><img src="/static/img/guochen.jpg" alt="" /></a></span>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-2"></div>
+			<div class="col-md-1"></div>
+			{% else %}
 			<div class="col-md-3">
 				<span class="me image image-full"><a href="/"><img src="/static/img/guochen.jpg" alt="" /></a></span>
 			</div>
@@ -15,6 +24,7 @@
 				<p class="intro_text">Reach me at <a href="http://twitter.com/hguochen">@hguochen</a> or <a href="mailto:hguochen@gmail.com">hguochen@gmail.com</a>.</p>		
 			</div>
 			<div class="col-md-3"></div>
+			{% endif %}
 		</div>
 	</div>
 
