@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: web | GuoChen | Blog]]></title>
-  <link href="http://hguochen.github.io/categories/web/atom.xml" rel="self"/>
-  <link href="http://hguochen.github.io/"/>
-  <updated>2014-01-08T01:29:39+08:00</updated>
-  <id>http://hguochen.github.io/</id>
+  <link href="http://blog.hguochen.com/categories/web/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-01-08T02:16:12+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[Hou GuoChen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lesson 0 Why learn to draw]]></title>
-    <link href="http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
+    <link href="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
     <updated>2014-01-01T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
+    <id>http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
     <content type="html"><![CDATA[<h3>Learning an all time amazement</h3>
 
 <p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>

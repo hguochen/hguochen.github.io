@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
-  <link href="http://hguochen.github.io/categories/design/atom.xml" rel="self"/>
-  <link href="http://hguochen.github.io/"/>
-  <updated>2014-01-08T01:29:39+08:00</updated>
-  <id>http://hguochen.github.io/</id>
+  <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-01-08T02:16:12+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[Hou GuoChen]]></name>
     
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[Lesson 4 The Cube]]></title>
-    <link href="http://hguochen.github.io/design/2014/01/04/lesson-4-the-cube/"/>
+    <link href="http://blog.hguochen.com/design/2014/01/04/lesson-4-the-cube/"/>
     <updated>2014-01-04T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/2014/01/04/lesson-4-the-cube</id>
+    <id>http://blog.hguochen.com/design/2014/01/04/lesson-4-the-cube</id>
     <content type="html"><![CDATA[<p>We are going to draw cubes in this lesson. HAHAHHA</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Lesson 3 Advanced Level Spheres]]></title>
-    <link href="http://hguochen.github.io/design/2014/01/04/lesson-3-advanced-level-spheres/"/>
+    <link href="http://blog.hguochen.com/design/2014/01/04/lesson-3-advanced-level-spheres/"/>
     <updated>2014-01-04T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/2014/01/04/lesson-3-advanced-level-spheres</id>
+    <id>http://blog.hguochen.com/design/2014/01/04/lesson-3-advanced-level-spheres</id>
     <content type="html"><![CDATA[<p>Feeling comfortable with drawing 3D spheres yet? This lesson we are going to draw a lot more overlapping spheres, to get a feel of how things look like when they are grouped together.</p>
 
 <p><strong>By the way, listening to music while drawing could be a real pleasure :)</strong></p>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lesson 2 Overlapping Sphere]]></title>
-    <link href="http://hguochen.github.io/design/2014/01/03/lesson-2-overlapping-sphere/"/>
+    <link href="http://blog.hguochen.com/design/2014/01/03/lesson-2-overlapping-sphere/"/>
     <updated>2014-01-03T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/2014/01/03/lesson-2-overlapping-sphere</id>
+    <id>http://blog.hguochen.com/design/2014/01/03/lesson-2-overlapping-sphere</id>
     <content type="html"><![CDATA[<p>We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let&rsquo;s do this again.</p>
 
 <ol>
@@ -98,9 +98,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lesson 1 The Sphere]]></title>
-    <link href="http://hguochen.github.io/design/2014/01/02/lesson-1-the-sphere/"/>
+    <link href="http://blog.hguochen.com/design/2014/01/02/lesson-1-the-sphere/"/>
     <updated>2014-01-02T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/2014/01/02/lesson-1-the-sphere</id>
+    <id>http://blog.hguochen.com/design/2014/01/02/lesson-1-the-sphere</id>
     <content type="html"><![CDATA[<p>Learning drawing has a lot to do with controlling the lighting in the picture. This lesson teaches how to identify the light source and where to shade objects in your drawing. We will draw a 3D sphere.</p>
 
 <p>Before we start drawing, there are 9 fundamental laws of drawing to create the illusion of depth. As follows:</p>
@@ -148,9 +148,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lesson 0 Why learn to draw]]></title>
-    <link href="http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
+    <link href="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
     <updated>2014-01-01T00:00:00+08:00</updated>
-    <id>http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
+    <id>http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
     <content type="html"><![CDATA[<h3>Learning an all time amazement</h3>
 
 <p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>
