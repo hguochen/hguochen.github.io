@@ -14,4 +14,4 @@ Hello jekyll! I've made the switch from wordpress finally. Somehow the idea of h
 
 Still pretty new to markdown syntax but i'm already loving it. Cheers to a wonderful 2014!
 
-{% youtube uDM8ajRMFwk %}
+{% youtube Nri6yctTmKM %}
