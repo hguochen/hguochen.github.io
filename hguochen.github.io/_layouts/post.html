@@ -1,0 +1,31 @@
+---
+layout: default
+single: true
+comments: true
+---
+
+<div>
+<article class="hentry" role="article">
+  {{ post.date | date: "%Y" }}
+  {% include article.html %}
+  <p class="meta">
+    {% include post/author.html %}
+    {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+    {% include post/categories.html %}
+  </p>
+    
+      {% include post/sharing.html %}
+  
+</article>
+{% if site.disqus_short_name and page.comments == true %}
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+  </section>
+{% endif %}
+</div>
+{% unless page.sidebar == false %}
+<aside class="sidebar">
+
+</aside>
+{% endunless %}

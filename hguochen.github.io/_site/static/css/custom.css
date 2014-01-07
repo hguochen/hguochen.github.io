@@ -1,0 +1,71 @@
+/* GENERAL */
+body>header {
+	padding-top: 1.5em;
+	padding-bottom: 0;
+}
+
+/* FONTS */
+.entry-content{
+	font-family: 'Helvetica Neue', 'Droid Serif', serif;
+	font-size: 1.1em;
+	font-weight: 200;
+	line-height: 1.6em;
+}
+.read_time {
+	color:#a1a1a1;
+	font-size: 0.7em;
+	float: right;
+	font-weight: 300;
+}
+
+/* IMAGES */
+.me {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.image {
+	display: inline-block;
+}
+	.image img {
+		display: block;
+		width: 100%;
+	}
+
+	.image-full {
+		display: block;		
+		margin: 0 0 2em 0;
+	}
+	.image-full {
+		position: relative;
+	}
+	.image-small {
+		margin:0 0 2em 0;
+	}
+
+/* INTRO TEXT */
+.intro {
+	text-align: left;
+	padding-left: 10px;
+	font-size: 2em;
+}
+.intro_text {
+	font-size: 0.8em;
+	color: #aaa;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-bottom: 0;
+}
+
+/* FOOTER */
+.footer_color {
+	color:#a1a1a1;
+	margin-bottom: 1em;
+}
+.footer_color>a {
+	color: #000;
+}
+.sharing {
+	text-align: left;
+	padding-bottom: 1em;
+}

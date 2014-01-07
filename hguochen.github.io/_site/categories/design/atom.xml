@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: design | GuoChen | Blog]]></title>
+  <link href="http://hguochen.github.io/categories/design/atom.xml" rel="self"/>
+  <link href="http://hguochen.github.io/"/>
+  <updated>2014-01-08T01:29:39+08:00</updated>
+  <id>http://hguochen.github.io/</id>
+  <author>
+    <name><![CDATA[Hou GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 4 The Cube]]></title>
+    <link href="http://hguochen.github.io/design/2014/01/04/lesson-4-the-cube/"/>
+    <updated>2014-01-04T00:00:00+08:00</updated>
+    <id>http://hguochen.github.io/design/2014/01/04/lesson-4-the-cube</id>
+    <content type="html"><![CDATA[<p>We are going to draw cubes in this lesson. HAHAHHA</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 3 Advanced Level Spheres]]></title>
+    <link href="http://hguochen.github.io/design/2014/01/04/lesson-3-advanced-level-spheres/"/>
+    <updated>2014-01-04T00:00:00+08:00</updated>
+    <id>http://hguochen.github.io/design/2014/01/04/lesson-3-advanced-level-spheres</id>
+    <content type="html"><![CDATA[<p>Feeling comfortable with drawing 3D spheres yet? This lesson we are going to draw a lot more overlapping spheres, to get a feel of how things look like when they are grouped together.</p>
+
+<p><strong>By the way, listening to music while drawing could be a real pleasure :)</strong></p>
+
+<ol>
+<li>Again, we start with drawing a circle.</li>
+<li>Draw another circle behind the first. Push it up a bit ( placement ). Tuck it behind the first ( overlapping ). Draw it a bit smaller ( size ).</li>
+<li>Draw the next circle over to the right behind the first one, push it up, tuck it behind and draw it a bit smaller than the first circle.</li>
+<li>Onward into the third row of spheres. The row is definitely getting smaller and much higher on the page as you move away from the front sphere. When you draw objects smaller to create the illusion that they are deeper in your picture, you are using the size law. Size is a powerful tool to create depth.</li>
+<li>Fill in the far gap with a peeking over-the-top sphere. Remember that small equals deeper.This will create a 3D illusion, even before adding shadows, shading and blendin!</li>
+<li>Complete the third row with the end sphere smaller, higher, and behind. Much of 3D is in repition and practice.</li>
+<li>Draw the fourth and fifth row of spheres. Pushing each row deeper into your picture with size, placement, and overlapping.</li>
+<li>Draw rows six and seven receding into the depths of your sketch page. Size really kicks in on these distant rows.</li>
+<li>Finally, we determine the position of our light source. For consistency, we will keep the light positioned in the top right. Go ahead and cast shadows off to the left, on the ground, and opposite your light source position.</li>
+<li>Next, draw the horizontal background reference line, the horizon line. The horizon line will help you create the illusion of depth in your drawing.</li>
+<li>Still remember Nook and Cranny? Push hard on your pencil and darken the edges and little spots between each ball.</li>
+<li>Continue your shading process with a first pass over all the objects, scribbling the shading lightly over all opposite edges away from the light source.</li>
+<li>Make some more scribble shading passes. Blend the shading with your finger. Carefully smudge the dark shaded areas up toward the hot spots, lighter and lighter as you go.</li>
+</ol>
+
+
+<p>Looking at your masterpiece already? Here&rsquo;s mine:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/C3E57AE1-969A-43C1-BA13-4AC36BD901FC.jpg" alt="Drawing_lesson_3.1" /></p>
+
+<h3>BONUS CHALLENGE</h3>
+
+<p>Take a look at this drawing. The largest sphere is the farthest away. The smallest sphere is the closest. Following the guides above, try to recreate this drawing yourself, and have fun!
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41633pm.png" alt="Drawing_lesson_3.2" /></p>
+
+<p>Here&rsquo;s my result:
+<img src="DROPBOX%20LINK" alt="Drawing_lesson_3.3" /></p>
+
+<p>That&rsquo;s so much for spheres! <a href="/2014/01/04/lesson-4-the-cube/">Next lesson</a> i will go on to drawing cubes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 2 Overlapping Sphere]]></title>
+    <link href="http://hguochen.github.io/design/2014/01/03/lesson-2-overlapping-sphere/"/>
+    <updated>2014-01-03T00:00:00+08:00</updated>
+    <id>http://hguochen.github.io/design/2014/01/03/lesson-2-overlapping-sphere</id>
+    <content type="html"><![CDATA[<p>We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let&rsquo;s do this again.</p>
+
+<ol>
+<li>Draw a circle.</li>
+<li>Draw a second sphere behind the first one. As you draw the second sphere, make it a bit smaller than the first sphere, a bit higher up on the paper, and tucked behind the first sphere. With this, we are using <code>size</code>, <code>placement</code> and <code>overlapping</code> laws. Recap the 9 fundamental laws <a href="/2014/01/02/lesson-1-the-sphere/">here</a>.</li>
+<li>Determine where your imaginary light source will be positioned. You will need to do this so you can get a consistent shading in order to appear three-dimensional.</li>
+<li>Cast a shadow in the direction opposite the light.</li>
+<li>To separate objects in your drawing, draw a dark defining shadow in between the two spheres(called a nook and cranny shadow). This will help identify the two objects. Nook and cranny shadows are always applied under and behind near objects.</li>
+<li>Hold your pencil loosely and scribble the first layer of shading on both spheres. Shade the surfaces opposite your light source. Try to make shading lines below all lined up away from the sun.</li>
+<li>Make a second darker, more focused shading pass over the spheres. Detail in the very dark edges, and let your scribbles get lighter and lighter as you move slowly toward your established light source. The spot on the sphere adjacent to the light source should be the brightest spot.</li>
+<li>Using your finger, carefully blend the shading from dark to light, trying to keep the hit spot crisp white.</li>
+</ol>
+
+
+<h3>BONUS CHALLENGE</h3>
+
+<p>Let&rsquo;s try placing two tennis balls on the table in front of you, overlapping. Make sure to notice the object&rsquo;s placement, shadows, and shading.</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41612pm.png" alt="tennis_ball_pic" /></p>
+
+<p>Here&rsquo;s my result:
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg" alt="Drawing_lesson_2.2" /></p>
+
+<p>Try practicing more on make the shadows look natural. Ready up for <a href="/2014/01/04/lesson-3-advanced-level-spheres/">Lesson 3</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 1 The Sphere]]></title>
+    <link href="http://hguochen.github.io/design/2014/01/02/lesson-1-the-sphere/"/>
+    <updated>2014-01-02T00:00:00+08:00</updated>
+    <id>http://hguochen.github.io/design/2014/01/02/lesson-1-the-sphere</id>
+    <content type="html"><![CDATA[<p>Learning drawing has a lot to do with controlling the lighting in the picture. This lesson teaches how to identify the light source and where to shade objects in your drawing. We will draw a 3D sphere.</p>
+
+<p>Before we start drawing, there are 9 fundamental laws of drawing to create the illusion of depth. As follows:</p>
+
+<ol>
+<li><strong>Foreshortening</strong>: Distort an object to create the illusion that one part of it is closer to your eye.</li>
+<li><strong>Placement</strong>: Place an object lower on the surface of a picture to make it appear closer to your eye.</li>
+<li><strong>Size</strong>: Draw an object larger to make it appear closer to your eye.</li>
+<li><strong>Overlapping</strong>: Draw an object in front of another object to create the visual illusion that it is closer to your eye.</li>
+<li><strong>Shading</strong>: Draw darkness on an object opposite the positioned light source to creat the illusion of depth.</li>
+<li><strong>Shadow</strong>: Draw darkness on the ground next to the object, opposite the positioned light source, to create the illusion of depth.</li>
+<li><strong>Contour lines</strong>: Draw curving lines wrapping around the shape of a round object to give it volume and depth.</li>
+<li><strong>Horizon line</strong>: Draw a horizontal reference line to create the illusion that objects in the picture are varying distances from your eye.</li>
+<li><strong>Density</strong>: Create the illusion of distance by drawing objects lighter and with less detail.</li>
+</ol>
+
+
+<p>Don&rsquo;t be overwhelmed by these laws. All of these will be covered in the following lessons.</p>
+
+<ol>
+<li>Draw a circle. If it&rsquo;s too difficult, use a coffee mug or coin to trace</li>
+<li>Determine the light source &ndash; direction where the light is coming from. Reasonably, the opposite side of the circle would cast a shadow.</li>
+<li>Now cast a shadow on your sphere opposite your light source position. Remember 2 points, position your light source, and cast a shadow on the ground next to the object and opposite the light source.</li>
+<li>Scribble shading ON the circle opposite the light source. The furthest place from the light source should be darkest and gets lighter as we go toward the light source.</li>
+<li>Use your finger to smudge-blend your shading to give it an even shade.</li>
+</ol>
+
+
+<p>Here&rsquo;s my drawing. Still ugly, but looking abit better than pretest drawings i guess?
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/72C108EB-CB8D-4DF8-9368-FBB18F29B68E.jpg" alt="Drawing_lesson_1.1" /></p>
+
+<h3>BONUS CHALLENGE</h3>
+
+<p>Let&rsquo;s draw an apple in 3D form. Take a look at the photograph of an apple with the light source and on the right:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/ScreenShot2014-01-06at40814pm.png" alt="apple_pic" /></p>
+
+<p>Here&rsquo;s my result:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg" alt="Drawing_lesson_1.2" /></p>
+
+<p>Improving already? Move on to <a href="/2014/01/03/lesson-2-overlapping-sphere/">Lesson 2</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 0 Why learn to draw]]></title>
+    <link href="http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
+    <updated>2014-01-01T00:00:00+08:00</updated>
+    <id>http://hguochen.github.io/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
+    <content type="html"><![CDATA[<h3>Learning an all time amazement</h3>
+
+<p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>
+
+<p>Inspired by <a href="http://www.karenx.com/blog/how-to-become-a-designer-without-going-to-design-school/">Karen&rsquo;s learn design blogpost</a>, i&rsquo;ve decided to teach myself everything about design in the fresh year. Starting from the basics, i&rsquo;m learning to draw by hand. I believe the fundamental appreciation for design comes from hand-eye coordindation.</p>
+
+<p>I got my hands on <a href="http://www.amazon.com/You-Can-Draw-30-Days/dp/0738212415/ref=sr_1_1?ie=UTF8&amp;qid=1371607474&amp;sr=8-1&amp;keywords=you+can+draw+in+30+days">You can draw in 30 days</a> to guide me along the fundamentals of drawing and dealing with my ridiculously ugly drawing base. If you are learning drawing as well, you may want to get a copy of this book if you are a fast learner. Or you could just follow along with my progress. I&rsquo;ll be documenting the things i learnt from this book and try to present them in a manner you can follow too. Please feel free to give me feedbacks on how to improve.</p>
+
+<p>Ok enough background paintings, let&rsquo;s get started.</p>
+
+<p>Let&rsquo;s begin with a little pretest to see how good or bad you are at drawing currently.</p>
+
+<ol>
+<li>Spend 2 minutes drawing a house, without referencing anything, just from your imagination.</li>
+<li>Next, spend 2 minutes drawing an airplane. Again, from imagination.</li>
+<li>Ok i promise it&rsquo;s the last one. Spend 2 minutes drawing a bagel.</li>
+</ol>
+
+
+<p>Don&rsquo;t worry if your drawing is hideous, no one has to see it! So now that you have your &lsquo;base&rsquo; work at hand, put this up somewhere secret so you can compare how much you have improved overtime. If it&rsquo;s any consolation, my work is attached below&hellip;feeling better now?</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg" alt="Drawing_lesson_0" /></p>
+
+<p>Ok now chuck it aside and hop on to <a href="/2014/01/02/lesson-1-the-sphere/">Lesson 1 The Sphere</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>
