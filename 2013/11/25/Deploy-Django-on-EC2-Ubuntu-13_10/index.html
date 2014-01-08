@@ -143,7 +143,54 @@
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>I&rsquo;ve had a hard time wrestling with Django on an EC2 instance and after finally figuring it out, i&rsquo;m documenting this down so hopefully it makes life easier for you.</p>
+
+<ol>
+<li>if you haven&rsquo;t already, you have to sign up for <a href="">Amazon Web Services</a>. Then sign in, open the AWS Management Console, select EC2 instances and Launch instance of Ubuntu Server 13.10 64-bit.</li>
+<li>Create a new Key Pair and download it. You will need it later. Click next and Launch the new instance.</li>
+<li>Check the security group in the description of your EC2 instance. Go to security groups and edit the matching Security group of your instance. Select inbound and create a new rule for HTTP( port80 ) click Add, then Apply Rule Changes.</li>
+<li><p>Connect your EC2 instance with ssh:</p>
+
+<pre><code> $ ssh -i xxx.pem ubuntu@ec2-xx.xxx.xxx.xx-comput1-amazonaws.com
+</code></pre></li>
+<li><p>Once you are connected, run the following commands:</p>
+
+<pre><code> $ sudo apt-get update
+ $ sudo apt-get upgrade
+ $ sudo apt-get apache2 libapache2-mod-wsgi
+ $ sudo apt-get install python-pip
+ $ sudo pip install django
+ $ sudo apt-get install build-essential
+ $ sudo apt-get install python2.7-dev
+ $ sudo apt-get install git
+ $ sudo apt-get install mysql-server
+ $ sudo apt-get install python-dev libmysqlclient-dev
+ $ sudo pip install MySQL-python
+</code></pre></li>
+<li><p>Now it&rsquo;s time to configure the apache configure file</p>
+
+<pre><code> $ sudo vim /etc/apache2/apache2.conf
+</code></pre></li>
+<li><p>Put the following code at the end of the file:</p>
+
+<pre><code> WSGIPythonPath /path/to/python/file
+ ServerName website.com
+ DocumentRoot /path/to/file
+ Alias /static /path/to/file/static/
+ Order deny, allow
+ Allow from all
+ WSGIScriptAlias / /path/to/file/wsgi.py
+ Order allow, deny
+ Allow from all
+</code></pre></li>
+<li><p>Enable apache virtual host</p>
+
+<pre><code> sudo a2ensite yourhost
+</code></pre></li>
+</ol>
+
+
+<p>And your site is up! Quickly go check it out at <a href="http://yourdomain.com">http://yourdomain.com</a></p>
 </div>
 
 
