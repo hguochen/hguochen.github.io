@@ -46,7 +46,7 @@ task :deploy => :build do
 end
 
 desc 'Create a post'
-task :create_post, [:post, :date, :content] do |t, args|
+task :post, [:post, :date, :content] do |t, args|
   if args.post == nil or 
      (args.date and args.date.match(/[0-9]+-[0-9]+-[0-9]+/) == nil) then
     puts "Usage: create post TITLE [DATE]"
