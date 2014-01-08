@@ -18,5 +18,8 @@
 <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
 
 {% if category != 0 %}
-	<span class="categories" >Tags: {{ post.categories | category_links }}</span>
+	<span class="categories" >
+		<span class="glyphicon glyphicon-tag"></span> 
+		{{ post.categories | category_links }}
+	</span>
 {% endif %}

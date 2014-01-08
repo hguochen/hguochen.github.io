@@ -7,8 +7,8 @@ body>header {
 /* FONTS */
 .entry-content{
 	font-family: 'Helvetica Neue', 'Droid Serif', serif;
-	font-size: 1.1em;
-	font-weight: 200;
+	font-size: 1.0em;
+	font-weight: 300;
 	line-height: 1.6em;
 }
 .read_time {
@@ -21,7 +21,6 @@ body>header {
 /* IMAGES */
 .me {
 	border-radius: 50%;
-	overflow: hidden;
 }
 
 .image {
@@ -29,7 +28,6 @@ body>header {
 }
 	.image img {
 		display: block;
-		width: 100%;
 	}
 
 	.image-full {
@@ -39,19 +37,25 @@ body>header {
 	.image-full {
 		position: relative;
 	}
-	.image-small {
+	.image-small>a>img {
 		margin:0 0 2em 0;
+		width:100%;
+	}
+	.margin_right {
+		margin-right: 20px;		
 	}
 
 /* INTRO TEXT */
 .intro {
 	text-align: left;
 	padding-left: 10px;
-	font-size: 2em;
+	font-size: 36px;
+	padding-top: 20px;
 }
 .intro_text {
-	font-size: 0.8em;
-	color: #aaa;
+	font-size: 16px;
+	line-height: 0.9em;
+	color: #a1a1a1;
 	padding-top: 10px;
 	padding-left: 10px;
 	margin-bottom: 0;
