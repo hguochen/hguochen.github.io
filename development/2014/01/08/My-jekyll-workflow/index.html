@@ -166,14 +166,14 @@
 
 <p>Automate terminal commands by adding the following alias into .bashrc file:</p>
 
-<p>```
-alias blogdir=&ldquo;cd /path/to/blog/hguochen.github.io&rdquo;</p>
+<pre><code>alias blogdir="cd /path/to/blog/hguochen.github.io"
 
-<p>alias build_blog=&ldquo;"blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add &mdash;all; git commit -m "Blogpost on ["Date&rdquo;]&ldquo;; git push origin master;&rdquo;</p>
+alias build_blog=""blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add --all; git commit -m "Blogpost on ["Date"]"; git push origin master;"
 
-<p>alias bb=&ldquo;build_blog&rdquo;
-```
-Move to jekyll raw files folder:</p>
+alias bb="build_blog"
+</code></pre>
+
+<p>Move to jekyll raw files folder:</p>
 
 <pre><code>$ blogdir
 </code></pre>
