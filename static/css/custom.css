@@ -21,7 +21,6 @@ body>header {
 /* IMAGES */
 .me {
 	border-radius: 50%;
-	overflow: hidden;
 }
 
 .image {
@@ -29,8 +28,6 @@ body>header {
 }
 	.image img {
 		display: block;
-		width: 100%;
-		float:right;	
 	}
 
 	.image-full {
@@ -40,8 +37,12 @@ body>header {
 	.image-full {
 		position: relative;
 	}
-	.image-small {
+	.image-small>a>img {
 		margin:0 0 2em 0;
+		width:100%;
+	}
+	.margin_right {
+		margin-right: 20px;		
 	}
 
 /* INTRO TEXT */
