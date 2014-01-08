@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: development | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/development/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-01-08T17:35:16+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My jekyll workflow]]></title>
+    <link href="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/"/>
+    <updated>2014-01-08T16:48:29Z</updated>
+    <id>http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow</id>
+    <content type="html"><![CDATA[<p>I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using <a href="https://github.com/hguochen/jekyll-rakefile">Rakefile</a> and standard terminal commands.</p>
+
+<blockquote><p>Jason Seifer has an awesome <a href="http://jasonseifer.com/2010/04/06/rake-tutorial">Rake Tutorial</a> for developers new to Rake.</p></blockquote>
+
+<h3>My Github pages</h3>
+
+<p>I&rsquo;ve set up <a href="https://github.com/hguochen/hguochen.github.io">my github pages</a> to consist of two branches: source and master. The source branch consists of the entire project and as such tracks all changes. The master branch consists solely of the compiled site, which can be found in the _site subdirectory.</p>
+
+<h3>My Local environment</h3>
+
+<p>blog/</p>
+
+<p>|&mdash;blog.hguochen.come/</p>
+
+<p>|&mdash;hguochen.github.io/</p>
+
+<p>Main folder blog has 2 sub directories. blog.hguochen.com which holds jekyll generated site content. hguochen.github.io holds jekyll raw files such as <em>posts, </em>layouts, _includes etc.</p>
+
+<h3>My workflow</h3>
+
+<p>Automate terminal commands by adding the following alias into .bashrc file:</p>
+
+<p>```
+alias blogdir=&ldquo;cd /path/to/blog/hguochen.github.io&rdquo;</p>
+
+<p>alias build_blog=&ldquo;"blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add &mdash;all; git commit -m "Blogpost on ["Date&rdquo;]&ldquo;; git push origin master;&rdquo;</p>
+
+<p>alias bb=&ldquo;build_blog&rdquo;
+```
+Move to jekyll raw files folder:</p>
+
+<pre><code>$ blogdir
+</code></pre>
+
+<p>Create new post with Rake:</p>
+
+<pre><code>$ rake post["Title"]
+</code></pre>
+
+<p>Previous command automatically fires up the default text editor for the file just created. In this case, i&rsquo;m using <a href="http://mouapp.com">Mou</a> for .markdown file extensions.</p>
+
+<p>Once i&rsquo;m done with my blog, i&rsquo;m ready to build and publish my blog by pushing into github pages repository, with a simple alias we made earlier:</p>
+
+<pre><code>$ bb
+</code></pre>
+
+<p>That&rsquo;s it! So this is my 3 step process to publishing my blog, powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+
+<p>Special thanks to <a href="https://twitter.com/leetucksing">@leetucksing</a> for introducing me this awesome blogging tool!</p>
+
+<p>By the way, <a href="https://twitter.com/athanhcong">@athanhcong</a> made an amazing app <a href="http://blogwith.co/">BlogWith</a> which connects evernote to jekyll powered blogs and allows you to edit blogs directly on <a href="http://evernote.com">Evernote</a>. Gona try how it works with jekyll later :)</p>
+]]></content>
+  </entry>
+  
+</feed>
