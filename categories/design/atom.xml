@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-01-08T17:37:51+08:00</updated>
+  <updated>2014-01-08T23:04:33+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -18,7 +18,27 @@
     <link href="http://blog.hguochen.com/design/2014/01/04/lesson-4-the-cube/"/>
     <updated>2014-01-04T00:00:00+08:00</updated>
     <id>http://blog.hguochen.com/design/2014/01/04/lesson-4-the-cube</id>
-    <content type="html"><![CDATA[<p>We are going to draw cubes in this lesson. HAHAHHA</p>
+    <content type="html"><![CDATA[<p>Ok I&rsquo;m moving on to drawing cubes in this lesson. Contrary to my belief, i realized drawing cubes is actually harder than drawing spheres. Let&rsquo;s get started!</p>
+
+<ol>
+<li>Starting off, draw two dots across from each other. these 2 dots will determine the diagonal length of the cube.</li>
+<li>Place finger between the dots using the opposite hand you are drawing with. Then draw a dot above your finger. These 2 dots should be closer to each other.</li>
+<li>Shoot the first line across.</li>
+<li>Draw the next line connecting the left dot with the bottom one.</li>
+<li>A third line to connect the bottom dot with right dot.</li>
+<li>Complete the foreshortened square. Foreshortening means to <strong>distort</strong> an object to create the illusion that part of it is closer to your eye.</li>
+<li>Next, draw the sides of the cube with two vertical lines. Use the sides of your sketchbook page as a visual reference to keep your drawings from tilting.</li>
+<li>Using the two side lines as reference lines, draw the middle line a bit longer and lower. Using lines you have already drawn to establish angles and positions for your next lines is a crucial technique in creating 3D picture.</li>
+<li>Using the top right edge of the top foreshortened square as a reference line. draw the bottom right side of the cube.</li>
+<li>Then draw the bottom left side of the cube by referring to the angle of the line above it.</li>
+<li>Draw the light source on the top right hand side of the cube and start shading the other sides. Remember nooks and crannies?</li>
+</ol>
+
+
+<p>So here&rsquo;s my result:
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/B3F670C0-3739-4BF2-B625-EAD5F52C0560.jpg" alt="Drawing_lesson4.1" /></p>
+
+<p>Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let&rsquo;s go on to <a href="URL">Lesson 5 &ndash; Hollow Cubes</a>.</p>
 ]]></content>
   </entry>
   
@@ -58,9 +78,9 @@
 <img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41633pm.png" alt="Drawing_lesson_3.2" /></p>
 
 <p>Here&rsquo;s my result:
-<img src="DROPBOX%20LINK" alt="Drawing_lesson_3.3" /></p>
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/CFB9E05F-A086-4D12-AC69-EF9D44133052.jpg" alt="Drawing_lesson_3.3" /></p>
 
-<p>That&rsquo;s so much for spheres! <a href="/2014/01/04/lesson-4-the-cube/">Next lesson</a> i will go on to drawing cubes.</p>
+<p>That&rsquo;s so much for spheres! <a href="/design/2014/01/04/lesson-4-the-cube/">Next lesson</a> i will go on to drawing cubes.</p>
 ]]></content>
   </entry>
   
@@ -92,7 +112,7 @@
 <p>Here&rsquo;s my result:
 <img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg" alt="Drawing_lesson_2.2" /></p>
 
-<p>Try practicing more on make the shadows look natural. Ready up for <a href="/2014/01/04/lesson-3-advanced-level-spheres/">Lesson 3</a>!</p>
+<p>Try practicing more on make the shadows look natural. Ready up for <a href="/design/2014/01/04/lesson-3-advanced-level-spheres/">Lesson 3</a>!</p>
 ]]></content>
   </entry>
   
@@ -142,15 +162,15 @@
 
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg" alt="Drawing_lesson_1.2" /></p>
 
-<p>Improving already? Move on to <a href="/2014/01/03/lesson-2-overlapping-sphere/">Lesson 2</a>!</p>
+<p>Improving already? Move on to <a href="/design/2014/01/03/lesson-2-overlapping-sphere/">Lesson 2</a>!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Lesson 0 Why learn to draw]]></title>
-    <link href="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/"/>
+    <link href="http://blog.hguochen.com/design/2014/01/01/lesson-0-why-learn-to-draw/"/>
     <updated>2014-01-01T00:00:00+08:00</updated>
-    <id>http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw</id>
+    <id>http://blog.hguochen.com/design/2014/01/01/lesson-0-why-learn-to-draw</id>
     <content type="html"><![CDATA[<h3>Learning an all time amazement</h3>
 
 <p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>
@@ -174,7 +194,7 @@
 
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg" alt="Drawing_lesson_0" /></p>
 
-<p>Ok now chuck it aside and hop on to <a href="/2014/01/02/lesson-1-the-sphere/">Lesson 1 The Sphere</a>!</p>
+<p>Ok now chuck it aside and hop on to <a href="/design/2014/01/02/lesson-1-the-sphere/">Lesson 1 The Sphere</a>!</p>
 ]]></content>
   </entry>
   
