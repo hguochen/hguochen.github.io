@@ -32,6 +32,6 @@ Take a look at this drawing. The largest sphere is the farthest away. The smalle
 ![Drawing_lesson_3.2](http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41633pm.png)
 
 Here's my result:
-![Drawing_lesson_3.3](DROPBOX LINK)
+![Drawing_lesson_3.3](http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/CFB9E05F-A086-4D12-AC69-EF9D44133052.jpg)
 
-That's so much for spheres! [Next lesson]({{ url }}/2014/01/04/lesson-4-the-cube/) i will go on to drawing cubes.
+That's so much for spheres! [Next lesson]({{ url }}/design/2014/01/04/lesson-4-the-cube/) i will go on to drawing cubes.

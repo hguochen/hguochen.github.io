@@ -25,4 +25,4 @@ Let's try placing two tennis balls on the table in front of you, overlapping. Ma
 Here's my result:
 ![Drawing_lesson_2.2](http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg)
 
-Try practicing more on make the shadows look natural. Ready up for [Lesson 3]({{ url }}/2014/01/04/lesson-3-advanced-level-spheres/)!
+Try practicing more on make the shadows look natural. Ready up for [Lesson 3]({{ url }}/design/2014/01/04/lesson-3-advanced-level-spheres/)!

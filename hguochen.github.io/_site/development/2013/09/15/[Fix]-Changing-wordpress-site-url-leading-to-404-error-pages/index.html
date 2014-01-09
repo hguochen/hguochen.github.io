@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Lesson 0 Why learn to draw - GuoChen | Blog</title>
+  <title>[Fix] Changing wordpress site url leading to 404 error pages - GuoChen | Blog</title>
   <meta name="author" content="GuoChen">
 
   
@@ -15,11 +15,11 @@
   
   
     
-      Lesson 0 Why learn to draw
+      [Fix] Changing wordpress site url leading to 404 error pages
     
     
       
-        Jan 01, 2014
+        Sep 15, 2013
         
         
 
@@ -30,12 +30,7 @@
 
 
 
-  
-
-
-
-        
-         | Comments...">
+...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -44,7 +39,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/">
+  <link rel="canonical" href="http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/">
   <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="GuoChen | Blog" type="application/atom+xml">
   
@@ -116,11 +111,11 @@
   
   <header>
     
-      <h1 class="entry-title">Lesson 0 Why learn to draw</h1>
+      <h1 class="entry-title">[Fix] Changing wordpress site url leading to 404 error pages</h1>
     
     
       <p class="meta">
-        Jan 01, 2014
+        Sep 15, 2013
         
         
 
@@ -134,7 +129,7 @@
   
 
 
-<time datetime="2014-01-01T00:00:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2013-09-15T11:38:14Z" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -143,30 +138,41 @@
   </header>
 
 
-<div class="entry-content"><h3>Learning an all time amazement</h3>
-
-<p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>
-
-<p>Inspired by <a href="http://www.karenx.com/blog/how-to-become-a-designer-without-going-to-design-school/">Karen&rsquo;s learn design blogpost</a>, i&rsquo;ve decided to teach myself everything about design in the fresh year. Starting from the basics, i&rsquo;m learning to draw by hand. I believe the fundamental appreciation for design comes from hand-eye coordindation.</p>
-
-<p>I got my hands on <a href="http://www.amazon.com/You-Can-Draw-30-Days/dp/0738212415/ref=sr_1_1?ie=UTF8&amp;qid=1371607474&amp;sr=8-1&amp;keywords=you+can+draw+in+30+days">You can draw in 30 days</a> to guide me along the fundamentals of drawing and dealing with my ridiculously ugly drawing base. If you are learning drawing as well, you may want to get a copy of this book if you are a fast learner. Or you could just follow along with my progress. I&rsquo;ll be documenting the things i learnt from this book and try to present them in a manner you can follow too. Please feel free to give me feedbacks on how to improve.</p>
-
-<p>Ok enough background paintings, let&rsquo;s get started.</p>
-
-<p>Let&rsquo;s begin with a little pretest to see how good or bad you are at drawing currently.</p>
+<div class="entry-content"><p>This is actually an easier problem than <a href="http://blog.hguochen.com/blog/2013/09/fix-wordpress-permalink-not-working/">Wordpress Permalink not working</a></p>
 
 <ol>
-<li>Spend 2 minutes drawing a house, without referencing anything, just from your imagination.</li>
-<li>Next, spend 2 minutes drawing an airplane. Again, from imagination.</li>
-<li>Ok i promise it&rsquo;s the last one. Spend 2 minutes drawing a bagel.</li>
+<li><p>In terminal, go to your wordpress folder directory</p>
+
+<pre><code> $ cd /path/to/wordpress_directory/
+</code></pre></li>
+<li><p>Open wp-config.php file</p>
+
+<pre><code> $sudo vim wp-config.php
+</code></pre></li>
+<li><p>There will be a long list of defines already written in the file, like the following:</p>
+
+<pre><code> define('AUTH_KEY', 'put your unique phrase here');
+ define('SECURE_AUTH_KEY', 'put your unique phrase here');
+ define('LOGGED_IN_KEY', 'put your unique phrase here');
+ define('NONCE_KEY', 'put your unique phrase here');
+ define('AUTH_SALT', 'put your unique phrase here');
+ define('SECURE_AUTH_SALT', 'put your unique phrase here');
+ define('LOGGED_IN_SALT', 'put your unique phrase here');
+ define('NONCE_SALT', 'put your unique phrase here');
+</code></pre>
+
+<p> Add the following defines just below the last define:</p>
+
+<pre><code> define('WP_HOME','YOUR_HOME_URL');
+ define('WP_SITEURL', 'YOUR_HOME_URL');
+ define('RELOCATE',true);
+</code></pre></li>
 </ol>
 
 
-<p>Don&rsquo;t worry if your drawing is hideous, no one has to see it! So now that you have your &lsquo;base&rsquo; work at hand, put this up somewhere secret so you can compare how much you have improved overtime. If it&rsquo;s any consolation, my work is attached below&hellip;feeling better now?</p>
+<p>This is the simplest method to fixing this problem, but the drawback is that your website url is now hardcoded. You will not be able to dynamically change the url in wordpress dashboard <strong>Settings</strong> tab anymore.</p>
 
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg" alt="Drawing_lesson_0" /></p>
-
-<p>Ok now chuck it aside and hop on to <a href="/2014/01/02/lesson-1-the-sphere/">Lesson 1 The Sphere</a>!</p>
+<p>If you are looking for a more robust solution, <a href="http://codex.wordpress.org/changing_the_site_url">this</a> will help you out.</p>
 </div>
 
 
@@ -188,14 +194,14 @@
   
 
 
-<time datetime="2014-01-01T00:00:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2013-09-15T11:38:14Z" pubdate data-updated="true"></time>
     
 
 <br>
 <span class="glyphicon glyphicon-tag"></span>
 <span class="categories">
   
-    <a class='category' href='/categories/design/'>design</a>, <a class='category' href='/categories/web/'>web</a>
+    <a class='category' href='/categories/development/'>development</a>
   
 </span>
 
@@ -204,7 +210,7 @@
     
       <div class="sharing" style="text-align:left;">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/" data-via="hguochen" data-counturl="http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/" data-via="hguochen" data-counturl="http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/" >Tweet</a>
   
   
   
@@ -251,8 +257,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/';
-        var disqus_url = 'http://blog.hguochen.com/design/web/2014/01/01/lesson-0-why-learn-to-draw/';
+        var disqus_identifier = 'http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/';
+        var disqus_url = 'http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/';
         var disqus_script = 'embed.js';
       
     (function () {

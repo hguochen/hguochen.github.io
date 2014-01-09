@@ -39,4 +39,4 @@ Here's my result:
 
 ![Drawing_lesson_1.2](http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg)
 
-Improving already? Move on to [Lesson 2]({{ url }}/2014/01/03/lesson-2-overlapping-sphere/)!
+Improving already? Move on to [Lesson 2]({{ url }}/design/2014/01/03/lesson-2-overlapping-sphere/)!
