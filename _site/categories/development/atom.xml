@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: development | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/development/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-01-09T17:52:13+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My jekyll workflow]]></title>
+    <link href="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/"/>
+    <updated>2014-01-08T16:48:29Z</updated>
+    <id>http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow</id>
+    <content type="html"><![CDATA[<p>I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using <a href="https://github.com/hguochen/jekyll-rakefile">Rakefile</a> and standard terminal commands.</p>
+
+<blockquote><p>Jason Seifer has an awesome <a href="http://jasonseifer.com/2010/04/06/rake-tutorial">Rake Tutorial</a> for developers new to Rake.</p></blockquote>
+
+<h3>My Github pages</h3>
+
+<p>I&rsquo;ve set up <a href="https://github.com/hguochen/hguochen.github.io">my github pages</a> to consist of two branches: source and master. The source branch consists of the entire project and as such tracks all changes. The master branch consists solely of the compiled site, which can be found in the _site subdirectory.</p>
+
+<h3>My Local environment</h3>
+
+<p>blog/</p>
+
+<p>|&mdash;blog.hguochen.com/</p>
+
+<p>|&mdash;hguochen.github.io/</p>
+
+<p>Main folder blog has 2 sub directories. blog.hguochen.com which holds jekyll generated site content. hguochen.github.io holds jekyll raw files such as <em>posts, </em>layouts, _includes etc.</p>
+
+<h3>My workflow</h3>
+
+<p>Automate terminal commands by adding the following alias into .bashrc file:</p>
+
+<pre><code>alias blogdir="cd /path/to/blog/hguochen.github.io"
+
+alias build_blog=""blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add --all; git commit -m "Blogpost on ["Date"]"; git push origin master;"
+
+alias bb="build_blog"
+</code></pre>
+
+<p>Move to jekyll raw files folder:</p>
+
+<pre><code>$ blogdir
+</code></pre>
+
+<p>Create new post with Rake:</p>
+
+<pre><code>$ rake post["Title"]
+</code></pre>
+
+<p>Previous command automatically fires up the default text editor for the file just created. In this case, i&rsquo;m using <a href="http://mouapp.com">Mou</a> for .markdown file extensions.</p>
+
+<p>Once i&rsquo;m done with my blog, i&rsquo;m ready to build and publish my blog by pushing into github pages repository, with a simple alias we made earlier:</p>
+
+<pre><code>$ bb
+</code></pre>
+
+<p>That&rsquo;s it! So this is my 3 step process to publishing my blog, powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+
+<p>Special thanks to <a href="https://twitter.com/leetucksing">@leetucksing</a> for introducing me this awesome blogging tool!</p>
+
+<p>By the way, <a href="https://twitter.com/athanhcong">@athanhcong</a> made an amazing app <a href="http://blogwith.co/">BlogWith</a> which connects evernote to jekyll powered blogs and allows you to edit blogs directly on <a href="http://evernote.com">Evernote</a>. Gona try how it works with jekyll later :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Fix] Changing wordpress site url leading to 404 error pages]]></title>
+    <link href="http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/"/>
+    <updated>2013-09-15T11:38:14Z</updated>
+    <id>http://blog.hguochen.com/development/2013/09/15/[Fix]-Changing-wordpress-site-url-leading-to-404-error-pages</id>
+    <content type="html"><![CDATA[<p>This is actually an easier problem than <a href="http://blog.hguochen.com/blog/2013/09/fix-wordpress-permalink-not-working/">Wordpress Permalink not working</a></p>
+
+<ol>
+<li><p>In terminal, go to your wordpress folder directory</p>
+
+<pre><code> $ cd /path/to/wordpress_directory/
+</code></pre></li>
+<li><p>Open wp-config.php file</p>
+
+<pre><code> $sudo vim wp-config.php
+</code></pre></li>
+<li><p>There will be a long list of defines already written in the file, like the following:</p>
+
+<pre><code> define('AUTH_KEY', 'put your unique phrase here');
+ define('SECURE_AUTH_KEY', 'put your unique phrase here');
+ define('LOGGED_IN_KEY', 'put your unique phrase here');
+ define('NONCE_KEY', 'put your unique phrase here');
+ define('AUTH_SALT', 'put your unique phrase here');
+ define('SECURE_AUTH_SALT', 'put your unique phrase here');
+ define('LOGGED_IN_SALT', 'put your unique phrase here');
+ define('NONCE_SALT', 'put your unique phrase here');
+</code></pre>
+
+<p> Add the following defines just below the last define:</p>
+
+<pre><code> define('WP_HOME','YOUR_HOME_URL');
+ define('WP_SITEURL', 'YOUR_HOME_URL');
+ define('RELOCATE',true);
+</code></pre></li>
+</ol>
+
+
+<p>This is the simplest method to fixing this problem, but the drawback is that your website url is now hardcoded. You will not be able to dynamically change the url in wordpress dashboard <strong>Settings</strong> tab anymore.</p>
+
+<p>If you are looking for a more robust solution, <a href="http://codex.wordpress.org/changing_the_site_url">this</a> will help you out.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Update python2.6 to python 2.7 in ec2 linux instance]]></title>
+    <link href="http://blog.hguochen.com/development/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/"/>
+    <updated>2013-09-12T11:10:54Z</updated>
+    <id>http://blog.hguochen.com/development/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance</id>
+    <content type="html"><![CDATA[<p>This post by <a href="http://tumblr.kurttheviking.com/post/30920138314/painless-python-2-7-on-aws-ec2">Kurttheviking</a> gives the steps in updating python 2.6 to python2.7 in AWS EC2 instances but i find the writeup abit messy and missing some considerations. So i&rsquo;m reorganizing it in number sequence.</p>
+
+<ol>
+<li><p>Check current python version</p>
+
+<pre><code> $ python -V
+ Python 2.6.8
+</code></pre></li>
+<li><p>AWS now provides python2.7 via the package manager, so we can install 2.7 easily.</p>
+
+<pre><code> $ sudo yum install python27
+</code></pre></li>
+<li><p>Now there are 2 versions of python in your instance</p>
+
+<pre><code> $ python -V
+ Python 2.6.8
+ $ python27 -V
+ Python 2.7.5
+</code></pre></li>
+<li><p>Check where Python2.7 is expecting packages to go</p>
+
+<pre><code> $ python27 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
+ /usr/lib/python2.7/site-packages
+</code></pre></li>
+<li><p>To enable easy_isntall with our fresh Python2.7 interpreter we need to add setuptools. Head on over to <a href="http://pypi.python.org/pypi/setuptools">Setuptools</a> and confirm the URL for the egg installer. Then, change back to your cozy ec2-user home directory and snag a copy of that egg file.</p>
+
+<pre><code> $ cd ~
+ $ wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg#md5=fe1f997bc722265116870bc7919059ea
+</code></pre></li>
+<li><p>Run the egg as you would any shell script</p>
+
+<pre><code> $ sudo sh setuptools-0.6c11-py2.7.egg
+ Processing setuptools-0.6c11-py2.7.egg
+ Copying setuptools-0.6c11-py2.7.egg to /usr/lib/python2.7/site-packages
+</code></pre></li>
+<li><p>Add git package</p>
+
+<pre><code> $ sudo yum install git
+</code></pre></li>
+<li><p>Set alias in .bash_profile for the new python2.7</p>
+
+<pre><code> $ sudo vim .bash_profile
+</code></pre>
+
+<p> Add the following line to .bash_profile</p>
+
+<pre><code> alias python='python27'
+</code></pre>
+
+<p> Exit vim and source the file</p>
+
+<pre><code> $ source .bash_profile
+</code></pre></li>
+</ol>
+
+
+<p><strong>Note</strong>: If you set python2.6 as the default python interpreter, yum might break as a result. You can follow <a href="http://freethreads.wordpress.com/2013/06/19/fixing-broken-yum-on-cent-os-5-9/">this guide</a> to fix &lsquo;No module named yum&rsquo; error</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Fix] Wordpress Permalink not working]]></title>
+    <link href="http://blog.hguochen.com/development/2013/09/04/%5BFix%5D-Wordpress-Permalink-not-working/"/>
+    <updated>2013-09-04T11:46:21Z</updated>
+    <id>http://blog.hguochen.com/development/2013/09/04/[Fix]-Wordpress-Permalink-not-working</id>
+    <content type="html"><![CDATA[<p>There has been many solutions on the web with regards to this issue. I&rsquo;m drawing exerpts from some of these links which worked for me.</p>
+
+<p>Problem: When you try to use fancy permalinks in the <strong>Settings>Permalinks</strong> under Wordpress Dashboard, you may encounter broken links to each individual posts.</p>
+
+<ol>
+<li>Does .htaccess file exist?</li>
+</ol>
+
+
+<p>Whenever you change the Permalinks, Wordpress should update the .htaccess file for you. Sometimes if the file is not created, Wordpress won&rsquo;t create it automatically. This is simply because it may not have the permission to do that. So if you can&rsquo;t find the file in the root of the Wordpress installation (After showing the hidden files), create it yourself.</p>
+
+<ol>
+<li>Is .htaccess file editable?</li>
+</ol>
+
+
+<p>If the file is there, check the modification time of the file. Then change the Permalink settings from WordPress hit save and go back to check the time again. If it’s not updated then WordPress doesn’t have the permission to update it. To update it you can do <strong>one</strong> of the following:</p>
+
+<ul>
+<li>Change the permission of your htaccess to 777(or whatever works in your server), and set the Permalink again. Once the wordpress added the required code in .htaccess, change back the permission of .htaccess to 644.</li>
+<li><p>Add the following code to your .htaccess file manually:</p>
+
+<p>  <IfModule mod_rewrite.c>
+      RewriteEngine On
+      RewriteBase /
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteCond %{REQUEST_FILENAME} !-d
+      RewriteRule . /index.php [L]
+      </IfModule>
+      # END WordPress</p></li>
+<li><p>Is rewrite Module enabled in your server?</p></li>
+</ul>
+
+
+<p>If you are in a shared server, simply ask the technical supports whether this module is enabled. If you are on your server try running this command in your terminal:</p>
+
+<pre><code>    $ sudo a2enmod rewrite
+</code></pre>
+
+<p>If you get &ldquo;Module rewrite already enabled&rdquo; then move to the next step or else restart your apache server using:</p>
+
+<pre><code>    $ sudo service apache2 restart
+</code></pre>
+
+<ol>
+<li>Does apache know about .htaccess file?</li>
+</ol>
+
+
+<p>Open apache2.conf file (normally you will find it in /etc/apache2) and make sure that this line is there:</p>
+
+<pre><code>    AccessFileName .htaccess
+</code></pre>
+
+<ol>
+<li>Search for AllowOverride option</li>
+</ol>
+
+
+<p>Try searching for &ldquo;AllowOverride&rdquo; in these files:</p>
+
+<ul>
+<li>/etc/apache2/apache2.conf</li>
+<li>/etc/apache2/httpd.conf</li>
+<li>/etc/apache2/sites-enabled/000-default</li>
+<li>/etc/apache2/sites-available/yourdomain.com</li>
+</ul>
+
+
+<p>If you found it in this form:</p>
+
+<pre><code>AllowOverride None
+</code></pre>
+
+<p>just comment it out by adding # in front of it. Then restart Apache and check if the Permalinks are working.</p>
+
+<ol>
+<li>Make sure that the Permalinks custom setting is correct</li>
+</ol>
+
+
+<p>If you are using Permalinks custom settings make sure that /index.php/ is <strong>not</strong> written in front of your Permalink.</p>
+
+<ol>
+<li>Does the server allow the symlinks?</li>
+</ol>
+
+
+<p>Try adding the following code to the top of your .htaccess file:</p>
+
+<pre><code>Options+FollowSymlinks
+RewriteEngine on
+</code></pre>
+
+<p>These are the checklists i used when trying to fix the issue. Additionally, setting the &lsquo;AllowOverride&rsquo; option in apache2.conf did not work for me but the following worked.</p>
+
+<pre><code>$ sudo vi /etc/apache2/sites-available/default
+</code></pre>
+
+<p>change:</p>
+
+<pre><code>&lt;Directory /var/www/&gt;
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride None
+            Order allow,deny
+            allow from all
+&lt;/Directory&gt;
+</code></pre>
+
+<p>to:</p>
+
+<pre><code>&lt;Directory /var/www/&gt;
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride ALL
+            Order allow,deny
+            allow from all
+    &lt;/Directory&gt;
+</code></pre>
+
+<p>Restart apache:</p>
+
+<pre><code>$ sudo /etc/init.d/apache2 restart
+</code></pre>
+
+<p>Also check your .htaccess file, for some reason my generated .htaccess had the wrong RewriteBase</p>
+
+<p>My folder is called wordpress under /var/www, so i changed the RewriteBase in .htaccess to</p>
+
+<pre><code>RewriteBase /wordpress/
+</code></pre>
+
+<p>Lastly, in ubuntu servers, there&rsquo;s an easier way to enable mod_rewrites</p>
+
+<pre><code>$ sudo a2enmod rewrite
+$ sudo service apache2 rewrite
+</code></pre>
+
+<p>Extracted from:
+<a href="http://www.felfelworld.com/2013/02/12/page-not-found-permalink-wordpress/">http://www.felfelworld.com/2013/02/12/page-not-found-permalink-wordpress/</a>
+<a href="http://wordpress.org/support/topic/new-installation-of-wp-331-permalinks-dont-work">http://wordpress.org/support/topic/new-installation-of-wp-331-permalinks-dont-work</a></p>
+]]></content>
+  </entry>
+  
+</feed>

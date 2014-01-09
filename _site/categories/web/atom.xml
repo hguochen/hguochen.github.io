@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/web/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-01-09T17:52:13+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[What's a full stack developer?]]></title>
+    <link href="http://blog.hguochen.com/web/2013/10/24/whats-a-full-stack-developer/"/>
+    <updated>2013-10-24T10:30:44Z</updated>
+    <id>http://blog.hguochen.com/web/2013/10/24/whats-a-full-stack-developer</id>
+    <content type="html"><![CDATA[<p>In simple terms, an all rounder over every aspect of the development phase. These group of individuals are the ultimate hire of every tech company. But what does being a full stack developer(FSD)mean?</p>
+
+<p>A FSD is someone with familiarity with each layer, if not mastery in many and a deep love for technology. This means they view things in the general, broader picture and thus, able to make life easier for the users they serve.</p>
+
+<h2>FULL STACK LAYERS</h2>
+
+<h3>Hosting Environment</h3>
+
+<ul>
+<li>Involves understanding the servers, network and environments of applications.</li>
+<li>Appropriate use of the file system, cloud storage, network resources</li>
+<li>Application scalability given the hardware constraints</li>
+<li>Multi-threading and race conditions</li>
+<li>Calibrate the system to provide useful error messages and blogging capabilities.</li>
+</ul>
+
+
+<h3>Data Modelling</h3>
+
+<ul>
+<li>Create reasonably normalized relational model, complete with foreign keys, indexes, views, lookups tables, etc.</li>
+<li>Familiar with concept of non-relational data store vs relational data store</li>
+<li>If business logic is flawed, strange codes will result to cover corner cases</li>
+</ul>
+
+
+<h3>Business Logic</h3>
+
+<ul>
+<li>Deep understanding of the value in which the application provides</li>
+<li>Solide object oriented skills</li>
+<li>Familiarity with supporting frameworks</li>
+</ul>
+
+
+<h3>API layer / MVC Architecture</h3>
+
+<ul>
+<li>How the world interacts with the business logic and data model</li>
+<li>Use of frameworks is a must in modern developments</li>
+<li>Write clear, consistent, intuitive interfaces</li>
+<li>Understanding of repeatable automated process for building the application, testing it, documenting it, and deploying it at a scale</li>
+</ul>
+
+
+<h3>User Interface(UI)</h3>
+
+<ul>
+<li>Skilled in creating a readable and user-friendly layout. Implementing a good visual design is key</li>
+<li>Mastery in HTML5/CSS.</li>
+<li>Good knowledge in Javascript and related frameworks</li>
+</ul>
+
+
+<h3>User Experience(UX)</h3>
+
+<ul>
+<li>Deliver optimal user satifaction</li>
+<li>A FSD is proficient in reviewing a process that needs 8 clicks and 3 steps, and reduce to 1 click.</li>
+<li>Write useful error messages, such that an average user can understand and act upon them. Don&rsquo;t ever make your user feel stupid.</li>
+</ul>
+
+
+<h3>Adapting to needs</h3>
+
+<ul>
+<li>Understanding the needs of your customer/user. This layer is probably the least explored for developers, which is too much of a hands off role.</li>
+<li>FSD can comprehend what is going on in the real situation and strong knowledge of the business.</li>
+</ul>
+
+
+<h2>Where do i stand here?</h2>
+
+<p>Throughout my university education in computer science, we had only been taught to explore in the following areas:
+2. Data Modeling
+3. Business Logic</p>
+
+<p>without much regard for other areas of being a FSD. It seems clear from this point of view that many graduates are finding it difficult to finding a good fit for their skills in their company and often fail to comprehend the greater purpose of their work at the company level. From my entrepreneurial pursuit, working on <a href="http://shapify.asia">Shapify.asa</a> for about 4 months now, i have dived into areas 1, 2, 3, 4, 5. This level of work made me see the greater picture and the purpose of web development since my university days. Looking at the big picture: that&rsquo;s what makes entrepreneurship so cool.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Future of Computing]]></title>
+    <link href="http://blog.hguochen.com/web/2013/10/18/Future-of-Computing/"/>
+    <updated>2013-10-18T11:00:51Z</updated>
+    <id>http://blog.hguochen.com/web/2013/10/18/Future-of-Computing</id>
+    <content type="html"><![CDATA[<p>The basic unit of information in a traditional computer is a bit, which has a value of 0 or 1. This basic unit allows computer processor to perform logical operations which are in turn carried out by electronic circuits. Based on these basic logical structures, algorithmic models are devised which allows us to perform sophisticated computations. But what&rsquo;s on top of computations? Its randomness. Computer games, cryptography and computational geometry are unthinkable without randomness. and distributed computation is not deterministic. The future of computing, based on the root of randomness, would expose possibilities in the following areas.</p>
+
+<h2>Quantum Computing</h2>
+
+<p>In quantum computer, the basic unit of information is called a quantum bit, or qubit. Qubit has values of 0 and 1, but it can also exist in an intermediate state, which is like a superposition of the two classic states 0 and 1. The biggest difference between quantum computer and traditional computers are, quantum computers can perform some computations more efficiently than a traditional computer. Some problems which currently has no efficient algorithms known on traditional computers can be solved in an efficient manner with quantum computers. The popular public-key cryptosystems such as RSA whose security is based on the difficulty of factoring large integers would be rendered obsolete with the advent of quantum computers.</p>
+
+<p>As with current algorithmic approach, the way to search for a given value in an unordered list is to search each item, one-by-one. Given n items, the Big O notation is thus n. With quantum computers, given correct algorithms, this time complexity could be reduced to square root n in the worst case.</p>
+
+<p>However, building a quantum computer is a challenge because qubits are unstable. Even successful prototypes exist in only few bits. With adequate research, i believe algorithms will be completely rewritten with the advent of quantum computers.</p>
+
+<h2>DNA Computing</h2>
+
+<p>DNA(deoxyribonucleic acid) encodes genetic information as a string of chemicals, called bases, typically denoted A,C,G,and T. In DNA computing, bits are replaced by the bases A,C,G and T. Strands of DNA represent data, just as strings of bits represent data in a traditional computer. A DNA computation begins by generating stands of DNA to represent possible solutions to a particular problem. After the computation ends, any DNA strands that remain represents a solution to the problem.</p>
+
+<p>Currently, the United States Data Encryption Standard(DES) are used for the secure exchange of information such as banking and national security matters. It relies on one of 72 quadrillion keys to encode a message. The security results from the difficulty of discovering which key was used. Checking all possible keys is impossible using a traditional computer because it would take too long. However, because DNA computing derives its power from massive parallelism, it could check all 72 quadrillion keys concurrently. Estimates indicate that the computation could take as little as two hours.</p>
+
+<p>There are fears that security would be non-existent with these kinds of &lsquo;super-computers&rsquo;. But technology always comes as a double edged sword, they may well allow us to develop algorithms on the next spectrum which would again render to a cat and mouse chase. I&rsquo;m excited about the computing future, yet worried how humans would use it for destructive means.</p>
+]]></content>
+  </entry>
+  
+</feed>
