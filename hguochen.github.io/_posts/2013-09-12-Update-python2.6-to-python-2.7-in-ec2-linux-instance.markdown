@@ -38,20 +38,22 @@ This post by [Kurttheviking](http://tumblr.kurttheviking.com/post/30920138314/pa
 		$ sudo sh setuptools-0.6c11-py2.7.egg
 		Processing setuptools-0.6c11-py2.7.egg
 		Copying setuptools-0.6c11-py2.7.egg to /usr/lib/python2.7/site-packages
-		
+	
 7. Add git package
+
 
 		$ sudo yum install git
 		
 8. Set alias in .bash_profile for the new python2.7
 
 		$ sudo vim .bash_profile
+	
 	Add the following line to .bash_profile
 
 		alias python='python27'
 		
 	Exit vim and source the file
 
-		source .bash_profile
+		$ source .bash_profile
 		
 **Note**: If you set python2.6 as the default python interpreter, yum might break as a result. You can follow [this guide](http://freethreads.wordpress.com/2013/06/19/fixing-broken-yum-on-cent-os-5-9/) to fix 'No module named yum' error

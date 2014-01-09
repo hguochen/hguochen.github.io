@@ -16,7 +16,7 @@ I've set up [my github pages](https://github.com/hguochen/hguochen.github.io) to
 ### My Local environment
 blog/
 
-|--blog.hguochen.come/
+|--blog.hguochen.com/
 
 |--hguochen.github.io/
 

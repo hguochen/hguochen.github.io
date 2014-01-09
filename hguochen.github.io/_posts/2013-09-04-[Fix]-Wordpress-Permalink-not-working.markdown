@@ -21,14 +21,14 @@ If the file is there, check the modification time of the file. Then change the P
 - Change the permission of your htaccess to 777(or whatever works in your server), and set the Permalink again. Once the wordpress added the required code in .htaccess, change back the permission of .htaccess to 644.
 - Add the following code to your .htaccess file manually:
 
-		<IfModule mod_rewrite.c>
-            RewriteEngine On
-            RewriteBase /
-            RewriteCond %{REQUEST_FILENAME} !-f
-            RewriteCond %{REQUEST_FILENAME} !-d
-            RewriteRule . /index.php [L]
-            </IfModule>
-            # END WordPress
+	<IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.php [L]
+        </IfModule>
+        # END WordPress
 
 3. Is rewrite Module enabled in your server?
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-01-09T12:23:49+08:00</updated>
+  <updated>2014-01-09T17:52:13+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -30,7 +30,7 @@
 
 <p>blog/</p>
 
-<p>|&mdash;blog.hguochen.come/</p>
+<p>|&mdash;blog.hguochen.com/</p>
 
 <p>|&mdash;hguochen.github.io/</p>
 
@@ -171,7 +171,7 @@ alias bb="build_blog"
 
 <p> Exit vim and source the file</p>
 
-<pre><code> source .bash_profile
+<pre><code> $ source .bash_profile
 </code></pre></li>
 </ol>
 
@@ -207,15 +207,14 @@ alias bb="build_blog"
 <li>Change the permission of your htaccess to 777(or whatever works in your server), and set the Permalink again. Once the wordpress added the required code in .htaccess, change back the permission of .htaccess to 644.</li>
 <li><p>Add the following code to your .htaccess file manually:</p>
 
-<pre><code>  &lt;IfModule mod_rewrite.c&gt;
+<p>  <IfModule mod_rewrite.c>
       RewriteEngine On
       RewriteBase /
       RewriteCond %{REQUEST_FILENAME} !-f
       RewriteCond %{REQUEST_FILENAME} !-d
       RewriteRule . /index.php [L]
-      &lt;/IfModule&gt;
-      # END WordPress
-</code></pre></li>
+      </IfModule>
+      # END WordPress</p></li>
 <li><p>Is rewrite Module enabled in your server?</p></li>
 </ul>
 
