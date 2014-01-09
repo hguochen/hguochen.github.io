@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Update python2.6 to python 2.7 in ec2 linux instance - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="
+
+  
+  
+  
+    
+      Update python2.6 to python 2.7 in ec2 linux instance
+    
+    
+      
+        Sep 12, 2013
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+  ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/hguochen.github.io/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link href="/atom.xml" rel="alternate" title="GuoChen | Blog" type="application/atom+xml">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2"></div>
+			<div class="col-md-2"></div>			
+			<div class="col-md-1">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-2"></div>
+			<div class="col-md-2"></div>
+			
+		</div>
+	</div>
+
+</hgroup>
+</header>
+  
+  <section class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">Update python2.6 to python 2.7 in ec2 linux instance</h1>
+    
+    
+      <p class="meta">
+        Sep 12, 2013
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-12T11:10:54Z" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post by <a href="http://tumblr.kurttheviking.com/post/30920138314/painless-python-2-7-on-aws-ec2">Kurttheviking</a> gives the steps in updating python 2.6 to python2.7 in AWS EC2 instances but i find the writeup abit messy and missing some considerations. So i&rsquo;m reorganizing it in number sequence.</p>
+
+<ol>
+<li><p>Check current python version</p>
+
+<pre><code> $ python -V
+ Python 2.6.8
+</code></pre></li>
+<li><p>AWS now provides python2.7 via the package manager, so we can install 2.7 easily.</p>
+
+<pre><code> $ sudo yum install python27
+</code></pre></li>
+<li><p>Now there are 2 versions of python in your instance</p>
+
+<pre><code> $ python -V
+ Python 2.6.8
+ $ python27 -V
+ Python 2.7.5
+</code></pre></li>
+<li><p>Check where Python2.7 is expecting packages to go</p>
+
+<pre><code> $ python27 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
+ /usr/lib/python2.7/site-packages
+</code></pre></li>
+<li><p>To enable easy_isntall with our fresh Python2.7 interpreter we need to add setuptools. Head on over to <a href="http://pypi.python.org/pypi/setuptools">Setuptools</a> and confirm the URL for the egg installer. Then, change back to your cozy ec2-user home directory and snag a copy of that egg file.</p>
+
+<pre><code> $ cd ~
+ $ wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg#md5=fe1f997bc722265116870bc7919059ea
+</code></pre></li>
+<li><p>Run the egg as you would any shell script</p>
+
+<pre><code> $ sudo sh setuptools-0.6c11-py2.7.egg
+ Processing setuptools-0.6c11-py2.7.egg
+ Copying setuptools-0.6c11-py2.7.egg to /usr/lib/python2.7/site-packages
+</code></pre></li>
+<li><p>Add git package</p>
+
+<pre><code> $ sudo yum install git
+</code></pre></li>
+<li><p>Set alias in .bash_profile for the new python2.7</p>
+
+<pre><code> $ sudo vim .bash_profile
+</code></pre>
+
+<p> Add the following line to .bash_profile</p>
+
+<pre><code> alias python='python27'
+</code></pre>
+
+<p> Exit vim and source the file</p>
+
+<pre><code> $ source .bash_profile
+</code></pre></li>
+</ol>
+
+
+<p><strong>Note</strong>: If you set python2.6 as the default python interpreter, yum might break as a result. You can follow <a href="http://freethreads.wordpress.com/2013/06/19/fixing-broken-yum-on-cent-os-5-9/">this guide</a> to fix &lsquo;No module named yum&rsquo; error</p>
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-12T11:10:54Z" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/hguochen-dot-github-dot-io/'>hguochen.github.io</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/hguochen.github.io/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/" data-via="hguochen" data-counturl="http://blog.hguochen.com/hguochen.github.io/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/hguochen.github.io/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/';
+        var disqus_url = 'http://blog.hguochen.com/hguochen.github.io/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
