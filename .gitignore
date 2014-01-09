@@ -1,2 +1,5 @@
-# All DS_Store files
+# ALL DS_Store files
 *.DS_Store
+
+#blog folder
+blog

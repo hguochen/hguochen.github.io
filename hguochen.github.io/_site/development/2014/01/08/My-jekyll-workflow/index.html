@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My jekyll workflow - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="
+
+  
+  
+  
+    
+      My jekyll workflow
+    
+    
+      
+        Jan 08, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+        
+         | Comments
+       ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link href="/atom.xml" rel="alternate" title="GuoChen | Blog" type="application/atom+xml">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2"></div>
+			<div class="col-md-2"></div>			
+			<div class="col-md-1">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-2"></div>
+			<div class="col-md-2"></div>
+			
+		</div>
+	</div>
+
+</hgroup>
+</header>
+  
+  <section class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">My jekyll workflow</h1>
+    
+    
+      <p class="meta">
+        Jan 08, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-08T16:48:29Z" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using <a href="https://github.com/hguochen/jekyll-rakefile">Rakefile</a> and standard terminal commands.</p>
+
+<blockquote><p>Jason Seifer has an awesome <a href="http://jasonseifer.com/2010/04/06/rake-tutorial">Rake Tutorial</a> for developers new to Rake.</p></blockquote>
+
+<h3>My Github pages</h3>
+
+<p>I&rsquo;ve set up <a href="https://github.com/hguochen/hguochen.github.io">my github pages</a> to consist of two branches: source and master. The source branch consists of the entire project and as such tracks all changes. The master branch consists solely of the compiled site, which can be found in the _site subdirectory.</p>
+
+<h3>My Local environment</h3>
+
+<p>blog/</p>
+
+<p>|&mdash;blog.hguochen.com/</p>
+
+<p>|&mdash;hguochen.github.io/</p>
+
+<p>Main folder blog has 2 sub directories. blog.hguochen.com which holds jekyll generated site content. hguochen.github.io holds jekyll raw files such as <em>posts, </em>layouts, _includes etc.</p>
+
+<h3>My workflow</h3>
+
+<p>Automate terminal commands by adding the following alias into .bashrc file:</p>
+
+<pre><code>alias blogdir="cd /path/to/blog/hguochen.github.io"
+
+alias build_blog=""blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add --all; git commit -m "Blogpost on ["Date"]"; git push origin master;"
+
+alias bb="build_blog"
+</code></pre>
+
+<p>Move to jekyll raw files folder:</p>
+
+<pre><code>$ blogdir
+</code></pre>
+
+<p>Create new post with Rake:</p>
+
+<pre><code>$ rake post["Title"]
+</code></pre>
+
+<p>Previous command automatically fires up the default text editor for the file just created. In this case, i&rsquo;m using <a href="http://mouapp.com">Mou</a> for .markdown file extensions.</p>
+
+<p>Once i&rsquo;m done with my blog, i&rsquo;m ready to build and publish my blog by pushing into github pages repository, with a simple alias we made earlier:</p>
+
+<pre><code>$ bb
+</code></pre>
+
+<p>That&rsquo;s it! So this is my 3 step process to publishing my blog, powered by <a href="http://jekyllrb.com">Jekyll</a>.</p>
+
+<p>Special thanks to <a href="https://twitter.com/leetucksing">@leetucksing</a> for introducing me this awesome blogging tool!</p>
+
+<p>By the way, <a href="https://twitter.com/athanhcong">@athanhcong</a> made an amazing app <a href="http://blogwith.co/">BlogWith</a> which connects evernote to jekyll powered blogs and allows you to edit blogs directly on <a href="http://evernote.com">Evernote</a>. Gona try how it works with jekyll later :)</p>
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-08T16:48:29Z" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/development/'>development</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/" data-via="hguochen" data-counturl="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/';
+        var disqus_url = 'http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
