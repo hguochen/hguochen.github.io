@@ -7,7 +7,7 @@ title: GuoChen | Blog
 subtitle: "A glimpse of my life, my passion and my thoughts."
 author: GuoChen
 simple_search: http://google.com/search
-description:
+description: "A glimpse of my life, my passion and my thoughts."
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -16,8 +16,9 @@ description:
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+#subscribe_rss: /atom.xml
 subscribe_email:
+name: GuoChen's Blog
 # RSS feeds can list your email address if you like
 email:
 
