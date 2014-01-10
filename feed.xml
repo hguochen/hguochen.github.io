@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+        <channel>
+                <title>GuoChen&#39;s Blog</title>
+                <description>A glimpse of my life, my passion and my thoughts.</description>
+                <link>http://blog.hguochen.com</link>
+                <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
+                
+                        <item>
+                                <title>My jekyll workflow</title>
+                                <description>&lt;p&gt;I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using &lt;a href=&quot;https://github.com/hguochen/jekyll-rakefile&quot;&gt;Rakefile&lt;/a&gt; and standard terminal commands.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Jason Seifer has an awesome &lt;a href=&quot;http://jasonseifer.com/2010/04/06/rake-tutorial&quot;&gt;Rake Tutorial&lt;/a&gt; for developers new to Rake.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;My Github pages&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ve set up &lt;a href=&quot;https://github.com/hguochen/hguochen.github.io&quot;&gt;my github pages&lt;/a&gt; to consist of two branches: source and master. The source branch consists of the entire project and as such tracks all changes. The master branch consists solely of the compiled site, which can be found in the _site subdirectory.&lt;/p&gt;
+
+&lt;h3&gt;My Local environment&lt;/h3&gt;
+
+&lt;p&gt;blog/&lt;/p&gt;
+
+&lt;p&gt;|&amp;mdash;blog.hguochen.com/&lt;/p&gt;
+
+&lt;p&gt;|&amp;mdash;hguochen.github.io/&lt;/p&gt;
+
+&lt;p&gt;Main folder blog has 2 sub directories. blog.hguochen.com which holds jekyll generated site content. hguochen.github.io holds jekyll raw files such as &lt;em&gt;posts, &lt;/em&gt;layouts, _includes etc.&lt;/p&gt;
+
+&lt;h3&gt;My workflow&lt;/h3&gt;
+
+&lt;p&gt;Automate terminal commands by adding the following alias into .bashrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;alias blogdir=&quot;cd /path/to/blog/hguochen.github.io&quot;
+
+alias build_blog=&quot;&quot;blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add --all; git commit -m &quot;Blogpost on [&quot;Date&quot;]&quot;; git push origin master;&quot;
+
+alias bb=&quot;build_blog&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Move to jekyll raw files folder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ blogdir
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create new post with Rake:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rake post[&quot;Title&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Previous command automatically fires up the default text editor for the file just created. In this case, i&amp;rsquo;m using &lt;a href=&quot;http://mouapp.com&quot;&gt;Mou&lt;/a&gt; for .markdown file extensions.&lt;/p&gt;
+
+&lt;p&gt;Once i&amp;rsquo;m done with my blog, i&amp;rsquo;m ready to build and publish my blog by pushing into github pages repository, with a simple alias we made earlier:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! So this is my 3 step process to publishing my blog, powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Special thanks to &lt;a href=&quot;https://twitter.com/leetucksing&quot;&gt;@leetucksing&lt;/a&gt; for introducing me this awesome blogging tool!&lt;/p&gt;
+
+&lt;p&gt;By the way, &lt;a href=&quot;https://twitter.com/athanhcong&quot;&gt;@athanhcong&lt;/a&gt; made an amazing app &lt;a href=&quot;http://blogwith.co/&quot;&gt;BlogWith&lt;/a&gt; which connects evernote to jekyll powered blogs and allows you to edit blogs directly on &lt;a href=&quot;http://evernote.com&quot;&gt;Evernote&lt;/a&gt;. Gona try how it works with jekyll later :)&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 08 Jan 2014 16:48:29 +0000</pubDate>
+                                <link>http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Markdown language syntax</title>
+                                <description>&lt;h1&gt;Mou&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mouapp.com/Mou_128.png&quot; alt=&quot;Mou icon&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Mou&lt;/strong&gt;, the missing Markdown editor for &lt;em&gt;web developers&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Syntax&lt;/h3&gt;
+
+&lt;h4&gt;Strong and Emphasize&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;strong&lt;/strong&gt; or &lt;strong&gt;strong&lt;/strong&gt; ( Cmd + B )&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;emphasize&lt;/em&gt; or &lt;em&gt;emphasize&lt;/em&gt; ( Cmd + I )&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sometimes I want a lot of text to be bold.
+Like, seriously, a &lt;em&gt;LOT&lt;/em&gt; of text&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4&gt;Blockquotes&lt;/h4&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Right angle brackets &amp;gt; are used for block quotes.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h4&gt;Links and Email&lt;/h4&gt;
+
+&lt;p&gt;An email &lt;a href=&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#x65;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#x65;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&quot;&gt;&amp;#101;&amp;#x78;&amp;#97;&amp;#x6d;&amp;#112;&amp;#108;&amp;#x65;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;&lt;/a&gt; link.&lt;/p&gt;
+
+&lt;p&gt;Simple inline link &lt;a href=&quot;http://chenluois.com&quot;&gt;http://chenluois.com&lt;/a&gt;, another inline link &lt;a href=&quot;http://smallerapp.com&quot;&gt;Smaller&lt;/a&gt;, one more inline link with title &lt;a href=&quot;http://resizesafari.com&quot; title=&quot;a Safari extension&quot;&gt;Resize&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&quot;http://mouapp.com&quot; title=&quot;Markdown editor on Mac OS X&quot;&gt;reference style&lt;/a&gt; link. Input id, then anywhere in the doc, define the link with corresponding id:&lt;/p&gt;
+
+&lt;p&gt;Titles ( or called tool tips ) in the links are optional.&lt;/p&gt;
+
+&lt;h4&gt;Images&lt;/h4&gt;
+
+&lt;p&gt;An inline image &lt;img src=&quot;http://smallerapp.com/favicon.ico&quot; title=&quot;Title here&quot; alt=&quot;Smaller icon&quot; /&gt;, title is optional.&lt;/p&gt;
+
+&lt;p&gt;A &lt;img src=&quot;http://resizesafari.com/favicon.ico&quot; title=&quot;Title&quot; alt=&quot;Resize icon&quot; /&gt; reference style image.&lt;/p&gt;
+
+&lt;h4&gt;Inline code and Block code&lt;/h4&gt;
+
+&lt;p&gt;Inline code are surround by &lt;code&gt;backtick&lt;/code&gt; key. To create a block code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Indent each line by at least 1 tab, or 4 spaces.
+var Mou = exactlyTheAppIwant; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;Ordered Lists&lt;/h4&gt;
+
+&lt;p&gt;Ordered lists are created using &amp;ldquo;1.&amp;rdquo; + Space:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Ordered list item&lt;/li&gt;
+&lt;li&gt;Ordered list item&lt;/li&gt;
+&lt;li&gt;Ordered list item&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h4&gt;Unordered Lists&lt;/h4&gt;
+
+&lt;p&gt;Unordered list are created using &amp;ldquo;*&amp;rdquo; + Space:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Or using &amp;ldquo;&amp;ndash;&amp;rdquo; + Space:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Hard Linebreak&lt;/h4&gt;
+
+&lt;p&gt;End a line with two or more spaces will create a hard linebreak, called &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; in HTML. ( Control + Return )&lt;br/&gt;
+Above line ended with 2 spaces.&lt;/p&gt;
+
+&lt;h4&gt;Horizontal Rules&lt;/h4&gt;
+
+&lt;p&gt;Three or more asterisks or dashes:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;h4&gt;Headers&lt;/h4&gt;
+
+&lt;p&gt;Setext-style:&lt;/p&gt;
+
+&lt;h1&gt;This is H1&lt;/h1&gt;
+
+&lt;h2&gt;This is H2&lt;/h2&gt;
+
+&lt;p&gt;atx-style:&lt;/p&gt;
+
+&lt;h1&gt;This is H1&lt;/h1&gt;
+
+&lt;h2&gt;This is H2&lt;/h2&gt;
+
+&lt;h3&gt;This is H3&lt;/h3&gt;
+
+&lt;h4&gt;This is H4&lt;/h4&gt;
+
+&lt;h5&gt;This is H5&lt;/h5&gt;
+
+&lt;h6&gt;This is H6&lt;/h6&gt;
+
+&lt;h3&gt;Extra Syntax&lt;/h3&gt;
+
+&lt;h4&gt;Footnotes&lt;/h4&gt;
+
+&lt;p&gt;Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s some text with a footnote.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h4&gt;Strikethrough&lt;/h4&gt;
+
+&lt;p&gt;Wrap with 2 tilde characters:&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
+
+&lt;h4&gt;Fenced Code Blocks&lt;/h4&gt;
+
+&lt;p&gt;Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+Fenced code blocks are like Stardard Markdown’s regular code
+blocks, except that they’re not indented and instead rely on
+a start and end fence lines to delimit the code block.
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;Tables&lt;/h4&gt;
+
+&lt;p&gt;A simple table looks like this:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Header &lt;/th&gt;
+&lt;th&gt; Second Header &lt;/th&gt;
+&lt;th&gt; Third Header&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Content Cell &lt;/td&gt;
+&lt;td&gt; Content Cell  &lt;/td&gt;
+&lt;td&gt; Content Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content Cell &lt;/td&gt;
+&lt;td&gt; Content Cell  &lt;/td&gt;
+&lt;td&gt; Content Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;If you wish, you can add a leading and tailing pipe to each line of the table:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt; First Header &lt;/th&gt;
+&lt;th&gt; Second Header &lt;/th&gt;
+&lt;th&gt; Third Header &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt; Content Cell &lt;/td&gt;
+&lt;td&gt; Content Cell  &lt;/td&gt;
+&lt;td&gt; Content Cell |&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt; Content Cell &lt;/td&gt;
+&lt;td&gt; Content Cell  &lt;/td&gt;
+&lt;td&gt; Content Cell |&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Specify alignement for each column by adding colons to separator lines:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;First Header &lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt; Second Header &lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt; Third Header&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;Shortcuts&lt;/h3&gt;
+
+&lt;h4&gt;View&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Toggle live preview: Shift + Cmd + I&lt;/li&gt;
+&lt;li&gt;Toggle Words Counter: Shift + Cmd + W&lt;/li&gt;
+&lt;li&gt;Toggle Transparent: Shift + Cmd + T&lt;/li&gt;
+&lt;li&gt;Toggle Floating: Shift + Cmd + F&lt;/li&gt;
+&lt;li&gt;Left/Right = 1/1: Cmd + 0&lt;/li&gt;
+&lt;li&gt;Left/Right = 3/1: Cmd + +&lt;/li&gt;
+&lt;li&gt;Left/Right = 1/3: Cmd + &amp;ndash;&lt;/li&gt;
+&lt;li&gt;Toggle Writing orientation: Cmd + L&lt;/li&gt;
+&lt;li&gt;Toggle fullscreen: Control + Cmd + F&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Actions&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Copy HTML: Option + Cmd + C&lt;/li&gt;
+&lt;li&gt;Strong: Select text, Cmd + B&lt;/li&gt;
+&lt;li&gt;Emphasize: Select text, Cmd + I&lt;/li&gt;
+&lt;li&gt;Inline Code: Select text, Cmd + K&lt;/li&gt;
+&lt;li&gt;Strikethrough: Select text, Cmd + U&lt;/li&gt;
+&lt;li&gt;Link: Select text, Control + Shift + L&lt;/li&gt;
+&lt;li&gt;Image: Select text, Control + Shift + I&lt;/li&gt;
+&lt;li&gt;Select Word: Control + Option + W&lt;/li&gt;
+&lt;li&gt;Select Line: Shift + Cmd + L&lt;/li&gt;
+&lt;li&gt;Select All: Cmd + A&lt;/li&gt;
+&lt;li&gt;Deselect All: Cmd + D&lt;/li&gt;
+&lt;li&gt;Convert to Uppercase: Select text, Control + U&lt;/li&gt;
+&lt;li&gt;Convert to Lowercase: Select text, Control + Shift + U&lt;/li&gt;
+&lt;li&gt;Convert to Titlecase: Select text, Control + Option + U&lt;/li&gt;
+&lt;li&gt;Convert to List: Select lines, Control + L&lt;/li&gt;
+&lt;li&gt;Convert to Blockquote: Select lines, Control + Q&lt;/li&gt;
+&lt;li&gt;Convert to H1: Cmd + 1&lt;/li&gt;
+&lt;li&gt;Convert to H2: Cmd + 2&lt;/li&gt;
+&lt;li&gt;Convert to H3: Cmd + 3&lt;/li&gt;
+&lt;li&gt;Convert to H4: Cmd + 4&lt;/li&gt;
+&lt;li&gt;Convert to H5: Cmd + 5&lt;/li&gt;
+&lt;li&gt;Convert to H6: Cmd + 6&lt;/li&gt;
+&lt;li&gt;Convert Spaces to Tabs: Control + [&lt;/li&gt;
+&lt;li&gt;Convert Tabs to Spaces: Control + ]&lt;/li&gt;
+&lt;li&gt;Insert Current Date: Control + Shift + 1&lt;/li&gt;
+&lt;li&gt;Insert Current Time: Control + Shift + 2&lt;/li&gt;
+&lt;li&gt;Insert entity &amp;lt;: Control + Shift + ,&lt;/li&gt;
+&lt;li&gt;Insert entity &gt;: Control + Shift + .&lt;/li&gt;
+&lt;li&gt;Insert entity &amp;amp;: Control + Shift + 7&lt;/li&gt;
+&lt;li&gt;Insert entity Space: Control + Shift + Space&lt;/li&gt;
+&lt;li&gt;Insert Scriptogr.am Header: Control + Shift + G&lt;/li&gt;
+&lt;li&gt;Shift Line Left: Select lines, Cmd + [&lt;/li&gt;
+&lt;li&gt;Shift Line Right: Select lines, Cmd + ]&lt;/li&gt;
+&lt;li&gt;New Line: Cmd + Return&lt;/li&gt;
+&lt;li&gt;Comment: Cmd + /&lt;/li&gt;
+&lt;li&gt;Hard Linebreak: Control + Return&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Edit&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Auto complete current word: Esc&lt;/li&gt;
+&lt;li&gt;Find: Cmd + F&lt;/li&gt;
+&lt;li&gt;Close find bar: Esc&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Post&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Post on Scriptogr.am: Control + Shift + S&lt;/li&gt;
+&lt;li&gt;Post on Tumblr: Control + Shift + T&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Export&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export HTML: Option + Cmd + E&lt;/li&gt;
+&lt;li&gt;Export PDF:  Option + Cmd + P&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;And more?&lt;/h3&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to check Preferences, lots of useful options are there.&lt;/p&gt;
+
+&lt;p&gt;Follow &lt;a href=&quot;http://twitter.com/chenluois&quot;&gt;@chenluois&lt;/a&gt; on Twitter for the latest news.&lt;/p&gt;
+
+&lt;p&gt;For feedback, use the menu &lt;code&gt;Help&lt;/code&gt; &amp;ndash; &lt;code&gt;Send Feedback&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.hguochen.com&quot;&gt;http://blog.hguochen.com&lt;/a&gt;
+/2014/01/04/markdown-language-syntax/&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr/&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn:1&quot;&gt;
+&lt;p&gt;And that&amp;rsquo;s the footnote.&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+</description>
+                                <pubDate>Sat, 04 Jan 2014 07:58:18 +0000</pubDate>
+                                <link>http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 4 The Cube</title>
+                                <description>&lt;p&gt;Ok I&amp;rsquo;m moving on to drawing cubes in this lesson. Contrary to my belief, i realized drawing cubes is actually harder than drawing spheres. Let&amp;rsquo;s get started!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Starting off, draw two dots across from each other. these 2 dots will determine the diagonal length of the cube.&lt;/li&gt;
+&lt;li&gt;Place finger between the dots using the opposite hand you are drawing with. Then draw a dot above your finger. These 2 dots should be closer to each other.&lt;/li&gt;
+&lt;li&gt;Shoot the first line across.&lt;/li&gt;
+&lt;li&gt;Draw the next line connecting the left dot with the bottom one.&lt;/li&gt;
+&lt;li&gt;A third line to connect the bottom dot with right dot.&lt;/li&gt;
+&lt;li&gt;Complete the foreshortened square. Foreshortening means to &lt;strong&gt;distort&lt;/strong&gt; an object to create the illusion that part of it is closer to your eye.&lt;/li&gt;
+&lt;li&gt;Next, draw the sides of the cube with two vertical lines. Use the sides of your sketchbook page as a visual reference to keep your drawings from tilting.&lt;/li&gt;
+&lt;li&gt;Using the two side lines as reference lines, draw the middle line a bit longer and lower. Using lines you have already drawn to establish angles and positions for your next lines is a crucial technique in creating 3D picture.&lt;/li&gt;
+&lt;li&gt;Using the top right edge of the top foreshortened square as a reference line. draw the bottom right side of the cube.&lt;/li&gt;
+&lt;li&gt;Then draw the bottom left side of the cube by referring to the angle of the line above it.&lt;/li&gt;
+&lt;li&gt;Draw the light source on the top right hand side of the cube and start shading the other sides. Remember nooks and crannies?&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;So here&amp;rsquo;s my result:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/B3F670C0-3739-4BF2-B625-EAD5F52C0560.jpg&quot; alt=&quot;Drawing_lesson4.1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let&amp;rsquo;s go on to &lt;a href=&quot;URL&quot;&gt;Lesson 5 &amp;ndash; Hollow Cubes&lt;/a&gt;.&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 04 Jan 2014 00:00:00 +0800</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/04/lesson-4-the-cube/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/04/lesson-4-the-cube/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 3 Advanced Level Spheres</title>
+                                <description>&lt;p&gt;Feeling comfortable with drawing 3D spheres yet? This lesson we are going to draw a lot more overlapping spheres, to get a feel of how things look like when they are grouped together.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;By the way, listening to music while drawing could be a real pleasure :)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Again, we start with drawing a circle.&lt;/li&gt;
+&lt;li&gt;Draw another circle behind the first. Push it up a bit ( placement ). Tuck it behind the first ( overlapping ). Draw it a bit smaller ( size ).&lt;/li&gt;
+&lt;li&gt;Draw the next circle over to the right behind the first one, push it up, tuck it behind and draw it a bit smaller than the first circle.&lt;/li&gt;
+&lt;li&gt;Onward into the third row of spheres. The row is definitely getting smaller and much higher on the page as you move away from the front sphere. When you draw objects smaller to create the illusion that they are deeper in your picture, you are using the size law. Size is a powerful tool to create depth.&lt;/li&gt;
+&lt;li&gt;Fill in the far gap with a peeking over-the-top sphere. Remember that small equals deeper.This will create a 3D illusion, even before adding shadows, shading and blendin!&lt;/li&gt;
+&lt;li&gt;Complete the third row with the end sphere smaller, higher, and behind. Much of 3D is in repition and practice.&lt;/li&gt;
+&lt;li&gt;Draw the fourth and fifth row of spheres. Pushing each row deeper into your picture with size, placement, and overlapping.&lt;/li&gt;
+&lt;li&gt;Draw rows six and seven receding into the depths of your sketch page. Size really kicks in on these distant rows.&lt;/li&gt;
+&lt;li&gt;Finally, we determine the position of our light source. For consistency, we will keep the light positioned in the top right. Go ahead and cast shadows off to the left, on the ground, and opposite your light source position.&lt;/li&gt;
+&lt;li&gt;Next, draw the horizontal background reference line, the horizon line. The horizon line will help you create the illusion of depth in your drawing.&lt;/li&gt;
+&lt;li&gt;Still remember Nook and Cranny? Push hard on your pencil and darken the edges and little spots between each ball.&lt;/li&gt;
+&lt;li&gt;Continue your shading process with a first pass over all the objects, scribbling the shading lightly over all opposite edges away from the light source.&lt;/li&gt;
+&lt;li&gt;Make some more scribble shading passes. Blend the shading with your finger. Carefully smudge the dark shaded areas up toward the hot spots, lighter and lighter as you go.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Looking at your masterpiece already? Here&amp;rsquo;s mine:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/C3E57AE1-969A-43C1-BA13-4AC36BD901FC.jpg&quot; alt=&quot;Drawing_lesson_3.1&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
+
+&lt;p&gt;Take a look at this drawing. The largest sphere is the farthest away. The smallest sphere is the closest. Following the guides above, try to recreate this drawing yourself, and have fun!
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41633pm.png&quot; alt=&quot;Drawing_lesson_3.2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my result:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/CFB9E05F-A086-4D12-AC69-EF9D44133052.jpg&quot; alt=&quot;Drawing_lesson_3.3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s so much for spheres! &lt;a href=&quot;/design/2014/01/04/lesson-4-the-cube/&quot;&gt;Next lesson&lt;/a&gt; i will go on to drawing cubes.&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 04 Jan 2014 00:00:00 +0800</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 2 Overlapping Sphere</title>
+                                <description>&lt;p&gt;We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let&amp;rsquo;s do this again.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Draw a circle.&lt;/li&gt;
+&lt;li&gt;Draw a second sphere behind the first one. As you draw the second sphere, make it a bit smaller than the first sphere, a bit higher up on the paper, and tucked behind the first sphere. With this, we are using &lt;code&gt;size&lt;/code&gt;, &lt;code&gt;placement&lt;/code&gt; and &lt;code&gt;overlapping&lt;/code&gt; laws. Recap the 9 fundamental laws &lt;a href=&quot;/2014/01/02/lesson-1-the-sphere/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Determine where your imaginary light source will be positioned. You will need to do this so you can get a consistent shading in order to appear three-dimensional.&lt;/li&gt;
+&lt;li&gt;Cast a shadow in the direction opposite the light.&lt;/li&gt;
+&lt;li&gt;To separate objects in your drawing, draw a dark defining shadow in between the two spheres(called a nook and cranny shadow). This will help identify the two objects. Nook and cranny shadows are always applied under and behind near objects.&lt;/li&gt;
+&lt;li&gt;Hold your pencil loosely and scribble the first layer of shading on both spheres. Shade the surfaces opposite your light source. Try to make shading lines below all lined up away from the sun.&lt;/li&gt;
+&lt;li&gt;Make a second darker, more focused shading pass over the spheres. Detail in the very dark edges, and let your scribbles get lighter and lighter as you move slowly toward your established light source. The spot on the sphere adjacent to the light source should be the brightest spot.&lt;/li&gt;
+&lt;li&gt;Using your finger, carefully blend the shading from dark to light, trying to keep the hit spot crisp white.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s try placing two tennis balls on the table in front of you, overlapping. Make sure to notice the object&amp;rsquo;s placement, shadows, and shading.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41612pm.png&quot; alt=&quot;tennis_ball_pic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my result:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg&quot; alt=&quot;Drawing_lesson_2.2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Try practicing more on make the shadows look natural. Ready up for &lt;a href=&quot;/design/2014/01/04/lesson-3-advanced-level-spheres/&quot;&gt;Lesson 3&lt;/a&gt;!&lt;/p&gt;
+</description>
+                                <pubDate>Fri, 03 Jan 2014 00:00:00 +0800</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 1 The Sphere</title>
+                                <description>&lt;p&gt;Learning drawing has a lot to do with controlling the lighting in the picture. This lesson teaches how to identify the light source and where to shade objects in your drawing. We will draw a 3D sphere.&lt;/p&gt;
+
+&lt;p&gt;Before we start drawing, there are 9 fundamental laws of drawing to create the illusion of depth. As follows:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Foreshortening&lt;/strong&gt;: Distort an object to create the illusion that one part of it is closer to your eye.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Placement&lt;/strong&gt;: Place an object lower on the surface of a picture to make it appear closer to your eye.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Size&lt;/strong&gt;: Draw an object larger to make it appear closer to your eye.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Overlapping&lt;/strong&gt;: Draw an object in front of another object to create the visual illusion that it is closer to your eye.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shading&lt;/strong&gt;: Draw darkness on an object opposite the positioned light source to creat the illusion of depth.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shadow&lt;/strong&gt;: Draw darkness on the ground next to the object, opposite the positioned light source, to create the illusion of depth.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contour lines&lt;/strong&gt;: Draw curving lines wrapping around the shape of a round object to give it volume and depth.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizon line&lt;/strong&gt;: Draw a horizontal reference line to create the illusion that objects in the picture are varying distances from your eye.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Density&lt;/strong&gt;: Create the illusion of distance by drawing objects lighter and with less detail.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Don&amp;rsquo;t be overwhelmed by these laws. All of these will be covered in the following lessons.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Draw a circle. If it&amp;rsquo;s too difficult, use a coffee mug or coin to trace&lt;/li&gt;
+&lt;li&gt;Determine the light source &amp;ndash; direction where the light is coming from. Reasonably, the opposite side of the circle would cast a shadow.&lt;/li&gt;
+&lt;li&gt;Now cast a shadow on your sphere opposite your light source position. Remember 2 points, position your light source, and cast a shadow on the ground next to the object and opposite the light source.&lt;/li&gt;
+&lt;li&gt;Scribble shading ON the circle opposite the light source. The furthest place from the light source should be darkest and gets lighter as we go toward the light source.&lt;/li&gt;
+&lt;li&gt;Use your finger to smudge-blend your shading to give it an even shade.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Here&amp;rsquo;s my drawing. Still ugly, but looking abit better than pretest drawings i guess?
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/72C108EB-CB8D-4DF8-9368-FBB18F29B68E.jpg&quot; alt=&quot;Drawing_lesson_1.1&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s draw an apple in 3D form. Take a look at the photograph of an apple with the light source and on the right:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/ScreenShot2014-01-06at40814pm.png&quot; alt=&quot;apple_pic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg&quot; alt=&quot;Drawing_lesson_1.2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Improving already? Move on to &lt;a href=&quot;/design/2014/01/03/lesson-2-overlapping-sphere/&quot;&gt;Lesson 2&lt;/a&gt;!&lt;/p&gt;
+</description>
+                                <pubDate>Thu, 02 Jan 2014 00:00:00 +0800</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/02/lesson-1-the-sphere/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/02/lesson-1-the-sphere/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Hello Jekyll</title>
+                                <description>&lt;p&gt;Hello jekyll! I&amp;rsquo;ve made the switch from wordpress finally. Somehow the idea of having a database for my blog doesn&amp;rsquo;t sound right. So here are the few changes made to my blog arsenals:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Blog served with &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Blog language &lt;a href=&quot;http://daringfireball.net/projects/markdown/basics&quot;&gt;Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Blog editor &lt;a href=&quot;http://mouapp.com&quot;&gt;Mou&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Still pretty new to markdown syntax but i&amp;rsquo;m already loving it. Cheers to a wonderful 2014!&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/i254J1xI60U?color=white&amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+</description>
+                                <pubDate>Wed, 01 Jan 2014 07:34:08 +0000</pubDate>
+                                <link>http://blog.hguochen.com//2014/01/01/hello-jekyll/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//2014/01/01/hello-jekyll/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 0 Why learn to draw</title>
+                                <description>&lt;h3&gt;Learning an all time amazement&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.&lt;/p&gt;
+
+&lt;p&gt;Inspired by &lt;a href=&quot;http://www.karenx.com/blog/how-to-become-a-designer-without-going-to-design-school/&quot;&gt;Karen&amp;rsquo;s learn design blogpost&lt;/a&gt;, i&amp;rsquo;ve decided to teach myself everything about design in the fresh year. Starting from the basics, i&amp;rsquo;m learning to draw by hand. I believe the fundamental appreciation for design comes from hand-eye coordindation.&lt;/p&gt;
+
+&lt;p&gt;I got my hands on &lt;a href=&quot;http://www.amazon.com/You-Can-Draw-30-Days/dp/0738212415/ref=sr_1_1?ie=UTF8&amp;amp;qid=1371607474&amp;amp;sr=8-1&amp;amp;keywords=you+can+draw+in+30+days&quot;&gt;You can draw in 30 days&lt;/a&gt; to guide me along the fundamentals of drawing and dealing with my ridiculously ugly drawing base. If you are learning drawing as well, you may want to get a copy of this book if you are a fast learner. Or you could just follow along with my progress. I&amp;rsquo;ll be documenting the things i learnt from this book and try to present them in a manner you can follow too. Please feel free to give me feedbacks on how to improve.&lt;/p&gt;
+
+&lt;p&gt;Ok enough background paintings, let&amp;rsquo;s get started.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s begin with a little pretest to see how good or bad you are at drawing currently.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Spend 2 minutes drawing a house, without referencing anything, just from your imagination.&lt;/li&gt;
+&lt;li&gt;Next, spend 2 minutes drawing an airplane. Again, from imagination.&lt;/li&gt;
+&lt;li&gt;Ok i promise it&amp;rsquo;s the last one. Spend 2 minutes drawing a bagel.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Don&amp;rsquo;t worry if your drawing is hideous, no one has to see it! So now that you have your &amp;lsquo;base&amp;rsquo; work at hand, put this up somewhere secret so you can compare how much you have improved overtime. If it&amp;rsquo;s any consolation, my work is attached below&amp;hellip;feeling better now?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg&quot; alt=&quot;Drawing_lesson_0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok now chuck it aside and hop on to &lt;a href=&quot;/design/2014/01/02/lesson-1-the-sphere/&quot;&gt;Lesson 1 The Sphere&lt;/a&gt;!&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 01 Jan 2014 00:00:00 +0800</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/01/lesson-0-why-learn-to-draw/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/01/lesson-0-why-learn-to-draw/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Not all businesses are startups</title>
+                                <description>&lt;p&gt;Had this conversation between some friends the other day and i realised there’s a few common misconceptions between startups and businesses. Not all businesses can be called startups, while startups most common entity is a business entity.&lt;/p&gt;
+
+&lt;p&gt;A start-up, by definition, is a temporary organisation designed to search for a scalable business model. Apart from typical business risks, there are more inherent risks such as finding product-market fit, research deficiencies etc.&lt;/p&gt;
+
+&lt;p&gt;A business is a corporate entity that is growth oriented. It has, by default, found its product-market fit and operating on a scalability model.&lt;/p&gt;
+
+&lt;p&gt;Starting a company on teleportation or building the next generation flying car is considered a startup. But opening a drink store selling sugared water is not a startup. The baseline being, if you are treading on a previously explored path then your entity is NOT a startup.&lt;/p&gt;
+
+&lt;p&gt;On a side note, startups should always move out of its current being as soon as possible. There is no glory in maintaining the buzzword title for x years.&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 07 Dec 2013 12:07:49 +0000</pubDate>
+                                <link>http://blog.hguochen.com//startup/2013/12/07/Not-all-businesses-are-startups/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//startup/2013/12/07/Not-all-businesses-are-startups/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Deploy Django on EC2 Ubuntu 13_10</title>
+                                <description>&lt;p&gt;I&amp;rsquo;ve had a hard time wrestling with Django on an EC2 instance and after finally figuring it out, i&amp;rsquo;m documenting this down so hopefully it makes life easier for you.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;if you haven&amp;rsquo;t already, you have to sign up for &lt;a href=&quot;&quot;&gt;Amazon Web Services&lt;/a&gt;. Then sign in, open the AWS Management Console, select EC2 instances and Launch instance of Ubuntu Server 13.10 64-bit.&lt;/li&gt;
+&lt;li&gt;Create a new Key Pair and download it. You will need it later. Click next and Launch the new instance.&lt;/li&gt;
+&lt;li&gt;Check the security group in the description of your EC2 instance. Go to security groups and edit the matching Security group of your instance. Select inbound and create a new rule for HTTP( port80 ) click Add, then Apply Rule Changes.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Connect your EC2 instance with ssh:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; $ ssh -i xxx.pem ubuntu@ec2-xx.xxx.xxx.xx-comput1-amazonaws.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Once you are connected, run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; $ sudo apt-get update
+ $ sudo apt-get upgrade
+ $ sudo apt-get apache2 libapache2-mod-wsgi
+ $ sudo apt-get install python-pip
+ $ sudo pip install django
+ $ sudo apt-get install build-essential
+ $ sudo apt-get install python2.7-dev
+ $ sudo apt-get install git
+ $ sudo apt-get install mysql-server
+ $ sudo apt-get install python-dev libmysqlclient-dev
+ $ sudo pip install MySQL-python
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now it&amp;rsquo;s time to configure the apache configure file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; $ sudo vim /etc/apache2/apache2.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Put the following code at the end of the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; WSGIPythonPath /path/to/python/file
+ ServerName website.com
+ DocumentRoot /path/to/file
+ Alias /static /path/to/file/static/
+ Order deny, allow
+ Allow from all
+ WSGIScriptAlias / /path/to/file/wsgi.py
+ Order allow, deny
+ Allow from all
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Enable apache virtual host&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; sudo a2ensite yourhost
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;And your site is up! Quickly go check it out at &lt;a href=&quot;http://yourdomain.com&quot;&gt;http://yourdomain.com&lt;/a&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 25 Nov 2013 23:08:40 +0000</pubDate>
+                                <link>http://blog.hguochen.com//2013/11/25/Deploy-Django-on-EC2-Ubuntu-13_10/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//2013/11/25/Deploy-Django-on-EC2-Ubuntu-13_10/</guid>
+                        </item>
+                
+        </channel>
+</rss>
