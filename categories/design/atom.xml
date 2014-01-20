@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-01-11T14:35:44+08:00</updated>
+  <updated>2014-01-20T22:02:58+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lesson 5 Hollow Cubes]]></title>
+    <link href="http://blog.hguochen.com/design/2014/01/20/Lesson-5-Hollow-Cubes/"/>
+    <updated>2014-01-20T21:28:09Z</updated>
+    <id>http://blog.hguochen.com/design/2014/01/20/Lesson-5-Hollow-Cubes</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m gona be drawing hollow cubes for this lesson. Drawing lines that <strong>sync</strong> with each other is pretty important when drawing cubes.</p>
+
+<blockquote><p><strong>Parallel and Perpendicular Lines</strong>
+Parallel lines are two lines going in the same direction, spaced equally apart. Perpendicular lines are two lines that intersect at right angles to each other.</p></blockquote>
+
+<ol>
+<li>Sketch a foreshortened cube.</li>
+<li>Slant back two parallel lines on the top of the cube.</li>
+<li>Think of a compass, the 4 most commonly used directions are, <strong>Northwest</strong>, <strong>Northeast</strong>, <strong>Southwest</strong>, and <strong>Southeast</strong>.</li>
+<li>Draw the parallel side of the box lid lifting up with two parallel lines.</li>
+<li>Use the bottom of the box angles to guide your line directions, complete near the flaps, aligning them up in direction NE and NW. By always referring the lines you have already drawn and by continually checking your angles against the drawing direction reference cube, your drawings will look solid, focused, and 3D.</li>
+<li>When casting shadows, we are casting at the SW direction instead of downwards. This will go well with the light source which is in NE direction.</li>
+</ol>
+
+
+<p>Try drawing the cube a few more times to get the directional cues correct. Here&rsquo;s what i&rsquo;ve drawn:
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/62514743-DAE5-4271-B0D7-102441EB3893.jpg" alt="lesson5" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lesson 4 The Cube]]></title>
@@ -38,7 +63,7 @@
 <p>So here&rsquo;s my result:
 <img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/B3F670C0-3739-4BF2-B625-EAD5F52C0560.jpg" alt="Drawing_lesson4.1" /></p>
 
-<p>Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let&rsquo;s go on to <a href="URL">Lesson 5 &ndash; Hollow Cubes</a>.</p>
+<p>Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let&rsquo;s go on to <a href="/design/2014/01/20/lesson-5-hollow-cube/">Lesson 5 &ndash; Hollow Cubes</a>.</p>
 ]]></content>
   </entry>
   
@@ -163,38 +188,6 @@
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg" alt="Drawing_lesson_1.2" /></p>
 
 <p>Improving already? Move on to <a href="/design/2014/01/03/lesson-2-overlapping-sphere/">Lesson 2</a>!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lesson 0 Why learn to draw]]></title>
-    <link href="http://blog.hguochen.com/design/2014/01/01/lesson-0-why-learn-to-draw/"/>
-    <updated>2014-01-01T00:00:00+08:00</updated>
-    <id>http://blog.hguochen.com/design/2014/01/01/lesson-0-why-learn-to-draw</id>
-    <content type="html"><![CDATA[<h3>Learning an all time amazement</h3>
-
-<p>I&rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.</p>
-
-<p>Inspired by <a href="http://www.karenx.com/blog/how-to-become-a-designer-without-going-to-design-school/">Karen&rsquo;s learn design blogpost</a>, i&rsquo;ve decided to teach myself everything about design in the fresh year. Starting from the basics, i&rsquo;m learning to draw by hand. I believe the fundamental appreciation for design comes from hand-eye coordindation.</p>
-
-<p>I got my hands on <a href="http://www.amazon.com/You-Can-Draw-30-Days/dp/0738212415/ref=sr_1_1?ie=UTF8&amp;qid=1371607474&amp;sr=8-1&amp;keywords=you+can+draw+in+30+days">You can draw in 30 days</a> to guide me along the fundamentals of drawing and dealing with my ridiculously ugly drawing base. If you are learning drawing as well, you may want to get a copy of this book if you are a fast learner. Or you could just follow along with my progress. I&rsquo;ll be documenting the things i learnt from this book and try to present them in a manner you can follow too. Please feel free to give me feedbacks on how to improve.</p>
-
-<p>Ok enough background paintings, let&rsquo;s get started.</p>
-
-<p>Let&rsquo;s begin with a little pretest to see how good or bad you are at drawing currently.</p>
-
-<ol>
-<li>Spend 2 minutes drawing a house, without referencing anything, just from your imagination.</li>
-<li>Next, spend 2 minutes drawing an airplane. Again, from imagination.</li>
-<li>Ok i promise it&rsquo;s the last one. Spend 2 minutes drawing a bagel.</li>
-</ol>
-
-
-<p>Don&rsquo;t worry if your drawing is hideous, no one has to see it! So now that you have your &lsquo;base&rsquo; work at hand, put this up somewhere secret so you can compare how much you have improved overtime. If it&rsquo;s any consolation, my work is attached below&hellip;feeling better now?</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg" alt="Drawing_lesson_0" /></p>
-
-<p>Ok now chuck it aside and hop on to <a href="/design/2014/01/02/lesson-1-the-sphere/">Lesson 1 The Sphere</a>!</p>
 ]]></content>
   </entry>
   
