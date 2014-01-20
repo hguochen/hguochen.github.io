@@ -22,4 +22,4 @@ Ok I'm moving on to drawing cubes in this lesson. Contrary to my belief, i reali
 So here's my result:
 ![Drawing_lesson4.1](http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/B3F670C0-3739-4BF2-B625-EAD5F52C0560.jpg)
 
-Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let's go on to [Lesson 5 - Hollow Cubes](URL).
+Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let's go on to [Lesson 5 - Hollow Cubes]({{ url }}/design/2014/01/20/lesson-5-hollow-cube/).
