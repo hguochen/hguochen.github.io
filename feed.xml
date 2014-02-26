@@ -7,6 +7,35 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Lesson 6 Stacking Tables</title>
+                                <description>&lt;p&gt;I will be drawing stacking tables with proper lighting conditions in this lesson. This lesson will gel all of the concepts and laws learnt so far.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Begin with a foreshortened square.&lt;/li&gt;
+&lt;li&gt;Draw two short edges to create the top of the table.&lt;/li&gt;
+&lt;li&gt;Draw the middle line longer, according to the foreshortened square concept.&lt;/li&gt;
+&lt;li&gt;Using the lines you have already drawn as areference, draw bottom of the table top in direction of Northeast and Northwest.&lt;/li&gt;
+&lt;li&gt;Draw middle line longer to create the near edge of the table post.&lt;/li&gt;
+&lt;li&gt;Draw the sides of the table post. Each side line is drawn halfway from the far edge to the middle line.&lt;/li&gt;
+&lt;li&gt;Using lines drawn as reference, draw the bottom of the table post in direction NW and NE.&lt;/li&gt;
+&lt;li&gt;Draw horizon line just above the table. and position light source aboce and to the right. The horizon line tells our eye that the object is below the horizon line, which communicates to our brain that the thickness, shadows, and foreshorteneing are from this perspective.&lt;/li&gt;
+&lt;li&gt;Place a guide dot directly below the near corner of the table post. If you don&amp;rsquo;t use the guide dot on every stacked table, your drawing may get progressively more skewed and impossibly distorted.&lt;/li&gt;
+&lt;li&gt;Using lines already drawn as a reference, draw the front edge of the pedestal in directions NW and NE.&lt;/li&gt;
+&lt;li&gt;Now draw the back edges of the opt of the pedestal, be sure to go behind the corner of the post.&lt;/li&gt;
+&lt;li&gt;Complete the pedestal, makjing sure to draw the near corner lower. As always, use the lines you have already drawn as reference angles for drawing the bottom lines of the pedestal in directions NW and NE.&lt;/li&gt;
+&lt;li&gt;Finally, add the cast shadow opposite your positioned light source, shade the table and pedestal and add the dark undershadows of both sides of the post.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;So here&amp;rsquo;s how my final drawing looks:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/AFA53C8F-34F6-4A7D-8C20-6DD868130467.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 26 Feb 2014 21:34:18 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Don&#39;t distinguish between work and life</title>
                                 <description>&lt;p&gt;&lt;img src=&quot;http://www.jamieleighto.com/wp-content/uploads/2012/07/Love-Your-Work.jpg&quot; alt=&quot;work&quot; /&gt;
 Work is your life because work is your passion. If your work isn&amp;rsquo;t your passion, only a means of getting to your passion, then take it as a necessity and look it in as positive a light as possible. Your work doesn’t suck because it is getting you to where you want to be. It’s necessary and unavoidable if you want to get to where you want to be, for the life you wish to lead.&lt;/p&gt;
@@ -270,7 +299,7 @@ Like, seriously, a &lt;em&gt;LOT&lt;/em&gt; of text&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h4&gt;Links and Email&lt;/h4&gt;
 
-&lt;p&gt;An email &lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#x6c;&amp;#x74;&amp;#111;&amp;#x3a;&amp;#x65;&amp;#x78;&amp;#97;&amp;#x6d;&amp;#112;&amp;#108;&amp;#101;&amp;#x40;&amp;#101;&amp;#x78;&amp;#x61;&amp;#109;&amp;#112;&amp;#x6c;&amp;#x65;&amp;#46;&amp;#x63;&amp;#111;&amp;#x6d;&quot;&gt;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#x70;&amp;#108;&amp;#101;&amp;#x40;&amp;#101;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#108;&amp;#x65;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt; link.&lt;/p&gt;
+&lt;p&gt;An email &lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#x69;&amp;#108;&amp;#x74;&amp;#x6f;&amp;#x3a;&amp;#101;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#x6c;&amp;#x65;&amp;#x40;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#x63;&amp;#111;&amp;#109;&quot;&gt;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#x65;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt; link.&lt;/p&gt;
 
 &lt;p&gt;Simple inline link &lt;a href=&quot;http://chenluois.com&quot;&gt;http://chenluois.com&lt;/a&gt;, another inline link &lt;a href=&quot;http://smallerapp.com&quot;&gt;Smaller&lt;/a&gt;, one more inline link with title &lt;a href=&quot;http://resizesafari.com&quot; title=&quot;a Safari extension&quot;&gt;Resize&lt;/a&gt;.&lt;/p&gt;
 
@@ -630,38 +659,6 @@ a start and end fence lines to delimit the code block.
                                 <pubDate>Sat, 04 Jan 2014 00:00:00 +0800</pubDate>
                                 <link>http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 2 Overlapping Sphere</title>
-                                <description>&lt;p&gt;We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let&amp;rsquo;s do this again.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw a circle.&lt;/li&gt;
-&lt;li&gt;Draw a second sphere behind the first one. As you draw the second sphere, make it a bit smaller than the first sphere, a bit higher up on the paper, and tucked behind the first sphere. With this, we are using &lt;code&gt;size&lt;/code&gt;, &lt;code&gt;placement&lt;/code&gt; and &lt;code&gt;overlapping&lt;/code&gt; laws. Recap the 9 fundamental laws &lt;a href=&quot;/2014/01/02/lesson-1-the-sphere/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Determine where your imaginary light source will be positioned. You will need to do this so you can get a consistent shading in order to appear three-dimensional.&lt;/li&gt;
-&lt;li&gt;Cast a shadow in the direction opposite the light.&lt;/li&gt;
-&lt;li&gt;To separate objects in your drawing, draw a dark defining shadow in between the two spheres(called a nook and cranny shadow). This will help identify the two objects. Nook and cranny shadows are always applied under and behind near objects.&lt;/li&gt;
-&lt;li&gt;Hold your pencil loosely and scribble the first layer of shading on both spheres. Shade the surfaces opposite your light source. Try to make shading lines below all lined up away from the sun.&lt;/li&gt;
-&lt;li&gt;Make a second darker, more focused shading pass over the spheres. Detail in the very dark edges, and let your scribbles get lighter and lighter as you move slowly toward your established light source. The spot on the sphere adjacent to the light source should be the brightest spot.&lt;/li&gt;
-&lt;li&gt;Using your finger, carefully blend the shading from dark to light, trying to keep the hit spot crisp white.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
-
-&lt;p&gt;Let&amp;rsquo;s try placing two tennis balls on the table in front of you, overlapping. Make sure to notice the object&amp;rsquo;s placement, shadows, and shading.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41612pm.png&quot; alt=&quot;tennis_ball_pic&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my result:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg&quot; alt=&quot;Drawing_lesson_2.2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Try practicing more on make the shadows look natural. Ready up for &lt;a href=&quot;/design/2014/01/04/lesson-3-advanced-level-spheres/&quot;&gt;Lesson 3&lt;/a&gt;!&lt;/p&gt;
-</description>
-                                <pubDate>Fri, 03 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</guid>
                         </item>
                 
         </channel>
