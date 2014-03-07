@@ -7,6 +7,51 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Lesson 9 The Rose</title>
+                                <description>&lt;p&gt;We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Draw two guide dota horizontally across from each other.&lt;/li&gt;
+&lt;li&gt;Connect the dots with a foreshortened circle.&lt;/li&gt;
+&lt;li&gt;Draw the body of the bowl.&lt;/li&gt;
+&lt;li&gt;Using a guide line in direction SW, position the light source in the top right. Shade the bowl with blended shading from drak to light, creating a smooth blended surface.&lt;/li&gt;
+&lt;li&gt;Before drawing the rose, let&amp;rsquo;s try drawing the &amp;ldquo;peeking&amp;rdquo; line. This tiny detail of a small overlapping line that defines a fold or a wrinkle will have a huge visual effect in enabling you to make the rose petals appear to be curling around the bud in three dimensions.
+5a. Draw a vertical flagpole.
+5b. Draw two guide dots.
+5c. Draw three-quarters of a foreshortened circle.
+5d. Draw the vertical thickness of the flag.
+5e. Curve the near bottom edge of the flag a bit more than the line above it. The bottom of the flag is a bit farther from your eye, so you need to distort it, curve it more than the top edge.
+5f. Draw the &amp;ldquo;peeking&amp;rdquo; line, the most important line in this exercise. This teeny tiny dash will make or break the drawing and holds an enormous amount of visual power.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Let&amp;rsquo;s finally get to drawing a rose.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Draw a foreshortened bowl, and add a stem.&lt;/li&gt;
+&lt;li&gt;Draw a guide dot in the middle of the rose bowl.&lt;/li&gt;
+&lt;li&gt;Begin to spiral out the rose petal with three-quarters of a foreshortened circle.&lt;/li&gt;
+&lt;li&gt;Keep spiraling, and keep these spiraled foreshortened circles squished. It&amp;rsquo;s the distorted shape that will form the 3 dimensional rosebud.&lt;/li&gt;
+&lt;li&gt;Complete the spiral at the center of the petal. Erase the extra line.&lt;/li&gt;
+&lt;li&gt;Draw the center thickness of the rose petal and the first peeking thickness line.&lt;/li&gt;
+&lt;li&gt;Draw the next outer peeking line.&lt;/li&gt;
+&lt;li&gt;Draw the remaining thickness line. There it is, depth focused on our beautiful rose.&lt;/li&gt;
+&lt;li&gt;Draw the very dark, very small, nook and cranny shadows. Notice i even darkened a shadow along the edge of the rose petal.&lt;/li&gt;
+&lt;li&gt;Place the light source in the top right, and blend the shadin on each of the curved surfaces opposite. Draw a few thorns on the stem, and draw the leaves.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Here is my work!
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/81630E2C-81A0-4EC6-9376-50AF1E655568.jpg&quot; alt=&quot;lesson9-1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9BD6F67E-D8D1-47A8-A47A-A85D4FBD472F.jpg&quot; alt=&quot;lesson9-2&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Fri, 07 Mar 2014 19:00:28 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Lesson 8 Cool Koalas</title>
                                 <description>&lt;p&gt;Let&amp;rsquo;s take a break from boxes and structures and draw a koala bear.&lt;/p&gt;
 
@@ -338,324 +383,6 @@ alias bb=&quot;build_blog&quot;
                                 <pubDate>Wed, 08 Jan 2014 16:48:29 +0000</pubDate>
                                 <link>http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Markdown language syntax</title>
-                                <description>&lt;h1&gt;Mou&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mouapp.com/Mou_128.png&quot; alt=&quot;Mou icon&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Overview&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Mou&lt;/strong&gt;, the missing Markdown editor for &lt;em&gt;web developers&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Syntax&lt;/h3&gt;
-
-&lt;h4&gt;Strong and Emphasize&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;strong&lt;/strong&gt; or &lt;strong&gt;strong&lt;/strong&gt; ( Cmd + B )&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;emphasize&lt;/em&gt; or &lt;em&gt;emphasize&lt;/em&gt; ( Cmd + I )&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sometimes I want a lot of text to be bold.
-Like, seriously, a &lt;em&gt;LOT&lt;/em&gt; of text&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4&gt;Blockquotes&lt;/h4&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Right angle brackets &amp;gt; are used for block quotes.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h4&gt;Links and Email&lt;/h4&gt;
-
-&lt;p&gt;An email &lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#x74;&amp;#111;&amp;#x3a;&amp;#101;&amp;#x78;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#64;&amp;#x65;&amp;#120;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&quot;&gt;&amp;#x65;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#108;&amp;#101;&amp;#x40;&amp;#x65;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;&lt;/a&gt; link.&lt;/p&gt;
-
-&lt;p&gt;Simple inline link &lt;a href=&quot;http://chenluois.com&quot;&gt;http://chenluois.com&lt;/a&gt;, another inline link &lt;a href=&quot;http://smallerapp.com&quot;&gt;Smaller&lt;/a&gt;, one more inline link with title &lt;a href=&quot;http://resizesafari.com&quot; title=&quot;a Safari extension&quot;&gt;Resize&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;A &lt;a href=&quot;http://mouapp.com&quot; title=&quot;Markdown editor on Mac OS X&quot;&gt;reference style&lt;/a&gt; link. Input id, then anywhere in the doc, define the link with corresponding id:&lt;/p&gt;
-
-&lt;p&gt;Titles ( or called tool tips ) in the links are optional.&lt;/p&gt;
-
-&lt;h4&gt;Images&lt;/h4&gt;
-
-&lt;p&gt;An inline image &lt;img src=&quot;http://smallerapp.com/favicon.ico&quot; title=&quot;Title here&quot; alt=&quot;Smaller icon&quot; /&gt;, title is optional.&lt;/p&gt;
-
-&lt;p&gt;A &lt;img src=&quot;http://resizesafari.com/favicon.ico&quot; title=&quot;Title&quot; alt=&quot;Resize icon&quot; /&gt; reference style image.&lt;/p&gt;
-
-&lt;h4&gt;Inline code and Block code&lt;/h4&gt;
-
-&lt;p&gt;Inline code are surround by &lt;code&gt;backtick&lt;/code&gt; key. To create a block code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Indent each line by at least 1 tab, or 4 spaces.
-var Mou = exactlyTheAppIwant; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4&gt;Ordered Lists&lt;/h4&gt;
-
-&lt;p&gt;Ordered lists are created using &amp;ldquo;1.&amp;rdquo; + Space:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h4&gt;Unordered Lists&lt;/h4&gt;
-
-&lt;p&gt;Unordered list are created using &amp;ldquo;*&amp;rdquo; + Space:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Or using &amp;ldquo;&amp;ndash;&amp;rdquo; + Space:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Hard Linebreak&lt;/h4&gt;
-
-&lt;p&gt;End a line with two or more spaces will create a hard linebreak, called &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; in HTML. ( Control + Return )&lt;br/&gt;
-Above line ended with 2 spaces.&lt;/p&gt;
-
-&lt;h4&gt;Horizontal Rules&lt;/h4&gt;
-
-&lt;p&gt;Three or more asterisks or dashes:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;
-
-&lt;hr /&gt;
-
-&lt;h4&gt;Headers&lt;/h4&gt;
-
-&lt;p&gt;Setext-style:&lt;/p&gt;
-
-&lt;h1&gt;This is H1&lt;/h1&gt;
-
-&lt;h2&gt;This is H2&lt;/h2&gt;
-
-&lt;p&gt;atx-style:&lt;/p&gt;
-
-&lt;h1&gt;This is H1&lt;/h1&gt;
-
-&lt;h2&gt;This is H2&lt;/h2&gt;
-
-&lt;h3&gt;This is H3&lt;/h3&gt;
-
-&lt;h4&gt;This is H4&lt;/h4&gt;
-
-&lt;h5&gt;This is H5&lt;/h5&gt;
-
-&lt;h6&gt;This is H6&lt;/h6&gt;
-
-&lt;h3&gt;Extra Syntax&lt;/h3&gt;
-
-&lt;h4&gt;Footnotes&lt;/h4&gt;
-
-&lt;p&gt;Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s some text with a footnote.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h4&gt;Strikethrough&lt;/h4&gt;
-
-&lt;p&gt;Wrap with 2 tilde characters:&lt;/p&gt;
-
-&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
-
-&lt;h4&gt;Fenced Code Blocks&lt;/h4&gt;
-
-&lt;p&gt;Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-Fenced code blocks are like Stardard Markdown’s regular code
-blocks, except that they’re not indented and instead rely on
-a start and end fence lines to delimit the code block.
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4&gt;Tables&lt;/h4&gt;
-
-&lt;p&gt;A simple table looks like this:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;First Header &lt;/th&gt;
-&lt;th&gt; Second Header &lt;/th&gt;
-&lt;th&gt; Third Header&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;If you wish, you can add a leading and tailing pipe to each line of the table:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt; First Header &lt;/th&gt;
-&lt;th&gt; Second Header &lt;/th&gt;
-&lt;th&gt; Third Header &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt; Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell |&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt; Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell |&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;Specify alignement for each column by adding colons to separator lines:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;First Header &lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt; Second Header &lt;/th&gt;
-&lt;th align=&quot;right&quot;&gt; Third Header&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h3&gt;Shortcuts&lt;/h3&gt;
-
-&lt;h4&gt;View&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Toggle live preview: Shift + Cmd + I&lt;/li&gt;
-&lt;li&gt;Toggle Words Counter: Shift + Cmd + W&lt;/li&gt;
-&lt;li&gt;Toggle Transparent: Shift + Cmd + T&lt;/li&gt;
-&lt;li&gt;Toggle Floating: Shift + Cmd + F&lt;/li&gt;
-&lt;li&gt;Left/Right = 1/1: Cmd + 0&lt;/li&gt;
-&lt;li&gt;Left/Right = 3/1: Cmd + +&lt;/li&gt;
-&lt;li&gt;Left/Right = 1/3: Cmd + &amp;ndash;&lt;/li&gt;
-&lt;li&gt;Toggle Writing orientation: Cmd + L&lt;/li&gt;
-&lt;li&gt;Toggle fullscreen: Control + Cmd + F&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Actions&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Copy HTML: Option + Cmd + C&lt;/li&gt;
-&lt;li&gt;Strong: Select text, Cmd + B&lt;/li&gt;
-&lt;li&gt;Emphasize: Select text, Cmd + I&lt;/li&gt;
-&lt;li&gt;Inline Code: Select text, Cmd + K&lt;/li&gt;
-&lt;li&gt;Strikethrough: Select text, Cmd + U&lt;/li&gt;
-&lt;li&gt;Link: Select text, Control + Shift + L&lt;/li&gt;
-&lt;li&gt;Image: Select text, Control + Shift + I&lt;/li&gt;
-&lt;li&gt;Select Word: Control + Option + W&lt;/li&gt;
-&lt;li&gt;Select Line: Shift + Cmd + L&lt;/li&gt;
-&lt;li&gt;Select All: Cmd + A&lt;/li&gt;
-&lt;li&gt;Deselect All: Cmd + D&lt;/li&gt;
-&lt;li&gt;Convert to Uppercase: Select text, Control + U&lt;/li&gt;
-&lt;li&gt;Convert to Lowercase: Select text, Control + Shift + U&lt;/li&gt;
-&lt;li&gt;Convert to Titlecase: Select text, Control + Option + U&lt;/li&gt;
-&lt;li&gt;Convert to List: Select lines, Control + L&lt;/li&gt;
-&lt;li&gt;Convert to Blockquote: Select lines, Control + Q&lt;/li&gt;
-&lt;li&gt;Convert to H1: Cmd + 1&lt;/li&gt;
-&lt;li&gt;Convert to H2: Cmd + 2&lt;/li&gt;
-&lt;li&gt;Convert to H3: Cmd + 3&lt;/li&gt;
-&lt;li&gt;Convert to H4: Cmd + 4&lt;/li&gt;
-&lt;li&gt;Convert to H5: Cmd + 5&lt;/li&gt;
-&lt;li&gt;Convert to H6: Cmd + 6&lt;/li&gt;
-&lt;li&gt;Convert Spaces to Tabs: Control + [&lt;/li&gt;
-&lt;li&gt;Convert Tabs to Spaces: Control + ]&lt;/li&gt;
-&lt;li&gt;Insert Current Date: Control + Shift + 1&lt;/li&gt;
-&lt;li&gt;Insert Current Time: Control + Shift + 2&lt;/li&gt;
-&lt;li&gt;Insert entity &amp;lt;: Control + Shift + ,&lt;/li&gt;
-&lt;li&gt;Insert entity &gt;: Control + Shift + .&lt;/li&gt;
-&lt;li&gt;Insert entity &amp;amp;: Control + Shift + 7&lt;/li&gt;
-&lt;li&gt;Insert entity Space: Control + Shift + Space&lt;/li&gt;
-&lt;li&gt;Insert Scriptogr.am Header: Control + Shift + G&lt;/li&gt;
-&lt;li&gt;Shift Line Left: Select lines, Cmd + [&lt;/li&gt;
-&lt;li&gt;Shift Line Right: Select lines, Cmd + ]&lt;/li&gt;
-&lt;li&gt;New Line: Cmd + Return&lt;/li&gt;
-&lt;li&gt;Comment: Cmd + /&lt;/li&gt;
-&lt;li&gt;Hard Linebreak: Control + Return&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Edit&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Auto complete current word: Esc&lt;/li&gt;
-&lt;li&gt;Find: Cmd + F&lt;/li&gt;
-&lt;li&gt;Close find bar: Esc&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Post&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Post on Scriptogr.am: Control + Shift + S&lt;/li&gt;
-&lt;li&gt;Post on Tumblr: Control + Shift + T&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Export&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Export HTML: Option + Cmd + E&lt;/li&gt;
-&lt;li&gt;Export PDF:  Option + Cmd + P&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr/&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn:1&quot;&gt;
-&lt;p&gt;And that&amp;rsquo;s the footnote.&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-
-</description>
-                                <pubDate>Sat, 04 Jan 2014 07:58:18 +0000</pubDate>
-                                <link>http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</guid>
                         </item>
                 
         </channel>
