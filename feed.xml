@@ -7,6 +7,77 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>How to learn Javascript</title>
+                                <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
+
+&lt;p&gt;Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.&lt;/p&gt;
+
+&lt;h3&gt;0. Read up on fundamentals of Javascript&lt;/h3&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Javascript is the language of the browser.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Javascript used to be a client-side programming language running client web scripts. It&amp;rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp;amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with &lt;a href=&quot;http://nodejs.org/%E2%80%8E&quot;&gt;Node.js&lt;/a&gt; being the new kid in town.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://eloquentjavascript.net/index.html&quot;&gt;Eloquent Javascript&lt;/a&gt; by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &amp;ldquo;eloquent&amp;rdquo; isn&amp;rsquo;t an overstatement.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript&quot;&gt;A Re-introduction to JavaScript&lt;/a&gt;. This introduction is on the Mozilla Developers Network, and it&amp;rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.&lt;/p&gt;
+
+&lt;h3&gt;1. Go through the Javascript course at Codecademy.com&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.codecademy.com&quot;&gt;Codecademy&lt;/a&gt; revamped its courses to learning javascript and touted itself as &amp;ldquo;the easiest way to learn how to code&amp;rdquo;. There are currently two courses on JS: &amp;ldquo;Getting started with Programming&amp;rdquo; and &amp;ldquo;Javascript Quick Start Guide&amp;rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.&lt;/p&gt;
+
+&lt;p&gt;If you are already familiar with other programming languages, you can start with &amp;ldquo;Javascript Quick Start Guide&amp;rdquo;. If you are fresh to programming, &amp;ldquo;Getting started with programming&amp;rdquo; is tailored for you. Codecademy is free, but sign up is required.&lt;/p&gt;
+
+&lt;h3&gt;2. Screencast tutorials at TheNewBoston&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://thenewboston.org/list.php?cat=10&quot;&gt;The New Boston&lt;/a&gt; for javascript has an awesome set of screencast tutorials geared for beginners. It&amp;rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&amp;rsquo;s easier to follow than written scripts.&lt;/p&gt;
+
+&lt;h3&gt;3. Install and Learn Firebug(or Chrome Developer Tools)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://getfirebug.com/&quot;&gt;Firebug&lt;/a&gt; is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer &lt;a href=&quot;www.google.com/chrome/&quot;&gt;Google Chrome&lt;/a&gt; or &lt;a href=&quot;https://www.apple.com/sg/safari/%E2%80%8E&quot;&gt;Safari&lt;/a&gt;, check out the built-in developer tools.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Open developer tools panel by press &lt;code&gt;Option + Cmd +I&lt;/code&gt; on mac, or &lt;code&gt;Ctrl+Shift+I&lt;/code&gt; on the PC.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Check out some of the useful guides on using both of these tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firebug
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://css-tricks.com/video-screencasts/15-introduction-to-firebug/&quot;&gt;Introduction to Firebug&lt;/a&gt; on &lt;a href=&quot;http://css-tricks.com/&quot;&gt;CSS-Tricks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/&quot;&gt;10 Reasons Why You Should Be Using Firebug&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Developer Tools
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://code.google.com/chrome/devtools/&quot;&gt;Developer Tools Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=nOEw9iiopwI&amp;amp;feature=player_embedded&quot;&gt;Google Chrome Developer Tools: 12 Tricks to Develop Quicker&lt;/a&gt; by Paul Irish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;4. Begin Learning a JavaScript Library &amp;ndash; jQuery&lt;/h3&gt;
+
+&lt;p&gt;The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but &lt;a href=&quot;http://jquery.com/&quot;&gt;jQuery&lt;/a&gt; is probably the most popular and widely used library. For a start, read through the &lt;a href=&quot;http://learn.jquery.com/about-jquery/&quot;&gt;jQuery Documentations&lt;/a&gt; to get an idea of the ease of using javascript libraries as opposed to javascript raw language.&lt;/p&gt;
+
+&lt;h3&gt;5. Work through the tutorial at Try jQuery&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://try.jquery.com/&quot;&gt;Try jQuery&lt;/a&gt; is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to &lt;a href=&quot;http://api.jquery.com&quot;&gt;jQuery API&lt;/a&gt; while going through the tutorial.&lt;/p&gt;
+
+&lt;h3&gt;6. Screencast jQuery tutorials at TheNewBoston&lt;/h3&gt;
+
+&lt;p&gt;Again, &lt;a href=&quot;http://thenewboston.org/list.php?cat=32&quot;&gt;The New Boston&lt;/a&gt; for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.&lt;/p&gt;
+
+&lt;p&gt;So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 15 Mar 2014 15:35:12 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</guid>
+                        </item>
+                
+                        <item>
                                 <title>The Ukraine problem explained</title>
                                 <description>&lt;p&gt;The hottest global news recently has been about ouster of Ukraine president Viktor Yanukovych and the russian invasion of Ukraine. I&amp;rsquo;m generally indifferent towards international politics but it&amp;rsquo;s becoming pretty big of an issue such that even technology blogs that i follow started posting news about these messy squabbles. I spent about 2 hours reading up whatever i can find on this issue and i&amp;rsquo;ll try to explain it as clear as possible. So other political frog-in-a-well people (like me) can understand. Beware, what&amp;rsquo;s going on below is extremely complicated. I suggest you close this tab right now if you have something better to do.&lt;/p&gt;
 
@@ -315,66 +386,6 @@ Parallel lines are two lines going in the same direction, spaced equally apart. 
                                 <pubDate>Mon, 20 Jan 2014 21:28:09 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Bizad Charity Run 2014</title>
-                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/47CF7B85-FE8E-4A36-9E14-0CE43C88796C.jpg&quot; alt=&quot;Race bib&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So i&amp;rsquo;ve just completed my first race in 2014 of distance &lt;strong&gt;10KM&lt;/strong&gt;. I came in &lt;strong&gt;9th&lt;/strong&gt; position with a timing of &lt;strong&gt;40min12s&lt;/strong&gt;. I was expecting a better timing and position actually, but oh wells.. that leaves a lot of room for improvement! I&amp;rsquo;m gona share abit on how i trained for 10km races, hopefully this is helpful for you :)&lt;/p&gt;
-
-&lt;h2&gt;Preparation&lt;/h2&gt;
-
-&lt;p&gt;Having signed up for the race only about 1 month before D-Day, i have little time to prepare a comprehensive training schedule. Luckily i&amp;rsquo;ve been doing consistent base trainings so my fitness is not too bad to begin with. This is my &lt;a href=&quot;https://www.google.com/calendar/embed?src=jc3k7b210i05f3s7d9ldtkhdlg%40group.calendar.google.com&amp;amp;ctz=Asia/Singapore&quot;&gt;Google Calendar training schedule&lt;/a&gt; over the month leading up to the race.&lt;/p&gt;
-
-&lt;p&gt;Summarising my schedule:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;First session was a time trial which i got a timing of &lt;strong&gt;47min23s&lt;/strong&gt; with the exact race route.&lt;/li&gt;
-&lt;li&gt;Subsequent weekly trainings consists of 1 Speed interval day, 1 endurance interval day and 2 long run sessions.&lt;/li&gt;
-&lt;li&gt;Speed intervals consists of 6 &amp;ndash; 8 sets of 600m with 50% run:rest ratio.&lt;/li&gt;
-&lt;li&gt;Endurance intervals consists of 8 &amp;ndash; 10 sets of 1KM with 50% run:rest ratio.&lt;/li&gt;
-&lt;li&gt;The rest of the days were littered with recovery runs and i rest every saturday.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;I taper off by having a 8km recovery run 2 days before and a rest day on the day before. Strictly speaking, 10KM distances are too short to actually do tapering but since its my first 10KM in awhile, i wanted to better prepare myself.&lt;/p&gt;
-
-&lt;p&gt;On the day before the race, i ate small meals consisting of pasta, bananas and apples and drank about 4 litres of water in total. Carbo-loading to prepare for a race is pretty important not only for the physical benefits but also mentally, you can tell yourself &amp;lsquo;i&amp;rsquo;ve prepared well for it.&amp;rsquo; Sometimes, if i didn&amp;rsquo;t prepare well enough for a race, a small part of me will haunt me during the race saying &amp;lsquo;it&amp;rsquo;s ok. dont push so hard, you are not fully prepared&amp;hellip;&amp;rsquo; Screw it, get that out of the way.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt;Race Day&lt;/h2&gt;
-
-&lt;p&gt;Woke up at 6 and made my way to venue. The race starts at 8am though. I just wanted to be early so i can do race pack collection, warm-up, stretching and drills without time pressure. ( It&amp;rsquo;s important to stay relaxed on race day! )&lt;/p&gt;
-
-&lt;p&gt;There were a couple of kenyans joining the race as well and pretty much thrashed every singaporean/caucasian around. The actual route was pretty hilly and had many flights of unnecessary stairs. Seriously&amp;hellip;?&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Shoutout to race organziers: DONT PUT SUCH OBSTACLES IN A RACE, THIS IS NOT A VERTICAL MARATHON. BE MORE PROFESSIONAL&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;As we were the first pack of runners, we have to rely alot on the road marshallers to guide us the correct path but the marshallers seem even more lost than we are and lead us to many wrong turns. For competitive runners, every little mistake like this could make a difference between &lt;em&gt;Personal Best&lt;/em&gt; and &lt;em&gt;Normal Run&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;I was cruising at a pace between 4min/km to 4.30min/km for the race. I would say the first kilometer was a bit of screwed up. It was a 53m general elevation and yet i did a time of 3min50s. I definitely over-exerted myself there.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my split timings:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-11at10828pm.png&quot; alt=&quot;Splits&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt;Afterthoughts&lt;/h2&gt;
-
-&lt;p&gt;It&amp;rsquo;s a good start of the year with a base race timing to improve on and i&amp;rsquo;m pretty happy with the month of intensive training for the race. I&amp;rsquo;m hoping to do more progressive races throughout the year and gun for a &lt;strong&gt;Personal Best&lt;/strong&gt; for &lt;a href=&quot;http://www.marathonsingapore.com/&quot;&gt;Stan Chart Marathon&lt;/a&gt; at end of the year. Cheers to running!&lt;/p&gt;
-
-&lt;p&gt;Oh by the way, I&amp;rsquo;m personally a fan of nike inspirations so i use their &lt;a href=&quot;http://nikeplus.nike.com/plus/products/gps_app/&quot;&gt;Nike Running App&lt;/a&gt; to document my runs. If you use it too, add me at &lt;a href=&quot;http://nikeplus.nike.com/plus/profile/hguochen/&quot;&gt;hguochen&lt;/a&gt;.
-My new nike toy is a &lt;a href=&quot;http://nikeplus.nike.com/plus/products/sport_watch/&quot;&gt;Nike+ Sportswatch&lt;/a&gt;, used keep track of pace and distances. Its packed with a nifty GPS which maps your running route everytime and syncs with the running app afterwards.
-Here&amp;rsquo;s my love:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/14E541F7-C975-4949-B5B3-7799BAD72DA9.jpg&quot; alt=&quot;nike sportswatch&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;P/S: Special thanks to &lt;a href=&quot;https://www.facebook.com/audrey.lim.7777?ref=ts&amp;amp;fref=ts&quot;&gt;Audrey&lt;/a&gt; and &lt;a href=&quot;https://www.facebook.com/daniel.leong.2006?fref=ts&quot;&gt;Daniel&lt;/a&gt; for staying back with me on countless training days to do my painful intervals and running with me, you guys are awesome :)&lt;/p&gt;
-</description>
-                                <pubDate>Sat, 11 Jan 2014 13:06:08 +0000</pubDate>
-                                <link>http://blog.hguochen.com//run/2014/01/11/Bizad-Charity-Run-2014/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//run/2014/01/11/Bizad-Charity-Run-2014/</guid>
                         </item>
                 
         </channel>
