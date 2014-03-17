@@ -15,9 +15,12 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:url" property="og:url" content="http://blog.hguochen.com" />
+  <!-- Open Graph Data -->
+  <meta name="og:title" property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com/{{ page.url }}" />
   <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
-  <meta name="og:description" property="og:description" content="{% if page.title %}{{ page.title }} - {% endif %}" />
+  <meta name="og:description" property="og:description" content="{% if page.title %}{{ page.title }}{% endif %}" />
   <meta name="og:site_name"property="og:site_name" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
 
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
