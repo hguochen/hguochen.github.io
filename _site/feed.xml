@@ -7,674 +7,385 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
-                                <title>Bizad Charity Run 2014</title>
-                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/47CF7B85-FE8E-4A36-9E14-0CE43C88796C.jpg&quot; alt=&quot;Race bib&quot; /&gt;&lt;/p&gt;
+                                <title>How to learn Javascript</title>
+                                <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
 
-&lt;p&gt;So i&amp;rsquo;ve just completed my first race in 2014 of distance &lt;strong&gt;10KM&lt;/strong&gt;. I came in &lt;strong&gt;9th&lt;/strong&gt; position with a timing of &lt;strong&gt;40min12s&lt;/strong&gt;. I was expecting a better timing and position actually, but oh wells.. that leaves a lot of room for improvement! I&amp;rsquo;m gona share abit on how i trained for 10km races, hopefully this is helpful for you :)&lt;/p&gt;
+&lt;p&gt;Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.&lt;/p&gt;
 
-&lt;h2&gt;Preparation&lt;/h2&gt;
+&lt;h3&gt;0. Read up on fundamentals of Javascript&lt;/h3&gt;
 
-&lt;p&gt;Having signed up for the race only about 1 month before D-Day, i have little time to prepare a comprehensive training schedule. Luckily i&amp;rsquo;ve been doing consistent base trainings so my fitness is not too bad to begin with. This is my &lt;a href=&quot;https://www.google.com/calendar/embed?src=jc3k7b210i05f3s7d9ldtkhdlg%40group.calendar.google.com&amp;amp;ctz=Asia/Singapore&quot;&gt;Google Calendar training schedule&lt;/a&gt; over the month leading up to the race.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Javascript is the language of the browser.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;Summarising my schedule:&lt;/p&gt;
+&lt;p&gt;Javascript used to be a client-side programming language running client web scripts. It&amp;rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp;amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with &lt;a href=&quot;http://nodejs.org/%E2%80%8E&quot;&gt;Node.js&lt;/a&gt; being the new kid in town.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;First session was a time trial which i got a timing of &lt;strong&gt;47min23s&lt;/strong&gt; with the exact race route.&lt;/li&gt;
-&lt;li&gt;Subsequent weekly trainings consists of 1 Speed interval day, 1 endurance interval day and 2 long run sessions.&lt;/li&gt;
-&lt;li&gt;Speed intervals consists of 6 &amp;ndash; 8 sets of 600m with 50% run:rest ratio.&lt;/li&gt;
-&lt;li&gt;Endurance intervals consists of 8 &amp;ndash; 10 sets of 1KM with 50% run:rest ratio.&lt;/li&gt;
-&lt;li&gt;The rest of the days were littered with recovery runs and i rest every saturday.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://eloquentjavascript.net/index.html&quot;&gt;Eloquent Javascript&lt;/a&gt; by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &amp;ldquo;eloquent&amp;rdquo; isn&amp;rsquo;t an overstatement.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript&quot;&gt;A Re-introduction to JavaScript&lt;/a&gt;. This introduction is on the Mozilla Developers Network, and it&amp;rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.&lt;/p&gt;
+
+&lt;h3&gt;1. Go through the Javascript course at Codecademy.com&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.codecademy.com&quot;&gt;Codecademy&lt;/a&gt; revamped its courses to learning javascript and touted itself as &amp;ldquo;the easiest way to learn how to code&amp;rdquo;. There are currently two courses on JS: &amp;ldquo;Getting started with Programming&amp;rdquo; and &amp;ldquo;Javascript Quick Start Guide&amp;rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.&lt;/p&gt;
+
+&lt;p&gt;If you are already familiar with other programming languages, you can start with &amp;ldquo;Javascript Quick Start Guide&amp;rdquo;. If you are fresh to programming, &amp;ldquo;Getting started with programming&amp;rdquo; is tailored for you. Codecademy is free, but sign up is required.&lt;/p&gt;
+
+&lt;h3&gt;2. Screencast tutorials at TheNewBoston&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://thenewboston.org/list.php?cat=10&quot;&gt;The New Boston&lt;/a&gt; for javascript has an awesome set of screencast tutorials geared for beginners. It&amp;rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&amp;rsquo;s easier to follow than written scripts.&lt;/p&gt;
+
+&lt;h3&gt;3. Install and Learn Firebug(or Chrome Developer Tools)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://getfirebug.com/&quot;&gt;Firebug&lt;/a&gt; is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer &lt;a href=&quot;www.google.com/chrome/&quot;&gt;Google Chrome&lt;/a&gt; or &lt;a href=&quot;https://www.apple.com/sg/safari/%E2%80%8E&quot;&gt;Safari&lt;/a&gt;, check out the built-in developer tools.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Open developer tools panel by press &lt;code&gt;Option + Cmd +I&lt;/code&gt; on mac, or &lt;code&gt;Ctrl+Shift+I&lt;/code&gt; on the PC.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Check out some of the useful guides on using both of these tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firebug
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://css-tricks.com/video-screencasts/15-introduction-to-firebug/&quot;&gt;Introduction to Firebug&lt;/a&gt; on &lt;a href=&quot;http://css-tricks.com/&quot;&gt;CSS-Tricks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/&quot;&gt;10 Reasons Why You Should Be Using Firebug&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Developer Tools
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://code.google.com/chrome/devtools/&quot;&gt;Developer Tools Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=nOEw9iiopwI&amp;amp;feature=player_embedded&quot;&gt;Google Chrome Developer Tools: 12 Tricks to Develop Quicker&lt;/a&gt; by Paul Irish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 
 
-&lt;p&gt;I taper off by having a 8km recovery run 2 days before and a rest day on the day before. Strictly speaking, 10KM distances are too short to actually do tapering but since its my first 10KM in awhile, i wanted to better prepare myself.&lt;/p&gt;
+&lt;h3&gt;4. Begin Learning a JavaScript Library &amp;ndash; jQuery&lt;/h3&gt;
 
-&lt;p&gt;On the day before the race, i ate small meals consisting of pasta, bananas and apples and drank about 4 litres of water in total. Carbo-loading to prepare for a race is pretty important not only for the physical benefits but also mentally, you can tell yourself &amp;lsquo;i&amp;rsquo;ve prepared well for it.&amp;rsquo; Sometimes, if i didn&amp;rsquo;t prepare well enough for a race, a small part of me will haunt me during the race saying &amp;lsquo;it&amp;rsquo;s ok. dont push so hard, you are not fully prepared&amp;hellip;&amp;rsquo; Screw it, get that out of the way.&lt;/p&gt;
+&lt;p&gt;The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but &lt;a href=&quot;http://jquery.com/&quot;&gt;jQuery&lt;/a&gt; is probably the most popular and widely used library. For a start, read through the &lt;a href=&quot;http://learn.jquery.com/about-jquery/&quot;&gt;jQuery Documentations&lt;/a&gt; to get an idea of the ease of using javascript libraries as opposed to javascript raw language.&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h3&gt;5. Work through the tutorial at Try jQuery&lt;/h3&gt;
 
-&lt;h2&gt;Race Day&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://try.jquery.com/&quot;&gt;Try jQuery&lt;/a&gt; is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to &lt;a href=&quot;http://api.jquery.com&quot;&gt;jQuery API&lt;/a&gt; while going through the tutorial.&lt;/p&gt;
 
-&lt;p&gt;Woke up at 6 and made my way to venue. The race starts at 8am though. I just wanted to be early so i can do race pack collection, warm-up, stretching and drills without time pressure. ( It&amp;rsquo;s important to stay relaxed on race day! )&lt;/p&gt;
+&lt;h3&gt;6. Screencast jQuery tutorials at TheNewBoston&lt;/h3&gt;
 
-&lt;p&gt;There were a couple of kenyans joining the race as well and pretty much thrashed every singaporean/caucasian around. The actual route was pretty hilly and had many flights of unnecessary stairs. Seriously&amp;hellip;?&lt;/p&gt;
+&lt;p&gt;Again, &lt;a href=&quot;http://thenewboston.org/list.php?cat=32&quot;&gt;The New Boston&lt;/a&gt; for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Shoutout to race organziers: DONT PUT SUCH OBSTACLES IN A RACE, THIS IS NOT A VERTICAL MARATHON. BE MORE PROFESSIONAL&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;As we were the first pack of runners, we have to rely alot on the road marshallers to guide us the correct path but the marshallers seem even more lost than we are and lead us to many wrong turns. For competitive runners, every little mistake like this could make a difference between &lt;em&gt;Personal Best&lt;/em&gt; and &lt;em&gt;Normal Run&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;I was cruising at a pace between 4min/km to 4.30min/km for the race. I would say the first kilometer was a bit of screwed up. It was a 53m general elevation and yet i did a time of 3min50s. I definitely over-exerted myself there.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my split timings:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-11at10828pm.png&quot; alt=&quot;Splits&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt;Afterthoughts&lt;/h2&gt;
-
-&lt;p&gt;It&amp;rsquo;s a good start of the year with a base race timing to improve on and i&amp;rsquo;m pretty happy with the month of intensive training for the race. I&amp;rsquo;m hoping to do more progressive races throughout the year and gun for a &lt;strong&gt;Personal Best&lt;/strong&gt; for &lt;a href=&quot;http://www.marathonsingapore.com/&quot;&gt;Stan Chart Marathon&lt;/a&gt; at end of the year. Cheers to running!&lt;/p&gt;
-
-&lt;p&gt;Oh by the way, I&amp;rsquo;m personally a fan of nike inspirations so i use their &lt;a href=&quot;http://nikeplus.nike.com/plus/products/gps_app/&quot;&gt;Nike Running App&lt;/a&gt; to document my runs. If you use it too, add me at &lt;a href=&quot;http://nikeplus.nike.com/plus/profile/hguochen/&quot;&gt;hguochen&lt;/a&gt;.
-My new nike toy is a &lt;a href=&quot;http://nikeplus.nike.com/plus/products/sport_watch/&quot;&gt;Nike+ Sportswatch&lt;/a&gt;, used keep track of pace and distances. Its packed with a nifty GPS which maps your running route everytime and syncs with the running app afterwards.
-Here&amp;rsquo;s my love:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/14E541F7-C975-4949-B5B3-7799BAD72DA9.jpg&quot; alt=&quot;nike sportswatch&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;P/S: Special thanks to &lt;a href=&quot;https://www.facebook.com/audrey.lim.7777?ref=ts&amp;amp;fref=ts&quot;&gt;Audrey&lt;/a&gt; and &lt;a href=&quot;https://www.facebook.com/daniel.leong.2006?fref=ts&quot;&gt;Daniel&lt;/a&gt; for staying back with me on countless training days to do my painful intervals and running with me, you guys are awesome :)&lt;/p&gt;
+&lt;p&gt;So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!&lt;/p&gt;
 </description>
-                                <pubDate>Sat, 11 Jan 2014 13:06:08 +0000</pubDate>
-                                <link>http://blog.hguochen.com//run/2014/01/11/Bizad-Charity-Run-2014/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//run/2014/01/11/Bizad-Charity-Run-2014/</guid>
+                                <pubDate>Sat, 15 Mar 2014 15:35:12 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</guid>
                         </item>
                 
                         <item>
-                                <title>My jekyll workflow</title>
-                                <description>&lt;p&gt;I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using &lt;a href=&quot;https://github.com/hguochen/jekyll-rakefile&quot;&gt;Rakefile&lt;/a&gt; and standard terminal commands.&lt;/p&gt;
+                                <title>The Ukraine problem explained</title>
+                                <description>&lt;p&gt;The hottest global news recently has been about ouster of Ukraine president Viktor Yanukovych and the russian invasion of Ukraine. I&amp;rsquo;m generally indifferent towards international politics but it&amp;rsquo;s becoming pretty big of an issue such that even technology blogs that i follow started posting news about these messy squabbles. I spent about 2 hours reading up whatever i can find on this issue and i&amp;rsquo;ll try to explain it as clear as possible. So other political frog-in-a-well people (like me) can understand. Beware, what&amp;rsquo;s going on below is extremely complicated. I suggest you close this tab right now if you have something better to do.&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Jason Seifer has an awesome &lt;a href=&quot;http://jasonseifer.com/2010/04/06/rake-tutorial&quot;&gt;Rake Tutorial&lt;/a&gt; for developers new to Rake.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Still up for this shit? Here goes.&lt;/p&gt;
 
-&lt;h3&gt;My Github pages&lt;/h3&gt;
+&lt;h4&gt;How did Ukraine come about?&lt;/h4&gt;
 
-&lt;p&gt;I&amp;rsquo;ve set up &lt;a href=&quot;https://github.com/hguochen/hguochen.github.io&quot;&gt;my github pages&lt;/a&gt; to consist of two branches: source and master. The source branch consists of the entire project and as such tracks all changes. The master branch consists solely of the compiled site, which can be found in the _site subdirectory.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.lonelyplanet.com/maps/europe/ukraine/map_of_ukraine.jpg&quot; alt=&quot;ukraine map&quot; /&gt;&lt;/p&gt;
 
-&lt;h3&gt;My Local environment&lt;/h3&gt;
+&lt;p&gt;So this is Ukraine, the second largest country in europe by area and Crimea peninsula is that little almost-island like area below. During the crimean war, A.D 1853- A.D 1856, it was sort of the Catholics vs the Orthodox but in grandier scale it was the European powers vs Russia as the Ottoman empire decline. Eventually Russia was defeated and the war accumulated a death of 500,000. In a claim of territory for the victors, many european moved over to what is present day Ukraine and settled there, together with some of the indigenious russians. But trouble never ceased and somewhat contributed to the World War I 60 years later.&lt;/p&gt;
 
-&lt;p&gt;blog/&lt;/p&gt;
+&lt;p&gt;At the end of World War I, Russian revolution begun and gave birth to communism. The russians were too busy overthrowing their own government and had no time to bother its neighbours such as Ukraine. It was these brief period that Ukraine had some days of independence. Finally when Russia became USSR, under the soviet regime, they incited its neighbouring countries to embrace communism. So between 1917 &amp;ndash; 1921, another 1.5million people died around the russian neighbours and eventually led to Ukraine being a satellite country of the mighty USSR. Things became worse after that. When Joseph Stalin took over, the purging began and almost 10 million Ukrainians died between 1932 &amp;ndash; 1933. What&amp;rsquo;s worse, during World War II, Stalin deported the entire population of Crimea to central asia and moved Russians into Ukraine. Imagine a foreigner coming to your home and kicking you out? That&amp;rsquo;s what happened to Crimea. Nikita Khrushchev, stalin&amp;rsquo;s successor, then decided to transfer the Crimean Peninsula from Russia to Ukraine in 1954. Why? Because Crimean Peninsula is not geographically attached to Russia mainland. It will be easier to administer places where you are geographically connected.&lt;/p&gt;
 
-&lt;p&gt;|&amp;mdash;blog.hguochen.com/&lt;/p&gt;
+&lt;h4&gt;What are the Ukraine ethnic groups?&lt;/h4&gt;
 
-&lt;p&gt;|&amp;mdash;hguochen.github.io/&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nativelanguage2001ua.PNG/420px-Nativelanguage2001ua.PNG&quot; alt=&quot;language&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Main folder blog has 2 sub directories. blog.hguochen.com which holds jekyll generated site content. hguochen.github.io holds jekyll raw files such as &lt;em&gt;posts, &lt;/em&gt;layouts, _includes etc.&lt;/p&gt;
+&lt;p&gt;Today, 67% of people in Ukraine speaks Ukrainian as their first language. 30% speaks Russian, although only about 17% of them identify themselves as Russian. When USSR dissolved, many Russians from Crimea returned to their homes in Russian so as of today, only 12% of Russians are located in the Crimean Peninsula.&lt;/p&gt;
 
-&lt;h3&gt;My workflow&lt;/h3&gt;
+&lt;h4&gt;What kind of government did Ukraine had?&lt;/h4&gt;
 
-&lt;p&gt;Automate terminal commands by adding the following alias into .bashrc file:&lt;/p&gt;
+&lt;p&gt;In December 1991, after the Soviet Union broke up, Ukraine had a nation-wide referendum and 90% of its people, including people in Crimean Peninsula, voted for independence from Russia. But in effect, Ukraine had much closer ties with Russia than any other previous Soviet satellite countries.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;alias blogdir=&quot;cd /path/to/blog/hguochen.github.io&quot;
+&lt;p&gt;In 2004, there was a general election. The election was plagued with vote rigging and eventually the pro-Russian leader Viktor Yanukovych(the dude who got overthrown) was elected to become the president. His opponent, the opposition, Viktor Yushchenko led a series of massive protest on the injustice and rigged election. Eventually Viktor Yushchenko was disfigured, crucified and purged. In the following years, since Putin came to power in Russia, the number of assassinations and poisoning of political dissidents skyrocketed in Ukraine. Coincidence? Nope.&lt;/p&gt;
 
-alias build_blog=&quot;&quot;blogdir; jekyll build; sudo cp -r /path/to/blog/hguochen.github.io/_site/* /path/to/blog/blog.hguochen.com; cd /path/to/blog/blog.hguochen.com; git add --all; git commit -m &quot;Blogpost on [&quot;Date&quot;]&quot;; git push origin master;&quot;
+&lt;p&gt;Viktor Yanukovych had almost dictatorial power in Ukraine. But despite being an economist, he wasn&amp;rsquo;t particularly gifted in bringing the country&amp;rsquo;s economy to prosperity and people suffered under his rule. Furthermore, his friendliness towards the western european countries angered Russia whom cut off gas supplies briefly in 2006 and led to few national disasters in Ukraine.&lt;/p&gt;
 
-alias bb=&quot;build_blog&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In 2010 election, Viktor Yanukovych was elected president.&lt;/p&gt;
 
-&lt;p&gt;Move to jekyll raw files folder:&lt;/p&gt;
+&lt;h4&gt;Ok enought history lesson. What is the latest Ukraine issue about?&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;$ blogdir
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In November 2013, Viktor Yanukovych denounced an agreement to strengthen ties with the European Union and become a closer ally with Russia. This single event sparked the massive protest in the nation, starting from The Independence Square. The protests lasted several months and dozens of protesters were killed by military police and government troops. On 1st March 2014, Viktor Yanukovych fled from his house in Kiev. The protesters had won. Following on, the people called for new elections. Putin was not happy with this outcome. He ostensibly pushed his troops into the Crimean Peninsula in the name of protecting the ethnic Russians in the region. This violated the territory integrity of Ukraine and Ukraine kicked up a big freaking deal.&lt;/p&gt;
 
-&lt;p&gt;Create new post with Rake:&lt;/p&gt;
+&lt;p&gt;At this moment, Crimea is already an autonomous province. It had rights to govern itself without much interference from Ukraine. Although it&amp;rsquo;s electricity and water still comes from Ukraine. So what does Crimea want? Independence? Unification with Russia? Well, Crimea doesn&amp;rsquo;t know what she wants herself. And that&amp;rsquo;s why there has been so much fuss on the international stage.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ rake post[&quot;Title&quot;]
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ukraine has a law that Ukraine is only to be governed by Ukrainians. Sounds legit right? But the problem is, many people in the country still speak russian instead of Ukrainian. Furthermore, the new government wants to be a part of European Union which might mean that it will bring in North Atlantic Treat Organization(NATO) military defences into Ukraine. This is a huge deal for Russia as it means now we have missles deployed right at its doorstep. That is unacceptable to Russia.&lt;/p&gt;
 
-&lt;p&gt;Previous command automatically fires up the default text editor for the file just created. In this case, i&amp;rsquo;m using &lt;a href=&quot;http://mouapp.com&quot;&gt;Mou&lt;/a&gt; for .markdown file extensions.&lt;/p&gt;
+&lt;p&gt;But in the viewpoint of western countries, Ukrain had a tyrannical leader who ordered the murder of peaceful protestors and was chased away from power and replaced with a government that will transition Ukraine to a free and fair election. Russia responded to that by invading Ukraine.&lt;/p&gt;
 
-&lt;p&gt;Once i&amp;rsquo;m done with my blog, i&amp;rsquo;m ready to build and publish my blog by pushing into github pages repository, with a simple alias we made earlier:&lt;/p&gt;
+&lt;p&gt;I would attribute much of the present day tension between east and west to the differences in these viewpoints. Russia took a pre-emptive measure to secure its borders from unfriendly states while the western countries worried for a resurgence of Soviet Union and trampling of a democratic state.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ bb
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What&amp;rsquo;s ironical is that the word &amp;lsquo;Ukraine&amp;rsquo; means border-land and it has been the border between eastern and western countries for decades. Much of what we are seeing now is just another re-enactment of previous clashes.&lt;/p&gt;
 
-&lt;p&gt;That&amp;rsquo;s it! So this is my 3 step process to publishing my blog, powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Special thanks to &lt;a href=&quot;https://twitter.com/leetucksing&quot;&gt;@leetucksing&lt;/a&gt; for introducing me this awesome blogging tool!&lt;/p&gt;
-
-&lt;p&gt;By the way, &lt;a href=&quot;https://twitter.com/athanhcong&quot;&gt;@athanhcong&lt;/a&gt; made an amazing app &lt;a href=&quot;http://blogwith.co/&quot;&gt;BlogWith&lt;/a&gt; which connects evernote to jekyll powered blogs and allows you to edit blogs directly on &lt;a href=&quot;http://evernote.com&quot;&gt;Evernote&lt;/a&gt;. Gona try how it works with jekyll later :)&lt;/p&gt;
+&lt;p&gt;So that&amp;rsquo;s about it. Do you have a good solution to this? I don&amp;rsquo;t. I&amp;rsquo;m just a programmer who writes &amp;lsquo;hello world&amp;rsquo; and wishes for world peace.&lt;/p&gt;
 </description>
-                                <pubDate>Wed, 08 Jan 2014 16:48:29 +0000</pubDate>
-                                <link>http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//development/2014/01/08/My-jekyll-workflow/</guid>
+                                <pubDate>Sun, 09 Mar 2014 23:03:29 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</guid>
                         </item>
                 
                         <item>
-                                <title>Markdown language syntax</title>
-                                <description>&lt;h1&gt;Mou&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mouapp.com/Mou_128.png&quot; alt=&quot;Mou icon&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Overview&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Mou&lt;/strong&gt;, the missing Markdown editor for &lt;em&gt;web developers&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Syntax&lt;/h3&gt;
-
-&lt;h4&gt;Strong and Emphasize&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;strong&lt;/strong&gt; or &lt;strong&gt;strong&lt;/strong&gt; ( Cmd + B )&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;emphasize&lt;/em&gt; or &lt;em&gt;emphasize&lt;/em&gt; ( Cmd + I )&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sometimes I want a lot of text to be bold.
-Like, seriously, a &lt;em&gt;LOT&lt;/em&gt; of text&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4&gt;Blockquotes&lt;/h4&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Right angle brackets &amp;gt; are used for block quotes.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h4&gt;Links and Email&lt;/h4&gt;
-
-&lt;p&gt;An email &lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#x6c;&amp;#116;&amp;#111;&amp;#x3a;&amp;#x65;&amp;#120;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#x6c;&amp;#101;&amp;#x40;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&quot;&gt;&amp;#101;&amp;#x78;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#x65;&amp;#x40;&amp;#101;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt; link.&lt;/p&gt;
-
-&lt;p&gt;Simple inline link &lt;a href=&quot;http://chenluois.com&quot;&gt;http://chenluois.com&lt;/a&gt;, another inline link &lt;a href=&quot;http://smallerapp.com&quot;&gt;Smaller&lt;/a&gt;, one more inline link with title &lt;a href=&quot;http://resizesafari.com&quot; title=&quot;a Safari extension&quot;&gt;Resize&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;A &lt;a href=&quot;http://mouapp.com&quot; title=&quot;Markdown editor on Mac OS X&quot;&gt;reference style&lt;/a&gt; link. Input id, then anywhere in the doc, define the link with corresponding id:&lt;/p&gt;
-
-&lt;p&gt;Titles ( or called tool tips ) in the links are optional.&lt;/p&gt;
-
-&lt;h4&gt;Images&lt;/h4&gt;
-
-&lt;p&gt;An inline image &lt;img src=&quot;http://smallerapp.com/favicon.ico&quot; title=&quot;Title here&quot; alt=&quot;Smaller icon&quot; /&gt;, title is optional.&lt;/p&gt;
-
-&lt;p&gt;A &lt;img src=&quot;http://resizesafari.com/favicon.ico&quot; title=&quot;Title&quot; alt=&quot;Resize icon&quot; /&gt; reference style image.&lt;/p&gt;
-
-&lt;h4&gt;Inline code and Block code&lt;/h4&gt;
-
-&lt;p&gt;Inline code are surround by &lt;code&gt;backtick&lt;/code&gt; key. To create a block code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Indent each line by at least 1 tab, or 4 spaces.
-var Mou = exactlyTheAppIwant; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4&gt;Ordered Lists&lt;/h4&gt;
-
-&lt;p&gt;Ordered lists are created using &amp;ldquo;1.&amp;rdquo; + Space:&lt;/p&gt;
+                                <title>Lesson 9 The Rose</title>
+                                <description>&lt;p&gt;We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
-&lt;li&gt;Ordered list item&lt;/li&gt;
+&lt;li&gt;Draw two guide dota horizontally across from each other.&lt;/li&gt;
+&lt;li&gt;Connect the dots with a foreshortened circle.&lt;/li&gt;
+&lt;li&gt;Draw the body of the bowl.&lt;/li&gt;
+&lt;li&gt;Using a guide line in direction SW, position the light source in the top right. Shade the bowl with blended shading from drak to light, creating a smooth blended surface.&lt;/li&gt;
+&lt;li&gt;Before drawing the rose, let&amp;rsquo;s try drawing the &amp;ldquo;peeking&amp;rdquo; line. This tiny detail of a small overlapping line that defines a fold or a wrinkle will have a huge visual effect in enabling you to make the rose petals appear to be curling around the bud in three dimensions.
+5a. Draw a vertical flagpole.
+5b. Draw two guide dots.
+5c. Draw three-quarters of a foreshortened circle.
+5d. Draw the vertical thickness of the flag.
+5e. Curve the near bottom edge of the flag a bit more than the line above it. The bottom of the flag is a bit farther from your eye, so you need to distort it, curve it more than the top edge.
+5f. Draw the &amp;ldquo;peeking&amp;rdquo; line, the most important line in this exercise. This teeny tiny dash will make or break the drawing and holds an enormous amount of visual power.&lt;/li&gt;
 &lt;/ol&gt;
 
 
-&lt;h4&gt;Unordered Lists&lt;/h4&gt;
+&lt;p&gt;Let&amp;rsquo;s finally get to drawing a rose.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Draw a foreshortened bowl, and add a stem.&lt;/li&gt;
+&lt;li&gt;Draw a guide dot in the middle of the rose bowl.&lt;/li&gt;
+&lt;li&gt;Begin to spiral out the rose petal with three-quarters of a foreshortened circle.&lt;/li&gt;
+&lt;li&gt;Keep spiraling, and keep these spiraled foreshortened circles squished. It&amp;rsquo;s the distorted shape that will form the 3 dimensional rosebud.&lt;/li&gt;
+&lt;li&gt;Complete the spiral at the center of the petal. Erase the extra line.&lt;/li&gt;
+&lt;li&gt;Draw the center thickness of the rose petal and the first peeking thickness line.&lt;/li&gt;
+&lt;li&gt;Draw the next outer peeking line.&lt;/li&gt;
+&lt;li&gt;Draw the remaining thickness line. There it is, depth focused on our beautiful rose.&lt;/li&gt;
+&lt;li&gt;Draw the very dark, very small, nook and cranny shadows. Notice i even darkened a shadow along the edge of the rose petal.&lt;/li&gt;
+&lt;li&gt;Place the light source in the top right, and blend the shadin on each of the curved surfaces opposite. Draw a few thorns on the stem, and draw the leaves.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Here is my work!
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/81630E2C-81A0-4EC6-9376-50AF1E655568.jpg&quot; alt=&quot;lesson9-1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9BD6F67E-D8D1-47A8-A47A-A85D4FBD472F.jpg&quot; alt=&quot;lesson9-2&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Fri, 07 Mar 2014 19:00:28 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 8 Cool Koalas</title>
+                                <description>&lt;p&gt;Let&amp;rsquo;s take a break from boxes and structures and draw a koala bear.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Lightly sketch three circles in a row.&lt;/li&gt;
+&lt;li&gt;On the first circle, use curving dashes to create a &amp;ldquo;soft fur texture along the outside edge&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Continuing to work on the first circle, use more curving dashes to fill in the left side of the circle, creating the illusion of shading with texture. You can use texture to shade an object.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s take this one step further. On the second circle, draw sharp lines around the outside, creating the feel of sharp spikes.&lt;/li&gt;
+&lt;li&gt;Place the light source in the top right corner of your page, and add a few more rows of spikes to the left side of the shape.&lt;/li&gt;
+&lt;li&gt;Draw scribbles around the third circle. Keep scribbling more circling lines around and around the shape to create a messy-looking ball of dryer lint. Continue to explore this idea of texture as a tool for shading.&lt;/li&gt;
+&lt;li&gt;Now its time to start drawing the Koala. Begin with a light circle.&lt;/li&gt;
+&lt;li&gt;Lightly sketch in the ears.&lt;/li&gt;
+&lt;li&gt;Lightly slope down the shoulders&lt;/li&gt;
+&lt;li&gt;When you draw the &amp;ldquo;tapered nose, be sure to leave a small white area&amp;rdquo;. This create the illusion of a light reflection off the shiny nose. You will do this same thing when drawing other animals, cats dogs etc.&lt;/li&gt;
+&lt;li&gt;Draw the koala&amp;rsquo;s eyes, transferring the idea of reflection by leaving a small white spot in each pupil.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s take closer look at the ear. This is what is known in the art world as doing a study of a small portion of a picture.&lt;/li&gt;
+&lt;li&gt;Draw the overlapped line of the &amp;ldquo;concha&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Draw the bump at the bottom of the aer. This is the &amp;ldquo;tragus&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Now Repeat this ear structure on the right ear.&lt;/li&gt;
+&lt;li&gt;Look back at the furry ball you drew at the beginning of this season. Notice how you created the soft feel of fur as ompared to the sharp feel of the spike ball. Draw the soft, furry texture around the outline of the koala.&lt;/li&gt;
+&lt;li&gt;Use more furry texture to shade the koala&amp;rsquo;s head, ears, and body. Emphasize the undershadow under his chin and in his ear under the top helix line.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Here&amp;rsquo;s how my final drawing looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/0AB47825-2D43-42C9-978A-5D92445FCD41.jpg&quot; alt=&quot;lesson8&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 03 Mar 2014 19:59:12 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 7 Advanced Level Cubes</title>
+                                <description>&lt;p&gt;In this lesson we are going to draw three-dimensional cubes. We are also going to build on it by drawing advanced shapes.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Use guide dots to draw a foreshortened square.&lt;/li&gt;
+&lt;li&gt;Lightly draw the sides down, and draw the middle line longer.&lt;/li&gt;
+&lt;li&gt;Then draw the bottom of the cube using the lines you have already drawn as a reference. Go ahead and extend all of your direction NW and NE lines out as a guide.&lt;/li&gt;
+&lt;li&gt;Draw the guide dot just below the near corner. This guide dot determines the angle of your foreshortened second layer. If your guide dot is placed low, it will distort the layer and throw the entire building out of alignment.&lt;/li&gt;
+&lt;li&gt;Using lines drawn as a reference, draw the near edges of the second tier in NE and NW.&lt;/li&gt;
+&lt;li&gt;Look at your NE angle at the top foreshortened square of your box. Now, take your pencil and trace over those direction lines lightly to embed the angle of the line into your hand memory. Repeat the same technique to draw the NW line on the other side to create the top of the second layer of the building.&lt;/li&gt;
+&lt;li&gt;Complete the second layer of the building. Double check your bottom lines against drawing compass direction arrows NW and NE.&lt;/li&gt;
+&lt;li&gt;Begin drawing the doors on the top level with two vetical lines on each side. To make sure your lines are actually vertical, straight up and down, look at the edge of your paper.&lt;/li&gt;
+&lt;li&gt;Curve the tops of both doorways on the top floor of the building.&lt;/li&gt;
+&lt;li&gt;To create the illusion that these doors actually exist as 3 dimensional entrances to this building, we need to add thickness to them. If the door is on the right, the thickness is on the right. If door is on the left, the thickness is on the left.&lt;/li&gt;
+&lt;li&gt;Complete the door by following the line of the exterior door as it curves up.&lt;/li&gt;
+&lt;li&gt;Look at the door on the left side. Using the drawing compass direction NE lines you drew earlier as reference, draw the thickness on the left-side door on the left side of the entrance.&lt;/li&gt;
+&lt;li&gt;Erase your side lines at the bottom of each door. With a well placed line in drawing directions NW and NE, you can easily create the visual illusion that there is a hallway or a room inside each doorway.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s create ramp on the left side first. Draw the vertical back edge of the ramp against the wall, and extend the bottom edge of the ramp out in drawing compass direction SW.&lt;/li&gt;
+&lt;li&gt;Draw the thickness of the ramp with two lines in direction NW, matching the angles with the linesyou drew earlier in direction NW.&lt;/li&gt;
+&lt;li&gt;Complete the far edge of the ramp by matching the angle of the front edge.&lt;/li&gt;
+&lt;li&gt;Erase guide lines behind the ramp. Using the lines you already drew in direction NE as reference, draw the ramp on the right side.&lt;/li&gt;
+&lt;li&gt;Complete your two-layered foreshortened ramp building by drawing the horizon line above the building, positioning your light source, and shading all the surfaces opposite your light position. Using your reference lines to angle the cast shadow correctly direction SW is really simple when you are drawing buildings; just extend the bottom lines. We are done!&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Here&amp;rsquo;s how my piece looks like:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6C580A37-C2F4-4F72-B97D-CB89CABA6BBC.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 03 Mar 2014 19:35:37 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lesson 6 Stacking Tables</title>
+                                <description>&lt;p&gt;I will be drawing stacking tables with proper lighting conditions in this lesson. This lesson will gel all of the concepts and laws learnt so far.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Begin with a foreshortened square.&lt;/li&gt;
+&lt;li&gt;Draw two short edges to create the top of the table.&lt;/li&gt;
+&lt;li&gt;Draw the middle line longer, according to the foreshortened square concept.&lt;/li&gt;
+&lt;li&gt;Using the lines you have already drawn as areference, draw bottom of the table top in direction of Northeast and Northwest.&lt;/li&gt;
+&lt;li&gt;Draw middle line longer to create the near edge of the table post.&lt;/li&gt;
+&lt;li&gt;Draw the sides of the table post. Each side line is drawn halfway from the far edge to the middle line.&lt;/li&gt;
+&lt;li&gt;Using lines drawn as reference, draw the bottom of the table post in direction NW and NE.&lt;/li&gt;
+&lt;li&gt;Draw horizon line just above the table. and position light source aboce and to the right. The horizon line tells our eye that the object is below the horizon line, which communicates to our brain that the thickness, shadows, and foreshorteneing are from this perspective.&lt;/li&gt;
+&lt;li&gt;Place a guide dot directly below the near corner of the table post. If you don&amp;rsquo;t use the guide dot on every stacked table, your drawing may get progressively more skewed and impossibly distorted.&lt;/li&gt;
+&lt;li&gt;Using lines already drawn as a reference, draw the front edge of the pedestal in directions NW and NE.&lt;/li&gt;
+&lt;li&gt;Now draw the back edges of the opt of the pedestal, be sure to go behind the corner of the post.&lt;/li&gt;
+&lt;li&gt;Complete the pedestal, makjing sure to draw the near corner lower. As always, use the lines you have already drawn as reference angles for drawing the bottom lines of the pedestal in directions NW and NE.&lt;/li&gt;
+&lt;li&gt;Finally, add the cast shadow opposite your positioned light source, shade the table and pedestal and add the dark undershadows of both sides of the post.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Unordered list are created using &amp;ldquo;*&amp;rdquo; + Space:&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;So here&amp;rsquo;s how my final drawing looks:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/AFA53C8F-34F6-4A7D-8C20-6DD868130467.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 26 Feb 2014 21:34:18 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Don&#39;t distinguish between work and life</title>
+                                <description>&lt;p&gt;&lt;img src=&quot;http://www.jamieleighto.com/wp-content/uploads/2012/07/Love-Your-Work.jpg&quot; alt=&quot;work&quot; /&gt;
+Work is your life because work is your passion. If your work isn&amp;rsquo;t your passion, only a means of getting to your passion, then take it as a necessity and look it in as positive a light as possible. Your work doesn’t suck because it is getting you to where you want to be. It’s necessary and unavoidable if you want to get to where you want to be, for the life you wish to lead.&lt;/p&gt;
 
+&lt;p&gt;Don’t distinguish between work and life. It is one in the same and the sooner you accept that, the sooner you can release all that negativity you feel every time you think about all the work that needs to be done.&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 25 Feb 2014 11:33:09 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Ignorance of MLM marketeers</title>
+                                <description>&lt;p&gt;I&amp;rsquo;m totally against Multi-Level-Marketing(MLM) or any form of &lt;a href=&quot;http://en.wikipedia.org/wiki/Ponzi_scheme&quot;&gt;Ponzi schemes&lt;/a&gt; because it&amp;rsquo;s a questionable business model that does not offer any real values to the society Here&amp;rsquo;s my &lt;a href=&quot;https://www.facebook.com/notes/guochen-hou/mlm-thanks-but-no-thanks/460181587333803&quot;&gt;reasons&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Or using &amp;ldquo;&amp;ndash;&amp;rdquo; + Space:&lt;/p&gt;
+&lt;p&gt;On top of which, most MLM marketeers are just pure ignorant about the product they are trying to promote. Let&amp;rsquo;s be honest here, they are not really interested in &amp;lsquo;growing&amp;rsquo; you, they are just interested in entry fee you paid up upon joining the organization. More suckers like you joining as their downlinks means more loyalty fees into their pocket.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;li&gt;Unordered list item&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;What&amp;rsquo;s more of a joke is that most of these marketeers who approaches you doesn&amp;rsquo;t have the slightest idea about their product or the industry they are in.&lt;/p&gt;
 
+&lt;p&gt;Every month or so i&amp;rsquo;ll receive at least 1 of such invites to MLM. AND THEY JUST DONT DIE OFF! So last week i received this message on linkedin:&lt;/p&gt;
 
-&lt;h4&gt;Hard Linebreak&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30123pm.png&quot; alt=&quot;message1&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;End a line with two or more spaces will create a hard linebreak, called &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; in HTML. ( Control + Return )&lt;br/&gt;
-Above line ended with 2 spaces.&lt;/p&gt;
+&lt;p&gt;&amp;lsquo;Income diversification&amp;rsquo; is like an instant red flag to me. But being polite, i replied:&lt;/p&gt;
 
-&lt;h4&gt;Horizontal Rules&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30929pm.png&quot; alt=&quot;message2&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Three or more asterisks or dashes:&lt;/p&gt;
+&lt;p&gt;Soon afterwards it start to sound more fishy in her reply:&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31133pm.png&quot; alt=&quot;message3&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;Ok seriously??? you are running an e-commerce business and your website is only accessible to a selected few??? It&amp;rsquo;s like saying,&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;blockquote&gt;&lt;p&gt;i&amp;rsquo;m opening a restaurant that only serves my friends and family.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;h4&gt;Headers&lt;/h4&gt;
+&lt;p&gt;Great work so far Amirah. I decided to serve her own medicine back to her.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31714pm.png&quot; alt=&quot;message4&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Setext-style:&lt;/p&gt;
+&lt;p&gt;At this point, the last that she can do to save her sinking ship is to send me some PDFS, DOCS, WEBSITES depicting her business to get me interested. But it seems she doesn&amp;rsquo;t have any to begin with. Alas, this short and apparently-less-friendly message without signoffs came back:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at32155pm.png&quot; alt=&quot;message5&quot; /&gt;&lt;/p&gt;
 
-&lt;h1&gt;This is H1&lt;/h1&gt;
+&lt;p&gt;OKAY. BITCHING TIME. My dear Amirah, it seems you don&amp;rsquo;t even understand the difference between &amp;lsquo;a wholesale/retail distribution channel&amp;rsquo; and &amp;lsquo;e-commerce distribution business&amp;rsquo;. A wholesale/retail distribution channel via internet is like &lt;a href=&quot;www.ebay.com.sg&quot;&gt;eBay&lt;/a&gt; or &lt;a href=&quot;www.amazon.com&quot;&gt;Amazon&lt;/a&gt; where you provide a medium for e-commerce business to operate and transact. An e-commerce business is where you USE this medium to perform ecommerce activities. Building an ebay shopfront to sell your products within ebay is totally different from building ebay.com itself. I can&amp;rsquo;t appreciate how you want to hire me to work for you, or as your down-link in your organization, when you can&amp;rsquo;t even figure out this simple difference about the industry you are supposedly to be an expert in. Preaching about a questionable business model is already being frowned upon. The worst you can do is to demonstrate that you know nothing about the industry you are in. Please Amirah, stop this madness.&lt;/p&gt;
+</description>
+                                <pubDate>Sun, 16 Feb 2014 14:18:11 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Lion city&#39;s message</title>
+                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/singapore.jpg&quot; alt=&quot;singapore&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;This is H2&lt;/h2&gt;
+&lt;blockquote&gt;&lt;p&gt;Great cities attract ambitious people. You can sense it when you walk around one. In a hundred subtle ways, the city sends you a message: you could do more; you should try harder.&lt;/p&gt;
 
-&lt;p&gt;atx-style:&lt;/p&gt;
+&lt;p&gt;The surprising thing is how different these messages can be. New York tells you, above all: you should make more money. There are other messages too, of course. You should be hipper. You should be better looking. But the clearest message is that you should be richer.&lt;/p&gt;
 
-&lt;h1&gt;This is H1&lt;/h1&gt;
+&lt;p&gt;What I like about Boston (or rather Cambridge) is that the message there is: you should be smarter. You really should get around to reading all those books you&amp;rsquo;ve been meaning to.&lt;/p&gt;
 
-&lt;h2&gt;This is H2&lt;/h2&gt;
+&lt;p&gt;When you ask what message a city sends, you sometimes get surprising answers. As much as they respect brains in Silicon Valley, the message the Valley sends is: you should be more powerful.&lt;/p&gt;
 
-&lt;h3&gt;This is H3&lt;/h3&gt;
+&lt;p&gt;That&amp;rsquo;s not quite the same message New York sends. Power matters in New York too of course, but New York is pretty impressed by a billion dollars even if you merely inherited it. In Silicon Valley no one would care except a few real estate agents. What matters in Silicon Valley is how much effect you have on the world. The reason people there care about Larry and Sergey is not their wealth but the fact that they control Google, which affects practically everyone.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;h4&gt;This is H4&lt;/h4&gt;
+&lt;p&gt;&amp;mdash; Paul Graham&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;h5&gt;This is H5&lt;/h5&gt;
+&lt;p&gt;Paul Graham once wrote this article on different messages that a city sends you when you are in it. I like the article alot.
+In my words, the message is the city&amp;rsquo;s attitude.&lt;/p&gt;
 
-&lt;h6&gt;This is H6&lt;/h6&gt;
+&lt;p&gt;What message does Singapore, the flower city of asia, send?&lt;/p&gt;
 
-&lt;h3&gt;Extra Syntax&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Follow the rules; Live a secure life.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4&gt;Footnotes&lt;/h4&gt;
+&lt;p&gt;People living in singapore are good citizens, almost too good for their own good. They follow rules to the letter and abide by government policies rain or shine. Flouting the law is seen as blasphemous and challenging authority in itself almost seemed a criminal activity. You know you are safe as long as you stay within social boundaries.&lt;/p&gt;
 
-&lt;p&gt;Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:&lt;/p&gt;
+&lt;p&gt;The city tells you to prepare for the unexpected. What if you lost your job tomorrow? What if you couldn&amp;rsquo;t pay your house mortgages anymore? What if your children couldn&amp;rsquo;t perform academically?&lt;/p&gt;
 
-&lt;p&gt;That&amp;rsquo;s some text with a footnote.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Perhaps it is this constant vibe that the city is giving out, people no longer dare to challenge themselves, the status quo or the rules but default to security. Failure as a result of a challenge is too much to handle, too much of a loss to bear and too shameful to be seen. Oh wait, arn&amp;rsquo;t those the exact sentiments for life&amp;rsquo;s mediocrity?&lt;/p&gt;
 
-&lt;h4&gt;Strikethrough&lt;/h4&gt;
-
-&lt;p&gt;Wrap with 2 tilde characters:&lt;/p&gt;
-
-&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
-
-&lt;h4&gt;Fenced Code Blocks&lt;/h4&gt;
-
-&lt;p&gt;Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-Fenced code blocks are like Stardard Markdown’s regular code
-blocks, except that they’re not indented and instead rely on
-a start and end fence lines to delimit the code block.
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4&gt;Tables&lt;/h4&gt;
-
-&lt;p&gt;A simple table looks like this:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;First Header &lt;/th&gt;
-&lt;th&gt; Second Header &lt;/th&gt;
-&lt;th&gt; Third Header&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;If you wish, you can add a leading and tailing pipe to each line of the table:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt; First Header &lt;/th&gt;
-&lt;th&gt; Second Header &lt;/th&gt;
-&lt;th&gt; Third Header &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt; Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell |&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt; Content Cell &lt;/td&gt;
-&lt;td&gt; Content Cell  &lt;/td&gt;
-&lt;td&gt; Content Cell |&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;Specify alignement for each column by adding colons to separator lines:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;First Header &lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt; Second Header &lt;/th&gt;
-&lt;th align=&quot;right&quot;&gt; Third Header&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Left         &lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt; Center        &lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt; Right&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h3&gt;Shortcuts&lt;/h3&gt;
-
-&lt;h4&gt;View&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Toggle live preview: Shift + Cmd + I&lt;/li&gt;
-&lt;li&gt;Toggle Words Counter: Shift + Cmd + W&lt;/li&gt;
-&lt;li&gt;Toggle Transparent: Shift + Cmd + T&lt;/li&gt;
-&lt;li&gt;Toggle Floating: Shift + Cmd + F&lt;/li&gt;
-&lt;li&gt;Left/Right = 1/1: Cmd + 0&lt;/li&gt;
-&lt;li&gt;Left/Right = 3/1: Cmd + +&lt;/li&gt;
-&lt;li&gt;Left/Right = 1/3: Cmd + &amp;ndash;&lt;/li&gt;
-&lt;li&gt;Toggle Writing orientation: Cmd + L&lt;/li&gt;
-&lt;li&gt;Toggle fullscreen: Control + Cmd + F&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Actions&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Copy HTML: Option + Cmd + C&lt;/li&gt;
-&lt;li&gt;Strong: Select text, Cmd + B&lt;/li&gt;
-&lt;li&gt;Emphasize: Select text, Cmd + I&lt;/li&gt;
-&lt;li&gt;Inline Code: Select text, Cmd + K&lt;/li&gt;
-&lt;li&gt;Strikethrough: Select text, Cmd + U&lt;/li&gt;
-&lt;li&gt;Link: Select text, Control + Shift + L&lt;/li&gt;
-&lt;li&gt;Image: Select text, Control + Shift + I&lt;/li&gt;
-&lt;li&gt;Select Word: Control + Option + W&lt;/li&gt;
-&lt;li&gt;Select Line: Shift + Cmd + L&lt;/li&gt;
-&lt;li&gt;Select All: Cmd + A&lt;/li&gt;
-&lt;li&gt;Deselect All: Cmd + D&lt;/li&gt;
-&lt;li&gt;Convert to Uppercase: Select text, Control + U&lt;/li&gt;
-&lt;li&gt;Convert to Lowercase: Select text, Control + Shift + U&lt;/li&gt;
-&lt;li&gt;Convert to Titlecase: Select text, Control + Option + U&lt;/li&gt;
-&lt;li&gt;Convert to List: Select lines, Control + L&lt;/li&gt;
-&lt;li&gt;Convert to Blockquote: Select lines, Control + Q&lt;/li&gt;
-&lt;li&gt;Convert to H1: Cmd + 1&lt;/li&gt;
-&lt;li&gt;Convert to H2: Cmd + 2&lt;/li&gt;
-&lt;li&gt;Convert to H3: Cmd + 3&lt;/li&gt;
-&lt;li&gt;Convert to H4: Cmd + 4&lt;/li&gt;
-&lt;li&gt;Convert to H5: Cmd + 5&lt;/li&gt;
-&lt;li&gt;Convert to H6: Cmd + 6&lt;/li&gt;
-&lt;li&gt;Convert Spaces to Tabs: Control + [&lt;/li&gt;
-&lt;li&gt;Convert Tabs to Spaces: Control + ]&lt;/li&gt;
-&lt;li&gt;Insert Current Date: Control + Shift + 1&lt;/li&gt;
-&lt;li&gt;Insert Current Time: Control + Shift + 2&lt;/li&gt;
-&lt;li&gt;Insert entity &amp;lt;: Control + Shift + ,&lt;/li&gt;
-&lt;li&gt;Insert entity &gt;: Control + Shift + .&lt;/li&gt;
-&lt;li&gt;Insert entity &amp;amp;: Control + Shift + 7&lt;/li&gt;
-&lt;li&gt;Insert entity Space: Control + Shift + Space&lt;/li&gt;
-&lt;li&gt;Insert Scriptogr.am Header: Control + Shift + G&lt;/li&gt;
-&lt;li&gt;Shift Line Left: Select lines, Cmd + [&lt;/li&gt;
-&lt;li&gt;Shift Line Right: Select lines, Cmd + ]&lt;/li&gt;
-&lt;li&gt;New Line: Cmd + Return&lt;/li&gt;
-&lt;li&gt;Comment: Cmd + /&lt;/li&gt;
-&lt;li&gt;Hard Linebreak: Control + Return&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Edit&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Auto complete current word: Esc&lt;/li&gt;
-&lt;li&gt;Find: Cmd + F&lt;/li&gt;
-&lt;li&gt;Close find bar: Esc&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Post&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Post on Scriptogr.am: Control + Shift + S&lt;/li&gt;
-&lt;li&gt;Post on Tumblr: Control + Shift + T&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4&gt;Export&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Export HTML: Option + Cmd + E&lt;/li&gt;
-&lt;li&gt;Export PDF:  Option + Cmd + P&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;And more?&lt;/h3&gt;
-
-&lt;p&gt;Don&amp;rsquo;t forget to check Preferences, lots of useful options are there.&lt;/p&gt;
-
-&lt;p&gt;Follow &lt;a href=&quot;http://twitter.com/chenluois&quot;&gt;@chenluois&lt;/a&gt; on Twitter for the latest news.&lt;/p&gt;
-
-&lt;p&gt;For feedback, use the menu &lt;code&gt;Help&lt;/code&gt; &amp;ndash; &lt;code&gt;Send Feedback&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://blog.hguochen.com&quot;&gt;http://blog.hguochen.com&lt;/a&gt;
-/2014/01/04/markdown-language-syntax/&lt;/p&gt;
+&lt;p&gt;It is hard to ask a city to change. So we shouldn&amp;rsquo;t stay in a city for too long as we will subconsciously inherit the city&amp;rsquo;s message and live by it as our mantra. Travel around when you are still young. Look at what other cities has to offer. Perhaps that&amp;rsquo;s why people say, &lt;em&gt;Life is a journey&lt;/em&gt; and not &lt;em&gt;Life is a place&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr/&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn:1&quot;&gt;
-&lt;p&gt;And that&amp;rsquo;s the footnote.&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;a href=&quot;http://paulgraham.com/cities.html&quot;&gt;http://paulgraham.com/cities.html&lt;/a&gt;&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 
 </description>
-                                <pubDate>Sat, 04 Jan 2014 07:58:18 +0000</pubDate>
-                                <link>http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//2014/01/04/markdown-language-syntax/</guid>
+                                <pubDate>Tue, 21 Jan 2014 17:30:28 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</guid>
                         </item>
                 
                         <item>
-                                <title>Lesson 4 The Cube</title>
-                                <description>&lt;p&gt;Ok I&amp;rsquo;m moving on to drawing cubes in this lesson. Contrary to my belief, i realized drawing cubes is actually harder than drawing spheres. Let&amp;rsquo;s get started!&lt;/p&gt;
+                                <title>Lesson 5 Hollow Cubes</title>
+                                <description>&lt;p&gt;I&amp;rsquo;m gona be drawing hollow cubes for this lesson. Drawing lines that &lt;strong&gt;sync&lt;/strong&gt; with each other is pretty important when drawing cubes.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Parallel and Perpendicular Lines&lt;/strong&gt;
+Parallel lines are two lines going in the same direction, spaced equally apart. Perpendicular lines are two lines that intersect at right angles to each other.&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Starting off, draw two dots across from each other. these 2 dots will determine the diagonal length of the cube.&lt;/li&gt;
-&lt;li&gt;Place finger between the dots using the opposite hand you are drawing with. Then draw a dot above your finger. These 2 dots should be closer to each other.&lt;/li&gt;
-&lt;li&gt;Shoot the first line across.&lt;/li&gt;
-&lt;li&gt;Draw the next line connecting the left dot with the bottom one.&lt;/li&gt;
-&lt;li&gt;A third line to connect the bottom dot with right dot.&lt;/li&gt;
-&lt;li&gt;Complete the foreshortened square. Foreshortening means to &lt;strong&gt;distort&lt;/strong&gt; an object to create the illusion that part of it is closer to your eye.&lt;/li&gt;
-&lt;li&gt;Next, draw the sides of the cube with two vertical lines. Use the sides of your sketchbook page as a visual reference to keep your drawings from tilting.&lt;/li&gt;
-&lt;li&gt;Using the two side lines as reference lines, draw the middle line a bit longer and lower. Using lines you have already drawn to establish angles and positions for your next lines is a crucial technique in creating 3D picture.&lt;/li&gt;
-&lt;li&gt;Using the top right edge of the top foreshortened square as a reference line. draw the bottom right side of the cube.&lt;/li&gt;
-&lt;li&gt;Then draw the bottom left side of the cube by referring to the angle of the line above it.&lt;/li&gt;
-&lt;li&gt;Draw the light source on the top right hand side of the cube and start shading the other sides. Remember nooks and crannies?&lt;/li&gt;
+&lt;li&gt;Sketch a foreshortened cube.&lt;/li&gt;
+&lt;li&gt;Slant back two parallel lines on the top of the cube.&lt;/li&gt;
+&lt;li&gt;Think of a compass, the 4 most commonly used directions are, &lt;strong&gt;Northwest&lt;/strong&gt;, &lt;strong&gt;Northeast&lt;/strong&gt;, &lt;strong&gt;Southwest&lt;/strong&gt;, and &lt;strong&gt;Southeast&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Draw the parallel side of the box lid lifting up with two parallel lines.&lt;/li&gt;
+&lt;li&gt;Use the bottom of the box angles to guide your line directions, complete near the flaps, aligning them up in direction NE and NW. By always referring the lines you have already drawn and by continually checking your angles against the drawing direction reference cube, your drawings will look solid, focused, and 3D.&lt;/li&gt;
+&lt;li&gt;When casting shadows, we are casting at the SW direction instead of downwards. This will go well with the light source which is in NE direction.&lt;/li&gt;
 &lt;/ol&gt;
 
 
-&lt;p&gt;So here&amp;rsquo;s my result:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/B3F670C0-3739-4BF2-B625-EAD5F52C0560.jpg&quot; alt=&quot;Drawing_lesson4.1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Try practicing more with drawing cube like objects. Gift boxes, packages, shoe boxes etc. Once ready, let&amp;rsquo;s go on to &lt;a href=&quot;URL&quot;&gt;Lesson 5 &amp;ndash; Hollow Cubes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Try drawing the cube a few more times to get the directional cues correct. Here&amp;rsquo;s what i&amp;rsquo;ve drawn:
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/62514743-DAE5-4271-B0D7-102441EB3893.jpg&quot; alt=&quot;lesson5&quot; /&gt;&lt;/p&gt;
 </description>
-                                <pubDate>Sat, 04 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/04/lesson-4-the-cube/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/04/lesson-4-the-cube/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 3 Advanced Level Spheres</title>
-                                <description>&lt;p&gt;Feeling comfortable with drawing 3D spheres yet? This lesson we are going to draw a lot more overlapping spheres, to get a feel of how things look like when they are grouped together.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;By the way, listening to music while drawing could be a real pleasure :)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Again, we start with drawing a circle.&lt;/li&gt;
-&lt;li&gt;Draw another circle behind the first. Push it up a bit ( placement ). Tuck it behind the first ( overlapping ). Draw it a bit smaller ( size ).&lt;/li&gt;
-&lt;li&gt;Draw the next circle over to the right behind the first one, push it up, tuck it behind and draw it a bit smaller than the first circle.&lt;/li&gt;
-&lt;li&gt;Onward into the third row of spheres. The row is definitely getting smaller and much higher on the page as you move away from the front sphere. When you draw objects smaller to create the illusion that they are deeper in your picture, you are using the size law. Size is a powerful tool to create depth.&lt;/li&gt;
-&lt;li&gt;Fill in the far gap with a peeking over-the-top sphere. Remember that small equals deeper.This will create a 3D illusion, even before adding shadows, shading and blendin!&lt;/li&gt;
-&lt;li&gt;Complete the third row with the end sphere smaller, higher, and behind. Much of 3D is in repition and practice.&lt;/li&gt;
-&lt;li&gt;Draw the fourth and fifth row of spheres. Pushing each row deeper into your picture with size, placement, and overlapping.&lt;/li&gt;
-&lt;li&gt;Draw rows six and seven receding into the depths of your sketch page. Size really kicks in on these distant rows.&lt;/li&gt;
-&lt;li&gt;Finally, we determine the position of our light source. For consistency, we will keep the light positioned in the top right. Go ahead and cast shadows off to the left, on the ground, and opposite your light source position.&lt;/li&gt;
-&lt;li&gt;Next, draw the horizontal background reference line, the horizon line. The horizon line will help you create the illusion of depth in your drawing.&lt;/li&gt;
-&lt;li&gt;Still remember Nook and Cranny? Push hard on your pencil and darken the edges and little spots between each ball.&lt;/li&gt;
-&lt;li&gt;Continue your shading process with a first pass over all the objects, scribbling the shading lightly over all opposite edges away from the light source.&lt;/li&gt;
-&lt;li&gt;Make some more scribble shading passes. Blend the shading with your finger. Carefully smudge the dark shaded areas up toward the hot spots, lighter and lighter as you go.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Looking at your masterpiece already? Here&amp;rsquo;s mine:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/C3E57AE1-969A-43C1-BA13-4AC36BD901FC.jpg&quot; alt=&quot;Drawing_lesson_3.1&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
-
-&lt;p&gt;Take a look at this drawing. The largest sphere is the farthest away. The smallest sphere is the closest. Following the guides above, try to recreate this drawing yourself, and have fun!
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41633pm.png&quot; alt=&quot;Drawing_lesson_3.2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my result:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/CFB9E05F-A086-4D12-AC69-EF9D44133052.jpg&quot; alt=&quot;Drawing_lesson_3.3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s so much for spheres! &lt;a href=&quot;/design/2014/01/04/lesson-4-the-cube/&quot;&gt;Next lesson&lt;/a&gt; i will go on to drawing cubes.&lt;/p&gt;
-</description>
-                                <pubDate>Sat, 04 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/04/lesson-3-advanced-level-spheres/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 2 Overlapping Sphere</title>
-                                <description>&lt;p&gt;We are going to build on our sphere drawing in lesson 1 by drawing more than 1 spheres. In particular, we are going to overlap them. Still remember the skills to draw a 3D sphere? Let&amp;rsquo;s do this again.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw a circle.&lt;/li&gt;
-&lt;li&gt;Draw a second sphere behind the first one. As you draw the second sphere, make it a bit smaller than the first sphere, a bit higher up on the paper, and tucked behind the first sphere. With this, we are using &lt;code&gt;size&lt;/code&gt;, &lt;code&gt;placement&lt;/code&gt; and &lt;code&gt;overlapping&lt;/code&gt; laws. Recap the 9 fundamental laws &lt;a href=&quot;/2014/01/02/lesson-1-the-sphere/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Determine where your imaginary light source will be positioned. You will need to do this so you can get a consistent shading in order to appear three-dimensional.&lt;/li&gt;
-&lt;li&gt;Cast a shadow in the direction opposite the light.&lt;/li&gt;
-&lt;li&gt;To separate objects in your drawing, draw a dark defining shadow in between the two spheres(called a nook and cranny shadow). This will help identify the two objects. Nook and cranny shadows are always applied under and behind near objects.&lt;/li&gt;
-&lt;li&gt;Hold your pencil loosely and scribble the first layer of shading on both spheres. Shade the surfaces opposite your light source. Try to make shading lines below all lined up away from the sun.&lt;/li&gt;
-&lt;li&gt;Make a second darker, more focused shading pass over the spheres. Detail in the very dark edges, and let your scribbles get lighter and lighter as you move slowly toward your established light source. The spot on the sphere adjacent to the light source should be the brightest spot.&lt;/li&gt;
-&lt;li&gt;Using your finger, carefully blend the shading from dark to light, trying to keep the hit spot crisp white.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
-
-&lt;p&gt;Let&amp;rsquo;s try placing two tennis balls on the table in front of you, overlapping. Make sure to notice the object&amp;rsquo;s placement, shadows, and shading.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-01-06at41612pm.png&quot; alt=&quot;tennis_ball_pic&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my result:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/8CF76EAF-FE0B-4628-8C87-9B65811E5727.jpg&quot; alt=&quot;Drawing_lesson_2.2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Try practicing more on make the shadows look natural. Ready up for &lt;a href=&quot;/design/2014/01/04/lesson-3-advanced-level-spheres/&quot;&gt;Lesson 3&lt;/a&gt;!&lt;/p&gt;
-</description>
-                                <pubDate>Fri, 03 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/03/lesson-2-overlapping-sphere/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 1 The Sphere</title>
-                                <description>&lt;p&gt;Learning drawing has a lot to do with controlling the lighting in the picture. This lesson teaches how to identify the light source and where to shade objects in your drawing. We will draw a 3D sphere.&lt;/p&gt;
-
-&lt;p&gt;Before we start drawing, there are 9 fundamental laws of drawing to create the illusion of depth. As follows:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Foreshortening&lt;/strong&gt;: Distort an object to create the illusion that one part of it is closer to your eye.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Placement&lt;/strong&gt;: Place an object lower on the surface of a picture to make it appear closer to your eye.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Size&lt;/strong&gt;: Draw an object larger to make it appear closer to your eye.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Overlapping&lt;/strong&gt;: Draw an object in front of another object to create the visual illusion that it is closer to your eye.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Shading&lt;/strong&gt;: Draw darkness on an object opposite the positioned light source to creat the illusion of depth.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Shadow&lt;/strong&gt;: Draw darkness on the ground next to the object, opposite the positioned light source, to create the illusion of depth.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Contour lines&lt;/strong&gt;: Draw curving lines wrapping around the shape of a round object to give it volume and depth.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Horizon line&lt;/strong&gt;: Draw a horizontal reference line to create the illusion that objects in the picture are varying distances from your eye.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Density&lt;/strong&gt;: Create the illusion of distance by drawing objects lighter and with less detail.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Don&amp;rsquo;t be overwhelmed by these laws. All of these will be covered in the following lessons.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw a circle. If it&amp;rsquo;s too difficult, use a coffee mug or coin to trace&lt;/li&gt;
-&lt;li&gt;Determine the light source &amp;ndash; direction where the light is coming from. Reasonably, the opposite side of the circle would cast a shadow.&lt;/li&gt;
-&lt;li&gt;Now cast a shadow on your sphere opposite your light source position. Remember 2 points, position your light source, and cast a shadow on the ground next to the object and opposite the light source.&lt;/li&gt;
-&lt;li&gt;Scribble shading ON the circle opposite the light source. The furthest place from the light source should be darkest and gets lighter as we go toward the light source.&lt;/li&gt;
-&lt;li&gt;Use your finger to smudge-blend your shading to give it an even shade.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here&amp;rsquo;s my drawing. Still ugly, but looking abit better than pretest drawings i guess?
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/72C108EB-CB8D-4DF8-9368-FBB18F29B68E.jpg&quot; alt=&quot;Drawing_lesson_1.1&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;BONUS CHALLENGE&lt;/h3&gt;
-
-&lt;p&gt;Let&amp;rsquo;s draw an apple in 3D form. Take a look at the photograph of an apple with the light source and on the right:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/ScreenShot2014-01-06at40814pm.png&quot; alt=&quot;apple_pic&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my result:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/FA143621-E8AC-4AE0-BCE7-4C8BAB4B9256.jpg&quot; alt=&quot;Drawing_lesson_1.2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Improving already? Move on to &lt;a href=&quot;/design/2014/01/03/lesson-2-overlapping-sphere/&quot;&gt;Lesson 2&lt;/a&gt;!&lt;/p&gt;
-</description>
-                                <pubDate>Thu, 02 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/02/lesson-1-the-sphere/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/02/lesson-1-the-sphere/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Hello Jekyll</title>
-                                <description>&lt;p&gt;Hello jekyll! I&amp;rsquo;ve made the switch from wordpress finally. Somehow the idea of having a database for my blog doesn&amp;rsquo;t sound right. So here are the few changes made to my blog arsenals:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Blog served with &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Blog language &lt;a href=&quot;http://daringfireball.net/projects/markdown/basics&quot;&gt;Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Blog editor &lt;a href=&quot;http://mouapp.com&quot;&gt;Mou&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Still pretty new to markdown syntax but i&amp;rsquo;m already loving it. Cheers to a wonderful 2014!&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/i254J1xI60U?color=white&amp;theme=light&quot;&gt;&lt;/iframe&gt;
-
-</description>
-                                <pubDate>Wed, 01 Jan 2014 07:34:08 +0000</pubDate>
-                                <link>http://blog.hguochen.com//2014/01/01/hello-jekyll/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//2014/01/01/hello-jekyll/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 0 Why learn to draw</title>
-                                <description>&lt;h3&gt;Learning an all time amazement&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;m a web developer by trade and have never got around to the area of design. Which makes me all the more curious to explore the world of typography, colors, layouts etc.&lt;/p&gt;
-
-&lt;p&gt;Inspired by &lt;a href=&quot;http://www.karenx.com/blog/how-to-become-a-designer-without-going-to-design-school/&quot;&gt;Karen&amp;rsquo;s learn design blogpost&lt;/a&gt;, i&amp;rsquo;ve decided to teach myself everything about design in the fresh year. Starting from the basics, i&amp;rsquo;m learning to draw by hand. I believe the fundamental appreciation for design comes from hand-eye coordindation.&lt;/p&gt;
-
-&lt;p&gt;I got my hands on &lt;a href=&quot;http://www.amazon.com/You-Can-Draw-30-Days/dp/0738212415/ref=sr_1_1?ie=UTF8&amp;amp;qid=1371607474&amp;amp;sr=8-1&amp;amp;keywords=you+can+draw+in+30+days&quot;&gt;You can draw in 30 days&lt;/a&gt; to guide me along the fundamentals of drawing and dealing with my ridiculously ugly drawing base. If you are learning drawing as well, you may want to get a copy of this book if you are a fast learner. Or you could just follow along with my progress. I&amp;rsquo;ll be documenting the things i learnt from this book and try to present them in a manner you can follow too. Please feel free to give me feedbacks on how to improve.&lt;/p&gt;
-
-&lt;p&gt;Ok enough background paintings, let&amp;rsquo;s get started.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s begin with a little pretest to see how good or bad you are at drawing currently.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Spend 2 minutes drawing a house, without referencing anything, just from your imagination.&lt;/li&gt;
-&lt;li&gt;Next, spend 2 minutes drawing an airplane. Again, from imagination.&lt;/li&gt;
-&lt;li&gt;Ok i promise it&amp;rsquo;s the last one. Spend 2 minutes drawing a bagel.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Don&amp;rsquo;t worry if your drawing is hideous, no one has to see it! So now that you have your &amp;lsquo;base&amp;rsquo; work at hand, put this up somewhere secret so you can compare how much you have improved overtime. If it&amp;rsquo;s any consolation, my work is attached below&amp;hellip;feeling better now?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/7A895527-8CB4-46BF-A0D1-F1DCF9514D0F.jpg&quot; alt=&quot;Drawing_lesson_0&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok now chuck it aside and hop on to &lt;a href=&quot;/design/2014/01/02/lesson-1-the-sphere/&quot;&gt;Lesson 1 The Sphere&lt;/a&gt;!&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 01 Jan 2014 00:00:00 +0800</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/01/lesson-0-why-learn-to-draw/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/01/lesson-0-why-learn-to-draw/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Not all businesses are startups</title>
-                                <description>&lt;p&gt;Had this conversation between some friends the other day and i realised there’s a few common misconceptions between startups and businesses. Not all businesses can be called startups, while startups most common entity is a business entity.&lt;/p&gt;
-
-&lt;p&gt;A start-up, by definition, is a temporary organisation designed to search for a scalable business model. Apart from typical business risks, there are more inherent risks such as finding product-market fit, research deficiencies etc.&lt;/p&gt;
-
-&lt;p&gt;A business is a corporate entity that is growth oriented. It has, by default, found its product-market fit and operating on a scalability model.&lt;/p&gt;
-
-&lt;p&gt;Starting a company on teleportation or building the next generation flying car is considered a startup. But opening a drink store selling sugared water is not a startup. The baseline being, if you are treading on a previously explored path then your entity is NOT a startup.&lt;/p&gt;
-
-&lt;p&gt;On a side note, startups should always move out of its current being as soon as possible. There is no glory in maintaining the buzzword title for x years.&lt;/p&gt;
-</description>
-                                <pubDate>Sat, 07 Dec 2013 12:07:49 +0000</pubDate>
-                                <link>http://blog.hguochen.com//startup/2013/12/07/Not-all-businesses-are-startups/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//startup/2013/12/07/Not-all-businesses-are-startups/</guid>
+                                <pubDate>Mon, 20 Jan 2014 21:28:09 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</guid>
                         </item>
                 
         </channel>
