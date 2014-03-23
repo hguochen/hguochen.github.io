@@ -8,8 +8,9 @@
                 
                         <item>
                                 <title>How to design your blog</title>
-                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
+                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;A look behind the scene of my blog redesign&lt;/em&gt;&lt;/p&gt;
 
@@ -49,21 +50,25 @@
 
 &lt;h3&gt;Index page&lt;/h3&gt;
 
-&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.&lt;/p&gt;
 
-&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;With the year-annotated scrolling, my visitors will be able to quickly scroll through my list of blogposts and look for interests. We are providing a &amp;lsquo;simple to navigate&amp;rsquo; index page, as part of our objective listed above.&lt;/p&gt;
 
 &lt;h3&gt;Content page&lt;/h3&gt;
 
-&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.&lt;/p&gt;
 
-&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
 
 &lt;h3&gt;On Measure&lt;/h3&gt;
 
@@ -130,9 +135,8 @@ h4 {
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;
+&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Helvetica is a great font for texts, but it is not such a great typeface for continuous smooth reading. It lacks the &amp;lsquo;legs&amp;rsquo; seen on other typefaces which provides the smooth gliding feel when reading on a screen.&lt;/p&gt;
 
