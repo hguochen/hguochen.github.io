@@ -24,7 +24,9 @@ body>header {
 .me {
 	border-radius: 50%;
 }
-
+.gc {
+	width:100%;
+}
 .image {
 	display: inline-block;
 }
@@ -33,18 +35,11 @@ body>header {
 	}
 
 	.image-full {
-		display: block;		
-		margin: 0 0 2em 0;
-	}
-	.image-full {
-		position: relative;
+		display: block;
+		position:relative;	
 	}
 	.image-small>a>img {
-		margin:0 0 2em 0;
 		width:100%;
-	}
-	.margin_right {
-		margin-right: 20px;		
 	}
 
 /* INTRO TEXT */
@@ -74,4 +69,18 @@ body>header {
 .sharing {
 	text-align: left;
 	padding-bottom: 1em;
+}
+/* Responsive Layout */
+@media screen and (max-width: 992px) {
+	.image-full {
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+/* END Responsive Layout*/
+
+/* Content */
+.top_padding {
+	padding-top: 2em;
 }
