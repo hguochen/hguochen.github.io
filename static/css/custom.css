@@ -6,7 +6,7 @@ body>header {
 
 /* FONTS */
 .entry-content{
-	font-family: 'Helvetica Neue', 'Droid Serif', serif;
+	font-family: georgia,'Helvetica Neue', 'Droid Serif', serif;
 	font-size: 1.2em;
 	letter-spacing: 0.01rem;
 	font-weight: 200;
