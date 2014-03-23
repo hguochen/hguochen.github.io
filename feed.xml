@@ -7,6 +7,230 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>How to design your blog</title>
+                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;A look behind the scene of my blog redesign&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Define your brief&lt;/h2&gt;
+
+&lt;p&gt;As with any projects, it&amp;rsquo;s important to figure what exactly you want to achieve and jot it down clearly. This can be a constant reminder as you progress through the design stages. At this point, we just need to figure out our ultimate goal without being worried about the details.&lt;/p&gt;
+
+&lt;p&gt;I wanted to design a blog that is &lt;strong&gt;simple to navigate&lt;/strong&gt; on index page and contains &lt;strong&gt;easy-to-read&lt;/strong&gt; blogposts across different devices. All of these pages should clearly define me and my thoughts.&lt;/p&gt;
+
+&lt;h2&gt;Research and idea generation&lt;/h2&gt;
+
+&lt;p&gt;Do some googling to get the creativity flowing. Inspirations can come from anywhere. Some of the best places i recommend to check out are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wordpress.org/themes/&quot;&gt;Wordpress Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;As you go through these websites, grab a pen and sketchbook to jot down some of the things such as positions of blog elements, layout, colours, typefaces and navigation details commonly used. This will give you a basic idea of the contents to cover in designing your blog.&lt;/p&gt;
+
+&lt;h2&gt;Design considerations&lt;/h2&gt;
+
+&lt;p&gt;I wanted users to easily browse through my blog and focus on what i&amp;rsquo;ve written, so i&amp;rsquo;m not going to have too many &amp;lsquo;content&amp;rsquo; pages such as about me, work, contact me etc. These side dishes are more for a portfolio page rather than a blog. In fact, i&amp;rsquo;m only going to have 2 main pages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Index page&lt;/li&gt;
+&lt;li&gt;Content page&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Based on my these ideas, it seems that i will need total control of designing my blog. I can&amp;rsquo;t afford to use ready made templates such as from &lt;a href=&quot;http://wordpress.com&quot;&gt;Wordpress&lt;/a&gt;. Instead, i&amp;rsquo;m using a blog engine called &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; where i have the freedom to configure every element of my blog.&lt;/p&gt;
+
+&lt;h3&gt;Index page&lt;/h3&gt;
+
+&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the year-annotated scrolling, my visitors will be able to quickly scroll through my list of blogposts and look for interests. We are providing a &amp;lsquo;simple to navigate&amp;rsquo; index page, as part of our objective listed above.&lt;/p&gt;
+
+&lt;h3&gt;Content page&lt;/h3&gt;
+
+&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;On Measure&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/measure_1.gif&quot; alt=&quot;measure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Measure, is the name given to the width of a body of type. There are several units of measurement used for defining the measure&amp;rsquo;s width. Three basic units are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One point = 1/72 of an inch&lt;/li&gt;
+&lt;li&gt;One pic = 12 points&lt;/li&gt;
+&lt;li&gt;One em = Distance horizontally equal to the type of size, in points. you are using. Eg. 1em of 12pt type is 12pt.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For a full width monitor, the optimum measure for reading is between &lt;strong&gt;66-72 words&lt;/strong&gt; a line. If you scale that down to a mobile screen, measure would come down to about &lt;strong&gt;8-13 words&lt;/strong&gt; a line.&lt;/p&gt;
+
+&lt;h3&gt;On font-size&lt;/h3&gt;
+
+&lt;p&gt;Appropriate font size will greatly enhance the readability of texts. I shall not go into detail here but some tried and tested font sizes for blog contents adopts the following pixel sizes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;16px &amp;ndash; Body copy and leading&lt;/li&gt;
+&lt;li&gt;24px &amp;ndash; Main heading &amp;amp; section headings&lt;/li&gt;
+&lt;li&gt;18px &amp;ndash; Subheadings&lt;/li&gt;
+&lt;li&gt;13px &amp;ndash; All other headed elements&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;This will give the following styles visually:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/typo4_headings.gif&quot; width=&quot;300&quot; alt=&quot;font sizes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the frontend designers, your CSS could look like this with the specifications above:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;body {
+    font: 16px/1.5em &quot;Lucida Grande&quot;;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: helvetica, arial, verdana, sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 218%;
+}
+
+h2 {
+    font-size: 164%;
+}
+
+h3 {
+    font-size: 145%;
+}
+
+h4 {
+    font-size: 118%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;On typefaces&lt;/h3&gt;
+
+&lt;p&gt;We read most easily with what we are most familiar with. This would mean the traditional serif family of typefaces. But even in the serif family, there are countless kinds of typefaces to choose from. On choosing a typeface, i&amp;rsquo;ve had a long trial and error on this. Here are 3 different serif types i&amp;rsquo;ve experimented with using on the same content:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Helvetica is a great font for texts, but it is not such a great typeface for continuous smooth reading. It lacks the &amp;lsquo;legs&amp;rsquo; seen on other typefaces which provides the smooth gliding feel when reading on a screen.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82347pm.png&quot; width=&quot;400&quot; alt=&quot;sans-serif&quot; /&gt;
+&lt;strong&gt;sans-serif&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Serif is a safe font. Generally you won&amp;rsquo;t go wrong with this font. However, since i prefer a lighter shade of texts, i have to reduce the font-weight from normal 300 to 200. This didn&amp;rsquo;t fare well with serif typeface and words appear to thin to read properly.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82121pm.png&quot; width=&quot;400&quot; alt=&quot;georgia&quot; /&gt;
+&lt;strong&gt;georgia&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Part of the serif typeface family, georgia has always been a strong choice for continous texts. Some of the most popular web such as &lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt; and &lt;a href=&quot;http://www.nytimes.com&quot;&gt;NyTimes&lt;/a&gt; uses georgia to render their texts. An additional advantage of georgia typeface is that it&amp;rsquo;s distinctive enough that font colors normally won&amp;rsquo;t erode its readability.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After weighing the considerations, i&amp;rsquo;ve decided to use &amp;lsquo;Helvetica Neue&amp;rsquo; for headings and &amp;lsquo;georgia&amp;rsquo; for paragraph texts. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;On font color&lt;/h3&gt;
+
+&lt;p&gt;Black text on white background offers the best readability. However, prolonged exposure on black contrasted texts could be painful to our eyes since modern screen brightness are getting better and better. As such, i&amp;rsquo;ve decided to reduce the contrast of texts by changing paragraph texts to a &amp;lsquo;greyier&amp;rsquo; color while not compromising readability. After some trial and error, the color i&amp;rsquo;ve chosen is a grey with hexcode: #333332.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.colorhexa.com/333332.png&quot; height=&quot;150&quot; width=&quot;200&quot; alt=&quot;333332&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Responsive Design&lt;/h2&gt;
+
+&lt;p&gt;The last of my consideration is to make sure my blog is readable on both mobile and desktop devices alike.&lt;/p&gt;
+
+&lt;p&gt;I like to use a grid because it provides a structural foundation, whiel making the development process easier and more efficient. Using a flexible grid enables a website to sclae dynamically to fit any device width. Below is the CSS for my responsive grid, which is my variations from &lt;a href=&quot;http://getbootstrap.com&quot;&gt;bootstrap&lt;/a&gt;&amp;rsquo;s responsive grid.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
+
+.row {
+    clear: both;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+[class^=&quot;col-&quot;]:last-child {
+    margin: 0;
+}
+
+[class^=&quot;col-&quot;] {
+    float: left;
+    margin: 0 3.84615384615% 0 0;
+    list-style: none;
+    position: relative;
+}
+
+
+.col-xs-1 { width: 4.8076923077% }
+.col-xs-2 { width: 13.4615384615% }
+.col-xs-3 { width: 22.1153846154% }
+.col-xs-4 { width: 30.7692307692% }
+.col-xs-5 { width: 39.4230769231% }
+.col-xs-6 { width: 48.0769230769% }
+.col-xs-7 { width: 56.7307692308% }
+.col-xs-8 { width: 65.3846153846% }
+.col-xs-9 { width: 74.0384615385% }
+.col-xs-10 { width: 82.6923076923% }
+.col-xs-11 { width: 91.3461538462% }
+.col-xs-12 { width: 100%; margin: 0 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My breakpoints for my responsive blog are:
+* 360px max-width for mobile
+* 768px max-width for tablets
+* 1024px max-width for desktops&lt;/p&gt;
+
+&lt;p&gt;Keep in mind that with a growing array of devices, there is no longer a &amp;lsquo;common&amp;rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my blog&amp;rsquo;s responsive layout on a few devices:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/E88F66B9-1921-4E9E-8F48-FB5AF6571F4B.png&quot; width=&quot;150&quot; alt=&quot;iPhone&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;iPhone 5&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/photo.png&quot; width=&quot;300&quot; alt=&quot;ipad&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;iPad Mini&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at85832pm.png&quot; width=&quot;500&quot; alt=&quot;desktop&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Desktop&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So, i&amp;rsquo;ve designed and tested out my new blog layout. It is my first time designing a blog from scratch and i&amp;rsquo;ve really learnt alot in the process! Designing is like a constant war between your left brain and right brain while still trying to grip on to established design principles. ROAR! But still, it is fun :) Hopefully my experience has provided you with a guideline to designing blogs. I&amp;rsquo;d love to hear about your experiences in designing your own blog!&lt;/p&gt;
+</description>
+                                <pubDate>Sun, 23 Mar 2014 18:18:25 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</guid>
+                        </item>
+                
+                        <item>
                                 <title>How to learn Javascript</title>
                                 <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
 
@@ -361,31 +585,6 @@ In my words, the message is the city&amp;rsquo;s attitude.&lt;/p&gt;
                                 <pubDate>Tue, 21 Jan 2014 17:30:28 +0000</pubDate>
                                 <link>http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 5 Hollow Cubes</title>
-                                <description>&lt;p&gt;I&amp;rsquo;m gona be drawing hollow cubes for this lesson. Drawing lines that &lt;strong&gt;sync&lt;/strong&gt; with each other is pretty important when drawing cubes.&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Parallel and Perpendicular Lines&lt;/strong&gt;
-Parallel lines are two lines going in the same direction, spaced equally apart. Perpendicular lines are two lines that intersect at right angles to each other.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Sketch a foreshortened cube.&lt;/li&gt;
-&lt;li&gt;Slant back two parallel lines on the top of the cube.&lt;/li&gt;
-&lt;li&gt;Think of a compass, the 4 most commonly used directions are, &lt;strong&gt;Northwest&lt;/strong&gt;, &lt;strong&gt;Northeast&lt;/strong&gt;, &lt;strong&gt;Southwest&lt;/strong&gt;, and &lt;strong&gt;Southeast&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Draw the parallel side of the box lid lifting up with two parallel lines.&lt;/li&gt;
-&lt;li&gt;Use the bottom of the box angles to guide your line directions, complete near the flaps, aligning them up in direction NE and NW. By always referring the lines you have already drawn and by continually checking your angles against the drawing direction reference cube, your drawings will look solid, focused, and 3D.&lt;/li&gt;
-&lt;li&gt;When casting shadows, we are casting at the SW direction instead of downwards. This will go well with the light source which is in NE direction.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Try drawing the cube a few more times to get the directional cues correct. Here&amp;rsquo;s what i&amp;rsquo;ve drawn:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/62514743-DAE5-4271-B0D7-102441EB3893.jpg&quot; alt=&quot;lesson5&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 20 Jan 2014 21:28:09 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</guid>
                         </item>
                 
         </channel>
