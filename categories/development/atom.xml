@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-03-23T21:08:39+08:00</updated>
+  <updated>2014-03-23T21:39:26+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -216,10 +216,14 @@ h4 {
 .col-xs-12 { width: 100%; margin: 0 }
 </code></pre>
 
-<p>My breakpoints for my responsive blog are:
-* 360px max-width for mobile
-* 768px max-width for tablets
-* 1024px max-width for desktops</p>
+<p>My breakpoints for my responsive blog are:</p>
+
+<ul>
+<li>360px max-width for mobile</li>
+<li>768px max-width for tablets</li>
+<li>1024px max-width for desktops</li>
+</ul>
+
 
 <p>Keep in mind that with a growing array of devices, there is no longer a &lsquo;common&rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.</p>
 

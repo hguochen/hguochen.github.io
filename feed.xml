@@ -206,10 +206,14 @@ h4 {
 .col-xs-12 { width: 100%; margin: 0 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;My breakpoints for my responsive blog are:
-* 360px max-width for mobile
-* 768px max-width for tablets
-* 1024px max-width for desktops&lt;/p&gt;
+&lt;p&gt;My breakpoints for my responsive blog are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;360px max-width for mobile&lt;/li&gt;
+&lt;li&gt;768px max-width for tablets&lt;/li&gt;
+&lt;li&gt;1024px max-width for desktops&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;p&gt;Keep in mind that with a growing array of devices, there is no longer a &amp;lsquo;common&amp;rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.&lt;/p&gt;
 
