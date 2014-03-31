@@ -41,7 +41,7 @@
 
 &lt;h3&gt;Application Server&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.python.org/download/releases/2.7.5/&quot;&gt;Python 2.7.5&lt;/a&gt; and &lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django 1.6.2&lt;/a&gt; was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used &lt;a href=&quot;www.virtualenv.org&quot;&gt;virtualenv&lt;/a&gt; to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&amp;rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.python.org/download/releases/2.7.5/&quot;&gt;Python 2.7.5&lt;/a&gt; and &lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django 1.6.2&lt;/a&gt; was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used &lt;a href=&quot;http://www.virtualenv.org&quot;&gt;virtualenv&lt;/a&gt; to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&amp;rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.&lt;/p&gt;
 
 &lt;p&gt;Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&amp;rsquo;m exploring the possibility of shifting to &lt;a href=&quot;http://gunicorn.org&quot;&gt;Gunicorn&lt;/a&gt; in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.&lt;/p&gt;
 
@@ -75,7 +75,7 @@
 
 &lt;p&gt;For backend monitoring, we are using &lt;a href=&quot;http://newrelic.com&quot;&gt;New Relic&lt;/a&gt; to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.&lt;/p&gt;
 
-&lt;p&gt;For Pyhon error reporting, we use &lt;a href=&quot;http://sentry.readthedocs.org/en/latest/&quot;&gt;Sentry&lt;/a&gt;, an open-source Django app written by the &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt; folks. We can closely monitor error messages at real-time relatively easy with this handy tool.&lt;/p&gt;
+&lt;p&gt;For Python error reporting, we use &lt;a href=&quot;http://sentry.readthedocs.org/en/latest/&quot;&gt;Sentry&lt;/a&gt;, an open-source Django app written by the &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt; folks. We can closely monitor error messages at real-time relatively easy with this handy tool.&lt;/p&gt;
 
 &lt;h3&gt;What&amp;rsquo;s your stack?&lt;/h3&gt;
 

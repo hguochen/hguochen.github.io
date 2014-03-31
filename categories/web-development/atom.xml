@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-03-31T16:28:24+08:00</updated>
+  <updated>2014-03-31T16:34:40+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -51,7 +51,7 @@
 
 <h3>Application Server</h3>
 
-<p><a href="https://www.python.org/download/releases/2.7.5/">Python 2.7.5</a> and <a href="https://www.djangoproject.com/">Django 1.6.2</a> was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used <a href="www.virtualenv.org">virtualenv</a> to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.</p>
+<p><a href="https://www.python.org/download/releases/2.7.5/">Python 2.7.5</a> and <a href="https://www.djangoproject.com/">Django 1.6.2</a> was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used <a href="http://www.virtualenv.org">virtualenv</a> to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.</p>
 
 <p>Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&rsquo;m exploring the possibility of shifting to <a href="http://gunicorn.org">Gunicorn</a> in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.</p>
 
@@ -85,7 +85,7 @@
 
 <p>For backend monitoring, we are using <a href="http://newrelic.com">New Relic</a> to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.</p>
 
-<p>For Pyhon error reporting, we use <a href="http://sentry.readthedocs.org/en/latest/">Sentry</a>, an open-source Django app written by the <a href="http://disqus.com">Disqus</a> folks. We can closely monitor error messages at real-time relatively easy with this handy tool.</p>
+<p>For Python error reporting, we use <a href="http://sentry.readthedocs.org/en/latest/">Sentry</a>, an open-source Django app written by the <a href="http://disqus.com">Disqus</a> folks. We can closely monitor error messages at real-time relatively easy with this handy tool.</p>
 
 <h3>What&rsquo;s your stack?</h3>
 
