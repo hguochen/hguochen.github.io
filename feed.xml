@@ -92,6 +92,165 @@
                         </item>
                 
                         <item>
+                                <title>Designing Beebeta</title>
+                                <description>&lt;p&gt;A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&amp;rsquo;s stack at &lt;a href=&quot;http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/&quot;&gt;Beebeta Engineering&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Being new to the world of frontend designing, i&amp;rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.&lt;/p&gt;
+
+&lt;h2&gt;What is Beebeta?&lt;/h2&gt;
+
+&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks about an issue. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
+
+&lt;h2&gt;Design Goal&lt;/h2&gt;
+
+&lt;p&gt;With the above concept, it is evident that Beebeta is all about polling the public with questions. We are going to implement this by asking users questions and offer pre-determined choices for voting. Users may also add additional choices if they like. Here are a few design goals i&amp;rsquo;ve charted out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Questions are the prime content of the website&lt;/li&gt;
+&lt;li&gt;All visual elements should contribute to better contents&lt;/li&gt;
+&lt;li&gt;User&amp;rsquo;s Call To Action(CTA) is voting and should be encouraged visually&lt;/li&gt;
+&lt;li&gt;Page should be simple and minimalistic&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Research and idea generation&lt;/h2&gt;
+
+&lt;p&gt;Do some googling to get the creativity juices flowing. These are some of the places i checkout to brainstorm design ideas:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://quora.com&quot;&gt;Quora&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://createivebloq.com&quot;&gt;Creative Bloq&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I usually grab a pencil and sketchbook to jot down some of the things such as essential page elements, layout, colors, typefaces and navigation details. Sometimes i feel particularly artistic and try to draw&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/EBAE3B09-C994-459F-AEB7-9964CA67A066.jpg&quot; width=&quot;300&quot; alt=&quot;doodle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok fine i admit calling it &amp;lsquo;drawing&amp;rsquo; is an overstatement. Very-very crude mockups.&lt;/p&gt;
+
+&lt;h2&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;All my page designs start from mockups. From grid layout, to box structure and eventually down to individual elements. For each step of this process, i pay attention to how elements in question interacts with each other and establish cohesiveness.&lt;/p&gt;
+
+&lt;h3&gt;Grid Layout&lt;/h3&gt;
+
+&lt;p&gt;I adopted the 12-grid system for &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap 3&lt;/a&gt;. Boostrap 3 is designed &amp;lsquo;mobile first&amp;rsquo;. It&amp;rsquo;s newly renovated grid system caters to a whole array of digital devices from mobile phone to high resolution desktops. A nice tutorial about the new grid system for Bootstrap is found &lt;a href=&quot;http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I used the following grid dimensions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
+
+.row {
+    clear: both;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+[class^=&quot;col-&quot;]:last-child {
+    margin: 0;
+}
+
+[class^=&quot;col-&quot;] {
+    float: left;
+    margin: 0 3.84615384615% 0 0;
+    list-style: none;
+    position: relative;
+}
+
+
+.col-xs-1 { width: 4.8076923077% }
+.col-xs-2 { width: 13.4615384615% }
+.col-xs-3 { width: 22.1153846154% }
+.col-xs-4 { width: 30.7692307692% }
+.col-xs-5 { width: 39.4230769231% }
+.col-xs-6 { width: 48.0769230769% }
+.col-xs-7 { width: 56.7307692308% }
+.col-xs-8 { width: 65.3846153846% }
+.col-xs-9 { width: 74.0384615385% }
+.col-xs-10 { width: 82.6923076923% }
+.col-xs-11 { width: 91.3461538462% }
+.col-xs-12 { width: 100%; margin: 0 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Typeface&lt;/h3&gt;
+
+&lt;p&gt;I think typeface of a website determines the longevity and pleasure of browsing its contents. Good typefaces gives readability and allows you to focus on the content. For beebeta, i used &lt;strong&gt;serif&lt;/strong&gt; typeface for block headers and &lt;strong&gt;helvetica neue&lt;/strong&gt; for body texts. These are generally pretty safe typefaces for websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at30154pm.png&quot; alt=&quot;beebeta icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Beebeta typeface in the icon is given to me pre-designed as &lt;strong&gt;OratorStd&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Colour&lt;/h3&gt;
+
+&lt;p&gt;I used 3 colors as the theme of Beebeta. 2 triad colors, &lt;strong&gt;#4288CA&lt;/strong&gt;(Celestial Blue) &amp;amp; &lt;strong&gt;#5CB85C&lt;/strong&gt;(Fern) and 1 neutral color &lt;strong&gt;#F0F0F0&lt;/strong&gt;(Beige Grey).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at31235pm.png&quot; width=&quot;500&quot; alt=&quot;color theme&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fern green&lt;/strong&gt; is used for navigational contents and Call To Action(CTA) activites users performs.&lt;/p&gt;
+
+&lt;p&gt;Netural color &lt;strong&gt;Beign Grey&lt;/strong&gt; will make the base color of the site. This effectively allows focus on contents without too much &amp;lsquo;noise&amp;rsquo; from the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Celestial Blue&lt;/strong&gt; are used as cordoned containers for user details and personal spaces within the site.&lt;/p&gt;
+
+&lt;p&gt;Effectively the site is just a mix and match of these 3 simple colours.&lt;/p&gt;
+
+&lt;h3&gt;Navigation&lt;/h3&gt;
+
+&lt;p&gt;Navigation determines the usability of the site. For our Minimum Viable Product(MVP), which has limited features, i want users to understand the purpose of the website at a glance through navigational bar without having it competing for user attention from the contents. Since posting questions is fundamental to the site. It should have a visual focus primarily, with user utility functions available nearby. Here is how it looks:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at125833pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33130pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar 2&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Header&lt;/h3&gt;
+
+&lt;p&gt;I wanted a simple header without any unnecessary contents. It should be so painfully simple that it looks almost undesigned at all. I think the benefits of a bare-bone header drives clarity. That users don&amp;rsquo;t derive too much assumptions of the contents of the website based on header. It invites users browse to find out more. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33337pm.png&quot; width=&quot;600&quot; alt=&quot;header&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I am experimenting with color-coding of question categories here. Each category is assigned a colour. My aim is to promote category classifications so users sub-consciously associate a colour to a category. I&amp;rsquo;m guessing this will contribute to an easier browsing experience over time.&lt;/p&gt;
+
+&lt;h3&gt;Question Card&lt;/h3&gt;
+
+&lt;p&gt;Question card is the main content. It is what beebeta is all about. My design concept for questions takes the form of &amp;lsquo;question cards&amp;rsquo;. Each poll question is a unique question card served.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at34610pm.png&quot; width=&quot;600&quot; alt=&quot;question card&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to synchronise the color-coding category concept earlier, i added a subtle colour border for each question card of its associated category. The question card displays the question text, user uploaded image, uploader&amp;rsquo;s name, number of choices and number of votes received so far.&lt;/p&gt;
+
+&lt;h3&gt;Voting&lt;/h3&gt;
+
+&lt;p&gt;I adopted the classic reddit style voting which allows users to vote up a choice and provide a visual feedback with updated vote count and fern green arrow up button.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40029pm.png&quot; width=&quot;200&quot; alt=&quot;voting&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Profile page&lt;/h3&gt;
+
+&lt;p&gt;As an extension of the &amp;lsquo;question card&amp;rsquo; concept, i gave a similar box style to profile page. Users have 3 profile boxes which is unique to them, namely User Information, Questions and Votes counts.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40212pm.png&quot; width=&quot;500&quot; alt=&quot;profile page&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following tab, My questions, allows users to view and edit his posted questions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40736pm.png&quot; width=&quot;500&quot; alt=&quot;my questions&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Footer&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ve choosen flat white for footer, which colour synchronises with the header. Again, i&amp;rsquo;m experimenting with using lighter colours as opposed to heavy colors for headers and footers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40922pm.png&quot; width=&quot;700&quot; alt=&quot;footer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So that&amp;rsquo;s it folks! If you think that this design is really basic, you are right! I do agree that there are alot more to be done with the design of a polling site like Beebeta. I would like to hear your comments and suggestions on how i can improve my design. Peace out! :)&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 31 Mar 2014 11:48:00 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/web%20development/2014/03/31/Designing-Beebeta/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/web%20development/2014/03/31/Designing-Beebeta/</guid>
+                        </item>
+                
+                        <item>
                                 <title>How to design your blog</title>
                                 <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.&lt;/p&gt;
 
@@ -597,43 +756,6 @@ Work is your life because work is your passion. If your work isn&amp;rsquo;t you
                                 <pubDate>Tue, 25 Feb 2014 11:33:09 +0000</pubDate>
                                 <link>http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Ignorance of MLM marketeers</title>
-                                <description>&lt;p&gt;I&amp;rsquo;m totally against Multi-Level-Marketing(MLM) or any form of &lt;a href=&quot;http://en.wikipedia.org/wiki/Ponzi_scheme&quot;&gt;Ponzi schemes&lt;/a&gt; because it&amp;rsquo;s a questionable business model that does not offer any real values to the society Here&amp;rsquo;s my &lt;a href=&quot;https://www.facebook.com/notes/guochen-hou/mlm-thanks-but-no-thanks/460181587333803&quot;&gt;reasons&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;On top of which, most MLM marketeers are just pure ignorant about the product they are trying to promote. Let&amp;rsquo;s be honest here, they are not really interested in &amp;lsquo;growing&amp;rsquo; you, they are just interested in entry fee you paid up upon joining the organization. More suckers like you joining as their downlinks means more loyalty fees into their pocket.&lt;/p&gt;
-
-&lt;p&gt;What&amp;rsquo;s more of a joke is that most of these marketeers who approaches you doesn&amp;rsquo;t have the slightest idea about their product or the industry they are in.&lt;/p&gt;
-
-&lt;p&gt;Every month or so i&amp;rsquo;ll receive at least 1 of such invites to MLM. AND THEY JUST DONT DIE OFF! So last week i received this message on linkedin:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30123pm.png&quot; alt=&quot;message1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;lsquo;Income diversification&amp;rsquo; is like an instant red flag to me. But being polite, i replied:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30929pm.png&quot; alt=&quot;message2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Soon afterwards it start to sound more fishy in her reply:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31133pm.png&quot; alt=&quot;message3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok seriously??? you are running an e-commerce business and your website is only accessible to a selected few??? It&amp;rsquo;s like saying,&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;i&amp;rsquo;m opening a restaurant that only serves my friends and family.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Great work so far Amirah. I decided to serve her own medicine back to her.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31714pm.png&quot; alt=&quot;message4&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At this point, the last that she can do to save her sinking ship is to send me some PDFS, DOCS, WEBSITES depicting her business to get me interested. But it seems she doesn&amp;rsquo;t have any to begin with. Alas, this short and apparently-less-friendly message without signoffs came back:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at32155pm.png&quot; alt=&quot;message5&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;OKAY. BITCHING TIME. My dear Amirah, it seems you don&amp;rsquo;t even understand the difference between &amp;lsquo;a wholesale/retail distribution channel&amp;rsquo; and &amp;lsquo;e-commerce distribution business&amp;rsquo;. A wholesale/retail distribution channel via internet is like &lt;a href=&quot;www.ebay.com.sg&quot;&gt;eBay&lt;/a&gt; or &lt;a href=&quot;www.amazon.com&quot;&gt;Amazon&lt;/a&gt; where you provide a medium for e-commerce business to operate and transact. An e-commerce business is where you USE this medium to perform ecommerce activities. Building an ebay shopfront to sell your products within ebay is totally different from building ebay.com itself. I can&amp;rsquo;t appreciate how you want to hire me to work for you, or as your down-link in your organization, when you can&amp;rsquo;t even figure out this simple difference about the industry you are supposedly to be an expert in. Preaching about a questionable business model is already being frowned upon. The worst you can do is to demonstrate that you know nothing about the industry you are in. Please Amirah, stop this madness.&lt;/p&gt;
-</description>
-                                <pubDate>Sun, 16 Feb 2014 14:18:11 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</guid>
                         </item>
                 
         </channel>
