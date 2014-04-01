@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-04-01T17:08:25+08:00</updated>
+  <updated>2014-04-01T17:09:57+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Designing Beebeta]]></title>
-    <link href="http://blog.hguochen.com/design/web%20development/2014/03/31/Designing-Beebeta/"/>
-    <updated>2014-03-31T11:48:00Z</updated>
-    <id>http://blog.hguochen.com/design/web%20development/2014/03/31/Designing-Beebeta</id>
+    <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
+    <updated>2014-04-01T11:48:00Z</updated>
+    <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
     <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
 
 <p>Being new to the world of frontend designing, i&rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.</p>
