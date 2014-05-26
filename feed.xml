@@ -7,6 +7,69 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Reverse a singly linked list</title>
+                                <description>&lt;p&gt;I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.&lt;/p&gt;
+
+&lt;p&gt;This is my iterative solution:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public Node reverse(Node head) {
+    if (head == null || head.next == null) { // Linked list is empty or only has 1 node
+        return;
+    }
+    Node current = new Node();
+    Node next = new Node();
+    Node prev = null;
+
+    current = head; // current node starts at the first node, which is referenced by head. keep in mind that head acts like a pointer here instead of a real node
+    while(current != null) { //run loop as long as current node is not the last node
+        next = current.next; // stores a reference of the next node so we can manipulate current.next reference
+        current.next = prev; // point the current.next to the new reference position -which is in reverse order
+        prev = current; // prev has done its job of referencing the previous node, it now moves on to reference the subsequent node
+        current = next; // current has referenced in the new order, move current pointer to the next node - which is referenced by next pointer.
+    }
+    head = prev; // the last node is now the new first node in the linked list, so we reference head to prev, which points to the node itself
+    return head
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s try the recursive solution:&lt;/p&gt;
+
+&lt;h3&gt;Identify base case&lt;/h3&gt;
+
+&lt;p&gt;The base case occurs when we reach the last node of the linked list. We identify this case by verifying that current.next is NULL.&lt;/p&gt;
+
+&lt;h3&gt;Base case operation&lt;/h3&gt;
+
+&lt;p&gt;In the base case, we need to set the head pointer to the very last node, which will in turn become the first node in the result.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my recursive answer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public Node reverse(Node current) {
+    if (current == null) { //check for empty list
+        return;
+    }
+
+    if (current.next == null) { // at tail node, this is recursive base case
+        head = current; // set head to point to the last node in original list
+        return;
+    }
+
+    reverse(current.next);
+    current.next.next = current; // set the subsequent node as the current node
+    current.next = null; // set the previous node to null. which eventually means the older next pointer is used and null
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This little devil took me quite awhile to figure out as it&amp;rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&amp;rsquo;t imagine a scenario where i&amp;rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).&lt;/p&gt;
+
+&lt;p&gt;Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 26 May 2014 21:01:58 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</guid>
+                        </item>
+                
+                        <item>
                                 <title>What i got from tweeting Evernote&#39;s CEO</title>
                                 <description>&lt;p&gt;In 4 day&amp;rsquo;s time, i&amp;rsquo;ll be visiting California-US for the first time in my life. Being &lt;a href=&quot;http://hguochen.com&quot;&gt;a startup guy&lt;/a&gt; myself, this is a big deal for me. I&amp;rsquo;m really excited to see what the biggest startup ecosystem in the world is like. I wanted to make this trip a really memorable one but i didn&amp;rsquo;t have enough contacts there. So i shamelessly cold-emailed some of my favourite tech companies in California asking for an impromptu visit to their offices/campus. Some of these companies accepted my request(thank you so much!). But 1 of which just blew me away. Here&amp;rsquo;s what happened.&lt;/p&gt;
 
@@ -748,35 +811,6 @@ h4 {
                                 <pubDate>Mon, 03 Mar 2014 19:35:37 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 6 Stacking Tables</title>
-                                <description>&lt;p&gt;I will be drawing stacking tables with proper lighting conditions in this lesson. This lesson will gel all of the concepts and laws learnt so far.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Begin with a foreshortened square.&lt;/li&gt;
-&lt;li&gt;Draw two short edges to create the top of the table.&lt;/li&gt;
-&lt;li&gt;Draw the middle line longer, according to the foreshortened square concept.&lt;/li&gt;
-&lt;li&gt;Using the lines you have already drawn as areference, draw bottom of the table top in direction of Northeast and Northwest.&lt;/li&gt;
-&lt;li&gt;Draw middle line longer to create the near edge of the table post.&lt;/li&gt;
-&lt;li&gt;Draw the sides of the table post. Each side line is drawn halfway from the far edge to the middle line.&lt;/li&gt;
-&lt;li&gt;Using lines drawn as reference, draw the bottom of the table post in direction NW and NE.&lt;/li&gt;
-&lt;li&gt;Draw horizon line just above the table. and position light source aboce and to the right. The horizon line tells our eye that the object is below the horizon line, which communicates to our brain that the thickness, shadows, and foreshorteneing are from this perspective.&lt;/li&gt;
-&lt;li&gt;Place a guide dot directly below the near corner of the table post. If you don&amp;rsquo;t use the guide dot on every stacked table, your drawing may get progressively more skewed and impossibly distorted.&lt;/li&gt;
-&lt;li&gt;Using lines already drawn as a reference, draw the front edge of the pedestal in directions NW and NE.&lt;/li&gt;
-&lt;li&gt;Now draw the back edges of the opt of the pedestal, be sure to go behind the corner of the post.&lt;/li&gt;
-&lt;li&gt;Complete the pedestal, makjing sure to draw the near corner lower. As always, use the lines you have already drawn as reference angles for drawing the bottom lines of the pedestal in directions NW and NE.&lt;/li&gt;
-&lt;li&gt;Finally, add the cast shadow opposite your positioned light source, shade the table and pedestal and add the dark undershadows of both sides of the post.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;So here&amp;rsquo;s how my final drawing looks:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/AFA53C8F-34F6-4A7D-8C20-6DD868130467.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 26 Feb 2014 21:34:18 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</guid>
                         </item>
                 
         </channel>
