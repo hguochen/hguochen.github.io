@@ -7,6 +7,25 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Culture in the Silicon Valley</title>
+                                <description>&lt;p&gt;In a recent visit to California, i visited a number of famous companies in the Silicon Valley such as Google, Facebook, Evernote, Quora, Airbnb etc. These are all the &amp;lsquo;cool&amp;rsquo; companies with great cultures that many would die to get in. But what really does it mean to have a great culture? Sure the oversized bean bags, foosball tables, free meals and modern-looking workspaces forms part of it. But as i learnt from the many visits, great culture is more than materialistic satisfactions and cool company perks.&lt;/p&gt;
+
+&lt;p&gt;The key, is that everyone in the company thinks alike. What does it mean? It means a collective group of people come together to live and breathe on the same set of problems, every single day. They believe that a company is greater than the sum of its parts. They sweat the mission and vision of their greater entity.&lt;/p&gt;
+
+&lt;p&gt;At Facebook, everyone wants to build things that makes people stay connected. It doesn&amp;rsquo;t matter if their role isn&amp;rsquo;t engineering. The company hired people who care about being social no matter what discipline they are in so this trait integrates into their daily work. They ruthlessly scrutinize their work in order to produce the best products that makes millions of people say &amp;lsquo;hello&amp;rsquo; each day. It is this shared camaraderie the eliminates frustrations when a better design is shot down by an engineering manager who just wants to fix bugs.&lt;/p&gt;
+
+&lt;p&gt;Airbnb wants to unlock unique spaces worldwide. This vision tickles down to every single one of its employees. In order for that, the company built an environment where you can spend time building a global reach instead of having to fight for time to do your laundry, or get frustrated over expensive lunches. All mundane things are taken care of, so you can focus on what really matters.&lt;/p&gt;
+
+&lt;p&gt;All these, brings the idea that executing a company vision needs to be everyone&amp;rsquo;s job. Is everybody sharing the company&amp;rsquo;s delights and sorrows? Does everyone talk about user&amp;rsquo;s problems or talk about their own problems? I think a big reason why these companies consistently hit the top of &amp;lsquo;Dream company to work for&amp;rsquo; list is that they&amp;rsquo;ve figured out how to solve its employee&amp;rsquo;s little problems, in return for these talents helping to solve company&amp;rsquo;s big problems. It is also this realization that differentiates between a good company and a great company.&lt;/p&gt;
+
+&lt;p&gt;When you walk into your office tomorrow, start listening to what your employees are saying. If you can&amp;rsquo;t help them solve their daily problems, don&amp;rsquo;t expect them to solve yours.&lt;/p&gt;
+</description>
+                                <pubDate>Thu, 29 May 2014 23:12:51 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Reverse a singly linked list</title>
                                 <description>&lt;p&gt;I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.&lt;/p&gt;
 
@@ -777,40 +796,6 @@ h4 {
                                 <pubDate>Mon, 03 Mar 2014 19:59:12 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 7 Advanced Level Cubes</title>
-                                <description>&lt;p&gt;In this lesson we are going to draw three-dimensional cubes. We are also going to build on it by drawing advanced shapes.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Use guide dots to draw a foreshortened square.&lt;/li&gt;
-&lt;li&gt;Lightly draw the sides down, and draw the middle line longer.&lt;/li&gt;
-&lt;li&gt;Then draw the bottom of the cube using the lines you have already drawn as a reference. Go ahead and extend all of your direction NW and NE lines out as a guide.&lt;/li&gt;
-&lt;li&gt;Draw the guide dot just below the near corner. This guide dot determines the angle of your foreshortened second layer. If your guide dot is placed low, it will distort the layer and throw the entire building out of alignment.&lt;/li&gt;
-&lt;li&gt;Using lines drawn as a reference, draw the near edges of the second tier in NE and NW.&lt;/li&gt;
-&lt;li&gt;Look at your NE angle at the top foreshortened square of your box. Now, take your pencil and trace over those direction lines lightly to embed the angle of the line into your hand memory. Repeat the same technique to draw the NW line on the other side to create the top of the second layer of the building.&lt;/li&gt;
-&lt;li&gt;Complete the second layer of the building. Double check your bottom lines against drawing compass direction arrows NW and NE.&lt;/li&gt;
-&lt;li&gt;Begin drawing the doors on the top level with two vetical lines on each side. To make sure your lines are actually vertical, straight up and down, look at the edge of your paper.&lt;/li&gt;
-&lt;li&gt;Curve the tops of both doorways on the top floor of the building.&lt;/li&gt;
-&lt;li&gt;To create the illusion that these doors actually exist as 3 dimensional entrances to this building, we need to add thickness to them. If the door is on the right, the thickness is on the right. If door is on the left, the thickness is on the left.&lt;/li&gt;
-&lt;li&gt;Complete the door by following the line of the exterior door as it curves up.&lt;/li&gt;
-&lt;li&gt;Look at the door on the left side. Using the drawing compass direction NE lines you drew earlier as reference, draw the thickness on the left-side door on the left side of the entrance.&lt;/li&gt;
-&lt;li&gt;Erase your side lines at the bottom of each door. With a well placed line in drawing directions NW and NE, you can easily create the visual illusion that there is a hallway or a room inside each doorway.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s create ramp on the left side first. Draw the vertical back edge of the ramp against the wall, and extend the bottom edge of the ramp out in drawing compass direction SW.&lt;/li&gt;
-&lt;li&gt;Draw the thickness of the ramp with two lines in direction NW, matching the angles with the linesyou drew earlier in direction NW.&lt;/li&gt;
-&lt;li&gt;Complete the far edge of the ramp by matching the angle of the front edge.&lt;/li&gt;
-&lt;li&gt;Erase guide lines behind the ramp. Using the lines you already drew in direction NE as reference, draw the ramp on the right side.&lt;/li&gt;
-&lt;li&gt;Complete your two-layered foreshortened ramp building by drawing the horizon line above the building, positioning your light source, and shading all the surfaces opposite your light position. Using your reference lines to angle the cast shadow correctly direction SW is really simple when you are drawing buildings; just extend the bottom lines. We are done!&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here&amp;rsquo;s how my piece looks like:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6C580A37-C2F4-4F72-B97D-CB89CABA6BBC.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 03 Mar 2014 19:35:37 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</guid>
                         </item>
                 
         </channel>
