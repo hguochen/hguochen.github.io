@@ -7,6 +7,105 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Steps to solving programming problems</title>
+                                <description>&lt;p&gt;If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the &lt;a href=&quot;http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/&quot;&gt;Problem analysis coding execution cycle&lt;/a&gt; that typical computer science class will teach. Hope it will be of use to you!&lt;/p&gt;
+
+&lt;h2&gt;Problem analysis coding execution cycle&lt;/h2&gt;
+
+&lt;h3&gt;1. Analyse the problem&lt;/h3&gt;
+
+&lt;h5&gt;a. Problem specification&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the problem asking for?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Requirements&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What are the constraints and requirements?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Assumptions&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What are the underlying assumptions on the question?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Is there any assumptions which could be challenged?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Sample test cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Identify at least 1 sample test case.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;How many test cases should there be minimally?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;e. Determine input &amp;amp; output&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Determine the input and output and their corresponding data types&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;f. Identify input boundary cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;List out all boundary cases for inputs and logic flows.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;2. Implement the algorithm&lt;/h3&gt;
+
+&lt;h5&gt;a. Algorithm structure&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the best data structure and data types for this problem?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Design Algorithm&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Write algorithm in plain english or pseudo code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Identify repeated patterns if any.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Testing algorithm correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Verbally run through the algrithm with pre-defined test cases&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Write code&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Write code incrementally with adequete tests at each step.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;e. Test code correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Run the code with sample inputs to test for desired outputs.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;f. Testing boundary cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Run the code with boundary cases and lookout for unexpected behaviors.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Verify program correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Re-visit the question and and lookout for inconsistencies  and redundancies.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;3. Program maintenance&lt;/h3&gt;
+
+&lt;h5&gt;a. Determine time complexity&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the average case complexity?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;What is the worst case complexity?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Determine space complexity&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Are there redundant or unused variables?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Refactoring&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Can the code be refactored to improve readability?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Can the algorithm be redesigned to improve efficiency?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Documentation&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Leave comments where the abstraction logic is unclear.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Are there any trivial comments?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Write formal documentations if the program is expected to be used by people.&lt;/em&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 04 Jun 2014 16:07:39 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/web%20developments/2014/06/04/Steps-to-solving-programming-problems/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/web%20developments/2014/06/04/Steps-to-solving-programming-problems/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Culture in the Silicon Valley</title>
                                 <description>&lt;p&gt;In a recent visit to California, i visited a number of famous companies in the Silicon Valley such as Google, Facebook, Evernote, Quora, Airbnb etc. These are all the &amp;lsquo;cool&amp;rsquo; companies with great cultures that many would die to get in. But what really does it mean to have a great culture? Sure the oversized bean bags, foosball tables, free meals and modern-looking workspaces forms part of it. But as i learnt from the many visits, great culture is more than materialistic satisfactions and cool company perks.&lt;/p&gt;
 
@@ -762,40 +861,6 @@ h4 {
                                 <pubDate>Fri, 07 Mar 2014 19:00:28 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 8 Cool Koalas</title>
-                                <description>&lt;p&gt;Let&amp;rsquo;s take a break from boxes and structures and draw a koala bear.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Lightly sketch three circles in a row.&lt;/li&gt;
-&lt;li&gt;On the first circle, use curving dashes to create a &amp;ldquo;soft fur texture along the outside edge&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Continuing to work on the first circle, use more curving dashes to fill in the left side of the circle, creating the illusion of shading with texture. You can use texture to shade an object.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s take this one step further. On the second circle, draw sharp lines around the outside, creating the feel of sharp spikes.&lt;/li&gt;
-&lt;li&gt;Place the light source in the top right corner of your page, and add a few more rows of spikes to the left side of the shape.&lt;/li&gt;
-&lt;li&gt;Draw scribbles around the third circle. Keep scribbling more circling lines around and around the shape to create a messy-looking ball of dryer lint. Continue to explore this idea of texture as a tool for shading.&lt;/li&gt;
-&lt;li&gt;Now its time to start drawing the Koala. Begin with a light circle.&lt;/li&gt;
-&lt;li&gt;Lightly sketch in the ears.&lt;/li&gt;
-&lt;li&gt;Lightly slope down the shoulders&lt;/li&gt;
-&lt;li&gt;When you draw the &amp;ldquo;tapered nose, be sure to leave a small white area&amp;rdquo;. This create the illusion of a light reflection off the shiny nose. You will do this same thing when drawing other animals, cats dogs etc.&lt;/li&gt;
-&lt;li&gt;Draw the koala&amp;rsquo;s eyes, transferring the idea of reflection by leaving a small white spot in each pupil.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s take closer look at the ear. This is what is known in the art world as doing a study of a small portion of a picture.&lt;/li&gt;
-&lt;li&gt;Draw the overlapped line of the &amp;ldquo;concha&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Draw the bump at the bottom of the aer. This is the &amp;ldquo;tragus&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;Now Repeat this ear structure on the right ear.&lt;/li&gt;
-&lt;li&gt;Look back at the furry ball you drew at the beginning of this season. Notice how you created the soft feel of fur as ompared to the sharp feel of the spike ball. Draw the soft, furry texture around the outline of the koala.&lt;/li&gt;
-&lt;li&gt;Use more furry texture to shade the koala&amp;rsquo;s head, ears, and body. Emphasize the undershadow under his chin and in his ear under the top helix line.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here&amp;rsquo;s how my final drawing looks like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/0AB47825-2D43-42C9-978A-5D92445FCD41.jpg&quot; alt=&quot;lesson8&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 03 Mar 2014 19:59:12 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</guid>
                         </item>
                 
         </channel>
