@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-04T17:00:16+08:00</updated>
+  <updated>2014-06-04T17:21:55+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Steps to solving programming problems]]></title>
+    <link href="http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/"/>
+    <updated>2014-06-04T16:07:39Z</updated>
+    <id>http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems</id>
+    <content type="html"><![CDATA[<p>If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the <a href="http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/">Problem analysis coding execution cycle</a> that typical computer science class will teach. Hope it will be of use to you!</p>
+
+<h2>Problem analysis coding execution cycle</h2>
+
+<h3>1. Analyse the problem</h3>
+
+<h5>a. Problem specification</h5>
+
+<p><em>What is the problem asking for?</em></p>
+
+<h5>b. Requirements</h5>
+
+<p><em>What are the constraints and requirements?</em></p>
+
+<h5>c. Assumptions</h5>
+
+<p><em>What are the underlying assumptions on the question?</em></p>
+
+<p><em>Is there any assumptions which could be challenged?</em></p>
+
+<h5>d. Sample test cases</h5>
+
+<p><em>Identify at least 1 sample test case.</em></p>
+
+<p><em>How many test cases should there be minimally?</em></p>
+
+<h5>e. Determine input &amp; output</h5>
+
+<p><em>Determine the input and output and their corresponding data types</em></p>
+
+<h5>f. Identify input boundary cases</h5>
+
+<p><em>List out all boundary cases for inputs and logic flows.</em></p>
+
+<h3>2. Implement the algorithm</h3>
+
+<h5>a. Algorithm structure</h5>
+
+<p><em>What is the best data structure and data types for this problem?</em></p>
+
+<h5>b. Design Algorithm</h5>
+
+<p><em>Write algorithm in plain english or pseudo code.</em></p>
+
+<p><em>Identify repeated patterns if any.</em></p>
+
+<h5>c. Testing algorithm correctness</h5>
+
+<p><em>Verbally run through the algrithm with pre-defined test cases</em></p>
+
+<h5>d. Write code</h5>
+
+<p><em>Write code incrementally with adequete tests at each step.</em></p>
+
+<h5>e. Test code correctness</h5>
+
+<p><em>Run the code with sample inputs to test for desired outputs.</em></p>
+
+<h5>f. Testing boundary cases</h5>
+
+<p><em>Run the code with boundary cases and lookout for unexpected behaviors.</em></p>
+
+<h5>d. Verify program correctness</h5>
+
+<p><em>Re-visit the question and and lookout for inconsistencies  and redundancies.</em></p>
+
+<h3>3. Program maintenance</h3>
+
+<h5>a. Determine time complexity</h5>
+
+<p><em>What is the average case complexity?</em></p>
+
+<p><em>What is the worst case complexity?</em></p>
+
+<h5>b. Determine space complexity</h5>
+
+<p><em>Are there redundant or unused variables?</em></p>
+
+<h5>c. Refactoring</h5>
+
+<p><em>Can the code be refactored to improve readability?</em></p>
+
+<p><em>Can the algorithm be redesigned to improve efficiency?</em></p>
+
+<h5>d. Documentation</h5>
+
+<p><em>Leave comments where the abstraction logic is unclear.</em></p>
+
+<p><em>Are there any trivial comments?</em></p>
+
+<p><em>Write formal documentations if the program is expected to be used by people.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reverse a singly linked list]]></title>
