@@ -7,6 +7,182 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Kruskal&#39;s Algorithm</title>
+                                <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png&quot; height=&quot;400&quot; alt=&quot;city roads&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an example of using a greedy algorithm in graph theory to find a minimum spanning tree for a connected weighted graph. Vertices represent the cities and edges represent the roads to be rebuilt. Red digits indicates the amount of money to rebuild that stretch of road.&lt;/p&gt;
+
+&lt;p&gt;To solve the problem, 3 problems have to be addressed.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;How to represent the graph?&lt;/li&gt;
+&lt;li&gt;How to select the edges in nondecreasing order by its weight?&lt;/li&gt;
+&lt;li&gt;How to determine whether adding an edge would create a cycle?&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;The algorithm pseudocode for this problem follows the Kruskal algorithm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kruskal_algorithm(edgelist, n) {
+    sort(edgelist)
+    for i = 1 to n
+        makeset(i)
+    count = 0
+    i = 1
+    while count &amp;lt; n-1:
+        if(findset(vertex1) != findset(vertex2)) {
+            count += 1
+            union(vertex1, vertex2)
+        }
+        i += 1
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, we use a 2d array to represent each of the edges in the graph. eg. [1,2] would indicate an edge between city 1 and 2. Then we store the edge&amp;rsquo;s corresponding weight in another array with the weight as its element. eg.[4] for city 1 and 2. We also need a 3rd array to store all the vertices involved(purpose to be discussed). To avoid excessive parameter passing, let&amp;rsquo;s declare a Weighted_graph class:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Weighted_graph:
+&quot;&quot;&quot;
+Implement a weighted graph with a 2d list and a corresponding weight list
+Vertices are represented by elements(eg. 1,2,3) in the graph list and edges are represented by a list collection of each 2 vertices
+(eg. [1,2])
+&quot;&quot;&quot;
+edges = []
+weight = []
+vertices = []
+
+def __init__(self, edge_list, weight):
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Given the above graph, the corresponding data would be represented in our class attributes as the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;edges = [[3, 4], [1, 3], [5, 6], [1, 5], [3, 6], [1, 2], [2, 4], [3, 5], [4, 6]]
+weight = [4,2,3,5,1,6,3,6,2]
+vertices = [[1],[3],[4],[5],[6],[2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are also going to add utility functions, add() and print() to aid in our implementation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def add(self, edge_list, weight):
+    &quot;&quot;&quot;
+    Add an edge(defined by 2 vertices in a list) and its corresponding weight to edges
+    &quot;&quot;&quot;
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+
+def print_graph(self):
+    &quot;&quot;&quot;
+    Print each set of edges in a graph and its corresponding edges
+    &quot;&quot;&quot;
+    print self.edges
+    print self.weight
+    print self.vertices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, in order to select edges in nondecreasing order, we need to sort its corresponding weight in nondecreasing order. Here we use a simple insertion sort algorithm to do the job:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __sort(self):
+    &quot;&quot;&quot;
+    Sorts both edges and weight lists in nondecreasing order of weight list elements
+    &quot;&quot;&quot; 
+    if len(self.edges) != len(self.weight):
+        return
+    for i in range(1, len(self.weight)):
+        temp_weight = self.weight[i]
+        temp_edge = self.edges[i]
+        current = i - 1
+        while current &amp;gt;= 0 and temp_weight &amp;lt; self.weight[current]:
+            self.weight[current+1] = self.weight[current]
+            self.edges[current+1] = self.edges[current]
+            current -= 1
+        self.weight[current+1] = temp_weight
+        self.edges[current+1] = temp_edge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we need to be able to initialize each vertex to its own component in vertices array. Let&amp;rsquo;s use a private makeset function to achieve this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __makeset(self):
+    &quot;&quot;&quot;
+    Initialize each vertex to its own component
+    &quot;&quot;&quot;
+    for i in range(len(self.edges)):
+        for j in range(len(self.edges[i])):             
+            if self.edges[i][j] not in self.vertices:
+                self.vertices.append(self.edges[i][j])
+
+    for k in range(len(self.vertices)):
+        self.vertices[k] = [self.vertices[k]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we need a way to find the corresponding vertex in the vertices list of list and return a index to the location of the vertex in question.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __findset(self, vertex):
+    &quot;&quot;&quot;
+    Find and return the index to which vertex belongs in vertices list
+    &quot;&quot;&quot;     
+    for i in range(len(self.vertices)):
+        for element in self.vertices[i]:
+            if element == vertex:
+                return i
+    return None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just 1 last function! We need to be able to merge the 2 vertex in vertices list together to indicate that their corresponding edge have been selected. We use a union function to manipulate the vertices list directly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __union(self, vertex1, vertex2):
+    &quot;&quot;&quot;
+    Joins 2 vertex together         
+    &quot;&quot;&quot;
+    index1 = self.__findset(vertex1)
+    index2 = self.__findset(vertex2)
+    for element in self.vertices[index2]:
+        self.vertices[index1].append(element)
+    self.vertices.pop(index2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we have all the functions we need to implement Kruskal&amp;rsquo;s algorithm. Let&amp;rsquo;s convert the pseudocode earlier to python codes&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def kruskal(self):
+    self.__sort()
+    self.__makeset()
+    count, i = 0, 0     
+    while len(self.vertices) &amp;gt; 1:
+        if self.__findset(self.edges[i][0]) != self.__findset(self.edges[i][1]):
+            print &quot;(%d %d) edge selected.&quot; % (self.edges[i][0], self.edges[i][1])
+            count += 1
+            self.__union(self.edges[i][0], self.edges[i][1])
+        i += 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this implementation, we test run the codes and should be able to get the following output.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(3 4) edge selected.
+(1 3) edge selected.
+(5 6) edge selected.
+(1 5) edge selected.
+(1 2) edge selected.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Keep in mind that our vertices list starts off like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vertices = [[1],[3],[4],[5],[6],[2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As each set of edges is selected, its 2 cities are combined to indicate selection. This helps in determining if the graph is cyclic at each new edge selection stage. Finally, our vertices list looks like this, which indicates all the vertices are connected minimally.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vertices = [[1, 3, 4, 5, 6, 2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kruskal&amp;rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/kruskal.py&quot;&gt;full implementation&lt;/a&gt;.&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 17 Jun 2014 00:02:54 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/2014/06/17/Kruskal%27s-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/2014/06/17/Kruskal%27s-Algorithm/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Steps to solving programming problems</title>
                                 <description>&lt;p&gt;If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the &lt;a href=&quot;http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/&quot;&gt;Problem analysis coding execution cycle&lt;/a&gt; that typical computer science class will teach. Hope it will be of use to you!&lt;/p&gt;
 
@@ -816,51 +992,6 @@ h4 {
                                 <pubDate>Sun, 09 Mar 2014 23:03:29 +0000</pubDate>
                                 <link>http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 9 The Rose</title>
-                                <description>&lt;p&gt;We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw two guide dota horizontally across from each other.&lt;/li&gt;
-&lt;li&gt;Connect the dots with a foreshortened circle.&lt;/li&gt;
-&lt;li&gt;Draw the body of the bowl.&lt;/li&gt;
-&lt;li&gt;Using a guide line in direction SW, position the light source in the top right. Shade the bowl with blended shading from drak to light, creating a smooth blended surface.&lt;/li&gt;
-&lt;li&gt;Before drawing the rose, let&amp;rsquo;s try drawing the &amp;ldquo;peeking&amp;rdquo; line. This tiny detail of a small overlapping line that defines a fold or a wrinkle will have a huge visual effect in enabling you to make the rose petals appear to be curling around the bud in three dimensions.
-5a. Draw a vertical flagpole.
-5b. Draw two guide dots.
-5c. Draw three-quarters of a foreshortened circle.
-5d. Draw the vertical thickness of the flag.
-5e. Curve the near bottom edge of the flag a bit more than the line above it. The bottom of the flag is a bit farther from your eye, so you need to distort it, curve it more than the top edge.
-5f. Draw the &amp;ldquo;peeking&amp;rdquo; line, the most important line in this exercise. This teeny tiny dash will make or break the drawing and holds an enormous amount of visual power.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Let&amp;rsquo;s finally get to drawing a rose.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw a foreshortened bowl, and add a stem.&lt;/li&gt;
-&lt;li&gt;Draw a guide dot in the middle of the rose bowl.&lt;/li&gt;
-&lt;li&gt;Begin to spiral out the rose petal with three-quarters of a foreshortened circle.&lt;/li&gt;
-&lt;li&gt;Keep spiraling, and keep these spiraled foreshortened circles squished. It&amp;rsquo;s the distorted shape that will form the 3 dimensional rosebud.&lt;/li&gt;
-&lt;li&gt;Complete the spiral at the center of the petal. Erase the extra line.&lt;/li&gt;
-&lt;li&gt;Draw the center thickness of the rose petal and the first peeking thickness line.&lt;/li&gt;
-&lt;li&gt;Draw the next outer peeking line.&lt;/li&gt;
-&lt;li&gt;Draw the remaining thickness line. There it is, depth focused on our beautiful rose.&lt;/li&gt;
-&lt;li&gt;Draw the very dark, very small, nook and cranny shadows. Notice i even darkened a shadow along the edge of the rose petal.&lt;/li&gt;
-&lt;li&gt;Place the light source in the top right, and blend the shadin on each of the curved surfaces opposite. Draw a few thorns on the stem, and draw the leaves.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here is my work!
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/81630E2C-81A0-4EC6-9376-50AF1E655568.jpg&quot; alt=&quot;lesson9-1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9BD6F67E-D8D1-47A8-A47A-A85D4FBD472F.jpg&quot; alt=&quot;lesson9-2&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Fri, 07 Mar 2014 19:00:28 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</guid>
                         </item>
                 
         </channel>
