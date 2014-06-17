@@ -4,7 +4,7 @@
   <title><![CDATA[Category: greedy algorithm | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/greedy-algorithm/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-17T21:54:33+08:00</updated>
+  <updated>2014-06-17T21:56:02+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
 <img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
 
-<p>We visited this question previously with <a href="http://blog.hguochen.com/programming/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. Now let&rsquo;s try a different approach using <a href="https://en.wikipedia.org/wiki/Prim's_algorithm">Prim&rsquo;s Algorithm</a>.</p>
+<p>We visited this question previously with <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. Now let&rsquo;s try a different approach using <a href="https://en.wikipedia.org/wiki/Prim's_algorithm">Prim&rsquo;s Algorithm</a>.</p>
 
 <p>Prim&rsquo;s algorithm is another greedy algorithm that finds a minimal spanning tree in a connected, weighted graph. Unlike Kruskal&rsquo;s algorithm, whose partial solutions are not necessarily connected, a partial solution in prim&rsquo;s algorithm is a tree. Prim&rsquo;s algorithm begins with a start vertex and no edges and then applies the greedy rule: Add an edge of minimum weight that has one vertex in the current tree and the other not in the current tree.</p>
 
@@ -259,7 +259,7 @@ Child vertex 1 chosen.
 
 <p>Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, <code>Child vertex x chosen.</code> indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.</p>
 
-<p>Prim&rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&rsquo;s algorithm is consistently faster than <a href="http://blog.hguochen.com/programming/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. I did a time complexity analysis of Prim&rsquo;s and came up with the following:</p>
+<p>Prim&rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&rsquo;s algorithm is consistently faster than <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. I did a time complexity analysis of Prim&rsquo;s and came up with the following:</p>
 
 <p>Prim&rsquo;s algorithm time complexity(major functions):</p>
 
