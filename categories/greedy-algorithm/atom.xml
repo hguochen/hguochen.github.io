@@ -4,7 +4,7 @@
   <title><![CDATA[Category: greedy algorithm | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/greedy-algorithm/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-17T21:56:02+08:00</updated>
+  <updated>2014-06-17T21:57:58+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -70,7 +70,7 @@ class LinkedList:
         trav = trav.next
 </code></pre>
 
-<p>By calling the function <code>adj_list.print_list()</code> method, we should get the following printout, which is the content of each adjacent node in the list.</p>
+<p>By calling the function adj_list.print_list() method, we should get the following printout, which is the content of each adjacent node in the list.</p>
 
 <pre><code>(2, 4) (3, 2) (5, 3) None
 (1, 4) (4, 5) None
@@ -237,7 +237,7 @@ print chosen
     prim(adj, 4)
 </code></pre>
 
-<p>With the last line <code>prim(adj,4)</code>, the output would be:</p>
+<p>With the last line prim(adj,4), the output would be:</p>
 
 <pre><code>[[0, 3, 4], [2, 6, 4], [5, 2, 4]]
 Child vertex 5 chosen.
@@ -257,7 +257,7 @@ Child vertex 1 chosen.
 [4, 5, 0, 2, 3, 1]  
 </code></pre>
 
-<p>Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, <code>Child vertex x chosen.</code> indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.</p>
+<p>Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, Child vertex x chosen. indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.</p>
 
 <p>Prim&rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&rsquo;s algorithm is consistently faster than <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. I did a time complexity analysis of Prim&rsquo;s and came up with the following:</p>
 

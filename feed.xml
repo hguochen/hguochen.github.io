@@ -60,7 +60,7 @@ class LinkedList:
         trav = trav.next
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;By calling the function &lt;code&gt;adj_list.print_list()&lt;/code&gt; method, we should get the following printout, which is the content of each adjacent node in the list.&lt;/p&gt;
+&lt;p&gt;By calling the function adj_list.print_list() method, we should get the following printout, which is the content of each adjacent node in the list.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(2, 4) (3, 2) (5, 3) None
 (1, 4) (4, 5) None
@@ -227,7 +227,7 @@ print chosen
     prim(adj, 4)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;With the last line &lt;code&gt;prim(adj,4)&lt;/code&gt;, the output would be:&lt;/p&gt;
+&lt;p&gt;With the last line prim(adj,4), the output would be:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[[0, 3, 4], [2, 6, 4], [5, 2, 4]]
 Child vertex 5 chosen.
@@ -247,7 +247,7 @@ Child vertex 1 chosen.
 [4, 5, 0, 2, 3, 1]  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, &lt;code&gt;Child vertex x chosen.&lt;/code&gt; indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.&lt;/p&gt;
+&lt;p&gt;Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, Child vertex x chosen. indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.&lt;/p&gt;
 
 &lt;p&gt;Prim&amp;rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&amp;rsquo;s algorithm is consistently faster than &lt;a href=&quot;http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/&quot;&gt;Kruskal&amp;rsquo;s Algorithm&lt;/a&gt;. I did a time complexity analysis of Prim&amp;rsquo;s and came up with the following:&lt;/p&gt;
 
