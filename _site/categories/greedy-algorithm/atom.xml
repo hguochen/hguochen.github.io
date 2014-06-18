@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: greedy algorithm | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/greedy-algorithm/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-06-18T12:43:06+08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Prim's Algorithm]]></title>
+    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/"/>
+    <updated>2014-06-17T16:29:39Z</updated>
+    <id>http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Prim's-Algorithm</id>
+    <content type="html"><![CDATA[<p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
+
+<p>We visited this question previously with <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. Now let&rsquo;s try a different approach using <a href="https://en.wikipedia.org/wiki/Prim's_algorithm">Prim&rsquo;s Algorithm</a>.</p>
+
+<p>Prim&rsquo;s algorithm is another greedy algorithm that finds a minimal spanning tree in a connected, weighted graph. Unlike Kruskal&rsquo;s algorithm, whose partial solutions are not necessarily connected, a partial solution in prim&rsquo;s algorithm is a tree. Prim&rsquo;s algorithm begins with a start vertex and no edges and then applies the greedy rule: Add an edge of minimum weight that has one vertex in the current tree and the other not in the current tree.</p>
+
+<p>The big idea is to maintain a table that stores each vertex with its corresponding edge weight value adjacent to the starting vertex in question. Additionally, we need an array to store the &lsquo;parent&rsquo; vertex that has access to the vertex in question. We then go about selecting the least weight value in the table and select it as the edge path to pick. The symbol for choosing this edge could be deleting the row entirely from the table. After each edge selection, we update the table with the newly accessible vertex. When there are no more rows left in the table, then we would have selected every edge required  of a minimum spanning tree.</p>
+
+<p>For the table above, we can use a python dictionary with key as the vertex and value as the edge weight with its &lsquo;parent&rsquo; vertex.</p>
+
+<p>We also require a container to store the vertices each vertex is able to reach directly. For this container, we can use an adjacency list. adj[i] is a reference to the first node in a linked list of nodes representing the vertices adjacent to vertex i. Here&rsquo;s the adjacency list implementation:</p>
+
+<pre><code>class Node:
+"""
+Node class defines the basic structure of a node.
+"""
+def __init__(self, vertex=None, weight=None, next=None):
+    self.vertex = vertex
+    self.weight = weight
+    self.next = next    
+
+class LinkedList:
+    """
+    LinkedList class defines a  linked list of nodes in which node.next reference the next node in the list
+    """
+    def __init__(self):
+        self.head = Node()
+
+    def get_head(self):
+        """
+        Returns a reference to the head node
+        """
+        return self.head
+
+    def add(self, vertex, weight):
+        """
+        Append a new node with node.vertex as vertex to the last element in the linked list
+        """
+        new_node = Node(vertex, weight)
+        trav = self.head
+        while(trav.next != None):
+            trav = trav.next
+            trav.next = new_node
+
+    def print_list(self):
+        trav = self.head.next
+        while trav != None:
+            print "(%d, %d)" % (trav.vertex, trav.weight),
+        trav = trav.next
+</code></pre>
+
+<p>By calling the function adj_list.print_list() method, we should get the following printout, which is the content of each adjacent node in the list.</p>
+
+<pre><code>(2, 4) (3, 2) (5, 3) None
+(1, 4) (4, 5) None
+(1, 2) (5, 6) (6, 3) (4, 1) None
+(2, 5) (3, 1) (6, 6) None
+(1, 3) (3, 6) (6, 2) None
+(5, 2) (3, 3) (4, 6) None
+</code></pre>
+
+<p>Next, we define an Edges class to contain the table mentioned earlier. The class has a 2d list attribute like the following:</p>
+
+<pre><code>edges = [[vertex, weight, parent_vertex],...]
+</code></pre>
+
+<p>Each row of the table is represented by edges[i].</p>
+
+<p>Edges class has the following attributes and methods:</p>
+
+<pre><code>class Edges:
+"""
+Edge table consisting of vertex, weight and parent_vertex in a row.
+""" 
+edge_table = []
+
+def __init__(self, adj_ref, start): 
+    while adj_ref != None:          
+        self.edge_table.append([adj_ref.vertex, adj_ref.weight, start])
+        adj_ref = adj_ref.next  
+
+def get_table(self):
+    return self.edge_table
+
+def add_row(self, vertex, weight, parent_vertex):
+    """
+    Add a row in table with vertex, weight and parent_vertex attributes
+    """
+    self.edge_table.append([vertex, weight, parent_vertex])
+
+def pop_row(self):
+    """
+    Delete the row in table with the smallest weight and return the corresponding vertex.
+    """
+    if len(self.edge_table) &gt; 0:
+        least_weight = self.edge_table[0][1]
+        least_weight_index = 0
+        for i in range(1, len(self.edge_table)):
+            if self.edge_table[i][1] &lt; least_weight:
+                least_weight = self.edge_table[i][1]
+                least_weight_index = i
+        least_weight_vertex = self.edge_table[least_weight_index][0]
+        self.edge_table.pop(least_weight_index)
+        return least_weight_vertex
+    else:
+        return None
+
+def is_in(self, vertex):
+    """
+    Return true if vertex is in table and false otherwise.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return True
+    return False
+
+def vertex_weight(self, vertex):
+    """
+    Return the weight corresponding to vertex.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return edge[1]
+    return None
+
+def update_row(self, vertex, weight, parent_vertex):
+    """
+    Changes the weight and parent_vertex corresponding to existing vertex.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            edge[1] = weight
+            edge[2] = parent_vertex
+
+def print_table(self):
+    """
+    Print edge_table.
+    """
+    print self.edge_table
+</code></pre>
+
+<p>Lastly, we have our prim&rsquo;s algorithm to sort out the minimum spanning tree of the  directed, weighted graph.</p>
+
+<pre><code>def prim(adj_ref, start):
+"""
+Finds a minimal spanning tree in a connected, weighted, n-vertex graph. 
+The graph is represented using adjacency lists; adj[i] is a reference to the    first node in a linked list of nodes.
+The start vertex is start. In the minial spanning tree, the parent of a vertex  is defined as the vertex where existing minimal tree vertex extends from. 
+Start vertex(parent of itself) is = 0.
+"""
+table = Edges(adj_ref[4].next, start)   
+chosen = []
+chosen.append(start)
+
+while len(table.get_table()) &gt; 0:
+    table.print_table()
+    ver = table.pop_row()
+    chosen.append(ver)
+    print "Child vertex %d chosen." % ver
+    trav = adj_ref[ver].next
+
+    while trav != None:
+        if trav.vertex in chosen:
+            trav = trav.next
+            continue
+        if trav.vertex == start:
+            trav = trav.next
+            continue    
+        if table.is_in(trav.vertex): # table has vertex
+            if trav.weight &lt; table.vertex_weight(trav.vertex): # new edge weight                is less than existing table value
+                table.update_row(trav.vertex, trav.weight, ver) # update table                  to new vertex and weight
+        else:
+            # insert vertex and its elements into table
+            table.add_row(trav.vertex, trav.weight, ver)
+        trav = trav.next
+print chosen
+</code></pre>
+
+<p>The function prim is module level function and uses both Edges and LinkList classes to maintain interity and coherence of data.</p>
+
+<p>It&rsquo;s time to test the program:</p>
+
+<pre><code>if __name__ == "__main__":
+    adj_list = [0] * 6 # an array of adjacency list instances
+    adj = copy.deepcopy(adj_list) # references to head node
+
+    for i in range(len(adj_list)):
+        adj_list[i] = LinkedList() # declare linked list instance
+        adj[i] = adj_list[i].get_head() # reference adj[i] to head node
+
+    # Setup the adjacency list
+    adj_list[0].add(1,4)
+    adj_list[0].add(2,2)
+    adj_list[0].add(4,3)
+
+    adj_list[1].add(0,4)
+    adj_list[1].add(3,5)
+
+    adj_list[2].add(0,2)
+    adj_list[2].add(4,6)
+    adj_list[2].add(5,3)
+    adj_list[2].add(3,1)
+
+    adj_list[3].add(1,5)
+    adj_list[3].add(2,1)
+    adj_list[3].add(5,6)
+
+    adj_list[4].add(0,3)
+    adj_list[4].add(2,6)
+    adj_list[4].add(5,2)
+
+    adj_list[5].add(4,2)
+    adj_list[5].add(2,3)
+    adj_list[5].add(3,6)
+
+    prim(adj, 4)
+</code></pre>
+
+<p>With the last line prim(adj,4), the output would be:</p>
+
+<pre><code>[[0, 3, 4], [2, 6, 4], [5, 2, 4]]
+Child vertex 5 chosen.
+
+[[0, 3, 4], [2, 3, 5], [3, 6, 5]]
+Child vertex 0 chosen.
+
+[[2, 2, 0], [3, 6, 5], [1, 4, 0]]
+Child vertex 2 chosen.
+
+[[3, 1, 2], [1, 4, 0]]
+Child vertex 3 chosen.
+
+[[1, 4, 0]]
+Child vertex 1 chosen.
+
+[4, 5, 0, 2, 3, 1]  
+</code></pre>
+
+<p>Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, Child vertex x chosen. indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.</p>
+
+<p>Prim&rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&rsquo;s algorithm is consistently faster than <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. I did a time complexity analysis of Prim&rsquo;s and came up with the following:</p>
+
+<p>Prim&rsquo;s algorithm time complexity(major functions):</p>
+
+<pre><code>**Operation**                   **Worst-Case Time**
+Edges(adj_ref, start)           O(n)
+pop_row()                       O(lg n)
+is_in(vertex)                   O(1)
+vertex_weight(vertex)           O(n)
+update_row(vertex, weight, ..)  O(n)
+</code></pre>
+
+<p>The outer while loop take time O(n). The inner loop has a relation with the number of edges. Since we know that given n vertices, there can be a maximum of 2n edges so the time complexity of the inner while loop has complexity of O(n**2).</p>
+
+<p>So the final time complexity of prim&rsquo;s algorithm will be O(n**3). This is a bad time complexity given that the operations are not very convoluted. I think the bottleneck of this implementation is the abstract data structure used. I used a linked list data structure which in itself has a complexity of O(n). If we can use a more efficient data structure such as binary minheap structure which has O(lg n) complexity, we can really reduce the time complexity of Prim&rsquo;s algorithm to O(n2 lg n ). Maybe i&rsquo;ll try to implement a binary minheap structure later.</p>
+
+<p>Here&rsquo;s my <a href="https://github.com/hguochen/algorithms/blob/master/python/prim.py">full implementation</a>. I would love to hear suggestions on how to improve the time complexity or anything in general. Cheers :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Kruskal's Algorithm]]></title>
+    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/"/>
+    <updated>2014-06-17T00:02:54Z</updated>
+    <id>http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal's-Algorithm</id>
+    <content type="html"><![CDATA[<p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
+
+<p>This is an example of using a greedy algorithm in graph theory to find a minimum spanning tree for a connected weighted graph. Vertices represent the cities and edges represent the roads to be rebuilt. Red digits indicates the amount of money to rebuild that stretch of road.</p>
+
+<p>To solve the problem, 3 problems have to be addressed.</p>
+
+<ol>
+<li>How to represent the graph?</li>
+<li>How to select the edges in nondecreasing order by its weight?</li>
+<li>How to determine whether adding an edge would create a cycle?</li>
+</ol>
+
+
+<p>The algorithm pseudocode for this problem follows the Kruskal algorithm:</p>
+
+<pre><code>kruskal_algorithm(edgelist, n) {
+    sort(edgelist)
+    for i = 1 to n
+        makeset(i)
+    count = 0
+    i = 1
+    while count &lt; n-1:
+        if(findset(vertex1) != findset(vertex2)) {
+            count += 1
+            union(vertex1, vertex2)
+        }
+        i += 1
+}
+</code></pre>
+
+<p>First, we use a 2d array to represent each of the edges in the graph. eg. [1,2] would indicate an edge between city 1 and 2. Then we store the edge&rsquo;s corresponding weight in another array with the weight as its element. eg.[4] for city 1 and 2. We also need a 3rd array to store all the vertices involved(purpose to be discussed). To avoid excessive parameter passing, let&rsquo;s declare a Weighted_graph class:</p>
+
+<pre><code>class Weighted_graph:
+"""
+Implement a weighted graph with a 2d list and a corresponding weight list
+Vertices are represented by elements(eg. 1,2,3) in the graph list and edges are represented by a list collection of each 2 vertices
+(eg. [1,2])
+"""
+edges = []
+weight = []
+vertices = []
+
+def __init__(self, edge_list, weight):
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+</code></pre>
+
+<p>Given the above graph, the corresponding data would be represented in our class attributes as the following:</p>
+
+<pre><code>edges = [[3, 4], [1, 3], [5, 6], [1, 5], [3, 6], [1, 2], [2, 4], [3, 5], [4, 6]]
+weight = [4,2,3,5,1,6,3,6,2]
+vertices = [[1],[3],[4],[5],[6],[2]]
+</code></pre>
+
+<p>We are also going to add utility functions, add() and print() to aid in our implementation.</p>
+
+<pre><code>def add(self, edge_list, weight):
+    """
+    Add an edge(defined by 2 vertices in a list) and its corresponding weight to edges
+    """
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+
+def print_graph(self):
+    """
+    Print each set of edges in a graph and its corresponding edges
+    """
+    print self.edges
+    print self.weight
+    print self.vertices
+</code></pre>
+
+<p>Second, in order to select edges in nondecreasing order, we need to sort its corresponding weight in nondecreasing order. Here we use a simple insertion sort algorithm to do the job:</p>
+
+<pre><code>def __sort(self):
+    """
+    Sorts both edges and weight lists in nondecreasing order of weight list elements
+    """ 
+    if len(self.edges) != len(self.weight):
+        return
+    for i in range(1, len(self.weight)):
+        temp_weight = self.weight[i]
+        temp_edge = self.edges[i]
+        current = i - 1
+        while current &gt;= 0 and temp_weight &lt; self.weight[current]:
+            self.weight[current+1] = self.weight[current]
+            self.edges[current+1] = self.edges[current]
+            current -= 1
+        self.weight[current+1] = temp_weight
+        self.edges[current+1] = temp_edge
+</code></pre>
+
+<p>Next we need to be able to initialize each vertex to its own component in vertices array. Let&rsquo;s use a private makeset function to achieve this:</p>
+
+<pre><code>def __makeset(self):
+    """
+    Initialize each vertex to its own component
+    """
+    for i in range(len(self.edges)):
+        for j in range(len(self.edges[i])):             
+            if self.edges[i][j] not in self.vertices:
+                self.vertices.append(self.edges[i][j])
+
+    for k in range(len(self.vertices)):
+        self.vertices[k] = [self.vertices[k]]
+</code></pre>
+
+<p>Then we need a way to find the corresponding vertex in the vertices list of list and return a index to the location of the vertex in question.</p>
+
+<pre><code>def __findset(self, vertex):
+    """
+    Find and return the index to which vertex belongs in vertices list
+    """     
+    for i in range(len(self.vertices)):
+        for element in self.vertices[i]:
+            if element == vertex:
+                return i
+    return None
+</code></pre>
+
+<p>Just 1 last function! We need to be able to merge the 2 vertex in vertices list together to indicate that their corresponding edge have been selected. We use a union function to manipulate the vertices list directly.</p>
+
+<pre><code>def __union(self, vertex1, vertex2):
+    """
+    Joins 2 vertex together         
+    """
+    index1 = self.__findset(vertex1)
+    index2 = self.__findset(vertex2)
+    for element in self.vertices[index2]:
+        self.vertices[index1].append(element)
+    self.vertices.pop(index2)
+</code></pre>
+
+<p>So we have all the functions we need to implement Kruskal&rsquo;s algorithm. Let&rsquo;s convert the pseudocode earlier to python codes&hellip;</p>
+
+<pre><code>def kruskal(self):
+    self.__sort()
+    self.__makeset()
+    count, i = 0, 0     
+    while len(self.vertices) &gt; 1:
+        if self.__findset(self.edges[i][0]) != self.__findset(self.edges[i][1]):
+            print "(%d %d) edge selected." % (self.edges[i][0], self.edges[i][1])
+            count += 1
+            self.__union(self.edges[i][0], self.edges[i][1])
+        i += 1
+</code></pre>
+
+<p>With this implementation, we test run the codes and should be able to get the following output.</p>
+
+<pre><code>(3 4) edge selected.
+(1 3) edge selected.
+(5 6) edge selected.
+(1 5) edge selected.
+(1 2) edge selected.
+</code></pre>
+
+<p>Keep in mind that our vertices list starts off like this:</p>
+
+<pre><code>vertices = [[1],[3],[4],[5],[6],[2]]
+</code></pre>
+
+<p>As each set of edges is selected, its 2 cities are combined to indicate selection. This helps in determining if the graph is cyclic at each new edge selection stage. Finally, our vertices list looks like this, which indicates all the vertices are connected minimally.</p>
+
+<pre><code>vertices = [[1, 3, 4, 5, 6, 2]]
+</code></pre>
+
+<p>Kruskal&rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&rsquo;s my <a href="https://github.com/hguochen/algorithms/blob/master/python/kruskal.py">full implementation</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

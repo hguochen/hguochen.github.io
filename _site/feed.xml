@@ -7,6 +7,1139 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Prim&#39;s Algorithm</title>
+                                <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png&quot; height=&quot;400&quot; alt=&quot;city roads&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We visited this question previously with &lt;a href=&quot;http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/&quot;&gt;Kruskal&amp;rsquo;s Algorithm&lt;/a&gt;. Now let&amp;rsquo;s try a different approach using &lt;a href=&quot;https://en.wikipedia.org/wiki/Prim&#39;s_algorithm&quot;&gt;Prim&amp;rsquo;s Algorithm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Prim&amp;rsquo;s algorithm is another greedy algorithm that finds a minimal spanning tree in a connected, weighted graph. Unlike Kruskal&amp;rsquo;s algorithm, whose partial solutions are not necessarily connected, a partial solution in prim&amp;rsquo;s algorithm is a tree. Prim&amp;rsquo;s algorithm begins with a start vertex and no edges and then applies the greedy rule: Add an edge of minimum weight that has one vertex in the current tree and the other not in the current tree.&lt;/p&gt;
+
+&lt;p&gt;The big idea is to maintain a table that stores each vertex with its corresponding edge weight value adjacent to the starting vertex in question. Additionally, we need an array to store the &amp;lsquo;parent&amp;rsquo; vertex that has access to the vertex in question. We then go about selecting the least weight value in the table and select it as the edge path to pick. The symbol for choosing this edge could be deleting the row entirely from the table. After each edge selection, we update the table with the newly accessible vertex. When there are no more rows left in the table, then we would have selected every edge required  of a minimum spanning tree.&lt;/p&gt;
+
+&lt;p&gt;For the table above, we can use a python dictionary with key as the vertex and value as the edge weight with its &amp;lsquo;parent&amp;rsquo; vertex.&lt;/p&gt;
+
+&lt;p&gt;We also require a container to store the vertices each vertex is able to reach directly. For this container, we can use an adjacency list. adj[i] is a reference to the first node in a linked list of nodes representing the vertices adjacent to vertex i. Here&amp;rsquo;s the adjacency list implementation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Node:
+&quot;&quot;&quot;
+Node class defines the basic structure of a node.
+&quot;&quot;&quot;
+def __init__(self, vertex=None, weight=None, next=None):
+    self.vertex = vertex
+    self.weight = weight
+    self.next = next    
+
+class LinkedList:
+    &quot;&quot;&quot;
+    LinkedList class defines a  linked list of nodes in which node.next reference the next node in the list
+    &quot;&quot;&quot;
+    def __init__(self):
+        self.head = Node()
+
+    def get_head(self):
+        &quot;&quot;&quot;
+        Returns a reference to the head node
+        &quot;&quot;&quot;
+        return self.head
+
+    def add(self, vertex, weight):
+        &quot;&quot;&quot;
+        Append a new node with node.vertex as vertex to the last element in the linked list
+        &quot;&quot;&quot;
+        new_node = Node(vertex, weight)
+        trav = self.head
+        while(trav.next != None):
+            trav = trav.next
+            trav.next = new_node
+
+    def print_list(self):
+        trav = self.head.next
+        while trav != None:
+            print &quot;(%d, %d)&quot; % (trav.vertex, trav.weight),
+        trav = trav.next
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By calling the function adj_list.print_list() method, we should get the following printout, which is the content of each adjacent node in the list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(2, 4) (3, 2) (5, 3) None
+(1, 4) (4, 5) None
+(1, 2) (5, 6) (6, 3) (4, 1) None
+(2, 5) (3, 1) (6, 6) None
+(1, 3) (3, 6) (6, 2) None
+(5, 2) (3, 3) (4, 6) None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, we define an Edges class to contain the table mentioned earlier. The class has a 2d list attribute like the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;edges = [[vertex, weight, parent_vertex],...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each row of the table is represented by edges[i].&lt;/p&gt;
+
+&lt;p&gt;Edges class has the following attributes and methods:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Edges:
+&quot;&quot;&quot;
+Edge table consisting of vertex, weight and parent_vertex in a row.
+&quot;&quot;&quot; 
+edge_table = []
+
+def __init__(self, adj_ref, start): 
+    while adj_ref != None:          
+        self.edge_table.append([adj_ref.vertex, adj_ref.weight, start])
+        adj_ref = adj_ref.next  
+
+def get_table(self):
+    return self.edge_table
+
+def add_row(self, vertex, weight, parent_vertex):
+    &quot;&quot;&quot;
+    Add a row in table with vertex, weight and parent_vertex attributes
+    &quot;&quot;&quot;
+    self.edge_table.append([vertex, weight, parent_vertex])
+
+def pop_row(self):
+    &quot;&quot;&quot;
+    Delete the row in table with the smallest weight and return the corresponding vertex.
+    &quot;&quot;&quot;
+    if len(self.edge_table) &amp;gt; 0:
+        least_weight = self.edge_table[0][1]
+        least_weight_index = 0
+        for i in range(1, len(self.edge_table)):
+            if self.edge_table[i][1] &amp;lt; least_weight:
+                least_weight = self.edge_table[i][1]
+                least_weight_index = i
+        least_weight_vertex = self.edge_table[least_weight_index][0]
+        self.edge_table.pop(least_weight_index)
+        return least_weight_vertex
+    else:
+        return None
+
+def is_in(self, vertex):
+    &quot;&quot;&quot;
+    Return true if vertex is in table and false otherwise.
+    &quot;&quot;&quot;
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return True
+    return False
+
+def vertex_weight(self, vertex):
+    &quot;&quot;&quot;
+    Return the weight corresponding to vertex.
+    &quot;&quot;&quot;
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return edge[1]
+    return None
+
+def update_row(self, vertex, weight, parent_vertex):
+    &quot;&quot;&quot;
+    Changes the weight and parent_vertex corresponding to existing vertex.
+    &quot;&quot;&quot;
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            edge[1] = weight
+            edge[2] = parent_vertex
+
+def print_table(self):
+    &quot;&quot;&quot;
+    Print edge_table.
+    &quot;&quot;&quot;
+    print self.edge_table
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lastly, we have our prim&amp;rsquo;s algorithm to sort out the minimum spanning tree of the  directed, weighted graph.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def prim(adj_ref, start):
+&quot;&quot;&quot;
+Finds a minimal spanning tree in a connected, weighted, n-vertex graph. 
+The graph is represented using adjacency lists; adj[i] is a reference to the    first node in a linked list of nodes.
+The start vertex is start. In the minial spanning tree, the parent of a vertex  is defined as the vertex where existing minimal tree vertex extends from. 
+Start vertex(parent of itself) is = 0.
+&quot;&quot;&quot;
+table = Edges(adj_ref[4].next, start)   
+chosen = []
+chosen.append(start)
+
+while len(table.get_table()) &amp;gt; 0:
+    table.print_table()
+    ver = table.pop_row()
+    chosen.append(ver)
+    print &quot;Child vertex %d chosen.&quot; % ver
+    trav = adj_ref[ver].next
+
+    while trav != None:
+        if trav.vertex in chosen:
+            trav = trav.next
+            continue
+        if trav.vertex == start:
+            trav = trav.next
+            continue    
+        if table.is_in(trav.vertex): # table has vertex
+            if trav.weight &amp;lt; table.vertex_weight(trav.vertex): # new edge weight                is less than existing table value
+                table.update_row(trav.vertex, trav.weight, ver) # update table                  to new vertex and weight
+        else:
+            # insert vertex and its elements into table
+            table.add_row(trav.vertex, trav.weight, ver)
+        trav = trav.next
+print chosen
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The function prim is module level function and uses both Edges and LinkList classes to maintain interity and coherence of data.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s time to test the program:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if __name__ == &quot;__main__&quot;:
+    adj_list = [0] * 6 # an array of adjacency list instances
+    adj = copy.deepcopy(adj_list) # references to head node
+
+    for i in range(len(adj_list)):
+        adj_list[i] = LinkedList() # declare linked list instance
+        adj[i] = adj_list[i].get_head() # reference adj[i] to head node
+
+    # Setup the adjacency list
+    adj_list[0].add(1,4)
+    adj_list[0].add(2,2)
+    adj_list[0].add(4,3)
+
+    adj_list[1].add(0,4)
+    adj_list[1].add(3,5)
+
+    adj_list[2].add(0,2)
+    adj_list[2].add(4,6)
+    adj_list[2].add(5,3)
+    adj_list[2].add(3,1)
+
+    adj_list[3].add(1,5)
+    adj_list[3].add(2,1)
+    adj_list[3].add(5,6)
+
+    adj_list[4].add(0,3)
+    adj_list[4].add(2,6)
+    adj_list[4].add(5,2)
+
+    adj_list[5].add(4,2)
+    adj_list[5].add(2,3)
+    adj_list[5].add(3,6)
+
+    prim(adj, 4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the last line prim(adj,4), the output would be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[[0, 3, 4], [2, 6, 4], [5, 2, 4]]
+Child vertex 5 chosen.
+
+[[0, 3, 4], [2, 3, 5], [3, 6, 5]]
+Child vertex 0 chosen.
+
+[[2, 2, 0], [3, 6, 5], [1, 4, 0]]
+Child vertex 2 chosen.
+
+[[3, 1, 2], [1, 4, 0]]
+Child vertex 3 chosen.
+
+[[1, 4, 0]]
+Child vertex 1 chosen.
+
+[4, 5, 0, 2, 3, 1]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, Child vertex x chosen. indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.&lt;/p&gt;
+
+&lt;p&gt;Prim&amp;rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&amp;rsquo;s algorithm is consistently faster than &lt;a href=&quot;http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/&quot;&gt;Kruskal&amp;rsquo;s Algorithm&lt;/a&gt;. I did a time complexity analysis of Prim&amp;rsquo;s and came up with the following:&lt;/p&gt;
+
+&lt;p&gt;Prim&amp;rsquo;s algorithm time complexity(major functions):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;**Operation**                   **Worst-Case Time**
+Edges(adj_ref, start)           O(n)
+pop_row()                       O(lg n)
+is_in(vertex)                   O(1)
+vertex_weight(vertex)           O(n)
+update_row(vertex, weight, ..)  O(n)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The outer while loop take time O(n). The inner loop has a relation with the number of edges. Since we know that given n vertices, there can be a maximum of 2n edges so the time complexity of the inner while loop has complexity of O(n**2).&lt;/p&gt;
+
+&lt;p&gt;So the final time complexity of prim&amp;rsquo;s algorithm will be O(n**3). This is a bad time complexity given that the operations are not very convoluted. I think the bottleneck of this implementation is the abstract data structure used. I used a linked list data structure which in itself has a complexity of O(n). If we can use a more efficient data structure such as binary minheap structure which has O(lg n) complexity, we can really reduce the time complexity of Prim&amp;rsquo;s algorithm to O(n2 lg n ). Maybe i&amp;rsquo;ll try to implement a binary minheap structure later.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/prim.py&quot;&gt;full implementation&lt;/a&gt;. I would love to hear suggestions on how to improve the time complexity or anything in general. Cheers :)&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 17 Jun 2014 16:29:39 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Kruskal&#39;s Algorithm</title>
+                                <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png&quot; height=&quot;400&quot; alt=&quot;city roads&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an example of using a greedy algorithm in graph theory to find a minimum spanning tree for a connected weighted graph. Vertices represent the cities and edges represent the roads to be rebuilt. Red digits indicates the amount of money to rebuild that stretch of road.&lt;/p&gt;
+
+&lt;p&gt;To solve the problem, 3 problems have to be addressed.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;How to represent the graph?&lt;/li&gt;
+&lt;li&gt;How to select the edges in nondecreasing order by its weight?&lt;/li&gt;
+&lt;li&gt;How to determine whether adding an edge would create a cycle?&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;The algorithm pseudocode for this problem follows the Kruskal algorithm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kruskal_algorithm(edgelist, n) {
+    sort(edgelist)
+    for i = 1 to n
+        makeset(i)
+    count = 0
+    i = 1
+    while count &amp;lt; n-1:
+        if(findset(vertex1) != findset(vertex2)) {
+            count += 1
+            union(vertex1, vertex2)
+        }
+        i += 1
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, we use a 2d array to represent each of the edges in the graph. eg. [1,2] would indicate an edge between city 1 and 2. Then we store the edge&amp;rsquo;s corresponding weight in another array with the weight as its element. eg.[4] for city 1 and 2. We also need a 3rd array to store all the vertices involved(purpose to be discussed). To avoid excessive parameter passing, let&amp;rsquo;s declare a Weighted_graph class:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Weighted_graph:
+&quot;&quot;&quot;
+Implement a weighted graph with a 2d list and a corresponding weight list
+Vertices are represented by elements(eg. 1,2,3) in the graph list and edges are represented by a list collection of each 2 vertices
+(eg. [1,2])
+&quot;&quot;&quot;
+edges = []
+weight = []
+vertices = []
+
+def __init__(self, edge_list, weight):
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Given the above graph, the corresponding data would be represented in our class attributes as the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;edges = [[3, 4], [1, 3], [5, 6], [1, 5], [3, 6], [1, 2], [2, 4], [3, 5], [4, 6]]
+weight = [4,2,3,5,1,6,3,6,2]
+vertices = [[1],[3],[4],[5],[6],[2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are also going to add utility functions, add() and print() to aid in our implementation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def add(self, edge_list, weight):
+    &quot;&quot;&quot;
+    Add an edge(defined by 2 vertices in a list) and its corresponding weight to edges
+    &quot;&quot;&quot;
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+
+def print_graph(self):
+    &quot;&quot;&quot;
+    Print each set of edges in a graph and its corresponding edges
+    &quot;&quot;&quot;
+    print self.edges
+    print self.weight
+    print self.vertices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, in order to select edges in nondecreasing order, we need to sort its corresponding weight in nondecreasing order. Here we use a simple insertion sort algorithm to do the job:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __sort(self):
+    &quot;&quot;&quot;
+    Sorts both edges and weight lists in nondecreasing order of weight list elements
+    &quot;&quot;&quot; 
+    if len(self.edges) != len(self.weight):
+        return
+    for i in range(1, len(self.weight)):
+        temp_weight = self.weight[i]
+        temp_edge = self.edges[i]
+        current = i - 1
+        while current &amp;gt;= 0 and temp_weight &amp;lt; self.weight[current]:
+            self.weight[current+1] = self.weight[current]
+            self.edges[current+1] = self.edges[current]
+            current -= 1
+        self.weight[current+1] = temp_weight
+        self.edges[current+1] = temp_edge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we need to be able to initialize each vertex to its own component in vertices array. Let&amp;rsquo;s use a private makeset function to achieve this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __makeset(self):
+    &quot;&quot;&quot;
+    Initialize each vertex to its own component
+    &quot;&quot;&quot;
+    for i in range(len(self.edges)):
+        for j in range(len(self.edges[i])):             
+            if self.edges[i][j] not in self.vertices:
+                self.vertices.append(self.edges[i][j])
+
+    for k in range(len(self.vertices)):
+        self.vertices[k] = [self.vertices[k]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we need a way to find the corresponding vertex in the vertices list of list and return a index to the location of the vertex in question.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __findset(self, vertex):
+    &quot;&quot;&quot;
+    Find and return the index to which vertex belongs in vertices list
+    &quot;&quot;&quot;     
+    for i in range(len(self.vertices)):
+        for element in self.vertices[i]:
+            if element == vertex:
+                return i
+    return None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just 1 last function! We need to be able to merge the 2 vertex in vertices list together to indicate that their corresponding edge have been selected. We use a union function to manipulate the vertices list directly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def __union(self, vertex1, vertex2):
+    &quot;&quot;&quot;
+    Joins 2 vertex together         
+    &quot;&quot;&quot;
+    index1 = self.__findset(vertex1)
+    index2 = self.__findset(vertex2)
+    for element in self.vertices[index2]:
+        self.vertices[index1].append(element)
+    self.vertices.pop(index2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we have all the functions we need to implement Kruskal&amp;rsquo;s algorithm. Let&amp;rsquo;s convert the pseudocode earlier to python codes&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def kruskal(self):
+    self.__sort()
+    self.__makeset()
+    count, i = 0, 0     
+    while len(self.vertices) &amp;gt; 1:
+        if self.__findset(self.edges[i][0]) != self.__findset(self.edges[i][1]):
+            print &quot;(%d %d) edge selected.&quot; % (self.edges[i][0], self.edges[i][1])
+            count += 1
+            self.__union(self.edges[i][0], self.edges[i][1])
+        i += 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this implementation, we test run the codes and should be able to get the following output.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(3 4) edge selected.
+(1 3) edge selected.
+(5 6) edge selected.
+(1 5) edge selected.
+(1 2) edge selected.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Keep in mind that our vertices list starts off like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vertices = [[1],[3],[4],[5],[6],[2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As each set of edges is selected, its 2 cities are combined to indicate selection. This helps in determining if the graph is cyclic at each new edge selection stage. Finally, our vertices list looks like this, which indicates all the vertices are connected minimally.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vertices = [[1, 3, 4, 5, 6, 2]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kruskal&amp;rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/kruskal.py&quot;&gt;full implementation&lt;/a&gt;.&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 17 Jun 2014 00:02:54 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Steps to solving programming problems</title>
+                                <description>&lt;p&gt;If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the &lt;a href=&quot;http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/&quot;&gt;Problem analysis coding execution cycle&lt;/a&gt; that typical computer science class will teach. Hope it will be of use to you!&lt;/p&gt;
+
+&lt;h2&gt;Problem analysis coding execution cycle&lt;/h2&gt;
+
+&lt;h3&gt;1. Analyse the problem&lt;/h3&gt;
+
+&lt;h5&gt;a. Problem specification&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the problem asking for?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Requirements&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What are the constraints and requirements?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Assumptions&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What are the underlying assumptions on the question?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Is there any assumptions which could be challenged?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Sample test cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Identify at least 1 sample test case.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;How many test cases should there be minimally?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;e. Determine input &amp;amp; output&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Determine the input and output and their corresponding data types&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;f. Identify input boundary cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;List out all boundary cases for inputs and logic flows.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;2. Implement the algorithm&lt;/h3&gt;
+
+&lt;h5&gt;a. Algorithm structure&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the best data structure and data types for this problem?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Design Algorithm&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Write algorithm in plain english or pseudo code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Identify repeated patterns if any.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Testing algorithm correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Verbally run through the algrithm with pre-defined test cases&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Write code&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Write code incrementally with adequete tests at each step.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;e. Test code correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Run the code with sample inputs to test for desired outputs.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;f. Testing boundary cases&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Run the code with boundary cases and lookout for unexpected behaviors.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Verify program correctness&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Re-visit the question and and lookout for inconsistencies  and redundancies.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;3. Program maintenance&lt;/h3&gt;
+
+&lt;h5&gt;a. Determine time complexity&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;What is the average case complexity?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;What is the worst case complexity?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;b. Determine space complexity&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Are there redundant or unused variables?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;c. Refactoring&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Can the code be refactored to improve readability?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Can the algorithm be redesigned to improve efficiency?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5&gt;d. Documentation&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Leave comments where the abstraction logic is unclear.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Are there any trivial comments?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Write formal documentations if the program is expected to be used by people.&lt;/em&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 04 Jun 2014 16:07:39 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Culture in the Silicon Valley</title>
+                                <description>&lt;p&gt;In a recent visit to California, i visited a number of famous companies in the Silicon Valley such as Google, Facebook, Evernote, Quora, Airbnb etc. These are all the &amp;lsquo;cool&amp;rsquo; companies with great cultures that many would die to get in. But what really does it mean to have a great culture? Sure the oversized bean bags, foosball tables, free meals and modern-looking workspaces forms part of it. But as i learnt from the many visits, great culture is more than materialistic satisfactions and cool company perks.&lt;/p&gt;
+
+&lt;p&gt;The key, is that everyone in the company thinks alike. What does it mean? It means a collective group of people come together to live and breathe on the same set of problems, every single day. They believe that a company is greater than the sum of its parts. They sweat the mission and vision of their greater entity.&lt;/p&gt;
+
+&lt;p&gt;At Facebook, everyone wants to build things that makes people stay connected. It doesn&amp;rsquo;t matter if their role isn&amp;rsquo;t engineering. The company hired people who care about being social no matter what discipline they are in so this trait integrates into their daily work. They ruthlessly scrutinize their work in order to produce the best products that makes millions of people say &amp;lsquo;hello&amp;rsquo; each day. It is this shared camaraderie the eliminates frustrations when a better design is shot down by an engineering manager who just wants to fix bugs.&lt;/p&gt;
+
+&lt;p&gt;Airbnb wants to unlock unique spaces worldwide. This vision tickles down to every single one of its employees. In order for that, the company built an environment where you can spend time building a global reach instead of having to fight for time to do your laundry, or get frustrated over expensive lunches. All mundane things are taken care of, so you can focus on what really matters.&lt;/p&gt;
+
+&lt;p&gt;All these, brings the idea that executing a company vision needs to be everyone&amp;rsquo;s job. Is everybody sharing the company&amp;rsquo;s delights and sorrows? Does everyone talk about user&amp;rsquo;s problems or talk about their own problems? I think a big reason why these companies consistently hit the top of &amp;lsquo;Dream company to work for&amp;rsquo; list is that they&amp;rsquo;ve figured out how to solve its employee&amp;rsquo;s little problems, in return for these talents helping to solve company&amp;rsquo;s big problems. It is also this realization that differentiates between a good company and a great company.&lt;/p&gt;
+
+&lt;p&gt;When you walk into your office tomorrow, start listening to what your employees are saying. If you can&amp;rsquo;t help them solve their daily problems, don&amp;rsquo;t expect them to solve yours.&lt;/p&gt;
+</description>
+                                <pubDate>Thu, 29 May 2014 23:12:51 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Reverse a singly linked list</title>
+                                <description>&lt;p&gt;I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.&lt;/p&gt;
+
+&lt;p&gt;This is my iterative solution:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public Node reverse(Node head) {
+    if (head == null || head.next == null) { // Linked list is empty or only has 1 node
+        return;
+    }
+    Node current = new Node();
+    Node next = new Node();
+    Node prev = null;
+
+    current = head; // current node starts at the first node, which is referenced by head. keep in mind that head acts like a pointer here instead of a real node
+    while(current != null) { //run loop as long as current node is not the last node
+        next = current.next; // stores a reference of the next node so we can manipulate current.next reference
+        current.next = prev; // point the current.next to the new reference position -which is in reverse order
+        prev = current; // prev has done its job of referencing the previous node, it now moves on to reference the subsequent node
+        current = next; // current has referenced in the new order, move current pointer to the next node - which is referenced by next pointer.
+    }
+    head = prev; // the last node is now the new first node in the linked list, so we reference head to prev, which points to the node itself
+    return head
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s try the recursive solution:&lt;/p&gt;
+
+&lt;h3&gt;Identify base case&lt;/h3&gt;
+
+&lt;p&gt;The base case occurs when we reach the last node of the linked list. We identify this case by verifying that current.next is NULL.&lt;/p&gt;
+
+&lt;h3&gt;Base case operation&lt;/h3&gt;
+
+&lt;p&gt;In the base case, we need to set the head pointer to the very last node, which will in turn become the first node in the result.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my recursive answer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public Node reverse(Node current) {
+    if (current == null) { //check for empty list
+        return;
+    }
+
+    if (current.next == null) { // at tail node, this is recursive base case
+        head = current; // set head to point to the last node in original list
+        return;
+    }
+
+    reverse(current.next);
+    current.next.next = current; // set the subsequent node as the current node
+    current.next = null; // set the previous node to null. which eventually means the older next pointer is used and null
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This little devil took me quite awhile to figure out as it&amp;rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&amp;rsquo;t imagine a scenario where i&amp;rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).&lt;/p&gt;
+
+&lt;p&gt;Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 26 May 2014 21:01:58 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</guid>
+                        </item>
+                
+                        <item>
+                                <title>What i got from tweeting Evernote&#39;s CEO</title>
+                                <description>&lt;p&gt;In 4 day&amp;rsquo;s time, i&amp;rsquo;ll be visiting California-US for the first time in my life. Being &lt;a href=&quot;http://hguochen.com&quot;&gt;a startup guy&lt;/a&gt; myself, this is a big deal for me. I&amp;rsquo;m really excited to see what the biggest startup ecosystem in the world is like. I wanted to make this trip a really memorable one but i didn&amp;rsquo;t have enough contacts there. So i shamelessly cold-emailed some of my favourite tech companies in California asking for an impromptu visit to their offices/campus. Some of these companies accepted my request(thank you so much!). But 1 of which just blew me away. Here&amp;rsquo;s what happened.&lt;/p&gt;
+
+&lt;p&gt;I have always been a big fan of &lt;a href=&quot;http://evernote.com&quot;&gt;Evernote&lt;/a&gt;. After several failed attempts to link up with evernote staff through friend introductions, i resorted to cold-emailing its CEO, Phil Libin on linkedin&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/email_phil_libin.jpg&quot; width=&quot;500&quot; alt=&quot;Email Phil Libin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok i admit, its kinda cheesy. But hey, i wasn&amp;rsquo;t expecting a reply.&lt;/p&gt;
+
+&lt;p&gt;And so i didn&amp;rsquo;t. Then i tried to ping the CEO on twitter, and i got a reply! Well, not Phil Libin himself, but still a reply :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/08915870-515D-4157-83DE-FD8EAB45C3C1.png&quot; width=&quot;250&quot; alt=&quot;Tweeting Phil Libin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Things are looking good! So i followed the instructions and the following conversations ensue:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6734508A-2E9D-4FD7-AC1E-9637083A4991.png&quot; width=&quot;250&quot; alt=&quot;evernote support 1&quot; /&gt;
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/05DA55F4-D808-4BB6-AF8D-4B360307A636.png&quot; width=&quot;250&quot; alt=&quot;evernote support 2&quot; /&gt;
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9ECCB770-E4ED-4566-B3CA-7E9C0F8F1A8D.png&quot; width=&quot;250&quot; alt=&quot;evernote support 3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A few days later, this email from Evernote&amp;rsquo;s marketing manager came:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/evernote_email.png&quot; width=&quot;1050&quot; alt=&quot;evernote email&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How excited was i to read this? Let&amp;rsquo;s just say that my laptop keyboard now comes coffee-flavoured. Thank you Evernote, you&amp;rsquo;ve just made a fan very very happy :)&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll be giving a full recount of my visit to Evernote HQ sometime later. In the meantime, please leave in the comments below if you have a request for me on visiting Evernote :)&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 23 Apr 2014 02:24:07 +0000</pubDate>
+                                <link>http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Designing Beebeta</title>
+                                <description>&lt;p&gt;A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&amp;rsquo;s stack at &lt;a href=&quot;http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/&quot;&gt;Beebeta Engineering&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Being new to the world of frontend designing, i&amp;rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.&lt;/p&gt;
+
+&lt;h2&gt;What is Beebeta?&lt;/h2&gt;
+
+&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks about an issue. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
+
+&lt;h2&gt;Design Goal&lt;/h2&gt;
+
+&lt;p&gt;With the above concept, it is evident that Beebeta is all about polling the public with questions. We are going to implement this by asking users questions and offer pre-determined choices for voting. Users may also add additional choices if they like. Here are a few design goals i&amp;rsquo;ve charted out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Questions are the prime content of the website&lt;/li&gt;
+&lt;li&gt;All visual elements should contribute to better contents&lt;/li&gt;
+&lt;li&gt;User&amp;rsquo;s Call To Action(CTA) is voting and should be encouraged visually&lt;/li&gt;
+&lt;li&gt;Page should be simple and minimalistic&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Research and idea generation&lt;/h2&gt;
+
+&lt;p&gt;Do some googling to get the creativity juices flowing. These are some of the places i checkout to brainstorm design ideas:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://quora.com&quot;&gt;Quora&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://createivebloq.com&quot;&gt;Creative Bloq&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;I usually grab a pencil and sketchbook to jot down some of the things such as essential page elements, layout, colors, typefaces and navigation details. Sometimes i feel particularly artistic and try to draw&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/EBAE3B09-C994-459F-AEB7-9964CA67A066.jpg&quot; width=&quot;300&quot; alt=&quot;doodle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok fine i admit calling it &amp;lsquo;drawing&amp;rsquo; is an overstatement. Very-very crude mockups.&lt;/p&gt;
+
+&lt;h2&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;All my page designs start from mockups. From grid layout, to box structure and eventually down to individual elements. For each step of this process, i pay attention to how elements in question interacts with each other and establish cohesiveness.&lt;/p&gt;
+
+&lt;h3&gt;Grid Layout&lt;/h3&gt;
+
+&lt;p&gt;I adopted the 12-grid system for &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap 3&lt;/a&gt;. Boostrap 3 is designed &amp;lsquo;mobile first&amp;rsquo;. It&amp;rsquo;s newly renovated grid system caters to a whole array of digital devices from mobile phone to high resolution desktops. A nice tutorial about the new grid system for Bootstrap is found &lt;a href=&quot;http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I used the following grid dimensions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
+
+.row {
+    clear: both;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+[class^=&quot;col-&quot;]:last-child {
+    margin: 0;
+}
+
+[class^=&quot;col-&quot;] {
+    float: left;
+    margin: 0 3.84615384615% 0 0;
+    list-style: none;
+    position: relative;
+}
+
+
+.col-xs-1 { width: 4.8076923077% }
+.col-xs-2 { width: 13.4615384615% }
+.col-xs-3 { width: 22.1153846154% }
+.col-xs-4 { width: 30.7692307692% }
+.col-xs-5 { width: 39.4230769231% }
+.col-xs-6 { width: 48.0769230769% }
+.col-xs-7 { width: 56.7307692308% }
+.col-xs-8 { width: 65.3846153846% }
+.col-xs-9 { width: 74.0384615385% }
+.col-xs-10 { width: 82.6923076923% }
+.col-xs-11 { width: 91.3461538462% }
+.col-xs-12 { width: 100%; margin: 0 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Typeface&lt;/h3&gt;
+
+&lt;p&gt;I think typeface of a website determines the longevity and pleasure of browsing its contents. Good typefaces gives readability and allows you to focus on the content. For beebeta, i used &lt;strong&gt;serif&lt;/strong&gt; typeface for block headers and &lt;strong&gt;helvetica neue&lt;/strong&gt; for body texts. These are generally pretty safe typefaces for websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at30154pm.png&quot; alt=&quot;beebeta icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Beebeta typeface in the icon is given to me pre-designed as &lt;strong&gt;OratorStd&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Colour&lt;/h3&gt;
+
+&lt;p&gt;I used 3 colors as the theme of Beebeta. 2 triad colors, &lt;strong&gt;#4288CA&lt;/strong&gt;(Celestial Blue) &amp;amp; &lt;strong&gt;#5CB85C&lt;/strong&gt;(Fern) and 1 neutral color &lt;strong&gt;#F0F0F0&lt;/strong&gt;(Beige Grey).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at31235pm.png&quot; width=&quot;500&quot; alt=&quot;color theme&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fern green&lt;/strong&gt; is used for navigational contents and Call To Action(CTA) activites users performs.&lt;/p&gt;
+
+&lt;p&gt;Netural color &lt;strong&gt;Beige Grey&lt;/strong&gt; will make the base color of the site. This effectively allows focus on contents without too much &amp;lsquo;noise&amp;rsquo; from the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Celestial Blue&lt;/strong&gt; are used as cordoned containers for user details and personal spaces within the site.&lt;/p&gt;
+
+&lt;p&gt;Effectively the site is just a mix and match of these 3 simple colours.&lt;/p&gt;
+
+&lt;h3&gt;Navigation&lt;/h3&gt;
+
+&lt;p&gt;Navigation determines the usability of the site. For our Minimum Viable Product(MVP), which has limited features, i want users to understand the purpose of the website at a glance through navigational bar without having it competing for user attention from the contents. Since posting questions is fundamental to the site. It should have a visual focus primarily, with user utility functions available nearby. Here is how it looks:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at125833pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33130pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar 2&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Header&lt;/h3&gt;
+
+&lt;p&gt;I wanted a simple header without any unnecessary contents. It should be so painfully simple that it looks almost undesigned at all. I think the benefits of a bare-bone header drives clarity. That users don&amp;rsquo;t derive too much assumptions of the contents of the website based on header. It invites users browse to find out more. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33337pm.png&quot; width=&quot;600&quot; alt=&quot;header&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I am experimenting with color-coding of question categories here. Each category is assigned a colour. My aim is to promote category classifications so users sub-consciously associate a colour to a category. I&amp;rsquo;m guessing this will contribute to an easier browsing experience over time.&lt;/p&gt;
+
+&lt;h3&gt;Question Card&lt;/h3&gt;
+
+&lt;p&gt;Question card is the main content. It is what beebeta is all about. My design concept for questions takes the form of &amp;lsquo;question cards&amp;rsquo;. Each poll question is a unique question card served.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at34610pm.png&quot; width=&quot;600&quot; alt=&quot;question card&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to synchronise the color-coding category concept earlier, i added a subtle colour border for each question card of its associated category. The question card displays the question text, user uploaded image, uploader&amp;rsquo;s name, number of choices and number of votes received so far.&lt;/p&gt;
+
+&lt;h3&gt;Voting&lt;/h3&gt;
+
+&lt;p&gt;I adopted the classic reddit style voting which allows users to vote up a choice and provide a visual feedback with updated vote count and fern green arrow up button.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40029pm.png&quot; width=&quot;200&quot; alt=&quot;voting&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Profile page&lt;/h3&gt;
+
+&lt;p&gt;As an extension of the &amp;lsquo;question card&amp;rsquo; concept, i gave a similar box style to profile page. Users have 3 profile boxes which is unique to them, namely User Information, Questions and Votes counts.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40212pm.png&quot; width=&quot;500&quot; alt=&quot;profile page&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following tab, My questions, allows users to view and edit his posted questions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40736pm.png&quot; width=&quot;500&quot; alt=&quot;my questions&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Footer&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ve choosen flat white for footer, which colour synchronises with the header. Again, i&amp;rsquo;m experimenting with using lighter colours as opposed to heavy colors for headers and footers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40922pm.png&quot; width=&quot;700&quot; alt=&quot;footer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So that&amp;rsquo;s it folks! If you think that this design is really basic, you are right! I do agree that there are alot more to be done with the design of a polling site like Beebeta. I would like to hear your comments and suggestions on how i can improve my design. Peace out! :)&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 01 Apr 2014 11:48:00 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Beebeta Engineering</title>
+                                <description>&lt;p&gt;&lt;a href=&quot;https://www.facebook.com/leeagustiadi&quot;&gt;Agus&lt;/a&gt; and &lt;a href=&quot;https://www.facebook.com/jaielhaevin&quot;&gt;Joel&lt;/a&gt; conceptualized the Beebeta project sometime ago and invited me to handle the technical aspect of it. I didn&amp;rsquo;t know what Beebeta was then but the moment i heard of the idea, i loved it! We spent our valuable weekends hacking out Beebeta and we are going to release it very soon! &lt;a href=&quot;http://www.beebeta.com&quot;&gt;Beebeta v1.0&lt;/a&gt; is finally out for public thrashing and hating! Ok but please be nice :(&lt;/p&gt;
+
+&lt;p&gt;Having architected the Beebeta backend, i thought it would be fun to give an idea of Beebeta from an engineering perspective. This is how we think an online polling system should be built. Feel free to disagree, we would love to hear your opinions :)&lt;/p&gt;
+
+&lt;p&gt;In short, Beebeta is a web platform to gather crowdsourced knowledge. It is an online timeless repository of public opinions which is easily accessible through a poll-like web interface.&lt;/p&gt;
+
+&lt;h3&gt;Why Beebeta?&lt;/h3&gt;
+
+&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;Ok so much for pitching, that&amp;rsquo;s not the purpose of this post. We are here for the nerd stuff arn&amp;rsquo;t we?&lt;/p&gt;
+
+&lt;h3&gt;Engineering Goal&lt;/h3&gt;
+
+&lt;p&gt;Throughout the implementation of Beebeta, we had a few goals in mind:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Don&amp;rsquo;t do unnecessary stuff&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t reinvent the wheel&lt;/li&gt;
+&lt;li&gt;Be versatile in technology options&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;OS/Hosting&lt;/h3&gt;
+
+&lt;p&gt;Beebeta runs Ubuntu 13.10(Saucy Salamander) on Amazon EC2. We tried Linux AMI(CentOS) on EC2 but find the environment not as usable as Ubuntu, plus the software updates were not consistently updated. Also, stress tests on the CentOS server resulted in unpredictable crashes. Since Beebeta is a small project, we ruled out self-hosting as an option. We definitely don&amp;rsquo;t want to waste time setting up servers ourselves.&lt;/p&gt;
+
+&lt;h3&gt;Load Balancing&lt;/h3&gt;
+
+&lt;p&gt;All server requests goes through our load balancers. We use Amazon&amp;rsquo;s Elastic Load Balancer(ELB) with 2 Nginx instances behind it. I admit now may be abit too early to devote load balancing resources but in case of unexpected traffic spikes, it will be good to pick up from here and scale instead of getting caught off-guard. I skipped using anything to handle the DNS though. But i may revisit the issue with Amazon&amp;rsquo;s Route53 in future.&lt;/p&gt;
+
+&lt;h3&gt;Application Server&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.python.org/download/releases/2.7.5/&quot;&gt;Python 2.7.5&lt;/a&gt; and &lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django 1.6.2&lt;/a&gt; was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used &lt;a href=&quot;http://www.virtualenv.org&quot;&gt;virtualenv&lt;/a&gt; to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&amp;rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.&lt;/p&gt;
+
+&lt;p&gt;Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&amp;rsquo;m exploring the possibility of shifting to &lt;a href=&quot;http://gunicorn.org&quot;&gt;Gunicorn&lt;/a&gt; in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.&lt;/p&gt;
+
+&lt;h3&gt;Data storage&lt;/h3&gt;
+
+&lt;p&gt;Meta-data&amp;rsquo;s such as tags, url strings etc lives in MySql table rows.&lt;/p&gt;
+
+&lt;p&gt;Our BLOB data lives in Amazon&amp;rsquo;s S3 standard storage. I thought of using glacier storage for original files and standard storage for rendered files but unfortunately S3 does not provide glacier storage in Singapore region yet. I forsee using glacier storage would cut costs by about 30% for every 10GB of data. Will keep in view for future changes, once glacier storage is opened up in Singapore. Content Distribution wise, we use &lt;a href=&quot;http://aws.amazon.com/cloudfront&quot;&gt;Amazon CloudFront&lt;/a&gt;, which helps with page load times from users at different parts of the world.&lt;/p&gt;
+
+&lt;p&gt;Caching wise, we use memcached and currently have 1 memcached instance, which is connected to using pylibmc &amp;amp; libmemcached. I&amp;rsquo;m aware there&amp;rsquo;s &lt;a href=&quot;http://aws.amazon.com/elasticache/&quot;&gt;Amazon&amp;rsquo;s Elastic Cache&lt;/a&gt; service for this, but i havent got around to reading up on that yet.&lt;/p&gt;
+
+&lt;h3&gt;Django apps&lt;/h3&gt;
+
+&lt;p&gt;As part of our goal not to reinvent the wheel. we used quite a few out-of-the-box django apps to facilitate building of Beebeta platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://boto.readthedocs.org/en/latest/ref/s3.html&quot;&gt;S3Boto&lt;/a&gt; is used to connect the server scripts with different Amazon web services seamlessly.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pythonhosted.org/django-analytical/services/mixpanel.html&quot;&gt;Django-analytical&lt;/a&gt; is used to track various site metrics on the application itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-debug-toolbar&quot;&gt;Django-debug-toolbar&lt;/a&gt;(my favourite debugging tool!) is used on development environments for almost all debugging tasks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-pagination&quot;&gt;Django-pagination&lt;/a&gt; is used to paginate database querysets into proper pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://south.readthedocs.org/en/latest/&quot;&gt;Django-south&lt;/a&gt; is used to easily perform database migration tasks between ORM and the database itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/ubernostrum/django-registration/&quot;&gt;Django-registration&lt;/a&gt; is used to handle user registration/login/logout issues.&lt;/p&gt;
+
+&lt;h3&gt;Monitoring&lt;/h3&gt;
+
+&lt;p&gt;We are using &lt;a href=&quot;https://mixpanel.com&quot;&gt;Mixpanel&lt;/a&gt; to track user activites on the site. These tracking statistics are filtered up to 2 timeless campaigns. First campaign to track site traffic activites such as page traffic, user sign ups etc. Second campaign to track question and choices interactions of all questions on the site. At any one time we will know which questions are most popular or which group of users are most active at different times of the day.&lt;/p&gt;
+
+&lt;p&gt;For backend monitoring, we are using &lt;a href=&quot;http://newrelic.com&quot;&gt;New Relic&lt;/a&gt; to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.&lt;/p&gt;
+
+&lt;p&gt;For Python error reporting, we use &lt;a href=&quot;http://sentry.readthedocs.org/en/latest/&quot;&gt;Sentry&lt;/a&gt;, an open-source Django app written by the &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt; folks. We can closely monitor error messages at real-time relatively easy with this handy tool.&lt;/p&gt;
+
+&lt;h3&gt;What&amp;rsquo;s your stack?&lt;/h3&gt;
+
+&lt;p&gt;That&amp;rsquo;s so much for Beebeta stack. Feel free to leave your comments below if you think we&amp;rsquo;ve made a terrible mistake. Otherwise, I&amp;rsquo;d love to hear how you implement your stacks!&lt;/p&gt;
+
+&lt;p&gt;Lastly, i&amp;rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/c_H3MWVx6JU?color=white&amp;theme=light&quot;&gt;&lt;/iframe&gt;
+
+</description>
+                                <pubDate>Mon, 31 Mar 2014 16:19:30 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</guid>
+                        </item>
+                
+                        <item>
+                                <title>How to design your blog</title>
+                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;A look behind the scene of my blog redesign&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Define your brief&lt;/h2&gt;
+
+&lt;p&gt;As with any projects, it&amp;rsquo;s important to figure what exactly you want to achieve and jot it down clearly. This can be a constant reminder as you progress through the design stages. At this point, we just need to figure out our ultimate goal without being worried about the details.&lt;/p&gt;
+
+&lt;p&gt;I wanted to design a blog that is &lt;strong&gt;simple to navigate&lt;/strong&gt; on index page and contains &lt;strong&gt;easy-to-read&lt;/strong&gt; blogposts across different devices. All of these pages should clearly define me and my thoughts.&lt;/p&gt;
+
+&lt;h2&gt;Research and idea generation&lt;/h2&gt;
+
+&lt;p&gt;Do some googling to get the creativity flowing. Inspirations can come from anywhere. Some of the best places i recommend to check out are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wordpress.org/themes/&quot;&gt;Wordpress Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;As you go through these websites, grab a pen and sketchbook to jot down some of the things such as positions of blog elements, layout, colours, typefaces and navigation details commonly used. This will give you a basic idea of the contents to cover in designing your blog.&lt;/p&gt;
+
+&lt;h2&gt;Design considerations&lt;/h2&gt;
+
+&lt;p&gt;I wanted users to easily browse through my blog and focus on what i&amp;rsquo;ve written, so i&amp;rsquo;m not going to have too many &amp;lsquo;content&amp;rsquo; pages such as about me, work, contact me etc. These side dishes are more for a portfolio page rather than a blog. In fact, i&amp;rsquo;m only going to have 2 main pages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Index page&lt;/li&gt;
+&lt;li&gt;Content page&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Based on my these ideas, it seems that i will need total control of designing my blog. I can&amp;rsquo;t afford to use ready made templates such as from &lt;a href=&quot;http://wordpress.com&quot;&gt;Wordpress&lt;/a&gt;. Instead, i&amp;rsquo;m using a blog engine called &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; where i have the freedom to configure every element of my blog.&lt;/p&gt;
+
+&lt;h3&gt;Index page&lt;/h3&gt;
+
+&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the year-annotated scrolling, my visitors will be able to quickly scroll through my list of blogposts and look for interests. We are providing a &amp;lsquo;simple to navigate&amp;rsquo; index page, as part of our objective listed above.&lt;/p&gt;
+
+&lt;h3&gt;Content page&lt;/h3&gt;
+
+&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;On Measure&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/measure_1.gif&quot; alt=&quot;measure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Measure, is the name given to the width of a body of type. There are several units of measurement used for defining the measure&amp;rsquo;s width. Three basic units are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One point = 1/72 of an inch&lt;/li&gt;
+&lt;li&gt;One pic = 12 points&lt;/li&gt;
+&lt;li&gt;One em = Distance horizontally equal to the type of size, in points. you are using. Eg. 1em of 12pt type is 12pt.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For a full width monitor, the optimum measure for reading is between &lt;strong&gt;66-72 words&lt;/strong&gt; a line. If you scale that down to a mobile screen, measure would come down to about &lt;strong&gt;8-13 words&lt;/strong&gt; a line.&lt;/p&gt;
+
+&lt;h3&gt;On font-size&lt;/h3&gt;
+
+&lt;p&gt;Appropriate font size will greatly enhance the readability of texts. I shall not go into detail here but some tried and tested font sizes for blog contents adopts the following pixel sizes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;16px &amp;ndash; Body copy and leading&lt;/li&gt;
+&lt;li&gt;24px &amp;ndash; Main heading &amp;amp; section headings&lt;/li&gt;
+&lt;li&gt;18px &amp;ndash; Subheadings&lt;/li&gt;
+&lt;li&gt;13px &amp;ndash; All other headed elements&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;This will give the following styles visually:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/typo4_headings.gif&quot; width=&quot;300&quot; alt=&quot;font sizes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the frontend designers, your CSS could look like this with the specifications above:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;body {
+    font: 16px/1.5em &quot;Lucida Grande&quot;;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: helvetica, arial, verdana, sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 218%;
+}
+
+h2 {
+    font-size: 164%;
+}
+
+h3 {
+    font-size: 145%;
+}
+
+h4 {
+    font-size: 118%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;On typefaces&lt;/h3&gt;
+
+&lt;p&gt;We read most easily with what we are most familiar with. This would mean the traditional serif family of typefaces. But even in the serif family, there are countless kinds of typefaces to choose from. On choosing a typeface, i&amp;rsquo;ve had a long trial and error on this. Here are 3 different serif types i&amp;rsquo;ve experimented with using on the same content:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;
+&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Helvetica is a great font for texts, but it is not such a great typeface for continuous smooth reading. It lacks the &amp;lsquo;legs&amp;rsquo; seen on other typefaces which provides the smooth gliding feel when reading on a screen.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82347pm.png&quot; width=&quot;400&quot; alt=&quot;sans-serif&quot; /&gt;
+&lt;strong&gt;sans-serif&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Serif is a safe font. Generally you won&amp;rsquo;t go wrong with this font. However, since i prefer a lighter shade of texts, i have to reduce the font-weight from normal 300 to 200. This didn&amp;rsquo;t fare well with serif typeface and words appear to thin to read properly.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82121pm.png&quot; width=&quot;400&quot; alt=&quot;georgia&quot; /&gt;
+&lt;strong&gt;georgia&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Part of the serif typeface family, georgia has always been a strong choice for continous texts. Some of the most popular web such as &lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt; and &lt;a href=&quot;http://www.nytimes.com&quot;&gt;NyTimes&lt;/a&gt; uses georgia to render their texts. An additional advantage of georgia typeface is that it&amp;rsquo;s distinctive enough that font colors normally won&amp;rsquo;t erode its readability.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After weighing the considerations, i&amp;rsquo;ve decided to use &amp;lsquo;Helvetica Neue&amp;rsquo; for headings and &amp;lsquo;georgia&amp;rsquo; for paragraph texts. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;On font color&lt;/h3&gt;
+
+&lt;p&gt;Black text on white background offers the best readability. However, prolonged exposure on black contrasted texts could be painful to our eyes since modern screen brightness are getting better and better. As such, i&amp;rsquo;ve decided to reduce the contrast of texts by changing paragraph texts to a &amp;lsquo;greyier&amp;rsquo; color while not compromising readability. After some trial and error, the color i&amp;rsquo;ve chosen is a grey with hexcode: #333332.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.colorhexa.com/333332.png&quot; height=&quot;150&quot; width=&quot;200&quot; alt=&quot;333332&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Responsive Design&lt;/h2&gt;
+
+&lt;p&gt;The last of my consideration is to make sure my blog is readable on both mobile and desktop devices alike.&lt;/p&gt;
+
+&lt;p&gt;I like to use a grid because it provides a structural foundation, whiel making the development process easier and more efficient. Using a flexible grid enables a website to sclae dynamically to fit any device width. Below is the CSS for my responsive grid, which is my variations from &lt;a href=&quot;http://getbootstrap.com&quot;&gt;bootstrap&lt;/a&gt;&amp;rsquo;s responsive grid.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
+
+.row {
+    clear: both;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+[class^=&quot;col-&quot;]:last-child {
+    margin: 0;
+}
+
+[class^=&quot;col-&quot;] {
+    float: left;
+    margin: 0 3.84615384615% 0 0;
+    list-style: none;
+    position: relative;
+}
+
+
+.col-xs-1 { width: 4.8076923077% }
+.col-xs-2 { width: 13.4615384615% }
+.col-xs-3 { width: 22.1153846154% }
+.col-xs-4 { width: 30.7692307692% }
+.col-xs-5 { width: 39.4230769231% }
+.col-xs-6 { width: 48.0769230769% }
+.col-xs-7 { width: 56.7307692308% }
+.col-xs-8 { width: 65.3846153846% }
+.col-xs-9 { width: 74.0384615385% }
+.col-xs-10 { width: 82.6923076923% }
+.col-xs-11 { width: 91.3461538462% }
+.col-xs-12 { width: 100%; margin: 0 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My breakpoints for my responsive blog are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;360px max-width for mobile&lt;/li&gt;
+&lt;li&gt;768px max-width for tablets&lt;/li&gt;
+&lt;li&gt;1024px max-width for desktops&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Keep in mind that with a growing array of devices, there is no longer a &amp;lsquo;common&amp;rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my blog&amp;rsquo;s responsive layout on a few devices:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/E88F66B9-1921-4E9E-8F48-FB5AF6571F4B.png&quot; width=&quot;150&quot; alt=&quot;iPhone&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;iPhone 5&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/photo.png&quot; width=&quot;300&quot; alt=&quot;ipad&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;iPad Mini&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at85832pm.png&quot; width=&quot;500&quot; alt=&quot;desktop&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Desktop&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So, i&amp;rsquo;ve designed and tested out my new blog layout. It is my first time designing a blog from scratch and i&amp;rsquo;ve really learnt alot in the process! Designing is like a constant war between your left brain and right brain while still trying to grip on to established design principles. ROAR! But still, it is fun :) Hopefully my experience has provided you with a guideline to designing blogs. I&amp;rsquo;d love to hear about your experiences in designing your own blog!&lt;/p&gt;
+</description>
+                                <pubDate>Sun, 23 Mar 2014 18:18:25 +0000</pubDate>
+                                <link>http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</guid>
+                        </item>
+                
+                        <item>
                                 <title>How to learn Javascript</title>
                                 <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
 
@@ -75,317 +1208,6 @@
                                 <pubDate>Sat, 15 Mar 2014 15:35:12 +0000</pubDate>
                                 <link>http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</guid>
-                        </item>
-                
-                        <item>
-                                <title>The Ukraine problem explained</title>
-                                <description>&lt;p&gt;The hottest global news recently has been about ouster of Ukraine president Viktor Yanukovych and the russian invasion of Ukraine. I&amp;rsquo;m generally indifferent towards international politics but it&amp;rsquo;s becoming pretty big of an issue such that even technology blogs that i follow started posting news about these messy squabbles. I spent about 2 hours reading up whatever i can find on this issue and i&amp;rsquo;ll try to explain it as clear as possible. So other political frog-in-a-well people (like me) can understand. Beware, what&amp;rsquo;s going on below is extremely complicated. I suggest you close this tab right now if you have something better to do.&lt;/p&gt;
-
-&lt;p&gt;Still up for this shit? Here goes.&lt;/p&gt;
-
-&lt;h4&gt;How did Ukraine come about?&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.lonelyplanet.com/maps/europe/ukraine/map_of_ukraine.jpg&quot; alt=&quot;ukraine map&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So this is Ukraine, the second largest country in europe by area and Crimea peninsula is that little almost-island like area below. During the crimean war, A.D 1853- A.D 1856, it was sort of the Catholics vs the Orthodox but in grandier scale it was the European powers vs Russia as the Ottoman empire decline. Eventually Russia was defeated and the war accumulated a death of 500,000. In a claim of territory for the victors, many european moved over to what is present day Ukraine and settled there, together with some of the indigenious russians. But trouble never ceased and somewhat contributed to the World War I 60 years later.&lt;/p&gt;
-
-&lt;p&gt;At the end of World War I, Russian revolution begun and gave birth to communism. The russians were too busy overthrowing their own government and had no time to bother its neighbours such as Ukraine. It was these brief period that Ukraine had some days of independence. Finally when Russia became USSR, under the soviet regime, they incited its neighbouring countries to embrace communism. So between 1917 &amp;ndash; 1921, another 1.5million people died around the russian neighbours and eventually led to Ukraine being a satellite country of the mighty USSR. Things became worse after that. When Joseph Stalin took over, the purging began and almost 10 million Ukrainians died between 1932 &amp;ndash; 1933. What&amp;rsquo;s worse, during World War II, Stalin deported the entire population of Crimea to central asia and moved Russians into Ukraine. Imagine a foreigner coming to your home and kicking you out? That&amp;rsquo;s what happened to Crimea. Nikita Khrushchev, stalin&amp;rsquo;s successor, then decided to transfer the Crimean Peninsula from Russia to Ukraine in 1954. Why? Because Crimean Peninsula is not geographically attached to Russia mainland. It will be easier to administer places where you are geographically connected.&lt;/p&gt;
-
-&lt;h4&gt;What are the Ukraine ethnic groups?&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nativelanguage2001ua.PNG/420px-Nativelanguage2001ua.PNG&quot; alt=&quot;language&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Today, 67% of people in Ukraine speaks Ukrainian as their first language. 30% speaks Russian, although only about 17% of them identify themselves as Russian. When USSR dissolved, many Russians from Crimea returned to their homes in Russian so as of today, only 12% of Russians are located in the Crimean Peninsula.&lt;/p&gt;
-
-&lt;h4&gt;What kind of government did Ukraine had?&lt;/h4&gt;
-
-&lt;p&gt;In December 1991, after the Soviet Union broke up, Ukraine had a nation-wide referendum and 90% of its people, including people in Crimean Peninsula, voted for independence from Russia. But in effect, Ukraine had much closer ties with Russia than any other previous Soviet satellite countries.&lt;/p&gt;
-
-&lt;p&gt;In 2004, there was a general election. The election was plagued with vote rigging and eventually the pro-Russian leader Viktor Yanukovych(the dude who got overthrown) was elected to become the president. His opponent, the opposition, Viktor Yushchenko led a series of massive protest on the injustice and rigged election. Eventually Viktor Yushchenko was disfigured, crucified and purged. In the following years, since Putin came to power in Russia, the number of assassinations and poisoning of political dissidents skyrocketed in Ukraine. Coincidence? Nope.&lt;/p&gt;
-
-&lt;p&gt;Viktor Yanukovych had almost dictatorial power in Ukraine. But despite being an economist, he wasn&amp;rsquo;t particularly gifted in bringing the country&amp;rsquo;s economy to prosperity and people suffered under his rule. Furthermore, his friendliness towards the western european countries angered Russia whom cut off gas supplies briefly in 2006 and led to few national disasters in Ukraine.&lt;/p&gt;
-
-&lt;p&gt;In 2010 election, Viktor Yanukovych was elected president.&lt;/p&gt;
-
-&lt;h4&gt;Ok enought history lesson. What is the latest Ukraine issue about?&lt;/h4&gt;
-
-&lt;p&gt;In November 2013, Viktor Yanukovych denounced an agreement to strengthen ties with the European Union and become a closer ally with Russia. This single event sparked the massive protest in the nation, starting from The Independence Square. The protests lasted several months and dozens of protesters were killed by military police and government troops. On 1st March 2014, Viktor Yanukovych fled from his house in Kiev. The protesters had won. Following on, the people called for new elections. Putin was not happy with this outcome. He ostensibly pushed his troops into the Crimean Peninsula in the name of protecting the ethnic Russians in the region. This violated the territory integrity of Ukraine and Ukraine kicked up a big freaking deal.&lt;/p&gt;
-
-&lt;p&gt;At this moment, Crimea is already an autonomous province. It had rights to govern itself without much interference from Ukraine. Although it&amp;rsquo;s electricity and water still comes from Ukraine. So what does Crimea want? Independence? Unification with Russia? Well, Crimea doesn&amp;rsquo;t know what she wants herself. And that&amp;rsquo;s why there has been so much fuss on the international stage.&lt;/p&gt;
-
-&lt;p&gt;Ukraine has a law that Ukraine is only to be governed by Ukrainians. Sounds legit right? But the problem is, many people in the country still speak russian instead of Ukrainian. Furthermore, the new government wants to be a part of European Union which might mean that it will bring in North Atlantic Treat Organization(NATO) military defences into Ukraine. This is a huge deal for Russia as it means now we have missles deployed right at its doorstep. That is unacceptable to Russia.&lt;/p&gt;
-
-&lt;p&gt;But in the viewpoint of western countries, Ukrain had a tyrannical leader who ordered the murder of peaceful protestors and was chased away from power and replaced with a government that will transition Ukraine to a free and fair election. Russia responded to that by invading Ukraine.&lt;/p&gt;
-
-&lt;p&gt;I would attribute much of the present day tension between east and west to the differences in these viewpoints. Russia took a pre-emptive measure to secure its borders from unfriendly states while the western countries worried for a resurgence of Soviet Union and trampling of a democratic state.&lt;/p&gt;
-
-&lt;p&gt;What&amp;rsquo;s ironical is that the word &amp;lsquo;Ukraine&amp;rsquo; means border-land and it has been the border between eastern and western countries for decades. Much of what we are seeing now is just another re-enactment of previous clashes.&lt;/p&gt;
-
-&lt;p&gt;So that&amp;rsquo;s about it. Do you have a good solution to this? I don&amp;rsquo;t. I&amp;rsquo;m just a programmer who writes &amp;lsquo;hello world&amp;rsquo; and wishes for world peace.&lt;/p&gt;
-</description>
-                                <pubDate>Sun, 09 Mar 2014 23:03:29 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/03/09/The-Ukraine-problem-explained/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 9 The Rose</title>
-                                <description>&lt;p&gt;We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw two guide dota horizontally across from each other.&lt;/li&gt;
-&lt;li&gt;Connect the dots with a foreshortened circle.&lt;/li&gt;
-&lt;li&gt;Draw the body of the bowl.&lt;/li&gt;
-&lt;li&gt;Using a guide line in direction SW, position the light source in the top right. Shade the bowl with blended shading from drak to light, creating a smooth blended surface.&lt;/li&gt;
-&lt;li&gt;Before drawing the rose, let&amp;rsquo;s try drawing the &amp;ldquo;peeking&amp;rdquo; line. This tiny detail of a small overlapping line that defines a fold or a wrinkle will have a huge visual effect in enabling you to make the rose petals appear to be curling around the bud in three dimensions.
-5a. Draw a vertical flagpole.
-5b. Draw two guide dots.
-5c. Draw three-quarters of a foreshortened circle.
-5d. Draw the vertical thickness of the flag.
-5e. Curve the near bottom edge of the flag a bit more than the line above it. The bottom of the flag is a bit farther from your eye, so you need to distort it, curve it more than the top edge.
-5f. Draw the &amp;ldquo;peeking&amp;rdquo; line, the most important line in this exercise. This teeny tiny dash will make or break the drawing and holds an enormous amount of visual power.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Let&amp;rsquo;s finally get to drawing a rose.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Draw a foreshortened bowl, and add a stem.&lt;/li&gt;
-&lt;li&gt;Draw a guide dot in the middle of the rose bowl.&lt;/li&gt;
-&lt;li&gt;Begin to spiral out the rose petal with three-quarters of a foreshortened circle.&lt;/li&gt;
-&lt;li&gt;Keep spiraling, and keep these spiraled foreshortened circles squished. It&amp;rsquo;s the distorted shape that will form the 3 dimensional rosebud.&lt;/li&gt;
-&lt;li&gt;Complete the spiral at the center of the petal. Erase the extra line.&lt;/li&gt;
-&lt;li&gt;Draw the center thickness of the rose petal and the first peeking thickness line.&lt;/li&gt;
-&lt;li&gt;Draw the next outer peeking line.&lt;/li&gt;
-&lt;li&gt;Draw the remaining thickness line. There it is, depth focused on our beautiful rose.&lt;/li&gt;
-&lt;li&gt;Draw the very dark, very small, nook and cranny shadows. Notice i even darkened a shadow along the edge of the rose petal.&lt;/li&gt;
-&lt;li&gt;Place the light source in the top right, and blend the shadin on each of the curved surfaces opposite. Draw a few thorns on the stem, and draw the leaves.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here is my work!
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/81630E2C-81A0-4EC6-9376-50AF1E655568.jpg&quot; alt=&quot;lesson9-1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9BD6F67E-D8D1-47A8-A47A-A85D4FBD472F.jpg&quot; alt=&quot;lesson9-2&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Fri, 07 Mar 2014 19:00:28 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/07/Lesson-9-The-Rose/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 8 Cool Koalas</title>
-                                <description>&lt;p&gt;Let&amp;rsquo;s take a break from boxes and structures and draw a koala bear.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Lightly sketch three circles in a row.&lt;/li&gt;
-&lt;li&gt;On the first circle, use curving dashes to create a &amp;ldquo;soft fur texture along the outside edge&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Continuing to work on the first circle, use more curving dashes to fill in the left side of the circle, creating the illusion of shading with texture. You can use texture to shade an object.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s take this one step further. On the second circle, draw sharp lines around the outside, creating the feel of sharp spikes.&lt;/li&gt;
-&lt;li&gt;Place the light source in the top right corner of your page, and add a few more rows of spikes to the left side of the shape.&lt;/li&gt;
-&lt;li&gt;Draw scribbles around the third circle. Keep scribbling more circling lines around and around the shape to create a messy-looking ball of dryer lint. Continue to explore this idea of texture as a tool for shading.&lt;/li&gt;
-&lt;li&gt;Now its time to start drawing the Koala. Begin with a light circle.&lt;/li&gt;
-&lt;li&gt;Lightly sketch in the ears.&lt;/li&gt;
-&lt;li&gt;Lightly slope down the shoulders&lt;/li&gt;
-&lt;li&gt;When you draw the &amp;ldquo;tapered nose, be sure to leave a small white area&amp;rdquo;. This create the illusion of a light reflection off the shiny nose. You will do this same thing when drawing other animals, cats dogs etc.&lt;/li&gt;
-&lt;li&gt;Draw the koala&amp;rsquo;s eyes, transferring the idea of reflection by leaving a small white spot in each pupil.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s take closer look at the ear. This is what is known in the art world as doing a study of a small portion of a picture.&lt;/li&gt;
-&lt;li&gt;Draw the overlapped line of the &amp;ldquo;concha&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Draw the bump at the bottom of the aer. This is the &amp;ldquo;tragus&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;Now Repeat this ear structure on the right ear.&lt;/li&gt;
-&lt;li&gt;Look back at the furry ball you drew at the beginning of this season. Notice how you created the soft feel of fur as ompared to the sharp feel of the spike ball. Draw the soft, furry texture around the outline of the koala.&lt;/li&gt;
-&lt;li&gt;Use more furry texture to shade the koala&amp;rsquo;s head, ears, and body. Emphasize the undershadow under his chin and in his ear under the top helix line.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here&amp;rsquo;s how my final drawing looks like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/0AB47825-2D43-42C9-978A-5D92445FCD41.jpg&quot; alt=&quot;lesson8&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 03 Mar 2014 19:59:12 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-8-Cool-Koalas/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 7 Advanced Level Cubes</title>
-                                <description>&lt;p&gt;In this lesson we are going to draw three-dimensional cubes. We are also going to build on it by drawing advanced shapes.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Use guide dots to draw a foreshortened square.&lt;/li&gt;
-&lt;li&gt;Lightly draw the sides down, and draw the middle line longer.&lt;/li&gt;
-&lt;li&gt;Then draw the bottom of the cube using the lines you have already drawn as a reference. Go ahead and extend all of your direction NW and NE lines out as a guide.&lt;/li&gt;
-&lt;li&gt;Draw the guide dot just below the near corner. This guide dot determines the angle of your foreshortened second layer. If your guide dot is placed low, it will distort the layer and throw the entire building out of alignment.&lt;/li&gt;
-&lt;li&gt;Using lines drawn as a reference, draw the near edges of the second tier in NE and NW.&lt;/li&gt;
-&lt;li&gt;Look at your NE angle at the top foreshortened square of your box. Now, take your pencil and trace over those direction lines lightly to embed the angle of the line into your hand memory. Repeat the same technique to draw the NW line on the other side to create the top of the second layer of the building.&lt;/li&gt;
-&lt;li&gt;Complete the second layer of the building. Double check your bottom lines against drawing compass direction arrows NW and NE.&lt;/li&gt;
-&lt;li&gt;Begin drawing the doors on the top level with two vetical lines on each side. To make sure your lines are actually vertical, straight up and down, look at the edge of your paper.&lt;/li&gt;
-&lt;li&gt;Curve the tops of both doorways on the top floor of the building.&lt;/li&gt;
-&lt;li&gt;To create the illusion that these doors actually exist as 3 dimensional entrances to this building, we need to add thickness to them. If the door is on the right, the thickness is on the right. If door is on the left, the thickness is on the left.&lt;/li&gt;
-&lt;li&gt;Complete the door by following the line of the exterior door as it curves up.&lt;/li&gt;
-&lt;li&gt;Look at the door on the left side. Using the drawing compass direction NE lines you drew earlier as reference, draw the thickness on the left-side door on the left side of the entrance.&lt;/li&gt;
-&lt;li&gt;Erase your side lines at the bottom of each door. With a well placed line in drawing directions NW and NE, you can easily create the visual illusion that there is a hallway or a room inside each doorway.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s create ramp on the left side first. Draw the vertical back edge of the ramp against the wall, and extend the bottom edge of the ramp out in drawing compass direction SW.&lt;/li&gt;
-&lt;li&gt;Draw the thickness of the ramp with two lines in direction NW, matching the angles with the linesyou drew earlier in direction NW.&lt;/li&gt;
-&lt;li&gt;Complete the far edge of the ramp by matching the angle of the front edge.&lt;/li&gt;
-&lt;li&gt;Erase guide lines behind the ramp. Using the lines you already drew in direction NE as reference, draw the ramp on the right side.&lt;/li&gt;
-&lt;li&gt;Complete your two-layered foreshortened ramp building by drawing the horizon line above the building, positioning your light source, and shading all the surfaces opposite your light position. Using your reference lines to angle the cast shadow correctly direction SW is really simple when you are drawing buildings; just extend the bottom lines. We are done!&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Here&amp;rsquo;s how my piece looks like:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6C580A37-C2F4-4F72-B97D-CB89CABA6BBC.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 03 Mar 2014 19:35:37 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/03/03/Lesson-7-Advanced-Level-Cubes/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 6 Stacking Tables</title>
-                                <description>&lt;p&gt;I will be drawing stacking tables with proper lighting conditions in this lesson. This lesson will gel all of the concepts and laws learnt so far.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Begin with a foreshortened square.&lt;/li&gt;
-&lt;li&gt;Draw two short edges to create the top of the table.&lt;/li&gt;
-&lt;li&gt;Draw the middle line longer, according to the foreshortened square concept.&lt;/li&gt;
-&lt;li&gt;Using the lines you have already drawn as areference, draw bottom of the table top in direction of Northeast and Northwest.&lt;/li&gt;
-&lt;li&gt;Draw middle line longer to create the near edge of the table post.&lt;/li&gt;
-&lt;li&gt;Draw the sides of the table post. Each side line is drawn halfway from the far edge to the middle line.&lt;/li&gt;
-&lt;li&gt;Using lines drawn as reference, draw the bottom of the table post in direction NW and NE.&lt;/li&gt;
-&lt;li&gt;Draw horizon line just above the table. and position light source aboce and to the right. The horizon line tells our eye that the object is below the horizon line, which communicates to our brain that the thickness, shadows, and foreshorteneing are from this perspective.&lt;/li&gt;
-&lt;li&gt;Place a guide dot directly below the near corner of the table post. If you don&amp;rsquo;t use the guide dot on every stacked table, your drawing may get progressively more skewed and impossibly distorted.&lt;/li&gt;
-&lt;li&gt;Using lines already drawn as a reference, draw the front edge of the pedestal in directions NW and NE.&lt;/li&gt;
-&lt;li&gt;Now draw the back edges of the opt of the pedestal, be sure to go behind the corner of the post.&lt;/li&gt;
-&lt;li&gt;Complete the pedestal, makjing sure to draw the near corner lower. As always, use the lines you have already drawn as reference angles for drawing the bottom lines of the pedestal in directions NW and NE.&lt;/li&gt;
-&lt;li&gt;Finally, add the cast shadow opposite your positioned light source, shade the table and pedestal and add the dark undershadows of both sides of the post.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;So here&amp;rsquo;s how my final drawing looks:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/AFA53C8F-34F6-4A7D-8C20-6DD868130467.jpg&quot; alt=&quot;lesson7&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 26 Feb 2014 21:34:18 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/02/26/Lesson-6-Stacking-Tables/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Don&#39;t distinguish between work and life</title>
-                                <description>&lt;p&gt;&lt;img src=&quot;http://www.jamieleighto.com/wp-content/uploads/2012/07/Love-Your-Work.jpg&quot; alt=&quot;work&quot; /&gt;
-Work is your life because work is your passion. If your work isn&amp;rsquo;t your passion, only a means of getting to your passion, then take it as a necessity and look it in as positive a light as possible. Your work doesn’t suck because it is getting you to where you want to be. It’s necessary and unavoidable if you want to get to where you want to be, for the life you wish to lead.&lt;/p&gt;
-
-&lt;p&gt;Don’t distinguish between work and life. It is one in the same and the sooner you accept that, the sooner you can release all that negativity you feel every time you think about all the work that needs to be done.&lt;/p&gt;
-</description>
-                                <pubDate>Tue, 25 Feb 2014 11:33:09 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/25/Dont-distinguish-between-work-and-life/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Ignorance of MLM marketeers</title>
-                                <description>&lt;p&gt;I&amp;rsquo;m totally against Multi-Level-Marketing(MLM) or any form of &lt;a href=&quot;http://en.wikipedia.org/wiki/Ponzi_scheme&quot;&gt;Ponzi schemes&lt;/a&gt; because it&amp;rsquo;s a questionable business model that does not offer any real values to the society Here&amp;rsquo;s my &lt;a href=&quot;https://www.facebook.com/notes/guochen-hou/mlm-thanks-but-no-thanks/460181587333803&quot;&gt;reasons&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;On top of which, most MLM marketeers are just pure ignorant about the product they are trying to promote. Let&amp;rsquo;s be honest here, they are not really interested in &amp;lsquo;growing&amp;rsquo; you, they are just interested in entry fee you paid up upon joining the organization. More suckers like you joining as their downlinks means more loyalty fees into their pocket.&lt;/p&gt;
-
-&lt;p&gt;What&amp;rsquo;s more of a joke is that most of these marketeers who approaches you doesn&amp;rsquo;t have the slightest idea about their product or the industry they are in.&lt;/p&gt;
-
-&lt;p&gt;Every month or so i&amp;rsquo;ll receive at least 1 of such invites to MLM. AND THEY JUST DONT DIE OFF! So last week i received this message on linkedin:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30123pm.png&quot; alt=&quot;message1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;lsquo;Income diversification&amp;rsquo; is like an instant red flag to me. But being polite, i replied:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at30929pm.png&quot; alt=&quot;message2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Soon afterwards it start to sound more fishy in her reply:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31133pm.png&quot; alt=&quot;message3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok seriously??? you are running an e-commerce business and your website is only accessible to a selected few??? It&amp;rsquo;s like saying,&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;i&amp;rsquo;m opening a restaurant that only serves my friends and family.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Great work so far Amirah. I decided to serve her own medicine back to her.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at31714pm.png&quot; alt=&quot;message4&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At this point, the last that she can do to save her sinking ship is to send me some PDFS, DOCS, WEBSITES depicting her business to get me interested. But it seems she doesn&amp;rsquo;t have any to begin with. Alas, this short and apparently-less-friendly message without signoffs came back:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-02-16at32155pm.png&quot; alt=&quot;message5&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;OKAY. BITCHING TIME. My dear Amirah, it seems you don&amp;rsquo;t even understand the difference between &amp;lsquo;a wholesale/retail distribution channel&amp;rsquo; and &amp;lsquo;e-commerce distribution business&amp;rsquo;. A wholesale/retail distribution channel via internet is like &lt;a href=&quot;www.ebay.com.sg&quot;&gt;eBay&lt;/a&gt; or &lt;a href=&quot;www.amazon.com&quot;&gt;Amazon&lt;/a&gt; where you provide a medium for e-commerce business to operate and transact. An e-commerce business is where you USE this medium to perform ecommerce activities. Building an ebay shopfront to sell your products within ebay is totally different from building ebay.com itself. I can&amp;rsquo;t appreciate how you want to hire me to work for you, or as your down-link in your organization, when you can&amp;rsquo;t even figure out this simple difference about the industry you are supposedly to be an expert in. Preaching about a questionable business model is already being frowned upon. The worst you can do is to demonstrate that you know nothing about the industry you are in. Please Amirah, stop this madness.&lt;/p&gt;
-</description>
-                                <pubDate>Sun, 16 Feb 2014 14:18:11 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/02/16/Ignorance-of-MLM-marketeers/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lion city&#39;s message</title>
-                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/singapore.jpg&quot; alt=&quot;singapore&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Great cities attract ambitious people. You can sense it when you walk around one. In a hundred subtle ways, the city sends you a message: you could do more; you should try harder.&lt;/p&gt;
-
-&lt;p&gt;The surprising thing is how different these messages can be. New York tells you, above all: you should make more money. There are other messages too, of course. You should be hipper. You should be better looking. But the clearest message is that you should be richer.&lt;/p&gt;
-
-&lt;p&gt;What I like about Boston (or rather Cambridge) is that the message there is: you should be smarter. You really should get around to reading all those books you&amp;rsquo;ve been meaning to.&lt;/p&gt;
-
-&lt;p&gt;When you ask what message a city sends, you sometimes get surprising answers. As much as they respect brains in Silicon Valley, the message the Valley sends is: you should be more powerful.&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s not quite the same message New York sends. Power matters in New York too of course, but New York is pretty impressed by a billion dollars even if you merely inherited it. In Silicon Valley no one would care except a few real estate agents. What matters in Silicon Valley is how much effect you have on the world. The reason people there care about Larry and Sergey is not their wealth but the fact that they control Google, which affects practically everyone.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;mdash; Paul Graham&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Paul Graham once wrote this article on different messages that a city sends you when you are in it. I like the article alot.
-In my words, the message is the city&amp;rsquo;s attitude.&lt;/p&gt;
-
-&lt;p&gt;What message does Singapore, the flower city of asia, send?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Follow the rules; Live a secure life.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;People living in singapore are good citizens, almost too good for their own good. They follow rules to the letter and abide by government policies rain or shine. Flouting the law is seen as blasphemous and challenging authority in itself almost seemed a criminal activity. You know you are safe as long as you stay within social boundaries.&lt;/p&gt;
-
-&lt;p&gt;The city tells you to prepare for the unexpected. What if you lost your job tomorrow? What if you couldn&amp;rsquo;t pay your house mortgages anymore? What if your children couldn&amp;rsquo;t perform academically?&lt;/p&gt;
-
-&lt;p&gt;Perhaps it is this constant vibe that the city is giving out, people no longer dare to challenge themselves, the status quo or the rules but default to security. Failure as a result of a challenge is too much to handle, too much of a loss to bear and too shameful to be seen. Oh wait, arn&amp;rsquo;t those the exact sentiments for life&amp;rsquo;s mediocrity?&lt;/p&gt;
-
-&lt;p&gt;It is hard to ask a city to change. So we shouldn&amp;rsquo;t stay in a city for too long as we will subconsciously inherit the city&amp;rsquo;s message and live by it as our mantra. Travel around when you are still young. Look at what other cities has to offer. Perhaps that&amp;rsquo;s why people say, &lt;em&gt;Life is a journey&lt;/em&gt; and not &lt;em&gt;Life is a place&lt;/em&gt;.&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr/&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn:1&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://paulgraham.com/cities.html&quot;&gt;http://paulgraham.com/cities.html&lt;/a&gt;&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-
-</description>
-                                <pubDate>Tue, 21 Jan 2014 17:30:28 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/01/21/Lion-city%27s-message/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Lesson 5 Hollow Cubes</title>
-                                <description>&lt;p&gt;I&amp;rsquo;m gona be drawing hollow cubes for this lesson. Drawing lines that &lt;strong&gt;sync&lt;/strong&gt; with each other is pretty important when drawing cubes.&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Parallel and Perpendicular Lines&lt;/strong&gt;
-Parallel lines are two lines going in the same direction, spaced equally apart. Perpendicular lines are two lines that intersect at right angles to each other.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Sketch a foreshortened cube.&lt;/li&gt;
-&lt;li&gt;Slant back two parallel lines on the top of the cube.&lt;/li&gt;
-&lt;li&gt;Think of a compass, the 4 most commonly used directions are, &lt;strong&gt;Northwest&lt;/strong&gt;, &lt;strong&gt;Northeast&lt;/strong&gt;, &lt;strong&gt;Southwest&lt;/strong&gt;, and &lt;strong&gt;Southeast&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Draw the parallel side of the box lid lifting up with two parallel lines.&lt;/li&gt;
-&lt;li&gt;Use the bottom of the box angles to guide your line directions, complete near the flaps, aligning them up in direction NE and NW. By always referring the lines you have already drawn and by continually checking your angles against the drawing direction reference cube, your drawings will look solid, focused, and 3D.&lt;/li&gt;
-&lt;li&gt;When casting shadows, we are casting at the SW direction instead of downwards. This will go well with the light source which is in NE direction.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Try drawing the cube a few more times to get the directional cues correct. Here&amp;rsquo;s what i&amp;rsquo;ve drawn:
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/62514743-DAE5-4271-B0D7-102441EB3893.jpg&quot; alt=&quot;lesson5&quot; /&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 20 Jan 2014 21:28:09 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/2014/01/20/Lesson-5-Hollow-Cubes/</guid>
                         </item>
                 
         </channel>

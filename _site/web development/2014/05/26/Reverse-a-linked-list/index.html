@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reverse a singly linked list - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="Reverse a singly linked list - GuoChen | Blog">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Open Graph Data -->
+  <meta name="og:title" property="og:title" content="Reverse a singly linked list - GuoChen | Blog" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/" />
+  <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
+  <meta name="og:description" property="og:description" content="Reverse a singly linked list" />
+  <meta name="og:site_name"property="og:site_name" content="Reverse a singly linked list - GuoChen | Blog" />
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="GuoChen's Blog" href="http://blog.hguochen.com/feed.xml">
+  <link rel="image_src" href="/static/img/gc.png"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>			
+			<div class="col-md-1 col-xs-3">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-1 col-xs-1"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			
+		</div>
+	</div>
+</hgroup>
+</header>
+  
+  <section class="container top_padding">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">Reverse a singly linked list</h1>
+    
+    
+      <p class="meta">
+        May 26, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-26T21:01:58Z" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.</p>
+
+<p>This is my iterative solution:</p>
+
+<pre><code>public Node reverse(Node head) {
+    if (head == null || head.next == null) { // Linked list is empty or only has 1 node
+        return;
+    }
+    Node current = new Node();
+    Node next = new Node();
+    Node prev = null;
+
+    current = head; // current node starts at the first node, which is referenced by head. keep in mind that head acts like a pointer here instead of a real node
+    while(current != null) { //run loop as long as current node is not the last node
+        next = current.next; // stores a reference of the next node so we can manipulate current.next reference
+        current.next = prev; // point the current.next to the new reference position -which is in reverse order
+        prev = current; // prev has done its job of referencing the previous node, it now moves on to reference the subsequent node
+        current = next; // current has referenced in the new order, move current pointer to the next node - which is referenced by next pointer.
+    }
+    head = prev; // the last node is now the new first node in the linked list, so we reference head to prev, which points to the node itself
+    return head
+}
+</code></pre>
+
+<p>Now let&rsquo;s try the recursive solution:</p>
+
+<h3>Identify base case</h3>
+
+<p>The base case occurs when we reach the last node of the linked list. We identify this case by verifying that current.next is NULL.</p>
+
+<h3>Base case operation</h3>
+
+<p>In the base case, we need to set the head pointer to the very last node, which will in turn become the first node in the result.</p>
+
+<p>Here&rsquo;s my recursive answer:</p>
+
+<pre><code>public Node reverse(Node current) {
+    if (current == null) { //check for empty list
+        return;
+    }
+
+    if (current.next == null) { // at tail node, this is recursive base case
+        head = current; // set head to point to the last node in original list
+        return;
+    }
+
+    reverse(current.next);
+    current.next.next = current; // set the subsequent node as the current node
+    current.next = null; // set the previous node to null. which eventually means the older next pointer is used and null
+}
+</code></pre>
+
+<p>This little devil took me quite awhile to figure out as it&rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&rsquo;t imagine a scenario where i&rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).</p>
+
+<p>Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.</p>
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-26T21:01:58Z" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/web-development/'>web development</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/" data-via="hguochen" data-counturl="http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a> - <a style="color:#a1a1a1;" href="/feed.xml">RSS Feed</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/';
+        var disqus_url = 'http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Kruskal's Algorithm - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="Kruskal's Algorithm - GuoChen | Blog">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Open Graph Data -->
+  <meta name="og:title" property="og:title" content="Kruskal's Algorithm - GuoChen | Blog" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/" />
+  <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
+  <meta name="og:description" property="og:description" content="Kruskal's Algorithm" />
+  <meta name="og:site_name"property="og:site_name" content="Kruskal's Algorithm - GuoChen | Blog" />
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="GuoChen's Blog" href="http://blog.hguochen.com/feed.xml">
+  <link rel="image_src" href="/static/img/gc.png"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>			
+			<div class="col-md-1 col-xs-3">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-1 col-xs-1"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			
+		</div>
+	</div>
+</hgroup>
+</header>
+  
+  <section class="container top_padding">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">Kruskal's Algorithm</h1>
+    
+    
+      <p class="meta">
+        Jun 17, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-17T00:02:54Z" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
+<img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
+
+<p>This is an example of using a greedy algorithm in graph theory to find a minimum spanning tree for a connected weighted graph. Vertices represent the cities and edges represent the roads to be rebuilt. Red digits indicates the amount of money to rebuild that stretch of road.</p>
+
+<p>To solve the problem, 3 problems have to be addressed.</p>
+
+<ol>
+<li>How to represent the graph?</li>
+<li>How to select the edges in nondecreasing order by its weight?</li>
+<li>How to determine whether adding an edge would create a cycle?</li>
+</ol>
+
+
+<p>The algorithm pseudocode for this problem follows the Kruskal algorithm:</p>
+
+<pre><code>kruskal_algorithm(edgelist, n) {
+    sort(edgelist)
+    for i = 1 to n
+        makeset(i)
+    count = 0
+    i = 1
+    while count &lt; n-1:
+        if(findset(vertex1) != findset(vertex2)) {
+            count += 1
+            union(vertex1, vertex2)
+        }
+        i += 1
+}
+</code></pre>
+
+<p>First, we use a 2d array to represent each of the edges in the graph. eg. [1,2] would indicate an edge between city 1 and 2. Then we store the edge&rsquo;s corresponding weight in another array with the weight as its element. eg.[4] for city 1 and 2. We also need a 3rd array to store all the vertices involved(purpose to be discussed). To avoid excessive parameter passing, let&rsquo;s declare a Weighted_graph class:</p>
+
+<pre><code>class Weighted_graph:
+"""
+Implement a weighted graph with a 2d list and a corresponding weight list
+Vertices are represented by elements(eg. 1,2,3) in the graph list and edges are represented by a list collection of each 2 vertices
+(eg. [1,2])
+"""
+edges = []
+weight = []
+vertices = []
+
+def __init__(self, edge_list, weight):
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+</code></pre>
+
+<p>Given the above graph, the corresponding data would be represented in our class attributes as the following:</p>
+
+<pre><code>edges = [[3, 4], [1, 3], [5, 6], [1, 5], [3, 6], [1, 2], [2, 4], [3, 5], [4, 6]]
+weight = [4,2,3,5,1,6,3,6,2]
+vertices = [[1],[3],[4],[5],[6],[2]]
+</code></pre>
+
+<p>We are also going to add utility functions, add() and print() to aid in our implementation.</p>
+
+<pre><code>def add(self, edge_list, weight):
+    """
+    Add an edge(defined by 2 vertices in a list) and its corresponding weight to edges
+    """
+    self.edges.append(edge_list)
+    self.weight.append(weight)
+
+def print_graph(self):
+    """
+    Print each set of edges in a graph and its corresponding edges
+    """
+    print self.edges
+    print self.weight
+    print self.vertices
+</code></pre>
+
+<p>Second, in order to select edges in nondecreasing order, we need to sort its corresponding weight in nondecreasing order. Here we use a simple insertion sort algorithm to do the job:</p>
+
+<pre><code>def __sort(self):
+    """
+    Sorts both edges and weight lists in nondecreasing order of weight list elements
+    """ 
+    if len(self.edges) != len(self.weight):
+        return
+    for i in range(1, len(self.weight)):
+        temp_weight = self.weight[i]
+        temp_edge = self.edges[i]
+        current = i - 1
+        while current &gt;= 0 and temp_weight &lt; self.weight[current]:
+            self.weight[current+1] = self.weight[current]
+            self.edges[current+1] = self.edges[current]
+            current -= 1
+        self.weight[current+1] = temp_weight
+        self.edges[current+1] = temp_edge
+</code></pre>
+
+<p>Next we need to be able to initialize each vertex to its own component in vertices array. Let&rsquo;s use a private makeset function to achieve this:</p>
+
+<pre><code>def __makeset(self):
+    """
+    Initialize each vertex to its own component
+    """
+    for i in range(len(self.edges)):
+        for j in range(len(self.edges[i])):             
+            if self.edges[i][j] not in self.vertices:
+                self.vertices.append(self.edges[i][j])
+
+    for k in range(len(self.vertices)):
+        self.vertices[k] = [self.vertices[k]]
+</code></pre>
+
+<p>Then we need a way to find the corresponding vertex in the vertices list of list and return a index to the location of the vertex in question.</p>
+
+<pre><code>def __findset(self, vertex):
+    """
+    Find and return the index to which vertex belongs in vertices list
+    """     
+    for i in range(len(self.vertices)):
+        for element in self.vertices[i]:
+            if element == vertex:
+                return i
+    return None
+</code></pre>
+
+<p>Just 1 last function! We need to be able to merge the 2 vertex in vertices list together to indicate that their corresponding edge have been selected. We use a union function to manipulate the vertices list directly.</p>
+
+<pre><code>def __union(self, vertex1, vertex2):
+    """
+    Joins 2 vertex together         
+    """
+    index1 = self.__findset(vertex1)
+    index2 = self.__findset(vertex2)
+    for element in self.vertices[index2]:
+        self.vertices[index1].append(element)
+    self.vertices.pop(index2)
+</code></pre>
+
+<p>So we have all the functions we need to implement Kruskal&rsquo;s algorithm. Let&rsquo;s convert the pseudocode earlier to python codes&hellip;</p>
+
+<pre><code>def kruskal(self):
+    self.__sort()
+    self.__makeset()
+    count, i = 0, 0     
+    while len(self.vertices) &gt; 1:
+        if self.__findset(self.edges[i][0]) != self.__findset(self.edges[i][1]):
+            print "(%d %d) edge selected." % (self.edges[i][0], self.edges[i][1])
+            count += 1
+            self.__union(self.edges[i][0], self.edges[i][1])
+        i += 1
+</code></pre>
+
+<p>With this implementation, we test run the codes and should be able to get the following output.</p>
+
+<pre><code>(3 4) edge selected.
+(1 3) edge selected.
+(5 6) edge selected.
+(1 5) edge selected.
+(1 2) edge selected.
+</code></pre>
+
+<p>Keep in mind that our vertices list starts off like this:</p>
+
+<pre><code>vertices = [[1],[3],[4],[5],[6],[2]]
+</code></pre>
+
+<p>As each set of edges is selected, its 2 cities are combined to indicate selection. This helps in determining if the graph is cyclic at each new edge selection stage. Finally, our vertices list looks like this, which indicates all the vertices are connected minimally.</p>
+
+<pre><code>vertices = [[1, 3, 4, 5, 6, 2]]
+</code></pre>
+
+<p>Kruskal&rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&rsquo;s my <a href="https://github.com/hguochen/algorithms/blob/master/python/kruskal.py">full implementation</a>.</p>
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-17T00:02:54Z" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/greedy-algorithm/'>greedy algorithm</a>, <a class='category' href='/categories/programming/'>programming</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/" data-via="hguochen" data-counturl="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a> - <a style="color:#a1a1a1;" href="/feed.xml">RSS Feed</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/';
+        var disqus_url = 'http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>
