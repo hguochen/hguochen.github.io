@@ -8,8 +8,9 @@
                 
                         <item>
                                 <title>Prim&#39;s Algorithm</title>
-                                <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png&quot; height=&quot;400&quot; alt=&quot;city roads&quot; /&gt;&lt;/p&gt;
+                                <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png&quot; height=&quot;400&quot; alt=&quot;city roads&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We visited this question previously with &lt;a href=&quot;http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/&quot;&gt;Kruskal&amp;rsquo;s Algorithm&lt;/a&gt;. Now let&amp;rsquo;s try a different approach using &lt;a href=&quot;https://en.wikipedia.org/wiki/Prim&#39;s_algorithm&quot;&gt;Prim&amp;rsquo;s Algorithm&lt;/a&gt;.&lt;/p&gt;
 
