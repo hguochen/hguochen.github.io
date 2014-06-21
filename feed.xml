@@ -7,6 +7,56 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>[Tip] Python class debugging tools</title>
+                                <description>&lt;p&gt;It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&amp;rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.&lt;/p&gt;
+
+&lt;h3&gt;1. Printing attributes and values&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def print_attr(obj):
+    &quot;&quot;&quot;
+    Traverses the items in the object&#39;s dictionary and      prints each attribute name and its corresponding value.
+    &quot;&quot;&quot;
+    for attr in obj.__dict__:
+        print attr, getattr(obj, attr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As explained in docstring, function print_attr() takes in an object and spits out each of its attributes and its corresponding value.&lt;/p&gt;
+
+&lt;p&gt;The built-in function getattr() takes an object and an attribute name(as string) and returns the attribute&amp;rsquo;s value.&lt;/p&gt;
+
+&lt;h3&gt;2. Find defining class&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def find_defining_class(obj, method_name):
+&quot;&quot;&quot;
+Uses the method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Return the class to which the method &#39;method_name&#39; belong to.
+&quot;&quot;&quot;
+for origin in type(obj).mro():
+    if method_name in origin.__dict__:
+        return origin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Useful if your class belongs to a long chain of super classes and you are trying to find out which class does a particular method belong to. This method works because of &lt;a href=&quot;https://www.python.org/download/releases/2.3/mro/&quot;&gt;Method Resolution Order&lt;/a&gt; rule in python.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; hand = Hand()
+&amp;gt;&amp;gt;&amp;gt; print find_defining_class(hand, &#39;shuffle)
+&amp;lt;class &#39;Card.Deck&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SO the shuffle method for this Hang object is the one in Deck.&lt;/p&gt;
+
+&lt;p&gt;Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!&lt;/p&gt;
+
+&lt;p&gt;Happy debugging! Ok fine, that&amp;rsquo;s a fallacy&amp;hellip;Don&amp;rsquo;t die debugging!&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 21 Jun 2014 17:59:42 +0000</pubDate>
+                                <link>http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Prim&#39;s Algorithm</title>
                                 <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.&lt;/p&gt;
 
@@ -1137,77 +1187,6 @@ h4 {
                                 <pubDate>Sun, 23 Mar 2014 18:18:25 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</guid>
-                        </item>
-                
-                        <item>
-                                <title>How to learn Javascript</title>
-                                <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
-
-&lt;p&gt;Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.&lt;/p&gt;
-
-&lt;h3&gt;0. Read up on fundamentals of Javascript&lt;/h3&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Javascript is the language of the browser.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Javascript used to be a client-side programming language running client web scripts. It&amp;rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp;amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with &lt;a href=&quot;http://nodejs.org/%E2%80%8E&quot;&gt;Node.js&lt;/a&gt; being the new kid in town.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://eloquentjavascript.net/index.html&quot;&gt;Eloquent Javascript&lt;/a&gt; by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &amp;ldquo;eloquent&amp;rdquo; isn&amp;rsquo;t an overstatement.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript&quot;&gt;A Re-introduction to JavaScript&lt;/a&gt;. This introduction is on the Mozilla Developers Network, and it&amp;rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.&lt;/p&gt;
-
-&lt;h3&gt;1. Go through the Javascript course at Codecademy.com&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;www.codecademy.com&quot;&gt;Codecademy&lt;/a&gt; revamped its courses to learning javascript and touted itself as &amp;ldquo;the easiest way to learn how to code&amp;rdquo;. There are currently two courses on JS: &amp;ldquo;Getting started with Programming&amp;rdquo; and &amp;ldquo;Javascript Quick Start Guide&amp;rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.&lt;/p&gt;
-
-&lt;p&gt;If you are already familiar with other programming languages, you can start with &amp;ldquo;Javascript Quick Start Guide&amp;rdquo;. If you are fresh to programming, &amp;ldquo;Getting started with programming&amp;rdquo; is tailored for you. Codecademy is free, but sign up is required.&lt;/p&gt;
-
-&lt;h3&gt;2. Screencast tutorials at TheNewBoston&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://thenewboston.org/list.php?cat=10&quot;&gt;The New Boston&lt;/a&gt; for javascript has an awesome set of screencast tutorials geared for beginners. It&amp;rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&amp;rsquo;s easier to follow than written scripts.&lt;/p&gt;
-
-&lt;h3&gt;3. Install and Learn Firebug(or Chrome Developer Tools)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://getfirebug.com/&quot;&gt;Firebug&lt;/a&gt; is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer &lt;a href=&quot;www.google.com/chrome/&quot;&gt;Google Chrome&lt;/a&gt; or &lt;a href=&quot;https://www.apple.com/sg/safari/%E2%80%8E&quot;&gt;Safari&lt;/a&gt;, check out the built-in developer tools.&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Open developer tools panel by press &lt;code&gt;Option + Cmd +I&lt;/code&gt; on mac, or &lt;code&gt;Ctrl+Shift+I&lt;/code&gt; on the PC.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Check out some of the useful guides on using both of these tools:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Firebug
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://css-tricks.com/video-screencasts/15-introduction-to-firebug/&quot;&gt;Introduction to Firebug&lt;/a&gt; on &lt;a href=&quot;http://css-tricks.com/&quot;&gt;CSS-Tricks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/&quot;&gt;10 Reasons Why You Should Be Using Firebug&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Developer Tools
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://code.google.com/chrome/devtools/&quot;&gt;Developer Tools Website&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=nOEw9iiopwI&amp;amp;feature=player_embedded&quot;&gt;Google Chrome Developer Tools: 12 Tricks to Develop Quicker&lt;/a&gt; by Paul Irish&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;4. Begin Learning a JavaScript Library &amp;ndash; jQuery&lt;/h3&gt;
-
-&lt;p&gt;The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but &lt;a href=&quot;http://jquery.com/&quot;&gt;jQuery&lt;/a&gt; is probably the most popular and widely used library. For a start, read through the &lt;a href=&quot;http://learn.jquery.com/about-jquery/&quot;&gt;jQuery Documentations&lt;/a&gt; to get an idea of the ease of using javascript libraries as opposed to javascript raw language.&lt;/p&gt;
-
-&lt;h3&gt;5. Work through the tutorial at Try jQuery&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://try.jquery.com/&quot;&gt;Try jQuery&lt;/a&gt; is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to &lt;a href=&quot;http://api.jquery.com&quot;&gt;jQuery API&lt;/a&gt; while going through the tutorial.&lt;/p&gt;
-
-&lt;h3&gt;6. Screencast jQuery tutorials at TheNewBoston&lt;/h3&gt;
-
-&lt;p&gt;Again, &lt;a href=&quot;http://thenewboston.org/list.php?cat=32&quot;&gt;The New Boston&lt;/a&gt; for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.&lt;/p&gt;
-
-&lt;p&gt;So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!&lt;/p&gt;
-</description>
-                                <pubDate>Sat, 15 Mar 2014 15:35:12 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</guid>
                         </item>
                 
         </channel>
