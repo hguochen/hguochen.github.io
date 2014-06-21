@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/python/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-21T18:20:07+08:00</updated>
+  <updated>2014-06-21T18:22:36+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -24,7 +24,7 @@
 
 <pre><code>def print_attr(obj):
     """
-    Traverses the items in the object's dictionary and      prints each attribute name and its corresponding value.
+    Traverses the items in the object's dictionary and prints each attribute name and its corresponding value.
     """
     for attr in obj.__dict__:
         print attr, getattr(obj, attr)
@@ -38,7 +38,7 @@
 
 <pre><code>def find_defining_class(obj, method_name):
 """
-Uses the method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Uses method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
 Return the class to which the method 'method_name' belong to.
 """
 for origin in type(obj).mro():
@@ -55,7 +55,7 @@ for origin in type(obj).mro():
 &lt;class 'Card.Deck'&gt;
 </code></pre>
 
-<p>SO the shuffle method for this Hang object is the one in Deck.</p>
+<p>So the shuffle method for this Hang object is the one in Deck.</p>
 
 <p>Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!</p>
 

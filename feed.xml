@@ -14,7 +14,7 @@
 
 &lt;pre&gt;&lt;code&gt;def print_attr(obj):
     &quot;&quot;&quot;
-    Traverses the items in the object&#39;s dictionary and      prints each attribute name and its corresponding value.
+    Traverses the items in the object&#39;s dictionary and prints each attribute name and its corresponding value.
     &quot;&quot;&quot;
     for attr in obj.__dict__:
         print attr, getattr(obj, attr)
@@ -28,7 +28,7 @@
 
 &lt;pre&gt;&lt;code&gt;def find_defining_class(obj, method_name):
 &quot;&quot;&quot;
-Uses the method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Uses method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
 Return the class to which the method &#39;method_name&#39; belong to.
 &quot;&quot;&quot;
 for origin in type(obj).mro():
@@ -45,7 +45,7 @@ for origin in type(obj).mro():
 &amp;lt;class &#39;Card.Deck&#39;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;SO the shuffle method for this Hang object is the one in Deck.&lt;/p&gt;
+&lt;p&gt;So the shuffle method for this Hang object is the one in Deck.&lt;/p&gt;
 
 &lt;p&gt;Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!&lt;/p&gt;
 
