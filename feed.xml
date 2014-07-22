@@ -7,6 +7,201 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Django environment optimal setup</title>
+                                <description>&lt;p&gt;&lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt; is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&amp;rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!&lt;/p&gt;
+
+&lt;h3&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;A working knowledge of python language and Django framework is assumed. You will also have to know &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; for version control.&lt;/p&gt;
+
+&lt;h3&gt;Install Python&lt;/h3&gt;
+
+&lt;p&gt;Head over to &lt;a href=&quot;http://python.org&quot;&gt;python.org&lt;/a&gt; and find the install instructions for your specific OS. For my development environment, i&amp;rsquo;m running MAC OSX Mavericks.&lt;/p&gt;
+
+&lt;p&gt;To check you have installed python correctly, type&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;into terminal command line and you should get the following output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Python 2.7.5 (default, Mar  9 2014, 22:15:05) 
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Install virtualenv&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://virtualenv.readthedocs.org/en/latest/&quot;&gt;Virutalenv&lt;/a&gt; is a great tool to sandbox your development environments so you don&amp;rsquo;t have to switch back and forth between different versions of softwares. What&amp;rsquo;s more, the excellent extension &lt;a href=&quot;http://virtualenvwrapper.readthedocs.org/en/latest/&quot;&gt;virtualenvwrapper&lt;/a&gt; makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.&lt;/p&gt;
+
+&lt;p&gt;We are also going to use &lt;a href=&quot;https://pypi.python.org/pypi&quot;&gt;pip&lt;/a&gt; to install packages.&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s install virtualenv. Note that you can get both virtualenv and virtualenvwrapp install just by install ing virtualenvwrapper.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After it&amp;rsquo;s installed, add following lines to your .bashrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/directory-you-do-development-in
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then type the following command to &amp;lsquo;activate&amp;rsquo; your modified .bashrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ source .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Creating new environment&lt;/h3&gt;
+
+&lt;p&gt;To create a new virtual environment, type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkvirtualenv django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where django_project is whatever name your project is. You should see your shell is now prepended by (django_project).&lt;/p&gt;
+
+&lt;p&gt;The django_project prepending is a reminder that you are using virtualenv instal of your system&amp;rsquo;s Python installation. To exit, the virtual environment, simple type deactivate. When you want to resume work on your project, it&amp;rsquo;s as easy as typing&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ workon django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where you run the command doesn&amp;rsquo;t matter.&lt;/p&gt;
+
+&lt;h3&gt;Install Django&lt;/h3&gt;
+
+&lt;p&gt;Since we are working in virtualenv, we have to install Django into this virtual environment. This makes sure that the version of Django we use for this project is not confused with other versions used by the system or other virtual environments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This should give you the latest version of Django which will be installed in your virtualenv area. You can confirm this by doing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ which django-admin.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which should point to your $HOME/.virtualenvs/ directory.&lt;/p&gt;
+
+&lt;h3&gt;Setup project folder&lt;/h3&gt;
+
+&lt;p&gt;Now we can create our project directory. I highly recommend using &lt;a href=&quot;https://github.com/twoscoops/django-twoscoops-project&quot;&gt;two scoops Django&lt;/a&gt; project template for all Django projects. If you are new to two scoops django, it is actually a compilation of some of the best practices for developing Django projects. You can purchase a copy of this amazing book &lt;a href=&quot;http://twoscoopspress.org/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now go ahead and setup the project with this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that this command creates a django_project directory with the two scoops django template. I&amp;rsquo;ll leave you to read more about &lt;a href=&quot;https://github.com/twoscoops/django-twoscoops-project&quot;&gt;two scoops django template&lt;/a&gt; yourself.&lt;/p&gt;
+
+&lt;h3&gt;Source control&lt;/h3&gt;
+
+&lt;p&gt;Git is automatically installed when you install virtualenvwrapper.&lt;/p&gt;
+
+&lt;p&gt;Since our folder and file structure is up now, let&amp;rsquo;s commit them to source control right from the start. Here&amp;rsquo;s how to do that in git:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Creates a git repository in the current directory. Now let&amp;rsquo;s stage all of our files to git to be commited.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git add django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we commit them to our new repository:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit -m &quot;Initial commit of django_project&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s add the remote repository in &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git remote add origin &amp;lt;remote repository URL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, let&amp;rsquo;s push our changes!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;South for database migrations&lt;/h3&gt;
+
+&lt;p&gt;South is a great tool that detects changes to your models layer and automatically sync the changes to your database without you having to dabble with the database itself. This is done through a migration file that South creates. This lets you both migrate the database forward for new change and backward to undo a change or series of changes.&lt;/p&gt;
+
+&lt;p&gt;In our virtualenv, install south using pip:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install south
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then setup south with the project by adding it to our INSTALLED_APPS in settings/base.py file for the project.
+After which, run the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# python manage.py syncdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to sync the changes and south will be registered along with the project. South will also automatically setup the database with the tables it needs.&lt;/p&gt;
+
+&lt;p&gt;Before we commit, we will want tot rack our install Python packages. We want to track the name and version of the python packages we are using so we can recreate our environment easily in the production area. There&amp;rsquo;s a pip command that does this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip freeze &amp;gt; requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I pushed the output of pip freeze to a file called requirements.txt which we will add to source control so we always have an updated list of packages being used.&lt;/p&gt;
+
+&lt;p&gt;As before, we commit the changes to git and push to remote repository.&lt;/p&gt;
+
+&lt;h3&gt;Install Fabric&lt;/h3&gt;
+
+&lt;p&gt;To easily deploy a Django application, we use &lt;a href=&quot;http://fabric.readthedocs.org/en/1.3.3/api/contrib/django.html&quot;&gt;Fabric&lt;/a&gt;. Fabric has a number of purposes but it really helps in quick deployments. Install Fabric with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install fabric
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Fabric expects a fabfile.py which defines all of the actions we can take. Let&amp;rsquo;s create that file and put the following in fabfile.py in your project&amp;rsquo;s root directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import local
+
+def prepare_deployment(branch_name):
+local(&#39;python manage.py test django_project&#39;)
+local(&#39;git add -p &amp;amp;&amp;amp; git commit&#39;) # or local(&#39;hg add &amp;amp;&amp;amp; hg commit&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will run the test and commit your changes only if your tests pass. A simple &amp;ldquo;pull&amp;rdquo; in your production area becomes your deployment. Let&amp;rsquo;s add the following code to fabfile.py to actually deploy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import lcd, local
+
+def deploy():
+with lcd(&#39;/path/to/my/prod/area/&#39;):
+
+    # With git...
+    local(&#39;git pull /my/path/to/dev/area/&#39;)
+
+    # With Mercurial...
+    local(&#39;hg pull /my/path/to/dev/area/&#39;)
+    local(&#39;hg update&#39;)
+
+    # With both
+    local(&#39;python manage.py migrate myapp&#39;)
+    local(&#39;python manage.py test myapp&#39;)
+    local(&#39;/my/command/to/restart/webserver&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will pull your changes from the development master branch, run any migrations you&amp;rsquo;ve made, run tests, and restart your web server.&lt;/p&gt;
+
+&lt;p&gt;To use this file, we simply type the following in production environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ fab prepare_deployment
+$ fab deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So that&amp;rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&amp;rsquo;ve missed out something! Rock on folks!&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 22 Jul 2014 17:08:54 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</guid>
+                        </item>
+                
+                        <item>
                                 <title>[Tip] Python class debugging tools</title>
                                 <description>&lt;p&gt;It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&amp;rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.&lt;/p&gt;
 
@@ -955,238 +1150,6 @@ def print_graph(self):
                                 <pubDate>Mon, 31 Mar 2014 16:19:30 +0000</pubDate>
                                 <link>http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</guid>
-                        </item>
-                
-                        <item>
-                                <title>How to design your blog</title>
-                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;A look behind the scene of my blog redesign&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt;Define your brief&lt;/h2&gt;
-
-&lt;p&gt;As with any projects, it&amp;rsquo;s important to figure what exactly you want to achieve and jot it down clearly. This can be a constant reminder as you progress through the design stages. At this point, we just need to figure out our ultimate goal without being worried about the details.&lt;/p&gt;
-
-&lt;p&gt;I wanted to design a blog that is &lt;strong&gt;simple to navigate&lt;/strong&gt; on index page and contains &lt;strong&gt;easy-to-read&lt;/strong&gt; blogposts across different devices. All of these pages should clearly define me and my thoughts.&lt;/p&gt;
-
-&lt;h2&gt;Research and idea generation&lt;/h2&gt;
-
-&lt;p&gt;Do some googling to get the creativity flowing. Inspirations can come from anywhere. Some of the best places i recommend to check out are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://wordpress.org/themes/&quot;&gt;Wordpress Themes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;As you go through these websites, grab a pen and sketchbook to jot down some of the things such as positions of blog elements, layout, colours, typefaces and navigation details commonly used. This will give you a basic idea of the contents to cover in designing your blog.&lt;/p&gt;
-
-&lt;h2&gt;Design considerations&lt;/h2&gt;
-
-&lt;p&gt;I wanted users to easily browse through my blog and focus on what i&amp;rsquo;ve written, so i&amp;rsquo;m not going to have too many &amp;lsquo;content&amp;rsquo; pages such as about me, work, contact me etc. These side dishes are more for a portfolio page rather than a blog. In fact, i&amp;rsquo;m only going to have 2 main pages:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Index page&lt;/li&gt;
-&lt;li&gt;Content page&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Based on my these ideas, it seems that i will need total control of designing my blog. I can&amp;rsquo;t afford to use ready made templates such as from &lt;a href=&quot;http://wordpress.com&quot;&gt;Wordpress&lt;/a&gt;. Instead, i&amp;rsquo;m using a blog engine called &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; where i have the freedom to configure every element of my blog.&lt;/p&gt;
-
-&lt;h3&gt;Index page&lt;/h3&gt;
-
-&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With the year-annotated scrolling, my visitors will be able to quickly scroll through my list of blogposts and look for interests. We are providing a &amp;lsquo;simple to navigate&amp;rsquo; index page, as part of our objective listed above.&lt;/p&gt;
-
-&lt;h3&gt;Content page&lt;/h3&gt;
-
-&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;On Measure&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/measure_1.gif&quot; alt=&quot;measure&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Measure, is the name given to the width of a body of type. There are several units of measurement used for defining the measure&amp;rsquo;s width. Three basic units are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;One point = 1/72 of an inch&lt;/li&gt;
-&lt;li&gt;One pic = 12 points&lt;/li&gt;
-&lt;li&gt;One em = Distance horizontally equal to the type of size, in points. you are using. Eg. 1em of 12pt type is 12pt.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For a full width monitor, the optimum measure for reading is between &lt;strong&gt;66-72 words&lt;/strong&gt; a line. If you scale that down to a mobile screen, measure would come down to about &lt;strong&gt;8-13 words&lt;/strong&gt; a line.&lt;/p&gt;
-
-&lt;h3&gt;On font-size&lt;/h3&gt;
-
-&lt;p&gt;Appropriate font size will greatly enhance the readability of texts. I shall not go into detail here but some tried and tested font sizes for blog contents adopts the following pixel sizes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;16px &amp;ndash; Body copy and leading&lt;/li&gt;
-&lt;li&gt;24px &amp;ndash; Main heading &amp;amp; section headings&lt;/li&gt;
-&lt;li&gt;18px &amp;ndash; Subheadings&lt;/li&gt;
-&lt;li&gt;13px &amp;ndash; All other headed elements&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;This will give the following styles visually:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/typo4_headings.gif&quot; width=&quot;300&quot; alt=&quot;font sizes&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;For the frontend designers, your CSS could look like this with the specifications above:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;body {
-    font: 16px/1.5em &quot;Lucida Grande&quot;;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: helvetica, arial, verdana, sans-serif;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 218%;
-}
-
-h2 {
-    font-size: 164%;
-}
-
-h3 {
-    font-size: 145%;
-}
-
-h4 {
-    font-size: 118%;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;On typefaces&lt;/h3&gt;
-
-&lt;p&gt;We read most easily with what we are most familiar with. This would mean the traditional serif family of typefaces. But even in the serif family, there are countless kinds of typefaces to choose from. On choosing a typeface, i&amp;rsquo;ve had a long trial and error on this. Here are 3 different serif types i&amp;rsquo;ve experimented with using on the same content:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;
-&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Helvetica is a great font for texts, but it is not such a great typeface for continuous smooth reading. It lacks the &amp;lsquo;legs&amp;rsquo; seen on other typefaces which provides the smooth gliding feel when reading on a screen.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82347pm.png&quot; width=&quot;400&quot; alt=&quot;sans-serif&quot; /&gt;
-&lt;strong&gt;sans-serif&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Serif is a safe font. Generally you won&amp;rsquo;t go wrong with this font. However, since i prefer a lighter shade of texts, i have to reduce the font-weight from normal 300 to 200. This didn&amp;rsquo;t fare well with serif typeface and words appear to thin to read properly.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82121pm.png&quot; width=&quot;400&quot; alt=&quot;georgia&quot; /&gt;
-&lt;strong&gt;georgia&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Part of the serif typeface family, georgia has always been a strong choice for continous texts. Some of the most popular web such as &lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt; and &lt;a href=&quot;http://www.nytimes.com&quot;&gt;NyTimes&lt;/a&gt; uses georgia to render their texts. An additional advantage of georgia typeface is that it&amp;rsquo;s distinctive enough that font colors normally won&amp;rsquo;t erode its readability.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;After weighing the considerations, i&amp;rsquo;ve decided to use &amp;lsquo;Helvetica Neue&amp;rsquo; for headings and &amp;lsquo;georgia&amp;rsquo; for paragraph texts. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;On font color&lt;/h3&gt;
-
-&lt;p&gt;Black text on white background offers the best readability. However, prolonged exposure on black contrasted texts could be painful to our eyes since modern screen brightness are getting better and better. As such, i&amp;rsquo;ve decided to reduce the contrast of texts by changing paragraph texts to a &amp;lsquo;greyier&amp;rsquo; color while not compromising readability. After some trial and error, the color i&amp;rsquo;ve chosen is a grey with hexcode: #333332.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.colorhexa.com/333332.png&quot; height=&quot;150&quot; width=&quot;200&quot; alt=&quot;333332&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Responsive Design&lt;/h2&gt;
-
-&lt;p&gt;The last of my consideration is to make sure my blog is readable on both mobile and desktop devices alike.&lt;/p&gt;
-
-&lt;p&gt;I like to use a grid because it provides a structural foundation, whiel making the development process easier and more efficient. Using a flexible grid enables a website to sclae dynamically to fit any device width. Below is the CSS for my responsive grid, which is my variations from &lt;a href=&quot;http://getbootstrap.com&quot;&gt;bootstrap&lt;/a&gt;&amp;rsquo;s responsive grid.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
-
-.row {
-    clear: both;
-    max-width: 1040px;
-    margin: 0 auto;
-}
-
-[class^=&quot;col-&quot;]:last-child {
-    margin: 0;
-}
-
-[class^=&quot;col-&quot;] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-
-
-.col-xs-1 { width: 4.8076923077% }
-.col-xs-2 { width: 13.4615384615% }
-.col-xs-3 { width: 22.1153846154% }
-.col-xs-4 { width: 30.7692307692% }
-.col-xs-5 { width: 39.4230769231% }
-.col-xs-6 { width: 48.0769230769% }
-.col-xs-7 { width: 56.7307692308% }
-.col-xs-8 { width: 65.3846153846% }
-.col-xs-9 { width: 74.0384615385% }
-.col-xs-10 { width: 82.6923076923% }
-.col-xs-11 { width: 91.3461538462% }
-.col-xs-12 { width: 100%; margin: 0 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My breakpoints for my responsive blog are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;360px max-width for mobile&lt;/li&gt;
-&lt;li&gt;768px max-width for tablets&lt;/li&gt;
-&lt;li&gt;1024px max-width for desktops&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Keep in mind that with a growing array of devices, there is no longer a &amp;lsquo;common&amp;rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my blog&amp;rsquo;s responsive layout on a few devices:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/E88F66B9-1921-4E9E-8F48-FB5AF6571F4B.png&quot; width=&quot;150&quot; alt=&quot;iPhone&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;iPhone 5&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/photo.png&quot; width=&quot;300&quot; alt=&quot;ipad&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;iPad Mini&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at85832pm.png&quot; width=&quot;500&quot; alt=&quot;desktop&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Desktop&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So, i&amp;rsquo;ve designed and tested out my new blog layout. It is my first time designing a blog from scratch and i&amp;rsquo;ve really learnt alot in the process! Designing is like a constant war between your left brain and right brain while still trying to grip on to established design principles. ROAR! But still, it is fun :) Hopefully my experience has provided you with a guideline to designing blogs. I&amp;rsquo;d love to hear about your experiences in designing your own blog!&lt;/p&gt;
-</description>
-                                <pubDate>Sun, 23 Mar 2014 18:18:25 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</guid>
                         </item>
                 
         </channel>

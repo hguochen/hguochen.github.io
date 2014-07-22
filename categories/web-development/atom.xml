@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-21T18:22:36+08:00</updated>
+  <updated>2014-07-22T18:31:00+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -12,6 +12,201 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Django environment optimal setup]]></title>
+    <link href="http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup/"/>
+    <updated>2014-07-22T17:08:54Z</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup</id>
+    <content type="html"><![CDATA[<p><a href="https://www.djangoproject.com">Django</a> is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!</p>
+
+<h3>Prerequisites</h3>
+
+<p>A working knowledge of python language and Django framework is assumed. You will also have to know <a href="http://git-scm.com">git</a> for version control.</p>
+
+<h3>Install Python</h3>
+
+<p>Head over to <a href="http://python.org">python.org</a> and find the install instructions for your specific OS. For my development environment, i&rsquo;m running MAC OSX Mavericks.</p>
+
+<p>To check you have installed python correctly, type</p>
+
+<pre><code>$ python
+</code></pre>
+
+<p>into terminal command line and you should get the following output:</p>
+
+<pre><code>Python 2.7.5 (default, Mar  9 2014, 22:15:05) 
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</code></pre>
+
+<h3>Install virtualenv</h3>
+
+<p><a href="http://virtualenv.readthedocs.org/en/latest/">Virutalenv</a> is a great tool to sandbox your development environments so you don&rsquo;t have to switch back and forth between different versions of softwares. What&rsquo;s more, the excellent extension <a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.</p>
+
+<p>We are also going to use <a href="https://pypi.python.org/pypi">pip</a> to install packages.</p>
+
+<p>First, let&rsquo;s install virtualenv. Note that you can get both virtualenv and virtualenvwrapp install just by install ing virtualenvwrapper.</p>
+
+<pre><code>$ pip install virtualenvwrapper
+</code></pre>
+
+<p>After it&rsquo;s installed, add following lines to your .bashrc file:</p>
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/directory-you-do-development-in
+source /usr/local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<p>Then type the following command to &lsquo;activate&rsquo; your modified .bashrc file:</p>
+
+<pre><code>$ source .bashrc
+</code></pre>
+
+<h3>Creating new environment</h3>
+
+<p>To create a new virtual environment, type:</p>
+
+<pre><code>$ mkvirtualenv django_project
+</code></pre>
+
+<p>where django_project is whatever name your project is. You should see your shell is now prepended by (django_project).</p>
+
+<p>The django_project prepending is a reminder that you are using virtualenv instal of your system&rsquo;s Python installation. To exit, the virtual environment, simple type deactivate. When you want to resume work on your project, it&rsquo;s as easy as typing</p>
+
+<pre><code>$ workon django_project
+</code></pre>
+
+<p>Where you run the command doesn&rsquo;t matter.</p>
+
+<h3>Install Django</h3>
+
+<p>Since we are working in virtualenv, we have to install Django into this virtual environment. This makes sure that the version of Django we use for this project is not confused with other versions used by the system or other virtual environments.</p>
+
+<pre><code>$ pip install django
+</code></pre>
+
+<p>This should give you the latest version of Django which will be installed in your virtualenv area. You can confirm this by doing:</p>
+
+<pre><code>$ which django-admin.py
+</code></pre>
+
+<p>Which should point to your $HOME/.virtualenvs/ directory.</p>
+
+<h3>Setup project folder</h3>
+
+<p>Now we can create our project directory. I highly recommend using <a href="https://github.com/twoscoops/django-twoscoops-project">two scoops Django</a> project template for all Django projects. If you are new to two scoops django, it is actually a compilation of some of the best practices for developing Django projects. You can purchase a copy of this amazing book <a href="http://twoscoopspress.org/">here</a>.</p>
+
+<p>Now go ahead and setup the project with this command:</p>
+
+<pre><code>$ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html django_project
+</code></pre>
+
+<p>Note that this command creates a django_project directory with the two scoops django template. I&rsquo;ll leave you to read more about <a href="https://github.com/twoscoops/django-twoscoops-project">two scoops django template</a> yourself.</p>
+
+<h3>Source control</h3>
+
+<p>Git is automatically installed when you install virtualenvwrapper.</p>
+
+<p>Since our folder and file structure is up now, let&rsquo;s commit them to source control right from the start. Here&rsquo;s how to do that in git:</p>
+
+<pre><code>$ git init
+</code></pre>
+
+<p>Creates a git repository in the current directory. Now let&rsquo;s stage all of our files to git to be commited.</p>
+
+<pre><code>$ git add django_project
+</code></pre>
+
+<p>Now we commit them to our new repository:</p>
+
+<pre><code>$ git commit -m "Initial commit of django_project"
+</code></pre>
+
+<p>Let&rsquo;s add the remote repository in <a href="http://github.com">github</a>:</p>
+
+<pre><code>$ git remote add origin &lt;remote repository URL&gt;
+</code></pre>
+
+<p>Finally, let&rsquo;s push our changes!</p>
+
+<pre><code>$ git push origin master
+</code></pre>
+
+<h3>South for database migrations</h3>
+
+<p>South is a great tool that detects changes to your models layer and automatically sync the changes to your database without you having to dabble with the database itself. This is done through a migration file that South creates. This lets you both migrate the database forward for new change and backward to undo a change or series of changes.</p>
+
+<p>In our virtualenv, install south using pip:</p>
+
+<pre><code>$ pip install south
+</code></pre>
+
+<p>Then setup south with the project by adding it to our INSTALLED_APPS in settings/base.py file for the project.
+After which, run the command:</p>
+
+<pre><code># python manage.py syncdb
+</code></pre>
+
+<p>to sync the changes and south will be registered along with the project. South will also automatically setup the database with the tables it needs.</p>
+
+<p>Before we commit, we will want tot rack our install Python packages. We want to track the name and version of the python packages we are using so we can recreate our environment easily in the production area. There&rsquo;s a pip command that does this:</p>
+
+<pre><code>$ pip freeze &gt; requirements.txt
+</code></pre>
+
+<p>I pushed the output of pip freeze to a file called requirements.txt which we will add to source control so we always have an updated list of packages being used.</p>
+
+<p>As before, we commit the changes to git and push to remote repository.</p>
+
+<h3>Install Fabric</h3>
+
+<p>To easily deploy a Django application, we use <a href="http://fabric.readthedocs.org/en/1.3.3/api/contrib/django.html">Fabric</a>. Fabric has a number of purposes but it really helps in quick deployments. Install Fabric with the command:</p>
+
+<pre><code>$ pip install fabric
+</code></pre>
+
+<p>Fabric expects a fabfile.py which defines all of the actions we can take. Let&rsquo;s create that file and put the following in fabfile.py in your project&rsquo;s root directory.</p>
+
+<pre><code>from fabric.api import local
+
+def prepare_deployment(branch_name):
+local('python manage.py test django_project')
+local('git add -p &amp;&amp; git commit') # or local('hg add &amp;&amp; hg commit')
+</code></pre>
+
+<p>This will run the test and commit your changes only if your tests pass. A simple &ldquo;pull&rdquo; in your production area becomes your deployment. Let&rsquo;s add the following code to fabfile.py to actually deploy:</p>
+
+<pre><code>from fabric.api import lcd, local
+
+def deploy():
+with lcd('/path/to/my/prod/area/'):
+
+    # With git...
+    local('git pull /my/path/to/dev/area/')
+
+    # With Mercurial...
+    local('hg pull /my/path/to/dev/area/')
+    local('hg update')
+
+    # With both
+    local('python manage.py migrate myapp')
+    local('python manage.py test myapp')
+    local('/my/command/to/restart/webserver')
+</code></pre>
+
+<p>This will pull your changes from the development master branch, run any migrations you&rsquo;ve made, run tests, and restart your web server.</p>
+
+<p>To use this file, we simply type the following in production environment:</p>
+
+<pre><code>$ fab prepare_deployment
+$ fab deploy
+</code></pre>
+
+<p>So that&rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&rsquo;ve missed out something! Rock on folks!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Steps to solving programming problems]]></title>
@@ -415,77 +610,6 @@
 <p>Lastly, i&rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)</p>
 
 <p><iframe width="560" height="420" src="http://www.youtube.com/embed/c_H3MWVx6JU?color=white&theme=light"></iframe></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to learn Javascript]]></title>
-    <link href="http://blog.hguochen.com/web%20development/2014/03/15/How-to-learn-Javascript/"/>
-    <updated>2014-03-15T15:35:12Z</updated>
-    <id>http://blog.hguochen.com/web%20development/2014/03/15/How-to-learn-Javascript</id>
-    <content type="html"><![CDATA[<p>One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&rsquo;t alot of experiences dealing with javascript before so i&rsquo;ve no choice but to start from the base language.</p>
-
-<p>Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.</p>
-
-<h3>0. Read up on fundamentals of Javascript</h3>
-
-<blockquote><p>Javascript is the language of the browser.</p></blockquote>
-
-<p>Javascript used to be a client-side programming language running client web scripts. It&rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with <a href="http://nodejs.org/%E2%80%8E">Node.js</a> being the new kid in town.</p>
-
-<p><a href="http://eloquentjavascript.net/index.html">Eloquent Javascript</a> by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &ldquo;eloquent&rdquo; isn&rsquo;t an overstatement.</p>
-
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">A Re-introduction to JavaScript</a>. This introduction is on the Mozilla Developers Network, and it&rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.</p>
-
-<h3>1. Go through the Javascript course at Codecademy.com</h3>
-
-<p><a href="www.codecademy.com">Codecademy</a> revamped its courses to learning javascript and touted itself as &ldquo;the easiest way to learn how to code&rdquo;. There are currently two courses on JS: &ldquo;Getting started with Programming&rdquo; and &ldquo;Javascript Quick Start Guide&rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.</p>
-
-<p>If you are already familiar with other programming languages, you can start with &ldquo;Javascript Quick Start Guide&rdquo;. If you are fresh to programming, &ldquo;Getting started with programming&rdquo; is tailored for you. Codecademy is free, but sign up is required.</p>
-
-<h3>2. Screencast tutorials at TheNewBoston</h3>
-
-<p><a href="http://thenewboston.org/list.php?cat=10">The New Boston</a> for javascript has an awesome set of screencast tutorials geared for beginners. It&rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&rsquo;s easier to follow than written scripts.</p>
-
-<h3>3. Install and Learn Firebug(or Chrome Developer Tools)</h3>
-
-<p><a href="http://getfirebug.com/">Firebug</a> is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer <a href="www.google.com/chrome/">Google Chrome</a> or <a href="https://www.apple.com/sg/safari/%E2%80%8E">Safari</a>, check out the built-in developer tools.</p>
-
-<blockquote><p>Open developer tools panel by press <code>Option + Cmd +I</code> on mac, or <code>Ctrl+Shift+I</code> on the PC.</p></blockquote>
-
-<p>Check out some of the useful guides on using both of these tools:</p>
-
-<ul>
-<li>Firebug
-
-<ul>
-<li><a href="http://css-tricks.com/video-screencasts/15-introduction-to-firebug/">Introduction to Firebug</a> on <a href="http://css-tricks.com/">CSS-Tricks</a></li>
-<li><a href="http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/">10 Reasons Why You Should Be Using Firebug</a></li>
-</ul>
-</li>
-<li>Developer Tools
-
-<ul>
-<li><a href="http://code.google.com/chrome/devtools/">Developer Tools Website</a></li>
-<li><a href="http://www.youtube.com/watch?v=nOEw9iiopwI&amp;feature=player_embedded">Google Chrome Developer Tools: 12 Tricks to Develop Quicker</a> by Paul Irish</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>4. Begin Learning a JavaScript Library &ndash; jQuery</h3>
-
-<p>The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but <a href="http://jquery.com/">jQuery</a> is probably the most popular and widely used library. For a start, read through the <a href="http://learn.jquery.com/about-jquery/">jQuery Documentations</a> to get an idea of the ease of using javascript libraries as opposed to javascript raw language.</p>
-
-<h3>5. Work through the tutorial at Try jQuery</h3>
-
-<p><a href="http://try.jquery.com/">Try jQuery</a> is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to <a href="http://api.jquery.com">jQuery API</a> while going through the tutorial.</p>
-
-<h3>6. Screencast jQuery tutorials at TheNewBoston</h3>
-
-<p>Again, <a href="http://thenewboston.org/list.php?cat=32">The New Boston</a> for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.</p>
-
-<p>So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!</p>
 ]]></content>
   </entry>
   
