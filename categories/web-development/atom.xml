@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-07-23T09:26:41+08:00</updated>
+  <updated>2014-07-23T09:29:30+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -221,6 +221,8 @@ $ fab deploy
 </code></pre>
 
 <p>So that&rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&rsquo;ve missed out something! Rock on folks!</p>
+
+<p>P/S: For your convenience, i have setup a <a href="https://github.com/hguochen/django_template">django_template</a> on github based on the above instructions. You may wish to fork it for your own use!</p>
 
 <p>EDIT: Thanks to Chng Nai Yun, i&rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.</p>
 ]]></content>

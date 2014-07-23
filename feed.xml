@@ -212,6 +212,8 @@ $ fab deploy
 
 &lt;p&gt;So that&amp;rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&amp;rsquo;ve missed out something! Rock on folks!&lt;/p&gt;
 
+&lt;p&gt;P/S: For your convenience, i have setup a &lt;a href=&quot;https://github.com/hguochen/django_template&quot;&gt;django_template&lt;/a&gt; on github based on the above instructions. You may wish to fork it for your own use!&lt;/p&gt;
+
 &lt;p&gt;EDIT: Thanks to Chng Nai Yun, i&amp;rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.&lt;/p&gt;
 </description>
                                 <pubDate>Tue, 22 Jul 2014 17:08:54 +0000</pubDate>
