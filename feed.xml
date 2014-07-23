@@ -31,6 +31,22 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &amp;gt;&amp;gt;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3&gt;Install pip&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pip.readthedocs.org/en/latest/index.html&quot;&gt;Pip&lt;/a&gt; is a great tool for installing and managing python packages. We are going to use pip to install all third party packages to supplement our project.&lt;/p&gt;
+
+&lt;p&gt;The easy way to install pip is to first download &lt;a href=&quot;https://bootstrap.pypa.io/get-pip.py&quot;&gt;get-pip.py&lt;/a&gt;. Then run the following command in the folder with the downloaded file on your terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python get-pip.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And you are done installing! You can test pip installed correctly with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip -V
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which shows the version of your pip.&lt;/p&gt;
+
 &lt;h3&gt;Install virtualenv&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://virtualenv.readthedocs.org/en/latest/&quot;&gt;Virutalenv&lt;/a&gt; is a great tool to sandbox your development environments so you don&amp;rsquo;t have to switch back and forth between different versions of softwares. What&amp;rsquo;s more, the excellent extension &lt;a href=&quot;http://virtualenvwrapper.readthedocs.org/en/latest/&quot;&gt;virtualenvwrapper&lt;/a&gt; makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.&lt;/p&gt;
@@ -97,7 +113,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 &lt;h3&gt;Source control&lt;/h3&gt;
 
-&lt;p&gt;Git is automatically installed when you install virtualenvwrapper.&lt;/p&gt;
+&lt;p&gt;Git is automatically installed in your virtual environment when you created it with virtualenvwrapper earlier.&lt;/p&gt;
 
 &lt;p&gt;Since our folder and file structure is up now, let&amp;rsquo;s commit them to source control right from the start. Here&amp;rsquo;s how to do that in git:&lt;/p&gt;
 
@@ -195,6 +211,8 @@ $ fab deploy
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So that&amp;rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&amp;rsquo;ve missed out something! Rock on folks!&lt;/p&gt;
+
+&lt;p&gt;EDIT: Thanks to Chng Nai Yun, i&amp;rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.&lt;/p&gt;
 </description>
                                 <pubDate>Tue, 22 Jul 2014 17:08:54 +0000</pubDate>
                                 <link>http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</link>

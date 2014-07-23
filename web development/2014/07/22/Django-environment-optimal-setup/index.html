@@ -146,6 +146,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt;
 </code></pre>
 
+<h3>Install pip</h3>
+
+<p><a href="http://pip.readthedocs.org/en/latest/index.html">Pip</a> is a great tool for installing and managing python packages. We are going to use pip to install all third party packages to supplement our project.</p>
+
+<p>The easy way to install pip is to first download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>. Then run the following command in the folder with the downloaded file on your terminal:</p>
+
+<pre><code>$ python get-pip.py
+</code></pre>
+
+<p>And you are done installing! You can test pip installed correctly with the command:</p>
+
+<pre><code>pip -V
+</code></pre>
+
+<p>which shows the version of your pip.</p>
+
 <h3>Install virtualenv</h3>
 
 <p><a href="http://virtualenv.readthedocs.org/en/latest/">Virutalenv</a> is a great tool to sandbox your development environments so you don&rsquo;t have to switch back and forth between different versions of softwares. What&rsquo;s more, the excellent extension <a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.</p>
@@ -212,7 +228,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 <h3>Source control</h3>
 
-<p>Git is automatically installed when you install virtualenvwrapper.</p>
+<p>Git is automatically installed in your virtual environment when you created it with virtualenvwrapper earlier.</p>
 
 <p>Since our folder and file structure is up now, let&rsquo;s commit them to source control right from the start. Here&rsquo;s how to do that in git:</p>
 
@@ -310,6 +326,8 @@ $ fab deploy
 </code></pre>
 
 <p>So that&rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&rsquo;ve missed out something! Rock on folks!</p>
+
+<p>EDIT: Thanks to Chng Nai Yun, i&rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.</p>
 </div>
 
 
