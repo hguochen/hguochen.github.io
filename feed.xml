@@ -14,7 +14,7 @@
 
 &lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/screencapture-www-marathonsingapore-com.png&quot; width=&quot;400&quot; alt=&quot;Marathonsingapore.com&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The &lt;a href=&quot;www.marathonsingapore.com&quot;&gt;Standard Chartered Marathon Singapore&lt;/a&gt; has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website &lt;a href=&quot;www.marathonsingapore.com&quot;&gt;www.marathonsingapore.com&lt;/a&gt; is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy hidden among a sphagetti of flashy colours. On searching for information, i have to actually google information about the site instead of navigating the site itself. I consider that a failure in content design.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.marathonsingapore.com&quot;&gt;Standard Chartered Marathon Singapore&lt;/a&gt; has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website &lt;a href=&quot;http://www.marathonsingapore.com&quot;&gt;www.marathonsingapore.com&lt;/a&gt; is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy. Contents are hidden among a sphagetti of flashy colours. On searching for information, i have to actually resort to googling about the site instead of navigating the site itself. I consider that a failure in content design.&lt;/p&gt;
 
 &lt;p&gt;Ok let&amp;rsquo;s be systematic about its shortcomings. Here are the problems i have identified on the current site design:&lt;/p&gt;
 
@@ -48,7 +48,7 @@
 
 &lt;h2&gt;Action&lt;/h2&gt;
 
-&lt;h5&gt;Logo and navigation bar&lt;/h5&gt;
+&lt;h4&gt;Logo and navigation bar&lt;/h4&gt;
 
 &lt;p&gt;Race date, time and venue are probably the 3 most important piece of information for a running event. So we are going to place them right where visitors first sees when visiting our page.&lt;/p&gt;
 
@@ -60,12 +60,13 @@
 
 &lt;p&gt;Before:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar before&quot; /&gt;
-After:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51738pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar after&quot; /&gt;&lt;/p&gt;
 
-&lt;h5&gt;Carousel section&lt;/h5&gt;
+&lt;h4&gt;Carousel section&lt;/h4&gt;
 
 &lt;p&gt;Before:&lt;/p&gt;
 
@@ -81,7 +82,7 @@ After:&lt;/p&gt;
 
 &lt;p&gt;The countdown to race day is a pretty good idea, but it was previously obscured in the right corner of the page. I redesigned and moved the countdown timer to dead center.&lt;/p&gt;
 
-&lt;h5&gt;Teaser boxes&lt;/h5&gt;
+&lt;h4&gt;Teaser boxes&lt;/h4&gt;
 
 &lt;p&gt;Before:&lt;/p&gt;
 
@@ -93,7 +94,7 @@ After:&lt;/p&gt;
 
 &lt;p&gt;The existing teaser section didn&amp;rsquo;t make sense to me. What does &amp;lsquo;IMAGES&amp;rsquo; and &amp;lsquo;VIDEOS&amp;rsquo; section header tell you? I re-worked this section completely to reflect the content groupings of the website. These teasers will serve as entry point to its respective array of contents.&lt;/p&gt;
 
-&lt;h5&gt;Footer and sitemap&lt;/h5&gt;
+&lt;h4&gt;Footer and sitemap&lt;/h4&gt;
 
 &lt;p&gt;Before:&lt;/p&gt;
 
