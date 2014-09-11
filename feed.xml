@@ -7,6 +7,116 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Redesigning marathonsingapore.com</title>
+                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg&quot; width=&quot;600&quot; alt=&quot;marathonsingapore redesigned&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;The Situation&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/screencapture-www-marathonsingapore-com.png&quot; width=&quot;400&quot; alt=&quot;Marathonsingapore.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;www.marathonsingapore.com&quot;&gt;Standard Chartered Marathon Singapore&lt;/a&gt; has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website &lt;a href=&quot;www.marathonsingapore.com&quot;&gt;www.marathonsingapore.com&lt;/a&gt; is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy hidden among a sphagetti of flashy colours. On searching for information, i have to actually google information about the site instead of navigating the site itself. I consider that a failure in content design.&lt;/p&gt;
+
+&lt;p&gt;Ok let&amp;rsquo;s be systematic about its shortcomings. Here are the problems i have identified on the current site design:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Page styles that can be rendered with HTML/CSS are instead done with raw jpg images. Looks like optimization concerns was thrown right out the building from the start.&lt;/li&gt;
+&lt;li&gt;A simple inspect element reveals a total of 8 colors used for the frontpage. Some of these colors are neither analogous nor complementary to each other. The resulting visual distraction is appalling.&lt;/li&gt;
+&lt;li&gt;Call to Action(CTA) buttons are hidden among less relevant contents.&lt;/li&gt;
+&lt;li&gt;Content flow on page are non-hierarchical.&lt;/li&gt;
+&lt;li&gt;Site navigation bar are cluttered and information meta-data is a mess.&lt;/li&gt;
+&lt;li&gt;Date, Time &amp;amp; Place(DTP) are non obvious at a glance.&lt;/li&gt;
+&lt;li&gt;Lack of sitemap to aid user navigation.&lt;/li&gt;
+&lt;li&gt;Teaser box contents are prefixed with useless meta-info such as Images, Videos, Highlights etc.&lt;/li&gt;
+&lt;li&gt;For a running event, statistics banner information are totally irrelevant. Would the public seriously care about how many bananas or amount of water consumed in a race held last year? Since i&amp;rsquo;m not your logistics officer, i would be more interested in learning how many runners participated in each category don&amp;rsquo;t you think?&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at44030pm.png&quot; width=&quot;600&quot; alt=&quot;statistics banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;My Task&lt;/h2&gt;
+
+&lt;p&gt;With the problems identified, my job scope is pretty clear from now on. Here are my design objectives:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Re-introduce a color theme to the site such that it puts the focus on the content.&lt;/li&gt;
+&lt;li&gt;Organize the navigation bar that correctly depicts the meta-datas.&lt;/li&gt;
+&lt;li&gt;Collate a sitemap to be appended to the footer for easier site navigation.&lt;/li&gt;
+&lt;li&gt;Use visual cues to bring out the importance of CTAs.&lt;/li&gt;
+&lt;li&gt;Redesign teaser boxes as an entry point to the site&amp;rsquo;s content.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Action&lt;/h2&gt;
+
+&lt;h5&gt;Logo and navigation bar&lt;/h5&gt;
+
+&lt;p&gt;Race date, time and venue are probably the 3 most important piece of information for a running event. So we are going to place them right where visitors first sees when visiting our page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at50832pm.png&quot; width=&quot;600&quot; alt=&quot;top banner&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since there are many race categories for Standard Chartered Marathon, the start times for different races are staggered. In this case, to prevent confusion, we obscure time information from the banner and present them in the event schedule instead.&lt;/p&gt;
+
+&lt;p&gt;Navigation bar is restructured and renamed to correctly identify relevant meta-datas. Some of the less relevant information such as &amp;lsquo;2013 results&amp;rsquo; are demoted from this piece of expensive real estate.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar before&quot; /&gt;
+After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51738pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar after&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Carousel section&lt;/h5&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52122pm.png&quot; width=&quot;600&quot; alt=&quot;carousel section before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52134pm.png&quot; width=&quot;600&quot; alt=&quot;carousel section after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The current carousel section had a bad choice of picture. This contributes to obscuring the importance of CTAs. Instead of choosing pictures, we are going to completely remove pictures as part of carousel theme and introduce a reasonable tagline to supplement the website&amp;rsquo;s agenda.&lt;/p&gt;
+
+&lt;p&gt;Clear CTAs sits just below the tagline to guide users on the appropriate course of action.&lt;/p&gt;
+
+&lt;p&gt;The countdown to race day is a pretty good idea, but it was previously obscured in the right corner of the page. I redesigned and moved the countdown timer to dead center.&lt;/p&gt;
+
+&lt;h5&gt;Teaser boxes&lt;/h5&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53842pm.png&quot; width=&quot;400&quot; alt=&quot;teaser box before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53817pm.png&quot; width=&quot;400&quot; alt=&quot;teaser box after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The existing teaser section didn&amp;rsquo;t make sense to me. What does &amp;lsquo;IMAGES&amp;rsquo; and &amp;lsquo;VIDEOS&amp;rsquo; section header tell you? I re-worked this section completely to reflect the content groupings of the website. These teasers will serve as entry point to its respective array of contents.&lt;/p&gt;
+
+&lt;h5&gt;Footer and sitemap&lt;/h5&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54535pm.png&quot; width=&quot;600&quot; alt=&quot;footer before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54543pm.png&quot; width=&quot;600&quot; alt=&quot;footer after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For easier site navigation, i&amp;rsquo;ve added a simple footer that allows users to view the content headers at a glance.&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/screencapture-rawgit-com-hguochen-marathon_singapore-master-index-html.png&quot; width=&quot;600&quot; alt=&quot;redesigned marathonsingapore.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The static page is hosted &lt;a href=&quot;https://rawgit.com/hguochen/marathon_singapore/master/index.html&quot;&gt;HERE&lt;/a&gt; if you would like to inspect elements and dabble with my design. Otherwise, for the geeks out there, this project also sits on my &lt;a href=&quot;https://github.com/hguochen/marathon_singapore.git&quot;&gt;github repository&lt;/a&gt;. Let me know what you think about my redesign and leave in the comments below!&lt;/p&gt;
+</description>
+                                <pubDate>Thu, 11 Sep 2014 13:19:34 +0000</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Django environment optimal setup</title>
                                 <description>&lt;p&gt;&lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt; is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&amp;rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!&lt;/p&gt;
 
@@ -1085,91 +1195,6 @@ def print_graph(self):
                                 <pubDate>Tue, 01 Apr 2014 11:48:00 +0000</pubDate>
                                 <link>http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Beebeta Engineering</title>
-                                <description>&lt;p&gt;&lt;a href=&quot;https://www.facebook.com/leeagustiadi&quot;&gt;Agus&lt;/a&gt; and &lt;a href=&quot;https://www.facebook.com/jaielhaevin&quot;&gt;Joel&lt;/a&gt; conceptualized the Beebeta project sometime ago and invited me to handle the technical aspect of it. I didn&amp;rsquo;t know what Beebeta was then but the moment i heard of the idea, i loved it! We spent our valuable weekends hacking out Beebeta and we are going to release it very soon! &lt;a href=&quot;http://www.beebeta.com&quot;&gt;Beebeta v1.0&lt;/a&gt; is finally out for public thrashing and hating! Ok but please be nice :(&lt;/p&gt;
-
-&lt;p&gt;Having architected the Beebeta backend, i thought it would be fun to give an idea of Beebeta from an engineering perspective. This is how we think an online polling system should be built. Feel free to disagree, we would love to hear your opinions :)&lt;/p&gt;
-
-&lt;p&gt;In short, Beebeta is a web platform to gather crowdsourced knowledge. It is an online timeless repository of public opinions which is easily accessible through a poll-like web interface.&lt;/p&gt;
-
-&lt;h3&gt;Why Beebeta?&lt;/h3&gt;
-
-&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;Ok so much for pitching, that&amp;rsquo;s not the purpose of this post. We are here for the nerd stuff arn&amp;rsquo;t we?&lt;/p&gt;
-
-&lt;h3&gt;Engineering Goal&lt;/h3&gt;
-
-&lt;p&gt;Throughout the implementation of Beebeta, we had a few goals in mind:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Don&amp;rsquo;t do unnecessary stuff&lt;/li&gt;
-&lt;li&gt;Don&amp;rsquo;t reinvent the wheel&lt;/li&gt;
-&lt;li&gt;Be versatile in technology options&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3&gt;OS/Hosting&lt;/h3&gt;
-
-&lt;p&gt;Beebeta runs Ubuntu 13.10(Saucy Salamander) on Amazon EC2. We tried Linux AMI(CentOS) on EC2 but find the environment not as usable as Ubuntu, plus the software updates were not consistently updated. Also, stress tests on the CentOS server resulted in unpredictable crashes. Since Beebeta is a small project, we ruled out self-hosting as an option. We definitely don&amp;rsquo;t want to waste time setting up servers ourselves.&lt;/p&gt;
-
-&lt;h3&gt;Load Balancing&lt;/h3&gt;
-
-&lt;p&gt;All server requests goes through our load balancers. We use Amazon&amp;rsquo;s Elastic Load Balancer(ELB) with 2 Nginx instances behind it. I admit now may be abit too early to devote load balancing resources but in case of unexpected traffic spikes, it will be good to pick up from here and scale instead of getting caught off-guard. I skipped using anything to handle the DNS though. But i may revisit the issue with Amazon&amp;rsquo;s Route53 in future.&lt;/p&gt;
-
-&lt;h3&gt;Application Server&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.python.org/download/releases/2.7.5/&quot;&gt;Python 2.7.5&lt;/a&gt; and &lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django 1.6.2&lt;/a&gt; was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used &lt;a href=&quot;http://www.virtualenv.org&quot;&gt;virtualenv&lt;/a&gt; to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&amp;rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.&lt;/p&gt;
-
-&lt;p&gt;Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&amp;rsquo;m exploring the possibility of shifting to &lt;a href=&quot;http://gunicorn.org&quot;&gt;Gunicorn&lt;/a&gt; in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.&lt;/p&gt;
-
-&lt;h3&gt;Data storage&lt;/h3&gt;
-
-&lt;p&gt;Meta-data&amp;rsquo;s such as tags, url strings etc lives in MySql table rows.&lt;/p&gt;
-
-&lt;p&gt;Our BLOB data lives in Amazon&amp;rsquo;s S3 standard storage. I thought of using glacier storage for original files and standard storage for rendered files but unfortunately S3 does not provide glacier storage in Singapore region yet. I forsee using glacier storage would cut costs by about 30% for every 10GB of data. Will keep in view for future changes, once glacier storage is opened up in Singapore. Content Distribution wise, we use &lt;a href=&quot;http://aws.amazon.com/cloudfront&quot;&gt;Amazon CloudFront&lt;/a&gt;, which helps with page load times from users at different parts of the world.&lt;/p&gt;
-
-&lt;p&gt;Caching wise, we use memcached and currently have 1 memcached instance, which is connected to using pylibmc &amp;amp; libmemcached. I&amp;rsquo;m aware there&amp;rsquo;s &lt;a href=&quot;http://aws.amazon.com/elasticache/&quot;&gt;Amazon&amp;rsquo;s Elastic Cache&lt;/a&gt; service for this, but i havent got around to reading up on that yet.&lt;/p&gt;
-
-&lt;h3&gt;Django apps&lt;/h3&gt;
-
-&lt;p&gt;As part of our goal not to reinvent the wheel. we used quite a few out-of-the-box django apps to facilitate building of Beebeta platform.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://boto.readthedocs.org/en/latest/ref/s3.html&quot;&gt;S3Boto&lt;/a&gt; is used to connect the server scripts with different Amazon web services seamlessly.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://pythonhosted.org/django-analytical/services/mixpanel.html&quot;&gt;Django-analytical&lt;/a&gt; is used to track various site metrics on the application itself.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-debug-toolbar&quot;&gt;Django-debug-toolbar&lt;/a&gt;(my favourite debugging tool!) is used on development environments for almost all debugging tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-pagination&quot;&gt;Django-pagination&lt;/a&gt; is used to paginate database querysets into proper pages.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://south.readthedocs.org/en/latest/&quot;&gt;Django-south&lt;/a&gt; is used to easily perform database migration tasks between ORM and the database itself.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/ubernostrum/django-registration/&quot;&gt;Django-registration&lt;/a&gt; is used to handle user registration/login/logout issues.&lt;/p&gt;
-
-&lt;h3&gt;Monitoring&lt;/h3&gt;
-
-&lt;p&gt;We are using &lt;a href=&quot;https://mixpanel.com&quot;&gt;Mixpanel&lt;/a&gt; to track user activites on the site. These tracking statistics are filtered up to 2 timeless campaigns. First campaign to track site traffic activites such as page traffic, user sign ups etc. Second campaign to track question and choices interactions of all questions on the site. At any one time we will know which questions are most popular or which group of users are most active at different times of the day.&lt;/p&gt;
-
-&lt;p&gt;For backend monitoring, we are using &lt;a href=&quot;http://newrelic.com&quot;&gt;New Relic&lt;/a&gt; to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.&lt;/p&gt;
-
-&lt;p&gt;For Python error reporting, we use &lt;a href=&quot;http://sentry.readthedocs.org/en/latest/&quot;&gt;Sentry&lt;/a&gt;, an open-source Django app written by the &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt; folks. We can closely monitor error messages at real-time relatively easy with this handy tool.&lt;/p&gt;
-
-&lt;h3&gt;What&amp;rsquo;s your stack?&lt;/h3&gt;
-
-&lt;p&gt;That&amp;rsquo;s so much for Beebeta stack. Feel free to leave your comments below if you think we&amp;rsquo;ve made a terrible mistake. Otherwise, I&amp;rsquo;d love to hear how you implement your stacks!&lt;/p&gt;
-
-&lt;p&gt;Lastly, i&amp;rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/c_H3MWVx6JU?color=white&amp;theme=light&quot;&gt;&lt;/iframe&gt;
-
-</description>
-                                <pubDate>Mon, 31 Mar 2014 16:19:30 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</guid>
                         </item>
                 
         </channel>
