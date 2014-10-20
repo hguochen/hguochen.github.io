@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Beebeta Engineering - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="Beebeta Engineering - GuoChen | Blog">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Open Graph Data -->
+  <meta name="og:title" property="og:title" content="Beebeta Engineering - GuoChen | Blog" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//web%20development/2014/04/01/Beebeta-Engineering/" />
+  <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
+  <meta name="og:description" property="og:description" content="Beebeta Engineering" />
+  <meta name="og:site_name"property="og:site_name" content="Beebeta Engineering - GuoChen | Blog" />
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/web%20development/2014/04/01/Beebeta-Engineering/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="GuoChen's Blog" href="http://blog.hguochen.com/feed.xml">
+  <link rel="image_src" href="/static/img/gc.png"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>			
+			<div class="col-md-1 col-xs-3">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-1 col-xs-1"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			
+		</div>
+	</div>
+</hgroup>
+</header>
+  
+  <section class="container top_padding">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">Beebeta Engineering</h1>
+    
+    
+      <p class="meta">
+        Apr 01, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T00:19:30+08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://www.facebook.com/leeagustiadi">Agus</a> and <a href="https://www.facebook.com/jaielhaevin">Joel</a> conceptualized the Beebeta project sometime ago and invited me to handle the technical aspect of it. I didn&rsquo;t know what Beebeta was then but the moment i heard of the idea, i loved it! We spent our valuable weekends hacking out Beebeta and we are going to release it very soon! <a href="http://www.beebeta.com">Beebeta v1.0</a> is finally out for public thrashing and hating! Ok but please be nice :(</p>
+
+<p>Having architected the Beebeta backend, i thought it would be fun to give an idea of Beebeta from an engineering perspective. This is how we think an online polling system should be built. Feel free to disagree, we would love to hear your opinions :)</p>
+
+<p>In short, Beebeta is a web platform to gather crowdsourced knowledge. It is an online timeless repository of public opinions which is easily accessible through a poll-like web interface.</p>
+
+<h3>Why Beebeta?</h3>
+
+<p>Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&rsquo;s opinions on questions at hand. That&rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks. Which could be questions as trivial as &lsquo;Which restaurant serves the best Ramen?&rsquo; or global issues such as &lsquo;Should gay marriage be allowed?&rsquo;.</p>
+
+<p>Ok so much for pitching, that&rsquo;s not the purpose of this post. We are here for the nerd stuff arn&rsquo;t we?</p>
+
+<h3>Engineering Goal</h3>
+
+<p>Throughout the implementation of Beebeta, we had a few goals in mind:</p>
+
+<ol>
+<li>Don&rsquo;t do unnecessary stuff</li>
+<li>Don&rsquo;t reinvent the wheel</li>
+<li>Be versatile in technology options</li>
+</ol>
+
+
+<h3>OS/Hosting</h3>
+
+<p>Beebeta runs Ubuntu 13.10(Saucy Salamander) on Amazon EC2. We tried Linux AMI(CentOS) on EC2 but find the environment not as usable as Ubuntu, plus the software updates were not consistently updated. Also, stress tests on the CentOS server resulted in unpredictable crashes. Since Beebeta is a small project, we ruled out self-hosting as an option. We definitely don&rsquo;t want to waste time setting up servers ourselves.</p>
+
+<h3>Load Balancing</h3>
+
+<p>All server requests goes through our load balancers. We use Amazon&rsquo;s Elastic Load Balancer(ELB) with 2 Nginx instances behind it. I admit now may be abit too early to devote load balancing resources but in case of unexpected traffic spikes, it will be good to pick up from here and scale instead of getting caught off-guard. I skipped using anything to handle the DNS though. But i may revisit the issue with Amazon&rsquo;s Route53 in future.</p>
+
+<h3>Application Server</h3>
+
+<p><a href="https://www.python.org/download/releases/2.7.5/">Python 2.7.5</a> and <a href="https://www.djangoproject.com/">Django 1.6.2</a> was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used <a href="http://www.virtualenv.org">virtualenv</a> to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.</p>
+
+<p>Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&rsquo;m exploring the possibility of shifting to <a href="http://gunicorn.org">Gunicorn</a> in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.</p>
+
+<h3>Data storage</h3>
+
+<p>Meta-data&rsquo;s such as tags, url strings etc lives in MySql table rows.</p>
+
+<p>Our BLOB data lives in Amazon&rsquo;s S3 standard storage. I thought of using glacier storage for original files and standard storage for rendered files but unfortunately S3 does not provide glacier storage in Singapore region yet. I forsee using glacier storage would cut costs by about 30% for every 10GB of data. Will keep in view for future changes, once glacier storage is opened up in Singapore. Content Distribution wise, we use <a href="http://aws.amazon.com/cloudfront">Amazon CloudFront</a>, which helps with page load times from users at different parts of the world.</p>
+
+<p>Caching wise, we use memcached and currently have 1 memcached instance, which is connected to using pylibmc &amp; libmemcached. I&rsquo;m aware there&rsquo;s <a href="http://aws.amazon.com/elasticache/">Amazon&rsquo;s Elastic Cache</a> service for this, but i havent got around to reading up on that yet.</p>
+
+<h3>Django apps</h3>
+
+<p>As part of our goal not to reinvent the wheel. we used quite a few out-of-the-box django apps to facilitate building of Beebeta platform.</p>
+
+<p><a href="http://boto.readthedocs.org/en/latest/ref/s3.html">S3Boto</a> is used to connect the server scripts with different Amazon web services seamlessly.</p>
+
+<p><a href="http://pythonhosted.org/django-analytical/services/mixpanel.html">Django-analytical</a> is used to track various site metrics on the application itself.</p>
+
+<p><a href="https://pypi.python.org/pypi/django-debug-toolbar">Django-debug-toolbar</a>(my favourite debugging tool!) is used on development environments for almost all debugging tasks.</p>
+
+<p><a href="https://pypi.python.org/pypi/django-pagination">Django-pagination</a> is used to paginate database querysets into proper pages.</p>
+
+<p><a href="http://south.readthedocs.org/en/latest/">Django-south</a> is used to easily perform database migration tasks between ORM and the database itself.</p>
+
+<p><a href="https://bitbucket.org/ubernostrum/django-registration/">Django-registration</a> is used to handle user registration/login/logout issues.</p>
+
+<h3>Monitoring</h3>
+
+<p>We are using <a href="https://mixpanel.com">Mixpanel</a> to track user activites on the site. These tracking statistics are filtered up to 2 timeless campaigns. First campaign to track site traffic activites such as page traffic, user sign ups etc. Second campaign to track question and choices interactions of all questions on the site. At any one time we will know which questions are most popular or which group of users are most active at different times of the day.</p>
+
+<p>For backend monitoring, we are using <a href="http://newrelic.com">New Relic</a> to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.</p>
+
+<p>For Python error reporting, we use <a href="http://sentry.readthedocs.org/en/latest/">Sentry</a>, an open-source Django app written by the <a href="http://disqus.com">Disqus</a> folks. We can closely monitor error messages at real-time relatively easy with this handy tool.</p>
+
+<h3>What&rsquo;s your stack?</h3>
+
+<p>That&rsquo;s so much for Beebeta stack. Feel free to leave your comments below if you think we&rsquo;ve made a terrible mistake. Otherwise, I&rsquo;d love to hear how you implement your stacks!</p>
+
+<p>Lastly, i&rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/c_H3MWVx6JU?color=white&theme=light"></iframe>
+
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T00:19:30+08:00" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/web-development/'>web development</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/web%20development/2014/04/01/Beebeta-Engineering/" data-via="hguochen" data-counturl="http://blog.hguochen.com/web%20development/2014/04/01/Beebeta-Engineering/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a> - <a style="color:#a1a1a1;" href="/feed.xml">RSS Feed</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/web%20development/2014/04/01/Beebeta-Engineering/';
+        var disqus_url = 'http://blog.hguochen.com/web%20development/2014/04/01/Beebeta-Engineering/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>

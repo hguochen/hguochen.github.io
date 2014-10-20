@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-09-24T23:49:30+08:00</updated>
+  <updated>2014-10-20T11:21:00+08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[What's a full stack developer?]]></title>
     <link href="http://blog.hguochen.com/web/2013/10/24/whats-a-full-stack-developer/"/>
-    <updated>2013-10-24T10:30:44Z</updated>
+    <updated>2013-10-24T18:30:44+08:00</updated>
     <id>http://blog.hguochen.com/web/2013/10/24/whats-a-full-stack-developer</id>
     <content type="html"><![CDATA[<p>In simple terms, an all rounder over every aspect of the development phase. These group of individuals are the ultimate hire of every tech company. But what does being a full stack developer(FSD)mean?</p>
 
@@ -102,7 +102,7 @@
   <entry>
     <title type="html"><![CDATA[Future of Computing]]></title>
     <link href="http://blog.hguochen.com/web/2013/10/18/Future-of-Computing/"/>
-    <updated>2013-10-18T11:00:51Z</updated>
+    <updated>2013-10-18T19:00:51+08:00</updated>
     <id>http://blog.hguochen.com/web/2013/10/18/Future-of-Computing</id>
     <content type="html"><![CDATA[<p>The basic unit of information in a traditional computer is a bit, which has a value of 0 or 1. This basic unit allows computer processor to perform logical operations which are in turn carried out by electronic circuits. Based on these basic logical structures, algorithmic models are devised which allows us to perform sophisticated computations. But what&rsquo;s on top of computations? Its randomness. Computer games, cryptography and computational geometry are unthinkable without randomness. and distributed computation is not deterministic. The future of computing, based on the root of randomness, would expose possibilities in the following areas.</p>
 

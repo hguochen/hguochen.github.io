@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Prim's Algorithm - GuoChen | Blog</title>
+  <meta name="author" content="GuoChen">
+
+  
+  <meta name="description" content="Prim's Algorithm - GuoChen | Blog">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Open Graph Data -->
+  <meta name="og:title" property="og:title" content="Prim's Algorithm - GuoChen | Blog" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/" />
+  <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
+  <meta name="og:description" property="og:description" content="Prim's Algorithm" />
+  <meta name="og:site_name"property="og:site_name" content="Prim's Algorithm - GuoChen | Blog" />
+
+  
+  <link rel="canonical" href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/">
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="GuoChen's Blog" href="http://blog.hguochen.com/feed.xml">
+  <link rel="image_src" href="/static/img/gc.png"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link media="screen, projection" rel="stylesheet" type="text/css"  href="/static/css/screen.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46926911-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body 
+
+
+>
+  <header role="banner"><hgroup>
+	<div class="container">
+		<div class="row">
+			<br>
+			
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>			
+			<div class="col-md-1 col-xs-3">
+				<span class="me image image-small"><a href="/"><img src="/static/img/gc.png" alt="" /></a></span>
+			</div>
+			<div class="col-md-1 col-xs-1"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			<div class="col-md-2 col-xs-2"></div>
+			
+		</div>
+	</div>
+</hgroup>
+</header>
+  
+  <section class="container top_padding">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div>
+<article class="hentry" role="article">
+  
+  
+  <header>
+    
+      <h1 class="entry-title">Prim's Algorithm</h1>
+    
+    
+      <p class="meta">
+        Jun 18, 2014
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-18T00:29:39+08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
+
+<p>We visited this question previously with <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. Now let&rsquo;s try a different approach using <a href="https://en.wikipedia.org/wiki/Prim's_algorithm">Prim&rsquo;s Algorithm</a>.</p>
+
+<p>Prim&rsquo;s algorithm is another greedy algorithm that finds a minimal spanning tree in a connected, weighted graph. Unlike Kruskal&rsquo;s algorithm, whose partial solutions are not necessarily connected, a partial solution in prim&rsquo;s algorithm is a tree. Prim&rsquo;s algorithm begins with a start vertex and no edges and then applies the greedy rule: Add an edge of minimum weight that has one vertex in the current tree and the other not in the current tree.</p>
+
+<p>The big idea is to maintain a table that stores each vertex with its corresponding edge weight value adjacent to the starting vertex in question. Additionally, we need an array to store the &lsquo;parent&rsquo; vertex that has access to the vertex in question. We then go about selecting the least weight value in the table and select it as the edge path to pick. The symbol for choosing this edge could be deleting the row entirely from the table. After each edge selection, we update the table with the newly accessible vertex. When there are no more rows left in the table, then we would have selected every edge required  of a minimum spanning tree.</p>
+
+<p>For the table above, we can use a python dictionary with key as the vertex and value as the edge weight with its &lsquo;parent&rsquo; vertex.</p>
+
+<p>We also require a container to store the vertices each vertex is able to reach directly. For this container, we can use an adjacency list. adj[i] is a reference to the first node in a linked list of nodes representing the vertices adjacent to vertex i. Here&rsquo;s the adjacency list implementation:</p>
+
+<pre><code>class Node:
+"""
+Node class defines the basic structure of a node.
+"""
+def __init__(self, vertex=None, weight=None, next=None):
+    self.vertex = vertex
+    self.weight = weight
+    self.next = next    
+
+class LinkedList:
+    """
+    LinkedList class defines a  linked list of nodes in which node.next reference the next node in the list
+    """
+    def __init__(self):
+        self.head = Node()
+
+    def get_head(self):
+        """
+        Returns a reference to the head node
+        """
+        return self.head
+
+    def add(self, vertex, weight):
+        """
+        Append a new node with node.vertex as vertex to the last element in the linked list
+        """
+        new_node = Node(vertex, weight)
+        trav = self.head
+        while(trav.next != None):
+            trav = trav.next
+            trav.next = new_node
+
+    def print_list(self):
+        trav = self.head.next
+        while trav != None:
+            print "(%d, %d)" % (trav.vertex, trav.weight),
+        trav = trav.next
+</code></pre>
+
+<p>By calling the function adj_list.print_list() method, we should get the following printout, which is the content of each adjacent node in the list.</p>
+
+<pre><code>(2, 4) (3, 2) (5, 3) None
+(1, 4) (4, 5) None
+(1, 2) (5, 6) (6, 3) (4, 1) None
+(2, 5) (3, 1) (6, 6) None
+(1, 3) (3, 6) (6, 2) None
+(5, 2) (3, 3) (4, 6) None
+</code></pre>
+
+<p>Next, we define an Edges class to contain the table mentioned earlier. The class has a 2d list attribute like the following:</p>
+
+<pre><code>edges = [[vertex, weight, parent_vertex],...]
+</code></pre>
+
+<p>Each row of the table is represented by edges[i].</p>
+
+<p>Edges class has the following attributes and methods:</p>
+
+<pre><code>class Edges:
+"""
+Edge table consisting of vertex, weight and parent_vertex in a row.
+""" 
+edge_table = []
+
+def __init__(self, adj_ref, start): 
+    while adj_ref != None:          
+        self.edge_table.append([adj_ref.vertex, adj_ref.weight, start])
+        adj_ref = adj_ref.next  
+
+def get_table(self):
+    return self.edge_table
+
+def add_row(self, vertex, weight, parent_vertex):
+    """
+    Add a row in table with vertex, weight and parent_vertex attributes
+    """
+    self.edge_table.append([vertex, weight, parent_vertex])
+
+def pop_row(self):
+    """
+    Delete the row in table with the smallest weight and return the corresponding vertex.
+    """
+    if len(self.edge_table) &gt; 0:
+        least_weight = self.edge_table[0][1]
+        least_weight_index = 0
+        for i in range(1, len(self.edge_table)):
+            if self.edge_table[i][1] &lt; least_weight:
+                least_weight = self.edge_table[i][1]
+                least_weight_index = i
+        least_weight_vertex = self.edge_table[least_weight_index][0]
+        self.edge_table.pop(least_weight_index)
+        return least_weight_vertex
+    else:
+        return None
+
+def is_in(self, vertex):
+    """
+    Return true if vertex is in table and false otherwise.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return True
+    return False
+
+def vertex_weight(self, vertex):
+    """
+    Return the weight corresponding to vertex.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            return edge[1]
+    return None
+
+def update_row(self, vertex, weight, parent_vertex):
+    """
+    Changes the weight and parent_vertex corresponding to existing vertex.
+    """
+    for edge in self.edge_table:
+        if edge[0] == vertex:
+            edge[1] = weight
+            edge[2] = parent_vertex
+
+def print_table(self):
+    """
+    Print edge_table.
+    """
+    print self.edge_table
+</code></pre>
+
+<p>Lastly, we have our prim&rsquo;s algorithm to sort out the minimum spanning tree of the  directed, weighted graph.</p>
+
+<pre><code>def prim(adj_ref, start):
+"""
+Finds a minimal spanning tree in a connected, weighted, n-vertex graph. 
+The graph is represented using adjacency lists; adj[i] is a reference to the    first node in a linked list of nodes.
+The start vertex is start. In the minial spanning tree, the parent of a vertex  is defined as the vertex where existing minimal tree vertex extends from. 
+Start vertex(parent of itself) is = 0.
+"""
+table = Edges(adj_ref[4].next, start)   
+chosen = []
+chosen.append(start)
+
+while len(table.get_table()) &gt; 0:
+    table.print_table()
+    ver = table.pop_row()
+    chosen.append(ver)
+    print "Child vertex %d chosen." % ver
+    trav = adj_ref[ver].next
+
+    while trav != None:
+        if trav.vertex in chosen:
+            trav = trav.next
+            continue
+        if trav.vertex == start:
+            trav = trav.next
+            continue    
+        if table.is_in(trav.vertex): # table has vertex
+            if trav.weight &lt; table.vertex_weight(trav.vertex): # new edge weight                is less than existing table value
+                table.update_row(trav.vertex, trav.weight, ver) # update table                  to new vertex and weight
+        else:
+            # insert vertex and its elements into table
+            table.add_row(trav.vertex, trav.weight, ver)
+        trav = trav.next
+print chosen
+</code></pre>
+
+<p>The function prim is module level function and uses both Edges and LinkList classes to maintain interity and coherence of data.</p>
+
+<p>It&rsquo;s time to test the program:</p>
+
+<pre><code>if __name__ == "__main__":
+    adj_list = [0] * 6 # an array of adjacency list instances
+    adj = copy.deepcopy(adj_list) # references to head node
+
+    for i in range(len(adj_list)):
+        adj_list[i] = LinkedList() # declare linked list instance
+        adj[i] = adj_list[i].get_head() # reference adj[i] to head node
+
+    # Setup the adjacency list
+    adj_list[0].add(1,4)
+    adj_list[0].add(2,2)
+    adj_list[0].add(4,3)
+
+    adj_list[1].add(0,4)
+    adj_list[1].add(3,5)
+
+    adj_list[2].add(0,2)
+    adj_list[2].add(4,6)
+    adj_list[2].add(5,3)
+    adj_list[2].add(3,1)
+
+    adj_list[3].add(1,5)
+    adj_list[3].add(2,1)
+    adj_list[3].add(5,6)
+
+    adj_list[4].add(0,3)
+    adj_list[4].add(2,6)
+    adj_list[4].add(5,2)
+
+    adj_list[5].add(4,2)
+    adj_list[5].add(2,3)
+    adj_list[5].add(3,6)
+
+    prim(adj, 4)
+</code></pre>
+
+<p>With the last line prim(adj,4), the output would be:</p>
+
+<pre><code>[[0, 3, 4], [2, 6, 4], [5, 2, 4]]
+Child vertex 5 chosen.
+
+[[0, 3, 4], [2, 3, 5], [3, 6, 5]]
+Child vertex 0 chosen.
+
+[[2, 2, 0], [3, 6, 5], [1, 4, 0]]
+Child vertex 2 chosen.
+
+[[3, 1, 2], [1, 4, 0]]
+Child vertex 3 chosen.
+
+[[1, 4, 0]]
+Child vertex 1 chosen.
+
+[4, 5, 0, 2, 3, 1]  
+</code></pre>
+
+<p>Okok some explaination on the output here, Every successive 2 lines indicates a successful selection of a vertex to be chosen as part of the minimal spanning tree. Each of the first line of 2d lists indicates the available options in the table. Second line, Child vertex x chosen. indicates which of the vertex(and its corresponding row) is chosen. The last line outputs the order of which the vertices are selected, with the first element being the start vertex.</p>
+
+<p>Prim&rsquo;s algorithm is also an optimal implementation of the greedy algorithm to achieve a minimal spanning tree. However, through repeated runtime tests, it seems Prim&rsquo;s algorithm is consistently faster than <a href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/">Kruskal&rsquo;s Algorithm</a>. I did a time complexity analysis of Prim&rsquo;s and came up with the following:</p>
+
+<p>Prim&rsquo;s algorithm time complexity(major functions):</p>
+
+<pre><code>**Operation**                   **Worst-Case Time**
+Edges(adj_ref, start)           O(n)
+pop_row()                       O(lg n)
+is_in(vertex)                   O(1)
+vertex_weight(vertex)           O(n)
+update_row(vertex, weight, ..)  O(n)
+</code></pre>
+
+<p>The outer while loop take time O(n). The inner loop has a relation with the number of edges. Since we know that given n vertices, there can be a maximum of 2n edges so the time complexity of the inner while loop has complexity of O(n**2).</p>
+
+<p>So the final time complexity of prim&rsquo;s algorithm will be O(n**3). This is a bad time complexity given that the operations are not very convoluted. I think the bottleneck of this implementation is the abstract data structure used. I used a linked list data structure which in itself has a complexity of O(n). If we can use a more efficient data structure such as binary minheap structure which has O(lg n) complexity, we can really reduce the time complexity of Prim&rsquo;s algorithm to O(n2 lg n ). Maybe i&rsquo;ll try to implement a binary minheap structure later.</p>
+
+<p>Here&rsquo;s my <a href="https://github.com/hguochen/algorithms/blob/master/python/prim.py">full implementation</a>. I would love to hear suggestions on how to improve the time complexity or anything in general. Cheers :)</p>
+</div>
+
+
+  <p class="meta">
+    
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="http://blog.hguochen.com">GuoChen</a></span></span>
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-18T00:29:39+08:00" pubdate data-updated="true"></time>
+    
+
+<br>
+<span class="glyphicon glyphicon-tag"></span>
+<span class="categories">
+  
+    <a class='category' href='/categories/greedy-algorithm/'>greedy algorithm</a>, <a class='category' href='/categories/programming/'>programming</a>
+  
+</span>
+
+
+  </p>
+    
+      <div class="sharing" style="text-align:left;">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/" data-via="hguochen" data-counturl="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+
+</aside>
+
+
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </section>
+  <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
+    	<span>Handcrafted by GuoChen &copy; 2014</span>
+  		<br>
+  		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a> - <a style="color:#a1a1a1;" href="/feed.xml">RSS Feed</a></span>
+	</p>
+	
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/modernizr-2.0.js"></script>
+	<script src="/static/js/sticky_titles.js"></script>
+  </body>
+</html></footer>
+  
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hguochen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/';
+        var disqus_url = 'http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+</body>
+</html>

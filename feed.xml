@@ -7,6 +7,17 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>New macbook</title>
+                                <description>&lt;p&gt;Just got a new macbook pro retina 13 inch! Otherwise i&amp;rsquo;m just testing my blog workflow here.&lt;/p&gt;
+
+&lt;p&gt;Move along now.&lt;/p&gt;
+</description>
+                                <pubDate>Mon, 20 Oct 2014 08:40:58 +0800</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/10/20/New-macbook/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/10/20/New-macbook/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Could this be the most discriminatory Job Description ever?</title>
                                 <description>&lt;p&gt;So i just chanced upon what i think is the most discriminatory Job Description(JD) ever. Either the company is trying too hard to be hip or they are simply jerks.&lt;/p&gt;
 
@@ -37,13 +48,13 @@
 
 &lt;p&gt;Did you know that in &lt;a href=&quot;http://www.mom.gov.sg/employment-practices/fair-employment/Pages/fair-employment.aspx&quot;&gt;Singapore&amp;rsquo;s Ministry of Manpower Employment Act&lt;/a&gt;, it is forbidden to ask potential employees for photographs as a factor of employment considerations? Look like either you need to do more homework or you chose to disregard the employment act totally. Either ways, how can employees even start to trust that you will take care of them?&lt;/p&gt;
 
-&lt;p&gt;Oh look, for a Lead Software Engineer position and all that essential attributes and requirements, you are paying SGD4,000 &amp;ndash; 5,000? It&amp;rsquo;s like asking for whales and paying peanuts.&lt;/p&gt;
+&lt;p&gt;Oh look, for a Lead Software Engineer position and all that essential attributes and requirements, you are paying SGD4,000 - 5,000? It&amp;rsquo;s like asking for whales and paying peanuts.&lt;/p&gt;
 
 &lt;p&gt;Those are two full pages of prejudices, discriminatory remarks and statements that shows how ugly this employer can get. I am a software engineer and i would NEVER work for this company ever. I would strongly advise every software engineer to stay clear of your company as well.&lt;/p&gt;
 
 &lt;p&gt;Again, here&amp;rsquo;s the &lt;a href=&quot;http://careers.wewantsugar.com/jobs/4413-lead-software-engineer-technical-sugar-singapore&quot;&gt;brain numbing JD&lt;/a&gt;. Just why isn&amp;rsquo;t there some sort of ethics or personality test before someone is allowed to incorporate a company?&lt;/p&gt;
 </description>
-                                <pubDate>Wed, 24 Sep 2014 14:13:17 +0000</pubDate>
+                                <pubDate>Wed, 24 Sep 2014 22:13:17 +0800</pubDate>
                                 <link>http://blog.hguochen.com//random/2014/09/24/Could-this-be-the-most-discriminatory-Job-Description-ever%3F/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//random/2014/09/24/Could-this-be-the-most-discriminatory-Job-Description-ever%3F/</guid>
                         </item>
@@ -154,7 +165,7 @@
 
 &lt;p&gt;The static page is hosted &lt;a href=&quot;https://rawgit.com/hguochen/marathon_singapore/master/index.html&quot;&gt;HERE&lt;/a&gt; if you would like to inspect elements and dabble with my design. Otherwise, for the geeks out there, this project also sits on my &lt;a href=&quot;https://github.com/hguochen/marathon_singapore.git&quot;&gt;github repository&lt;/a&gt;. Let me know what you think about my redesign and leave in the comments below!&lt;/p&gt;
 </description>
-                                <pubDate>Thu, 11 Sep 2014 13:19:34 +0000</pubDate>
+                                <pubDate>Thu, 11 Sep 2014 21:19:34 +0800</pubDate>
                                 <link>http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</link>
                                 <guid isPermaLink="true">http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</guid>
                         </item>
@@ -369,9 +380,9 @@ $ fab deploy
 
 &lt;p&gt;EDIT: Thanks to Chng Nai Yun, i&amp;rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.&lt;/p&gt;
 </description>
-                                <pubDate>Tue, 22 Jul 2014 17:08:54 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</guid>
+                                <pubDate>Wed, 23 Jul 2014 01:08:54 +0800</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/07/23/Django-environment-optimal-setup/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/07/23/Django-environment-optimal-setup/</guid>
                         </item>
                 
                         <item>
@@ -419,9 +430,9 @@ for origin in type(obj).mro():
 
 &lt;p&gt;Happy debugging! Ok fine, that&amp;rsquo;s a fallacy&amp;hellip;Don&amp;rsquo;t die debugging!&lt;/p&gt;
 </description>
-                                <pubDate>Sat, 21 Jun 2014 17:59:42 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</guid>
+                                <pubDate>Sun, 22 Jun 2014 01:59:42 +0800</pubDate>
+                                <link>http://blog.hguochen.com//programming/python/2014/06/22/%5BTip%5D-Python-class-debugging-tools/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/python/2014/06/22/%5BTip%5D-Python-class-debugging-tools/</guid>
                         </item>
                 
                         <item>
@@ -686,9 +697,9 @@ update_row(vertex, weight, ..)  O(n)
 
 &lt;p&gt;Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/prim.py&quot;&gt;full implementation&lt;/a&gt;. I would love to hear suggestions on how to improve the time complexity or anything in general. Cheers :)&lt;/p&gt;
 </description>
-                                <pubDate>Tue, 17 Jun 2014 16:29:39 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</guid>
+                                <pubDate>Wed, 18 Jun 2014 00:29:39 +0800</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/18/Prim's-Algorithm/</guid>
                         </item>
                 
                         <item>
@@ -862,9 +873,9 @@ def print_graph(self):
 
 &lt;p&gt;Kruskal&amp;rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/kruskal.py&quot;&gt;full implementation&lt;/a&gt;.&lt;/p&gt;
 </description>
-                                <pubDate>Tue, 17 Jun 2014 00:02:54 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</guid>
+                                <pubDate>Tue, 17 Jun 2014 08:02:54 +0800</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal's-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal's-Algorithm/</guid>
                         </item>
                 
                         <item>
@@ -961,9 +972,9 @@ def print_graph(self):
 
 &lt;p&gt;&lt;em&gt;Write formal documentations if the program is expected to be used by people.&lt;/em&gt;&lt;/p&gt;
 </description>
-                                <pubDate>Wed, 04 Jun 2014 16:07:39 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</guid>
+                                <pubDate>Thu, 05 Jun 2014 00:07:39 +0800</pubDate>
+                                <link>http://blog.hguochen.com//programming/web%20development/2014/06/05/Steps-to-solving-programming-problems/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/web%20development/2014/06/05/Steps-to-solving-programming-problems/</guid>
                         </item>
                 
                         <item>
@@ -980,9 +991,9 @@ def print_graph(self):
 
 &lt;p&gt;When you walk into your office tomorrow, start listening to what your employees are saying. If you can&amp;rsquo;t help them solve their daily problems, don&amp;rsquo;t expect them to solve yours.&lt;/p&gt;
 </description>
-                                <pubDate>Thu, 29 May 2014 23:12:51 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</guid>
+                                <pubDate>Fri, 30 May 2014 07:12:51 +0800</pubDate>
+                                <link>http://blog.hguochen.com//random/startup/2014/05/30/Culture-in-the-Silicon-Valley/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/05/30/Culture-in-the-Silicon-Valley/</guid>
                         </item>
                 
                         <item>
@@ -1043,42 +1054,9 @@ def print_graph(self):
 
 &lt;p&gt;Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.&lt;/p&gt;
 </description>
-                                <pubDate>Mon, 26 May 2014 21:01:58 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</guid>
-                        </item>
-                
-                        <item>
-                                <title>What i got from tweeting Evernote&#39;s CEO</title>
-                                <description>&lt;p&gt;In 4 day&amp;rsquo;s time, i&amp;rsquo;ll be visiting California-US for the first time in my life. Being &lt;a href=&quot;http://hguochen.com&quot;&gt;a startup guy&lt;/a&gt; myself, this is a big deal for me. I&amp;rsquo;m really excited to see what the biggest startup ecosystem in the world is like. I wanted to make this trip a really memorable one but i didn&amp;rsquo;t have enough contacts there. So i shamelessly cold-emailed some of my favourite tech companies in California asking for an impromptu visit to their offices/campus. Some of these companies accepted my request(thank you so much!). But 1 of which just blew me away. Here&amp;rsquo;s what happened.&lt;/p&gt;
-
-&lt;p&gt;I have always been a big fan of &lt;a href=&quot;http://evernote.com&quot;&gt;Evernote&lt;/a&gt;. After several failed attempts to link up with evernote staff through friend introductions, i resorted to cold-emailing its CEO, Phil Libin on linkedin&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/email_phil_libin.jpg&quot; width=&quot;500&quot; alt=&quot;Email Phil Libin&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok i admit, its kinda cheesy. But hey, i wasn&amp;rsquo;t expecting a reply.&lt;/p&gt;
-
-&lt;p&gt;And so i didn&amp;rsquo;t. Then i tried to ping the CEO on twitter, and i got a reply! Well, not Phil Libin himself, but still a reply :)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/08915870-515D-4157-83DE-FD8EAB45C3C1.png&quot; width=&quot;250&quot; alt=&quot;Tweeting Phil Libin&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Things are looking good! So i followed the instructions and the following conversations ensue:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6734508A-2E9D-4FD7-AC1E-9637083A4991.png&quot; width=&quot;250&quot; alt=&quot;evernote support 1&quot; /&gt;
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/05DA55F4-D808-4BB6-AF8D-4B360307A636.png&quot; width=&quot;250&quot; alt=&quot;evernote support 2&quot; /&gt;
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9ECCB770-E4ED-4566-B3CA-7E9C0F8F1A8D.png&quot; width=&quot;250&quot; alt=&quot;evernote support 3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A few days later, this email from Evernote&amp;rsquo;s marketing manager came:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/evernote_email.png&quot; width=&quot;1050&quot; alt=&quot;evernote email&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;How excited was i to read this? Let&amp;rsquo;s just say that my laptop keyboard now comes coffee-flavoured. Thank you Evernote, you&amp;rsquo;ve just made a fan very very happy :)&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll be giving a full recount of my visit to Evernote HQ sometime later. In the meantime, please leave in the comments below if you have a request for me on visiting Evernote :)&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 23 Apr 2014 02:24:07 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</guid>
+                                <pubDate>Tue, 27 May 2014 05:01:58 +0800</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/05/27/Reverse-a-linked-list/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/05/27/Reverse-a-linked-list/</guid>
                         </item>
                 
         </channel>
