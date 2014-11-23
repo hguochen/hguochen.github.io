@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-10-20T11:25:36+08:00</updated>
+  <updated>2014-11-22T21:55:38-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Redesigning marathonsingapore.com]]></title>
     <link href="http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/"/>
-    <updated>2014-09-11T21:19:34+08:00</updated>
+    <updated>2014-09-11T06:19:34-07:00</updated>
     <id>http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com</id>
     <content type="html"><![CDATA[<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg" width="600" alt="marathonsingapore redesigned" /></p>
 
@@ -127,7 +127,7 @@
   <entry>
     <title type="html"><![CDATA[Designing Beebeta]]></title>
     <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
-    <updated>2014-04-01T19:48:00+08:00</updated>
+    <updated>2014-04-01T04:48:00-07:00</updated>
     <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
     <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
 
@@ -285,9 +285,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to design your blog]]></title>
-    <link href="http://blog.hguochen.com/design/development/2014/03/24/How-to-design-your-blog/"/>
-    <updated>2014-03-24T02:18:25+08:00</updated>
-    <id>http://blog.hguochen.com/design/development/2014/03/24/How-to-design-your-blog</id>
+    <link href="http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog/"/>
+    <updated>2014-03-23T11:18:25-07:00</updated>
+    <id>http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog</id>
     <content type="html"><![CDATA[<p>Recently i redesigned my <a href="http://blog.hguochen.com">blog</a>. It was an enjoyable experience as i try to apply my new-acquired <a href="http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916">design theories</a> learnt from <a href="http://design.tutsplus.com">tutsplus.com</a>. My goal was to create an <strong>elegant</strong> and <strong>easy-to-read</strong> blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.</p>
 
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png" width="500" alt="hguochen blog" /></p>
@@ -517,9 +517,9 @@ h4 {
   
   <entry>
     <title type="html"><![CDATA[Lesson 9 The Rose]]></title>
-    <link href="http://blog.hguochen.com/design/2014/03/08/Lesson-9-The-Rose/"/>
-    <updated>2014-03-08T03:00:28+08:00</updated>
-    <id>http://blog.hguochen.com/design/2014/03/08/Lesson-9-The-Rose</id>
+    <link href="http://blog.hguochen.com/design/2014/03/07/Lesson-9-The-Rose/"/>
+    <updated>2014-03-07T11:00:28-08:00</updated>
+    <id>http://blog.hguochen.com/design/2014/03/07/Lesson-9-The-Rose</id>
     <content type="html"><![CDATA[<p>We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.</p>
 
 <ol>
@@ -562,9 +562,9 @@ h4 {
   
   <entry>
     <title type="html"><![CDATA[Lesson 8 Cool Koalas]]></title>
-    <link href="http://blog.hguochen.com/design/2014/03/04/Lesson-8-Cool-Koalas/"/>
-    <updated>2014-03-04T03:59:12+08:00</updated>
-    <id>http://blog.hguochen.com/design/2014/03/04/Lesson-8-Cool-Koalas</id>
+    <link href="http://blog.hguochen.com/design/2014/03/03/Lesson-8-Cool-Koalas/"/>
+    <updated>2014-03-03T11:59:12-08:00</updated>
+    <id>http://blog.hguochen.com/design/2014/03/03/Lesson-8-Cool-Koalas</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s take a break from boxes and structures and draw a koala bear.</p>
 
 <ol>

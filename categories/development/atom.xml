@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-10-20T11:25:36+08:00</updated>
+  <updated>2014-11-22T21:55:38-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to design your blog]]></title>
-    <link href="http://blog.hguochen.com/design/development/2014/03/24/How-to-design-your-blog/"/>
-    <updated>2014-03-24T02:18:25+08:00</updated>
-    <id>http://blog.hguochen.com/design/development/2014/03/24/How-to-design-your-blog</id>
+    <link href="http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog/"/>
+    <updated>2014-03-23T11:18:25-07:00</updated>
+    <id>http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog</id>
     <content type="html"><![CDATA[<p>Recently i redesigned my <a href="http://blog.hguochen.com">blog</a>. It was an enjoyable experience as i try to apply my new-acquired <a href="http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916">design theories</a> learnt from <a href="http://design.tutsplus.com">tutsplus.com</a>. My goal was to create an <strong>elegant</strong> and <strong>easy-to-read</strong> blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.</p>
 
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png" width="500" alt="hguochen blog" /></p>
@@ -247,9 +247,9 @@ h4 {
   
   <entry>
     <title type="html"><![CDATA[My jekyll workflow]]></title>
-    <link href="http://blog.hguochen.com/development/2014/01/09/My-jekyll-workflow/"/>
-    <updated>2014-01-09T00:48:29+08:00</updated>
-    <id>http://blog.hguochen.com/development/2014/01/09/My-jekyll-workflow</id>
+    <link href="http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow/"/>
+    <updated>2014-01-08T08:48:29-08:00</updated>
+    <id>http://blog.hguochen.com/development/2014/01/08/My-jekyll-workflow</id>
     <content type="html"><![CDATA[<p>I just automated my blogging with jekyll with the following routines. My goal is to cut down on inputting a string of commands into the terminal using <a href="https://github.com/hguochen/jekyll-rakefile">Rakefile</a> and standard terminal commands.</p>
 
 <blockquote><p>Jason Seifer has an awesome <a href="http://jasonseifer.com/2010/04/06/rake-tutorial">Rake Tutorial</a> for developers new to Rake.</p></blockquote>
@@ -307,7 +307,7 @@ alias bb="build_blog"
   <entry>
     <title type="html"><![CDATA[[Fix] Changing wordpress site url leading to 404 error pages]]></title>
     <link href="http://blog.hguochen.com/development/2013/09/15/%5BFix%5D-Changing-wordpress-site-url-leading-to-404-error-pages/"/>
-    <updated>2013-09-15T19:38:14+08:00</updated>
+    <updated>2013-09-15T04:38:14-07:00</updated>
     <id>http://blog.hguochen.com/development/2013/09/15/[Fix]-Changing-wordpress-site-url-leading-to-404-error-pages</id>
     <content type="html"><![CDATA[<p>This is actually an easier problem than <a href="http://blog.hguochen.com/blog/2013/09/fix-wordpress-permalink-not-working/">Wordpress Permalink not working</a></p>
 
@@ -350,7 +350,7 @@ alias bb="build_blog"
   <entry>
     <title type="html"><![CDATA[Update python2.6 to python 2.7 in ec2 linux instance]]></title>
     <link href="http://blog.hguochen.com/development/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance/"/>
-    <updated>2013-09-12T19:10:54+08:00</updated>
+    <updated>2013-09-12T04:10:54-07:00</updated>
     <id>http://blog.hguochen.com/development/2013/09/12/Update-python2.6-to-python-2.7-in-ec2-linux-instance</id>
     <content type="html"><![CDATA[<p>This post by <a href="http://tumblr.kurttheviking.com/post/30920138314/painless-python-2-7-on-aws-ec2">Kurttheviking</a> gives the steps in updating python 2.6 to python2.7 in AWS EC2 instances but i find the writeup abit messy and missing some considerations. So i&rsquo;m reorganizing it in number sequence.</p>
 
@@ -415,7 +415,7 @@ alias bb="build_blog"
   <entry>
     <title type="html"><![CDATA[[Fix] Wordpress Permalink not working]]></title>
     <link href="http://blog.hguochen.com/development/2013/09/04/%5BFix%5D-Wordpress-Permalink-not-working/"/>
-    <updated>2013-09-04T19:46:21+08:00</updated>
+    <updated>2013-09-04T04:46:21-07:00</updated>
     <id>http://blog.hguochen.com/development/2013/09/04/[Fix]-Wordpress-Permalink-not-working</id>
     <content type="html"><![CDATA[<p>There has been many solutions on the web with regards to this issue. I&rsquo;m drawing exerpts from some of these links which worked for me.</p>
 

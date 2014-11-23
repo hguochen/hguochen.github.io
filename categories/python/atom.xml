@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/python/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-10-20T11:25:36+08:00</updated>
+  <updated>2014-11-22T21:55:38-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Tip] Python class debugging tools]]></title>
-    <link href="http://blog.hguochen.com/programming/python/2014/06/22/%5BTip%5D-Python-class-debugging-tools/"/>
-    <updated>2014-06-22T01:59:42+08:00</updated>
-    <id>http://blog.hguochen.com/programming/python/2014/06/22/[Tip]-Python-class-debugging-tools</id>
+    <link href="http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/"/>
+    <updated>2014-06-21T10:59:42-07:00</updated>
+    <id>http://blog.hguochen.com/programming/python/2014/06/21/[Tip]-Python-class-debugging-tools</id>
     <content type="html"><![CDATA[<p>It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.</p>
 
 <h3>1. Printing attributes and values</h3>

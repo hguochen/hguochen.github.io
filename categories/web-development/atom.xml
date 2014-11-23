@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-10-20T11:25:36+08:00</updated>
+  <updated>2014-11-22T21:55:38-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Redesigning marathonsingapore.com]]></title>
     <link href="http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/"/>
-    <updated>2014-09-11T21:19:34+08:00</updated>
+    <updated>2014-09-11T06:19:34-07:00</updated>
     <id>http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com</id>
     <content type="html"><![CDATA[<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg" width="600" alt="marathonsingapore redesigned" /></p>
 
@@ -126,9 +126,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django environment optimal setup]]></title>
-    <link href="http://blog.hguochen.com/web%20development/2014/07/23/Django-environment-optimal-setup/"/>
-    <updated>2014-07-23T01:08:54+08:00</updated>
-    <id>http://blog.hguochen.com/web%20development/2014/07/23/Django-environment-optimal-setup</id>
+    <link href="http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup/"/>
+    <updated>2014-07-22T10:08:54-07:00</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup</id>
     <content type="html"><![CDATA[<p><a href="https://www.djangoproject.com">Django</a> is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!</p>
 
 <h3>Prerequisites</h3>
@@ -219,7 +219,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 <pre><code>$ which django-admin.py
 </code></pre>
 
-<p>Which should point to your $HOME/.virtualenvs/ directory.</p>
+<p>Which should point to your $HOME/.virtualenvs/django_project/bin/django-admin.py.</p>
 
 <h3>Setup project folder</h3>
 
@@ -341,9 +341,9 @@ $ fab deploy
   
   <entry>
     <title type="html"><![CDATA[Steps to solving programming problems]]></title>
-    <link href="http://blog.hguochen.com/programming/web%20development/2014/06/05/Steps-to-solving-programming-problems/"/>
-    <updated>2014-06-05T00:07:39+08:00</updated>
-    <id>http://blog.hguochen.com/programming/web%20development/2014/06/05/Steps-to-solving-programming-problems</id>
+    <link href="http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/"/>
+    <updated>2014-06-04T09:07:39-07:00</updated>
+    <id>http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems</id>
     <content type="html"><![CDATA[<p>If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the <a href="http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/">Problem analysis coding execution cycle</a> that typical computer science class will teach. Hope it will be of use to you!</p>
 
 <h2>Problem analysis coding execution cycle</h2>
@@ -440,9 +440,9 @@ $ fab deploy
   
   <entry>
     <title type="html"><![CDATA[Reverse a singly linked list]]></title>
-    <link href="http://blog.hguochen.com/web%20development/2014/05/27/Reverse-a-linked-list/"/>
-    <updated>2014-05-27T05:01:58+08:00</updated>
-    <id>http://blog.hguochen.com/web%20development/2014/05/27/Reverse-a-linked-list</id>
+    <link href="http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/"/>
+    <updated>2014-05-26T14:01:58-07:00</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list</id>
     <content type="html"><![CDATA[<p>I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.</p>
 
 <p>This is my iterative solution:</p>
@@ -504,7 +504,7 @@ $ fab deploy
   <entry>
     <title type="html"><![CDATA[Designing Beebeta]]></title>
     <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
-    <updated>2014-04-01T19:48:00+08:00</updated>
+    <updated>2014-04-01T04:48:00-07:00</updated>
     <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
     <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
 

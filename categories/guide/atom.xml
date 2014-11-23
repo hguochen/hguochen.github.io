@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: guide | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/guide/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2014-11-22T21:55:38-08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My H1B1 experience]]></title>
+    <link href="http://blog.hguochen.com/guide/2014/11/22/My-H1B1-experience/"/>
+    <updated>2014-11-22T11:04:39-08:00</updated>
+    <id>http://blog.hguochen.com/guide/2014/11/22/My-H1B1-experience</id>
+    <content type="html"><![CDATA[<p>I would like to share my H1B1(US work visa) application experience now that i&rsquo;ve landed myself a work visa in California as a software engineer. I&rsquo;m a Singapore citizen and have not previously been to USA except for a prior business/vacation trip in May 2014. The entire application, from the point i signed the employment offer letter to my flight departure, took about 1 month in total. Which is a pretty fast process.</p>
+
+<p>During my application, <a href="http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself">Christina&rsquo;s quora post</a> on filing for H1B1 visa yourself helped me alot and i would strongly recommend anyone with a interest in H1B1 to take a look. Otherwise, the <a href="http://www.ustraveldocs.com/sg/sg-niv-typeh1b1.asp">official visa application website</a> helps as well, just not as structured.</p>
+
+<h3>1. Employer files for LCA</h3>
+
+<p>Right after i signed the employment letter. I was asked to submit the following documents to the company:</p>
+
+<ul>
+<li><p>softcopy of passport</p></li>
+<li><p>graduation certificate</p></li>
+<li><p>education transcript</p></li>
+</ul>
+
+
+<p>It took about 7 days before the company got back to me with an approved Labour Condition Certification(LCA), aka, ETA 9035 or 9035E. For employers, you can file for the LCA via the <a href="http://icert.doleta.gov/">iCERT portal</a>.</p>
+
+<h3>2. Visa fee payment</h3>
+
+<p>Right after getting the LCA certification, i went about making payments for the visa fee. You can check your visa application fee <a href="http://www.ustraveldocs.com/sg/sg-niv-visafeeinfo.asp">here</a>, H1B1 is 247SGD(190 USD).</p>
+
+<p>As i didn&rsquo;t have a standard chartered bank account, which is required for online transaction, i have to make a trip to one of its branches and pay by cash. After payment at the counter, you will receive a receipt stating a receipt number. This receipt number will be required for applying DS-160.</p>
+
+<h3>3. Application for non-immigrant visa, DS-160</h3>
+
+<p>With the LCA approval form. i started applying for the non-immigrant visa, <a href="http://www.ustraveldocs.com/sg/sg-niv-ds160info.asp">DS-160</a>. You must complete the <a href="https://ceac.state.gov/GenNIV/Default.aspx">DS-160 form</a> either by yourself or a US attorney representing you. The entire form takes me about 1 hour to fill up. I finished the application in one sitting but you are allowed to save your progress and resume later on the site. Once submitted. You will have to register an account with the <a href="https://cgifederal.secure.force.com/?language=English&amp;country=Singapore">visa application system</a> in order to book an interview appointment. I was lucky enough to be able to book an appointment just 1 day before the interview itself. I chose the 9.15am slot on friday. I&rsquo;ve told the average waiting time for a visa interview is 1 week. By this time, 2 weeks has gone by since i started my application.</p>
+
+<h3>4. Visa interview</h3>
+
+<p>I arrived at the US embassy at 8.45am on friday, 30 minutes before the scheduled time. Note that the scheduled time is the time to arrival at the embassy gate, NOT your actual interview time.</p>
+
+<p>I brought the folllowing documents for the interview:</p>
+
+<ul>
+<li><p>Passport(very important. will be retained by embassy and mailed back if your application is successful)</p></li>
+<li><p>LCA approval form</p></li>
+<li><p>DS-160 confirmation form</p></li>
+<li><p>Resume</p></li>
+<li><p>Graduation certificate and transcript</p></li>
+<li><p>Signed employment offer letter from employer</p></li>
+<li><p>Bank statement</p></li>
+<li><p>Both parent&rsquo;s photocopy of IC</p></li>
+<li><p>Passport sized photograph</p></li>
+<li><p>Visa payment receipt</p></li>
+</ul>
+
+
+<p>The security check at the embassy gate will pretty much confiscate anything electronic and issue you a number for retrieval later. It&rsquo;s best to put all your documents in a large envelope and go to embassy with that only.</p>
+
+<p>Once inside the embassy, you are to get a queue number with the visa application office and wait for your turn. There will be 3 steps in total, which means you number will be called 3 times. Note that numbers may not be called in sequence.</p>
+
+<ol>
+<li>At first call, you are to submit your DS-160 form, passport and passport photo over the counter. I had to retake a passport picture there as they rejected my original photo saying it&rsquo;s not recent. Taking a passport photo there itself costs 10SGD.</li>
+<li>Second call to the counter will have all your fingerprints scanned and a phamplet will be given to you detailing your rights as a foreign employee in US. Basically it says you will have equality rights enjoyed by americans and you should report any mistreatment/exploitation etc.</li>
+<li>Lastly, the interview itself. The immigration officer looked through my documents and asked 3 questions in total: What does the company do? What is your role in the company? Where are you staying in the US?</li>
+</ol>
+
+
+<p>They didn&rsquo;t even ask questions pertaining immigration intents. I guess the above documents i prepared was comprehensive enough for the officer to form an opinion of me.</p>
+
+<p>The whole interview took about 5minutes. At the end of the interview, he told me my visa is approved and they will take and mail back my passport in 3 working days.</p>
+
+<h3>5. Flight booking</h3>
+
+<p>Right after the interview, i informed my to-be-employer of visa success status and decided on a flight departure date. They were very nice to sponsor my flight booked it for me so i didn&rsquo;t have to care much about it.</p>
+
+<h3>6. NS exit permit</h3>
+
+<p>I served fulltime national service in Singapore and am required to attend Reservist training every year. In order to leave the country, all Singaporean NSmen must apply for an exit permit before their departure. You can apply for an exit permit <a href="https://www.ns.sg/nsp/web/esvcs/common/eep/apply?_afrLoop=612071552714999&amp;_afrWindowMode=0&amp;_afrWindowId=2j8z4lluh_1">here</a>. The approval is instant so you don&rsquo;t have to wait. But in some cases they will need you to submit supporting documents like your employment offer letter, visa application and flight details.</p>
+
+<h3>7. Departure Preparations</h3>
+
+<p>I was previously from the <a href="http://www.overseas.nus.edu.sg/">NUS Overseas College(NOC) programme</a> and they have this programme in california as well. The alumnis of the college in silicon valley actively maintains <a href="https://ncsv.hackpad.com/README-Welcome-to-SV-Jhkc4Zstjd6">a set of guide</a> on what to do post arrival. I find it very informative and answered alot of questions i have with regards to settling down in US.</p>
+
+<p>In general, i would say my application process was pretty smooth. Thanks to Eric Koh, Christina Ng, Fiona Tay, Susan Aung, Lloyd D'Silva, Elisha Ong, Steven Cheng and many others who have helped me along the way and answered my questions of all sorts.</p>
+
+<p>Here&rsquo;s a list of resources i readup on before and during my visa application:
+<a href="http://www.ustraveldocs.com/sg/sg-niv-visaapply.asp">http://www.ustraveldocs.com/sg/sg-niv-visaapply.asp</a></p>
+
+<p><a href="http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself">http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself</a></p>
+
+<p><a href="https://ceac.state.gov/GenNIV/Default.aspx">https://ceac.state.gov/GenNIV/Default.aspx</a></p>
+
+<p><a href="http://www.h1b1.com/practices/h-1b1-visa-for-chileans-singaporeans/">http://www.h1b1.com/practices/h-1b1-visa-for-chileans-singaporeans/</a></p>
+
+<p><a href="http://jasonong.tumblr.com/post/22111385043/us-visa-options-and-my-h1b1-experience">http://jasonong.tumblr.com/post/22111385043/us-visa-options-and-my-h1b1-experience</a></p>
+]]></content>
+  </entry>
+  
+</feed>
