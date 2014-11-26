@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-11-22T22:27:09-08:00</updated>
+  <updated>2014-11-26T10:42:14-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Django South incorrectly parsing python keywords]]></title>
+    <link href="http://blog.hguochen.com/web%20development/2014/11/26/Django-South-parsing-python-keywords/"/>
+    <updated>2014-11-26T01:48:29-08:00</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/11/26/Django-South-parsing-python-keywords</id>
+    <content type="html"><![CDATA[<p>Code base below is an expert from a production level <a href="https://www.djangoproject.com">Django</a> stack using <a href="https://south.readthedocs.org/en/latest/">Django South 0.8.4</a> as a database migration tool.</p>
+
+<p>Came across a bloc of code on Django Models looking like this earlier:</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26095115.png" alt="django_models" /></p>
+
+<p>The category class inherits the django model class and extends a field called &lsquo;type&rsquo; as a varchar field in SQL database.</p>
+
+<p>See the problem? The variable <strong>type</strong> is a python keyword and should never be declared as a variable field in a python module. I would expect a SyntaxError be thrown when South parses the <code>models.py</code> file for migration but it does not. As it turns out, the migration file is actually parsed correctly as &lsquo;intended&rsquo;.</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102117.png" alt="migration_file" /></p>
+
+<p>I went to dig up the south documentation API that handles this:</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102443.png" height="350" alt="south_doc_api" /></p>
+
+<p>As seen, South simply parses the field_name as a string without performing any form of python keyword checking on the input. This is not right and should be changed. Not only does it confuse the developer but could potentially corrupt the database. With the current implementation, we could potentially have field names like &lsquo;<em>-</em>&mdash;____&rsquo;, &lsquo;%*@#^&rsquo; or even &lsquo;:)&rsquo;. Imagine the kind of SQL statments you have to write to retrieve those fields :D.</p>
+
+<p>Until South do something about this, we should consciously avoid using python keywords even if it works for the migration. As a quick hack, run</p>
+
+<pre><code>python &lt;filename&gt;.py
+</code></pre>
+
+<p>to quickly check for any SyntaxErrors in the file before further actions.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Redesigning marathonsingapore.com]]></title>
@@ -498,165 +530,6 @@ $ fab deploy
 <p>This little devil took me quite awhile to figure out as it&rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&rsquo;t imagine a scenario where i&rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).</p>
 
 <p>Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Designing Beebeta]]></title>
-    <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
-    <updated>2014-04-01T04:48:00-07:00</updated>
-    <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
-    <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
-
-<p>Being new to the world of frontend designing, i&rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.</p>
-
-<h2>What is Beebeta?</h2>
-
-<p>Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&rsquo;s opinions on questions at hand. That&rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks about an issue. Which could be questions as trivial as &lsquo;Which restaurant serves the best Ramen?&rsquo; or global issues such as &lsquo;Should gay marriage be allowed?&rsquo;.</p>
-
-<h2>Design Goal</h2>
-
-<p>With the above concept, it is evident that Beebeta is all about polling the public with questions. We are going to implement this by asking users questions and offer pre-determined choices for voting. Users may also add additional choices if they like. Here are a few design goals i&rsquo;ve charted out:</p>
-
-<ul>
-<li>Questions are the prime content of the website</li>
-<li>All visual elements should contribute to better contents</li>
-<li>User&rsquo;s Call To Action(CTA) is voting and should be encouraged visually</li>
-<li>Page should be simple and minimalistic</li>
-</ul>
-
-
-<h2>Research and idea generation</h2>
-
-<p>Do some googling to get the creativity juices flowing. These are some of the places i checkout to brainstorm design ideas:</p>
-
-<ul>
-<li><a href="http://pinterest.com">Pinterest</a></li>
-<li><a href="http://smashingmagazine.com">Smashing Magazine</a></li>
-<li><a href="http://quora.com">Quora</a></li>
-<li><a href="http://createivebloq.com">Creative Bloq</a></li>
-</ul>
-
-
-<p>I usually grab a pencil and sketchbook to jot down some of the things such as essential page elements, layout, colors, typefaces and navigation details. Sometimes i feel particularly artistic and try to draw&hellip;</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/EBAE3B09-C994-459F-AEB7-9964CA67A066.jpg" width="300" alt="doodle" /></p>
-
-<p>Ok fine i admit calling it &lsquo;drawing&rsquo; is an overstatement. Very-very crude mockups.</p>
-
-<h2>Design</h2>
-
-<p>All my page designs start from mockups. From grid layout, to box structure and eventually down to individual elements. For each step of this process, i pay attention to how elements in question interacts with each other and establish cohesiveness.</p>
-
-<h3>Grid Layout</h3>
-
-<p>I adopted the 12-grid system for <a href="http://getbootstrap.com/">Bootstrap 3</a>. Boostrap 3 is designed &lsquo;mobile first&rsquo;. It&rsquo;s newly renovated grid system caters to a whole array of digital devices from mobile phone to high resolution desktops. A nice tutorial about the new grid system for Bootstrap is found <a href="http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system">here</a>.</p>
-
-<p>I used the following grid dimensions:</p>
-
-<pre><code>/* 12 col responsive grid */
-
-.row {
-    clear: both;
-    max-width: 1040px;
-    margin: 0 auto;
-}
-
-[class^="col-"]:last-child {
-    margin: 0;
-}
-
-[class^="col-"] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-
-
-.col-xs-1 { width: 4.8076923077% }
-.col-xs-2 { width: 13.4615384615% }
-.col-xs-3 { width: 22.1153846154% }
-.col-xs-4 { width: 30.7692307692% }
-.col-xs-5 { width: 39.4230769231% }
-.col-xs-6 { width: 48.0769230769% }
-.col-xs-7 { width: 56.7307692308% }
-.col-xs-8 { width: 65.3846153846% }
-.col-xs-9 { width: 74.0384615385% }
-.col-xs-10 { width: 82.6923076923% }
-.col-xs-11 { width: 91.3461538462% }
-.col-xs-12 { width: 100%; margin: 0 }
-</code></pre>
-
-<h3>Typeface</h3>
-
-<p>I think typeface of a website determines the longevity and pleasure of browsing its contents. Good typefaces gives readability and allows you to focus on the content. For beebeta, i used <strong>serif</strong> typeface for block headers and <strong>helvetica neue</strong> for body texts. These are generally pretty safe typefaces for websites.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at30154pm.png" alt="beebeta icon" /></p>
-
-<p>The Beebeta typeface in the icon is given to me pre-designed as <strong>OratorStd</strong>.</p>
-
-<h3>Colour</h3>
-
-<p>I used 3 colors as the theme of Beebeta. 2 triad colors, <strong>#4288CA</strong>(Celestial Blue) &amp; <strong>#5CB85C</strong>(Fern) and 1 neutral color <strong>#F0F0F0</strong>(Beige Grey).</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at31235pm.png" width="500" alt="color theme" /></p>
-
-<p><strong>Fern green</strong> is used for navigational contents and Call To Action(CTA) activites users performs.</p>
-
-<p>Netural color <strong>Beige Grey</strong> will make the base color of the site. This effectively allows focus on contents without too much &lsquo;noise&rsquo; from the background.</p>
-
-<p><strong>Celestial Blue</strong> are used as cordoned containers for user details and personal spaces within the site.</p>
-
-<p>Effectively the site is just a mix and match of these 3 simple colours.</p>
-
-<h3>Navigation</h3>
-
-<p>Navigation determines the usability of the site. For our Minimum Viable Product(MVP), which has limited features, i want users to understand the purpose of the website at a glance through navigational bar without having it competing for user attention from the contents. Since posting questions is fundamental to the site. It should have a visual focus primarily, with user utility functions available nearby. Here is how it looks:</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at125833pm.png" width="700" alt="navigation bar" /></p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33130pm.png" width="700" alt="navigation bar 2" /></p>
-
-<h3>Header</h3>
-
-<p>I wanted a simple header without any unnecessary contents. It should be so painfully simple that it looks almost undesigned at all. I think the benefits of a bare-bone header drives clarity. That users don&rsquo;t derive too much assumptions of the contents of the website based on header. It invites users browse to find out more. Here&rsquo;s how it looks like:</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33337pm.png" width="600" alt="header" /></p>
-
-<p>I am experimenting with color-coding of question categories here. Each category is assigned a colour. My aim is to promote category classifications so users sub-consciously associate a colour to a category. I&rsquo;m guessing this will contribute to an easier browsing experience over time.</p>
-
-<h3>Question Card</h3>
-
-<p>Question card is the main content. It is what beebeta is all about. My design concept for questions takes the form of &lsquo;question cards&rsquo;. Each poll question is a unique question card served.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at34610pm.png" width="600" alt="question card" /></p>
-
-<p>In order to synchronise the color-coding category concept earlier, i added a subtle colour border for each question card of its associated category. The question card displays the question text, user uploaded image, uploader&rsquo;s name, number of choices and number of votes received so far.</p>
-
-<h3>Voting</h3>
-
-<p>I adopted the classic reddit style voting which allows users to vote up a choice and provide a visual feedback with updated vote count and fern green arrow up button.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40029pm.png" width="200" alt="voting" /></p>
-
-<h3>Profile page</h3>
-
-<p>As an extension of the &lsquo;question card&rsquo; concept, i gave a similar box style to profile page. Users have 3 profile boxes which is unique to them, namely User Information, Questions and Votes counts.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40212pm.png" width="500" alt="profile page" /></p>
-
-<p>The following tab, My questions, allows users to view and edit his posted questions.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40736pm.png" width="500" alt="my questions" /></p>
-
-<h3>Footer</h3>
-
-<p>I&rsquo;ve choosen flat white for footer, which colour synchronises with the header. Again, i&rsquo;m experimenting with using lighter colours as opposed to heavy colors for headers and footers.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40922pm.png" width="700" alt="footer" /></p>
-
-<p>So that&rsquo;s it folks! If you think that this design is really basic, you are right! I do agree that there are alot more to be done with the design of a polling site like Beebeta. I would like to hear your comments and suggestions on how i can improve my design. Peace out! :)</p>
 ]]></content>
   </entry>
   
