@@ -4,7 +4,7 @@
   <title><![CDATA[Category: guide | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/guide/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2015-02-21T22:06:33-08:00</updated>
+  <updated>2015-02-21T22:10:04-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -55,7 +55,7 @@
 
 <p>As of nov 2014, the <a href="http://www.ustraveldocs.com/sg/sg-niv-ds160info.asp">DS-160</a> has an outdated field: <Receipt Number> under the PETITIONER column.</p>
 
-<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/11005615_803360356424930_450363261_n.jpg%20x=500" alt="receipt_number" /></p>
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/11005615_803360356424930_450363261_n.jpg" alt="receipt_number" /></p>
 
 <p>This field no longer works and you can just fill in an arbitrary number such as <code>ABC123456789</code>. Any value input in this field will NOT affect the outcome of your application. Thanks to Ajay Gopal for pointing this out!</p>
 
