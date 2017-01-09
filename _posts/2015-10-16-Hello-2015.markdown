@@ -1,0 +1,13 @@
+---
+title: "Hello 2015"
+layout: post
+date: 2015-10-16 13:43:35
+comments: true
+categories: [random]
+---
+
+So 3 quarters of 2015 just flew by and i've almost spent a year in the silicon valley as a software engineer already. Alot of things happened, some things i'm extremely thankful for and some not so much. Here are some of the things that defined my 2015, mainly for self-reflection but if this piece helped you in some way, i'd love to hear from you.
+
+
+### 1. Hardwork pays off
+I worked really hard and learnt a whole bunch of stuff this year. When i first came over to the silicon valley, i never saw myself as a software engineer much. More of a web developer. I wanted to change that, so i grabbed every opportunity to learn. My job requires working python, django knowledge and i think i did that fairly well. But deep down i never really understood the intracies of software development and under-the-hood details. So i dug into the core of my company's technology stack and went through every single bit of details and familiarized myself with tools like Vagrant, Salt, Celery, Redis, Nginx, AWS services along the way. The more i read about these tools, the more curious i am on how other companies built their technology stacks. 

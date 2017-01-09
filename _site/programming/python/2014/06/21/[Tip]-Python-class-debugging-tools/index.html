@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>What i got from tweeting Evernote's CEO - GuoChen | Blog</title>
+  <title>[Tip] Python class debugging tools - GuoChen | Blog</title>
   <meta name="author" content="GuoChen">
 
   
-  <meta name="description" content="What i got from tweeting Evernote's CEO - GuoChen | Blog">
+  <meta name="description" content="[Tip] Python class debugging tools - GuoChen | Blog">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,15 +17,15 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Open Graph Data -->
-  <meta name="og:title" property="og:title" content="What i got from tweeting Evernote's CEO - GuoChen | Blog" />
+  <meta name="og:title" property="og:title" content="[Tip] Python class debugging tools - GuoChen | Blog" />
   <meta name="og:type" property="og:type" content="article" />
-  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/" />
+  <meta property="og:url" property="og:url" content="http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/" />
   <meta property="og:image" property="og:image" content="http://blog.hguochen.com/static/img/gc.png"/>
-  <meta name="og:description" property="og:description" content="What i got from tweeting Evernote's CEO" />
-  <meta name="og:site_name"property="og:site_name" content="What i got from tweeting Evernote's CEO - GuoChen | Blog" />
+  <meta name="og:description" property="og:description" content="[Tip] Python class debugging tools" />
+  <meta name="og:site_name"property="og:site_name" content="[Tip] Python class debugging tools - GuoChen | Blog" />
 
   
-  <link rel="canonical" href="http://blog.hguochen.com/random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/">
+  <link rel="canonical" href="http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/">
   <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="GuoChen's Blog" href="http://blog.hguochen.com/feed.xml">
   <link rel="image_src" href="/static/img/gc.png"/>
@@ -96,11 +96,11 @@
   
   <header>
     
-      <h1 class="entry-title">What i got from tweeting Evernote's CEO</h1>
+      <h1 class="entry-title">[Tip] Python class debugging tools</h1>
     
     
       <p class="meta">
-        Apr 23, 2014
+        Jun 21, 2014
         
         
 
@@ -114,7 +114,7 @@
   
 
 
-<time datetime="2014-04-23T02:24:07Z" pubdate data-updated="true"></time>
+<time datetime="2014-06-21T10:59:42-07:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -123,31 +123,48 @@
   </header>
 
 
-<div class="entry-content"><p>In 4 day&rsquo;s time, i&rsquo;ll be visiting California-US for the first time in my life. Being <a href="http://hguochen.com">a startup guy</a> myself, this is a big deal for me. I&rsquo;m really excited to see what the biggest startup ecosystem in the world is like. I wanted to make this trip a really memorable one but i didn&rsquo;t have enough contacts there. So i shamelessly cold-emailed some of my favourite tech companies in California asking for an impromptu visit to their offices/campus. Some of these companies accepted my request(thank you so much!). But 1 of which just blew me away. Here&rsquo;s what happened.</p>
+<div class="entry-content"><p>It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.</p>
 
-<p>I have always been a big fan of <a href="http://evernote.com">Evernote</a>. After several failed attempts to link up with evernote staff through friend introductions, i resorted to cold-emailing its CEO, Phil Libin on linkedin&hellip;</p>
+<h3>1. Printing attributes and values</h3>
 
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/email_phil_libin.jpg" width="500" alt="Email Phil Libin" /></p>
+<pre><code>def print_attr(obj):
+    """
+    Traverses the items in the object's dictionary and prints each attribute name and its corresponding value.
+    """
+    for attr in obj.__dict__:
+        print attr, getattr(obj, attr)
+</code></pre>
 
-<p>Ok i admit, its kinda cheesy. But hey, i wasn&rsquo;t expecting a reply.</p>
+<p>As explained in docstring, function print_attr() takes in an object and spits out each of its attributes and its corresponding value.</p>
 
-<p>And so i didn&rsquo;t. Then i tried to ping the CEO on twitter, and i got a reply! Well, not Phil Libin himself, but still a reply :)</p>
+<p>The built-in function getattr() takes an object and an attribute name(as string) and returns the attribute&rsquo;s value.</p>
 
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/08915870-515D-4157-83DE-FD8EAB45C3C1.png" width="250" alt="Tweeting Phil Libin" /></p>
+<h3>2. Find defining class</h3>
 
-<p>Things are looking good! So i followed the instructions and the following conversations ensue:</p>
+<pre><code>def find_defining_class(obj, method_name):
+"""
+Uses method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Return the class to which the method 'method_name' belong to.
+"""
+for origin in type(obj).mro():
+    if method_name in origin.__dict__:
+        return origin
+</code></pre>
 
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6734508A-2E9D-4FD7-AC1E-9637083A4991.png" width="250" alt="evernote support 1" />
-<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/05DA55F4-D808-4BB6-AF8D-4B360307A636.png" width="250" alt="evernote support 2" />
-<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9ECCB770-E4ED-4566-B3CA-7E9C0F8F1A8D.png" width="250" alt="evernote support 3" /></p>
+<p>Useful if your class belongs to a long chain of super classes and you are trying to find out which class does a particular method belong to. This method works because of <a href="https://www.python.org/download/releases/2.3/mro/">Method Resolution Order</a> rule in python.</p>
 
-<p>A few days later, this email from Evernote&rsquo;s marketing manager came:</p>
+<p>Here&rsquo;s an example:</p>
 
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/evernote_email.png" width="1050" alt="evernote email" /></p>
+<pre><code>&gt;&gt;&gt; hand = Hand()
+&gt;&gt;&gt; print find_defining_class(hand, 'shuffle)
+&lt;class 'Card.Deck'&gt;
+</code></pre>
 
-<p>How excited was i to read this? Let&rsquo;s just say that my laptop keyboard now comes coffee-flavoured. Thank you Evernote, you&rsquo;ve just made a fan very very happy :)</p>
+<p>So the shuffle method for this Hang object is the one in Deck.</p>
 
-<p>I&rsquo;ll be giving a full recount of my visit to Evernote HQ sometime later. In the meantime, please leave in the comments below if you have a request for me on visiting Evernote :)</p>
+<p>Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!</p>
+
+<p>Happy debugging! Ok fine, that&rsquo;s a fallacy&hellip;Don&rsquo;t die debugging!</p>
 </div>
 
 
@@ -169,14 +186,14 @@
   
 
 
-<time datetime="2014-04-23T02:24:07Z" pubdate data-updated="true"></time>
+<time datetime="2014-06-21T10:59:42-07:00" pubdate data-updated="true"></time>
     
 
 <br>
 <span class="glyphicon glyphicon-tag"></span>
 <span class="categories">
   
-    <a class='category' href='/categories/random/'>random</a>, <a class='category' href='/categories/startup/'>startup</a>
+    <a class='category' href='/categories/programming/'>programming</a>, <a class='category' href='/categories/python/'>python</a>
   
 </span>
 
@@ -185,7 +202,7 @@
     
       <div class="sharing" style="text-align:left;">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/" data-via="hguochen" data-counturl="http://blog.hguochen.com/random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/" data-via="hguochen" data-counturl="http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/" >Tweet</a>
   
   
   
@@ -214,7 +231,7 @@
     </div>
   </section>
   <footer role="contentinfo" class="footer_color">    <p style="text-align:center; margin-bottom:0;">
-    	<span>Handcrafted by GuoChen &copy; 2014</span>
+    	<span>Handcrafted by GuoChen &copy; 2017</span>
   		<br>
   		<span class="credit">Powered by <a style="color:#a1a1a1;" href="http://jekyllrb.com">Jekyll</a> - <a style="color:#a1a1a1;" href="/feed.xml">RSS Feed</a></span>
 	</p>
@@ -233,8 +250,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hguochen.com/random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/';
-        var disqus_url = 'http://blog.hguochen.com/random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/';
+        var disqus_identifier = 'http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/';
+        var disqus_url = 'http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/';
         var disqus_script = 'embed.js';
       
     (function () {

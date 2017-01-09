@@ -4,7 +4,7 @@
   <title><![CDATA[Category: greedy algorithm | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/greedy-algorithm/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-18T12:43:06+08:00</updated>
+  <updated>2017-01-08T19:06:05-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -15,8 +15,8 @@
   
   <entry>
     <title type="html"><![CDATA[Prim's Algorithm]]></title>
-    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/"/>
-    <updated>2014-06-17T16:29:39Z</updated>
+    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Prim's-Algorithm/"/>
+    <updated>2014-06-17T09:29:39-07:00</updated>
     <id>http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Prim's-Algorithm</id>
     <content type="html"><![CDATA[<p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.</p>
 
@@ -282,9 +282,9 @@ update_row(vertex, weight, ..)  O(n)
   
   <entry>
     <title type="html"><![CDATA[Kruskal's Algorithm]]></title>
-    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/"/>
-    <updated>2014-06-17T00:02:54Z</updated>
-    <id>http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/17/Kruskal's-Algorithm</id>
+    <link href="http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/16/Kruskal's-Algorithm/"/>
+    <updated>2014-06-16T17:02:54-07:00</updated>
+    <id>http://blog.hguochen.com/programming/greedy%20algorithm/2014/06/16/Kruskal's-Algorithm</id>
     <content type="html"><![CDATA[<p>Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.
 <img src="http://i1113.photobucket.com/albums/k508/houguochen/Screenshot2014-06-17004156.png" height="400" alt="city roads" /></p>
 

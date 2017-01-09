@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | GuoChen | Blog]]></title>
+  <link href="http://blog.hguochen.com/categories/python/atom.xml" rel="self"/>
+  <link href="http://blog.hguochen.com/"/>
+  <updated>2017-01-08T19:06:05-08:00</updated>
+  <id>http://blog.hguochen.com/</id>
+  <author>
+    <name><![CDATA[GuoChen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Tip] Python class debugging tools]]></title>
+    <link href="http://blog.hguochen.com/programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/"/>
+    <updated>2014-06-21T10:59:42-07:00</updated>
+    <id>http://blog.hguochen.com/programming/python/2014/06/21/[Tip]-Python-class-debugging-tools</id>
+    <content type="html"><![CDATA[<p>It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.</p>
+
+<h3>1. Printing attributes and values</h3>
+
+<pre><code>def print_attr(obj):
+    """
+    Traverses the items in the object's dictionary and prints each attribute name and its corresponding value.
+    """
+    for attr in obj.__dict__:
+        print attr, getattr(obj, attr)
+</code></pre>
+
+<p>As explained in docstring, function print_attr() takes in an object and spits out each of its attributes and its corresponding value.</p>
+
+<p>The built-in function getattr() takes an object and an attribute name(as string) and returns the attribute&rsquo;s value.</p>
+
+<h3>2. Find defining class</h3>
+
+<pre><code>def find_defining_class(obj, method_name):
+"""
+Uses method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Return the class to which the method 'method_name' belong to.
+"""
+for origin in type(obj).mro():
+    if method_name in origin.__dict__:
+        return origin
+</code></pre>
+
+<p>Useful if your class belongs to a long chain of super classes and you are trying to find out which class does a particular method belong to. This method works because of <a href="https://www.python.org/download/releases/2.3/mro/">Method Resolution Order</a> rule in python.</p>
+
+<p>Here&rsquo;s an example:</p>
+
+<pre><code>&gt;&gt;&gt; hand = Hand()
+&gt;&gt;&gt; print find_defining_class(hand, 'shuffle)
+&lt;class 'Card.Deck'&gt;
+</code></pre>
+
+<p>So the shuffle method for this Hang object is the one in Deck.</p>
+
+<p>Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!</p>
+
+<p>Happy debugging! Ok fine, that&rsquo;s a fallacy&hellip;Don&rsquo;t die debugging!</p>
+]]></content>
+  </entry>
+  
+</feed>

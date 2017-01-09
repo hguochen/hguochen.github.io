@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/design/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-18T12:43:06+08:00</updated>
+  <updated>2017-01-08T19:06:05-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -14,9 +14,120 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Redesigning marathonsingapore.com]]></title>
+    <link href="http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/"/>
+    <updated>2014-09-11T06:19:34-07:00</updated>
+    <id>http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com</id>
+    <content type="html"><![CDATA[<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg" width="600" alt="marathonsingapore redesigned" /></p>
+
+<h2>The Situation</h2>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/screencapture-www-marathonsingapore-com.png" width="400" alt="Marathonsingapore.com" /></p>
+
+<p>The <a href="http://www.marathonsingapore.com">Standard Chartered Marathon Singapore</a> has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website <a href="http://www.marathonsingapore.com">www.marathonsingapore.com</a> is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy. Contents are hidden among a sphagetti of flashy colours. On searching for information, i have to actually resort to googling about the site instead of navigating the site itself. I consider that a failure in content design.</p>
+
+<p>Ok let&rsquo;s be systematic about its shortcomings. Here are the problems i have identified on the current site design:</p>
+
+<ul>
+<li>Page styles that can be rendered with HTML/CSS are instead done with raw jpg images. Looks like optimization concerns was thrown right out the building from the start.</li>
+<li>A simple inspect element reveals a total of 8 colors used for the frontpage. Some of these colors are neither analogous nor complementary to each other. The resulting visual distraction is appalling.</li>
+<li>Call to Action(CTA) buttons are hidden among less relevant contents.</li>
+<li>Content flow on page are non-hierarchical.</li>
+<li>Site navigation bar are cluttered and information meta-data is a mess.</li>
+<li>Date, Time &amp; Place(DTP) are non obvious at a glance.</li>
+<li>Lack of sitemap to aid user navigation.</li>
+<li>Teaser box contents are prefixed with useless meta-info such as Images, Videos, Highlights etc.</li>
+<li>For a running event, statistics banner information are totally irrelevant. Would the public seriously care about how many bananas or amount of water consumed in a race held last year? Since i&rsquo;m not your logistics officer, i would be more interested in learning how many runners participated in each category don&rsquo;t you think?</li>
+</ul>
+
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at44030pm.png" width="600" alt="statistics banner" /></p>
+
+<h2>My Task</h2>
+
+<p>With the problems identified, my job scope is pretty clear from now on. Here are my design objectives:</p>
+
+<ol>
+<li>Re-introduce a color theme to the site such that it puts the focus on the content.</li>
+<li>Organize the navigation bar that correctly depicts the meta-datas.</li>
+<li>Collate a sitemap to be appended to the footer for easier site navigation.</li>
+<li>Use visual cues to bring out the importance of CTAs.</li>
+<li>Redesign teaser boxes as an entry point to the site&rsquo;s content.</li>
+</ol>
+
+
+<h2>Action</h2>
+
+<h4>Logo and navigation bar</h4>
+
+<p>Race date, time and venue are probably the 3 most important piece of information for a running event. So we are going to place them right where visitors first sees when visiting our page.</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at50832pm.png" width="600" alt="top banner" /></p>
+
+<p>Since there are many race categories for Standard Chartered Marathon, the start times for different races are staggered. In this case, to prevent confusion, we obscure time information from the banner and present them in the event schedule instead.</p>
+
+<p>Navigation bar is restructured and renamed to correctly identify relevant meta-datas. Some of the less relevant information such as &lsquo;2013 results&rsquo; are demoted from this piece of expensive real estate.</p>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png" width="600" alt="navigation bar before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51738pm.png" width="600" alt="navigation bar after" /></p>
+
+<h4>Carousel section</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52122pm.png" width="600" alt="carousel section before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52134pm.png" width="600" alt="carousel section after" /></p>
+
+<p>The current carousel section had a bad choice of picture. This contributes to obscuring the importance of CTAs. Instead of choosing pictures, we are going to completely remove pictures as part of carousel theme and introduce a reasonable tagline to supplement the website&rsquo;s agenda.</p>
+
+<p>Clear CTAs sits just below the tagline to guide users on the appropriate course of action.</p>
+
+<p>The countdown to race day is a pretty good idea, but it was previously obscured in the right corner of the page. I redesigned and moved the countdown timer to dead center.</p>
+
+<h4>Teaser boxes</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53842pm.png" width="400" alt="teaser box before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53817pm.png" width="400" alt="teaser box after" /></p>
+
+<p>The existing teaser section didn&rsquo;t make sense to me. What does &lsquo;IMAGES&rsquo; and &lsquo;VIDEOS&rsquo; section header tell you? I re-worked this section completely to reflect the content groupings of the website. These teasers will serve as entry point to its respective array of contents.</p>
+
+<h4>Footer and sitemap</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54535pm.png" width="600" alt="footer before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54543pm.png" width="600" alt="footer after" /></p>
+
+<p>For easier site navigation, i&rsquo;ve added a simple footer that allows users to view the content headers at a glance.</p>
+
+<h2>Result</h2>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/screencapture-rawgit-com-hguochen-marathon_singapore-master-index-html.png" width="600" alt="redesigned marathonsingapore.com" /></p>
+
+<p>The static page is hosted <a href="https://rawgit.com/hguochen/marathon_singapore/master/index.html">HERE</a> if you would like to inspect elements and dabble with my design. Otherwise, for the geeks out there, this project also sits on my <a href="https://github.com/hguochen/marathon_singapore.git">github repository</a>. Let me know what you think about my redesign and leave in the comments below!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Designing Beebeta]]></title>
     <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
-    <updated>2014-04-01T11:48:00Z</updated>
+    <updated>2014-04-01T04:48:00-07:00</updated>
     <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
     <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
 
@@ -175,7 +286,7 @@
   <entry>
     <title type="html"><![CDATA[How to design your blog]]></title>
     <link href="http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog/"/>
-    <updated>2014-03-23T18:18:25Z</updated>
+    <updated>2014-03-23T11:18:25-07:00</updated>
     <id>http://blog.hguochen.com/design/development/2014/03/23/How-to-design-your-blog</id>
     <content type="html"><![CDATA[<p>Recently i redesigned my <a href="http://blog.hguochen.com">blog</a>. It was an enjoyable experience as i try to apply my new-acquired <a href="http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916">design theories</a> learnt from <a href="http://design.tutsplus.com">tutsplus.com</a>. My goal was to create an <strong>elegant</strong> and <strong>easy-to-read</strong> blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.</p>
 
@@ -259,10 +370,10 @@
 <p>Appropriate font size will greatly enhance the readability of texts. I shall not go into detail here but some tried and tested font sizes for blog contents adopts the following pixel sizes:</p>
 
 <ul>
-<li>16px &ndash; Body copy and leading</li>
-<li>24px &ndash; Main heading &amp; section headings</li>
-<li>18px &ndash; Subheadings</li>
-<li>13px &ndash; All other headed elements</li>
+<li>16px - Body copy and leading</li>
+<li>24px - Main heading &amp; section headings</li>
+<li>18px - Subheadings</li>
+<li>13px - All other headed elements</li>
 </ul>
 
 
@@ -407,7 +518,7 @@ h4 {
   <entry>
     <title type="html"><![CDATA[Lesson 9 The Rose]]></title>
     <link href="http://blog.hguochen.com/design/2014/03/07/Lesson-9-The-Rose/"/>
-    <updated>2014-03-07T19:00:28Z</updated>
+    <updated>2014-03-07T11:00:28-08:00</updated>
     <id>http://blog.hguochen.com/design/2014/03/07/Lesson-9-The-Rose</id>
     <content type="html"><![CDATA[<p>We will warm up for the rose by drawing simple shapes. It is always good to warm up by drawing serveral simple basic shapes.</p>
 
@@ -452,7 +563,7 @@ h4 {
   <entry>
     <title type="html"><![CDATA[Lesson 8 Cool Koalas]]></title>
     <link href="http://blog.hguochen.com/design/2014/03/03/Lesson-8-Cool-Koalas/"/>
-    <updated>2014-03-03T19:59:12Z</updated>
+    <updated>2014-03-03T11:59:12-08:00</updated>
     <id>http://blog.hguochen.com/design/2014/03/03/Lesson-8-Cool-Koalas</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s take a break from boxes and structures and draw a koala bear.</p>
 
@@ -480,40 +591,6 @@ h4 {
 <p>Here&rsquo;s how my final drawing looks like:</p>
 
 <p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/0AB47825-2D43-42C9-978A-5D92445FCD41.jpg" alt="lesson8" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lesson 7 Advanced Level Cubes]]></title>
-    <link href="http://blog.hguochen.com/design/2014/03/03/Lesson-7-Advanced-Level-Cubes/"/>
-    <updated>2014-03-03T19:35:37Z</updated>
-    <id>http://blog.hguochen.com/design/2014/03/03/Lesson-7-Advanced-Level-Cubes</id>
-    <content type="html"><![CDATA[<p>In this lesson we are going to draw three-dimensional cubes. We are also going to build on it by drawing advanced shapes.</p>
-
-<ol>
-<li>Use guide dots to draw a foreshortened square.</li>
-<li>Lightly draw the sides down, and draw the middle line longer.</li>
-<li>Then draw the bottom of the cube using the lines you have already drawn as a reference. Go ahead and extend all of your direction NW and NE lines out as a guide.</li>
-<li>Draw the guide dot just below the near corner. This guide dot determines the angle of your foreshortened second layer. If your guide dot is placed low, it will distort the layer and throw the entire building out of alignment.</li>
-<li>Using lines drawn as a reference, draw the near edges of the second tier in NE and NW.</li>
-<li>Look at your NE angle at the top foreshortened square of your box. Now, take your pencil and trace over those direction lines lightly to embed the angle of the line into your hand memory. Repeat the same technique to draw the NW line on the other side to create the top of the second layer of the building.</li>
-<li>Complete the second layer of the building. Double check your bottom lines against drawing compass direction arrows NW and NE.</li>
-<li>Begin drawing the doors on the top level with two vetical lines on each side. To make sure your lines are actually vertical, straight up and down, look at the edge of your paper.</li>
-<li>Curve the tops of both doorways on the top floor of the building.</li>
-<li>To create the illusion that these doors actually exist as 3 dimensional entrances to this building, we need to add thickness to them. If the door is on the right, the thickness is on the right. If door is on the left, the thickness is on the left.</li>
-<li>Complete the door by following the line of the exterior door as it curves up.</li>
-<li>Look at the door on the left side. Using the drawing compass direction NE lines you drew earlier as reference, draw the thickness on the left-side door on the left side of the entrance.</li>
-<li>Erase your side lines at the bottom of each door. With a well placed line in drawing directions NW and NE, you can easily create the visual illusion that there is a hallway or a room inside each doorway.</li>
-<li>Let&rsquo;s create ramp on the left side first. Draw the vertical back edge of the ramp against the wall, and extend the bottom edge of the ramp out in drawing compass direction SW.</li>
-<li>Draw the thickness of the ramp with two lines in direction NW, matching the angles with the linesyou drew earlier in direction NW.</li>
-<li>Complete the far edge of the ramp by matching the angle of the front edge.</li>
-<li>Erase guide lines behind the ramp. Using the lines you already drew in direction NE as reference, draw the ramp on the right side.</li>
-<li>Complete your two-layered foreshortened ramp building by drawing the horizon line above the building, positioning your light source, and shading all the surfaces opposite your light position. Using your reference lines to angle the cast shadow correctly direction SW is really simple when you are drawing buildings; just extend the bottom lines. We are done!</li>
-</ol>
-
-
-<p>Here&rsquo;s how my piece looks like:
-<img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6C580A37-C2F4-4F72-B97D-CB89CABA6BBC.jpg" alt="lesson7" /></p>
 ]]></content>
   </entry>
   

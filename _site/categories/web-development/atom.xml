@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web development | GuoChen | Blog]]></title>
   <link href="http://blog.hguochen.com/categories/web-development/atom.xml" rel="self"/>
   <link href="http://blog.hguochen.com/"/>
-  <updated>2014-06-18T12:43:06+08:00</updated>
+  <updated>2017-01-08T19:06:05-08:00</updated>
   <id>http://blog.hguochen.com/</id>
   <author>
     <name><![CDATA[GuoChen]]></name>
@@ -14,9 +14,367 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Django South incorrectly parsing python keywords]]></title>
+    <link href="http://blog.hguochen.com/web%20development/2014/11/26/Django-South-parsing-python-keywords/"/>
+    <updated>2014-11-26T01:48:29-08:00</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/11/26/Django-South-parsing-python-keywords</id>
+    <content type="html"><![CDATA[<p>Code base below is an expert from a production level <a href="https://www.djangoproject.com">Django</a> stack using <a href="https://south.readthedocs.org/en/latest/">Django South 0.8.4</a> as a database migration tool.</p>
+
+<p>Came across a bloc of code on Django Models looking like this earlier:</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26095115.png" alt="django_models" /></p>
+
+<p>The category class inherits the django model class and extends a field called &lsquo;type&rsquo; as a varchar field in SQL database.</p>
+
+<p>See the problem? The variable <strong>type</strong> is a python keyword and should never be declared as a variable field in a python module. I would expect a SyntaxError be thrown when South parses the <code>models.py</code> file for migration but it does not. As it turns out, the migration file is actually parsed correctly as &lsquo;intended&rsquo;.</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102117.png" alt="migration_file" /></p>
+
+<p>I went to dig up the south documentation API that handles this:</p>
+
+<p><img src="http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102443.png" height="350" alt="south_doc_api" /></p>
+
+<p>As seen, South simply parses the field_name as a string without performing any form of python keyword checking on the input. This is not right and should be changed. Not only does it confuse the developer but could potentially corrupt the database. With the current implementation, we could potentially have field names like &lsquo;<em>-</em>&mdash;____&rsquo;, &lsquo;%*@#^&rsquo; or even &lsquo;:)&rsquo;. Imagine the kind of SQL statments you have to write to retrieve those fields :D.</p>
+
+<p>Until South do something about this, we should consciously avoid using python keywords even if it works for the migration. As a quick hack, run</p>
+
+<pre><code>python &lt;filename&gt;.py
+</code></pre>
+
+<p>to quickly check for any SyntaxErrors in the file before further actions.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Redesigning marathonsingapore.com]]></title>
+    <link href="http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/"/>
+    <updated>2014-09-11T06:19:34-07:00</updated>
+    <id>http://blog.hguochen.com/web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com</id>
+    <content type="html"><![CDATA[<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg" width="600" alt="marathonsingapore redesigned" /></p>
+
+<h2>The Situation</h2>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/screencapture-www-marathonsingapore-com.png" width="400" alt="Marathonsingapore.com" /></p>
+
+<p>The <a href="http://www.marathonsingapore.com">Standard Chartered Marathon Singapore</a> has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website <a href="http://www.marathonsingapore.com">www.marathonsingapore.com</a> is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy. Contents are hidden among a sphagetti of flashy colours. On searching for information, i have to actually resort to googling about the site instead of navigating the site itself. I consider that a failure in content design.</p>
+
+<p>Ok let&rsquo;s be systematic about its shortcomings. Here are the problems i have identified on the current site design:</p>
+
+<ul>
+<li>Page styles that can be rendered with HTML/CSS are instead done with raw jpg images. Looks like optimization concerns was thrown right out the building from the start.</li>
+<li>A simple inspect element reveals a total of 8 colors used for the frontpage. Some of these colors are neither analogous nor complementary to each other. The resulting visual distraction is appalling.</li>
+<li>Call to Action(CTA) buttons are hidden among less relevant contents.</li>
+<li>Content flow on page are non-hierarchical.</li>
+<li>Site navigation bar are cluttered and information meta-data is a mess.</li>
+<li>Date, Time &amp; Place(DTP) are non obvious at a glance.</li>
+<li>Lack of sitemap to aid user navigation.</li>
+<li>Teaser box contents are prefixed with useless meta-info such as Images, Videos, Highlights etc.</li>
+<li>For a running event, statistics banner information are totally irrelevant. Would the public seriously care about how many bananas or amount of water consumed in a race held last year? Since i&rsquo;m not your logistics officer, i would be more interested in learning how many runners participated in each category don&rsquo;t you think?</li>
+</ul>
+
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at44030pm.png" width="600" alt="statistics banner" /></p>
+
+<h2>My Task</h2>
+
+<p>With the problems identified, my job scope is pretty clear from now on. Here are my design objectives:</p>
+
+<ol>
+<li>Re-introduce a color theme to the site such that it puts the focus on the content.</li>
+<li>Organize the navigation bar that correctly depicts the meta-datas.</li>
+<li>Collate a sitemap to be appended to the footer for easier site navigation.</li>
+<li>Use visual cues to bring out the importance of CTAs.</li>
+<li>Redesign teaser boxes as an entry point to the site&rsquo;s content.</li>
+</ol>
+
+
+<h2>Action</h2>
+
+<h4>Logo and navigation bar</h4>
+
+<p>Race date, time and venue are probably the 3 most important piece of information for a running event. So we are going to place them right where visitors first sees when visiting our page.</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at50832pm.png" width="600" alt="top banner" /></p>
+
+<p>Since there are many race categories for Standard Chartered Marathon, the start times for different races are staggered. In this case, to prevent confusion, we obscure time information from the banner and present them in the event schedule instead.</p>
+
+<p>Navigation bar is restructured and renamed to correctly identify relevant meta-datas. Some of the less relevant information such as &lsquo;2013 results&rsquo; are demoted from this piece of expensive real estate.</p>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png" width="600" alt="navigation bar before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51738pm.png" width="600" alt="navigation bar after" /></p>
+
+<h4>Carousel section</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52122pm.png" width="600" alt="carousel section before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52134pm.png" width="600" alt="carousel section after" /></p>
+
+<p>The current carousel section had a bad choice of picture. This contributes to obscuring the importance of CTAs. Instead of choosing pictures, we are going to completely remove pictures as part of carousel theme and introduce a reasonable tagline to supplement the website&rsquo;s agenda.</p>
+
+<p>Clear CTAs sits just below the tagline to guide users on the appropriate course of action.</p>
+
+<p>The countdown to race day is a pretty good idea, but it was previously obscured in the right corner of the page. I redesigned and moved the countdown timer to dead center.</p>
+
+<h4>Teaser boxes</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53842pm.png" width="400" alt="teaser box before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53817pm.png" width="400" alt="teaser box after" /></p>
+
+<p>The existing teaser section didn&rsquo;t make sense to me. What does &lsquo;IMAGES&rsquo; and &lsquo;VIDEOS&rsquo; section header tell you? I re-worked this section completely to reflect the content groupings of the website. These teasers will serve as entry point to its respective array of contents.</p>
+
+<h4>Footer and sitemap</h4>
+
+<p>Before:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54535pm.png" width="600" alt="footer before" /></p>
+
+<p>After:</p>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54543pm.png" width="600" alt="footer after" /></p>
+
+<p>For easier site navigation, i&rsquo;ve added a simple footer that allows users to view the content headers at a glance.</p>
+
+<h2>Result</h2>
+
+<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/screencapture-rawgit-com-hguochen-marathon_singapore-master-index-html.png" width="600" alt="redesigned marathonsingapore.com" /></p>
+
+<p>The static page is hosted <a href="https://rawgit.com/hguochen/marathon_singapore/master/index.html">HERE</a> if you would like to inspect elements and dabble with my design. Otherwise, for the geeks out there, this project also sits on my <a href="https://github.com/hguochen/marathon_singapore.git">github repository</a>. Let me know what you think about my redesign and leave in the comments below!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django environment optimal setup]]></title>
+    <link href="http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup/"/>
+    <updated>2014-07-22T10:08:54-07:00</updated>
+    <id>http://blog.hguochen.com/web%20development/2014/07/22/Django-environment-optimal-setup</id>
+    <content type="html"><![CDATA[<p><a href="https://www.djangoproject.com">Django</a> is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!</p>
+
+<h3>Prerequisites</h3>
+
+<p>A working knowledge of python language and Django framework is assumed. You will also have to know <a href="http://git-scm.com">git</a> for version control.</p>
+
+<h3>Install Python</h3>
+
+<p>Head over to <a href="http://python.org">python.org</a> and find the install instructions for your specific OS. For my development environment, i&rsquo;m running MAC OSX Mavericks.</p>
+
+<p>To check you have installed python correctly, type</p>
+
+<pre><code>$ python
+</code></pre>
+
+<p>into terminal command line and you should get the following output:</p>
+
+<pre><code>Python 2.7.5 (default, Mar  9 2014, 22:15:05) 
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</code></pre>
+
+<h3>Install pip</h3>
+
+<p><a href="http://pip.readthedocs.org/en/latest/index.html">Pip</a> is a great tool for installing and managing python packages. We are going to use pip to install all third party packages to supplement our project.</p>
+
+<p>The easy way to install pip is to first download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>. Then run the following command in the folder with the downloaded file on your terminal:</p>
+
+<pre><code>$ python get-pip.py
+</code></pre>
+
+<p>And you are done installing! You can test pip installed correctly with the command:</p>
+
+<pre><code>pip -V
+</code></pre>
+
+<p>which shows the version of your pip.</p>
+
+<h3>Install virtualenv</h3>
+
+<p><a href="http://virtualenv.readthedocs.org/en/latest/">Virutalenv</a> is a great tool to sandbox your development environments so you don&rsquo;t have to switch back and forth between different versions of softwares. What&rsquo;s more, the excellent extension <a href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a> makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.</p>
+
+<p>We are also going to use <a href="https://pypi.python.org/pypi">pip</a> to install packages.</p>
+
+<p>First, let&rsquo;s install virtualenv. Note that you can get both virtualenv and virtualenvwrapp install just by install ing virtualenvwrapper.</p>
+
+<pre><code>$ pip install virtualenvwrapper
+</code></pre>
+
+<p>After it&rsquo;s installed, add following lines to your .bashrc file:</p>
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/directory-you-do-development-in
+source /usr/local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<p>Then type the following command to &lsquo;activate&rsquo; your modified .bashrc file:</p>
+
+<pre><code>$ source .bashrc
+</code></pre>
+
+<h3>Creating new environment</h3>
+
+<p>To create a new virtual environment, type:</p>
+
+<pre><code>$ mkvirtualenv django_project
+</code></pre>
+
+<p>where django_project is whatever name your project is. You should see your shell is now prepended by (django_project).</p>
+
+<p>The django_project prepending is a reminder that you are using virtualenv instal of your system&rsquo;s Python installation. To exit, the virtual environment, simple type deactivate. When you want to resume work on your project, it&rsquo;s as easy as typing</p>
+
+<pre><code>$ workon django_project
+</code></pre>
+
+<p>Where you run the command doesn&rsquo;t matter.</p>
+
+<h3>Install Django</h3>
+
+<p>Since we are working in virtualenv, we have to install Django into this virtual environment. This makes sure that the version of Django we use for this project is not confused with other versions used by the system or other virtual environments.</p>
+
+<pre><code>$ pip install django
+</code></pre>
+
+<p>This should give you the latest version of Django which will be installed in your virtualenv area. You can confirm this by doing:</p>
+
+<pre><code>$ which django-admin.py
+</code></pre>
+
+<p>Which should point to your $HOME/.virtualenvs/django_project/bin/django-admin.py.</p>
+
+<h3>Setup project folder</h3>
+
+<p>Now we can create our project directory. I highly recommend using <a href="https://github.com/twoscoops/django-twoscoops-project">two scoops Django</a> project template for all Django projects. If you are new to two scoops django, it is actually a compilation of some of the best practices for developing Django projects. You can purchase a copy of this amazing book <a href="http://twoscoopspress.org/">here</a>.</p>
+
+<p>Now go ahead and setup the project with this command:</p>
+
+<pre><code>$ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html django_project
+</code></pre>
+
+<p>Note that this command creates a django_project directory with the two scoops django template. I&rsquo;ll leave you to read more about <a href="https://github.com/twoscoops/django-twoscoops-project">two scoops django template</a> yourself.</p>
+
+<h3>Source control</h3>
+
+<p>Git is automatically installed in your virtual environment when you created it with virtualenvwrapper earlier.</p>
+
+<p>Since our folder and file structure is up now, let&rsquo;s commit them to source control right from the start. Here&rsquo;s how to do that in git:</p>
+
+<pre><code>$ git init
+</code></pre>
+
+<p>Creates a git repository in the current directory. Now let&rsquo;s stage all of our files to git to be commited.</p>
+
+<pre><code>$ git add django_project
+</code></pre>
+
+<p>Now we commit them to our new repository:</p>
+
+<pre><code>$ git commit -m "Initial commit of django_project"
+</code></pre>
+
+<p>Let&rsquo;s add the remote repository in <a href="http://github.com">github</a>:</p>
+
+<pre><code>$ git remote add origin &lt;remote repository URL&gt;
+</code></pre>
+
+<p>Finally, let&rsquo;s push our changes!</p>
+
+<pre><code>$ git push origin master
+</code></pre>
+
+<h3>South for database migrations</h3>
+
+<p>South is a great tool that detects changes to your models layer and automatically sync the changes to your database without you having to dabble with the database itself. This is done through a migration file that South creates. This lets you both migrate the database forward for new change and backward to undo a change or series of changes.</p>
+
+<p>In our virtualenv, install south using pip:</p>
+
+<pre><code>$ pip install south
+</code></pre>
+
+<p>Then setup south with the project by adding it to our INSTALLED_APPS in settings/base.py file for the project.
+After which, run the command:</p>
+
+<pre><code># python manage.py syncdb
+</code></pre>
+
+<p>to sync the changes and south will be registered along with the project. South will also automatically setup the database with the tables it needs.</p>
+
+<p>Before we commit, we will want tot rack our install Python packages. We want to track the name and version of the python packages we are using so we can recreate our environment easily in the production area. There&rsquo;s a pip command that does this:</p>
+
+<pre><code>$ pip freeze &gt; requirements.txt
+</code></pre>
+
+<p>I pushed the output of pip freeze to a file called requirements.txt which we will add to source control so we always have an updated list of packages being used.</p>
+
+<p>As before, we commit the changes to git and push to remote repository.</p>
+
+<h3>Install Fabric</h3>
+
+<p>To easily deploy a Django application, we use <a href="http://fabric.readthedocs.org/en/1.3.3/api/contrib/django.html">Fabric</a>. Fabric has a number of purposes but it really helps in quick deployments. Install Fabric with the command:</p>
+
+<pre><code>$ pip install fabric
+</code></pre>
+
+<p>Fabric expects a fabfile.py which defines all of the actions we can take. Let&rsquo;s create that file and put the following in fabfile.py in your project&rsquo;s root directory.</p>
+
+<pre><code>from fabric.api import local
+
+def prepare_deployment(branch_name):
+local('python manage.py test django_project')
+local('git add -p &amp;&amp; git commit') # or local('hg add &amp;&amp; hg commit')
+</code></pre>
+
+<p>This will run the test and commit your changes only if your tests pass. A simple &ldquo;pull&rdquo; in your production area becomes your deployment. Let&rsquo;s add the following code to fabfile.py to actually deploy:</p>
+
+<pre><code>from fabric.api import lcd, local
+
+def deploy():
+with lcd('/path/to/my/prod/area/'):
+
+    # With git...
+    local('git pull /my/path/to/dev/area/')
+
+    # With Mercurial...
+    local('hg pull /my/path/to/dev/area/')
+    local('hg update')
+
+    # With both
+    local('python manage.py migrate myapp')
+    local('python manage.py test myapp')
+    local('/my/command/to/restart/webserver')
+</code></pre>
+
+<p>This will pull your changes from the development master branch, run any migrations you&rsquo;ve made, run tests, and restart your web server.</p>
+
+<p>To use this file, we simply type the following in production environment:</p>
+
+<pre><code>$ fab prepare_deployment
+$ fab deploy
+</code></pre>
+
+<p>So that&rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&rsquo;ve missed out something! Rock on folks!</p>
+
+<p>P/S: For your convenience, i have setup a <a href="https://github.com/hguochen/django_template">django_template</a> on github based on the above instructions. You may wish to fork it for your own use!</p>
+
+<p>EDIT: Thanks to Chng Nai Yun, i&rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Steps to solving programming problems]]></title>
     <link href="http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/"/>
-    <updated>2014-06-04T16:07:39Z</updated>
+    <updated>2014-06-04T09:07:39-07:00</updated>
     <id>http://blog.hguochen.com/programming/web%20development/2014/06/04/Steps-to-solving-programming-problems</id>
     <content type="html"><![CDATA[<p>If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the <a href="http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/">Problem analysis coding execution cycle</a> that typical computer science class will teach. Hope it will be of use to you!</p>
 
@@ -115,7 +473,7 @@
   <entry>
     <title type="html"><![CDATA[Reverse a singly linked list]]></title>
     <link href="http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list/"/>
-    <updated>2014-05-26T21:01:58Z</updated>
+    <updated>2014-05-26T14:01:58-07:00</updated>
     <id>http://blog.hguochen.com/web%20development/2014/05/26/Reverse-a-linked-list</id>
     <content type="html"><![CDATA[<p>I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.</p>
 
@@ -172,320 +530,6 @@
 <p>This little devil took me quite awhile to figure out as it&rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&rsquo;t imagine a scenario where i&rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).</p>
 
 <p>Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Designing Beebeta]]></title>
-    <link href="http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta/"/>
-    <updated>2014-04-01T11:48:00Z</updated>
-    <id>http://blog.hguochen.com/design/web%20development/2014/04/01/Designing-Beebeta</id>
-    <content type="html"><![CDATA[<p>A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&rsquo;s stack at <a href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/">Beebeta Engineering</a>.</p>
-
-<p>Being new to the world of frontend designing, i&rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.</p>
-
-<h2>What is Beebeta?</h2>
-
-<p>Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&rsquo;s opinions on questions at hand. That&rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks about an issue. Which could be questions as trivial as &lsquo;Which restaurant serves the best Ramen?&rsquo; or global issues such as &lsquo;Should gay marriage be allowed?&rsquo;.</p>
-
-<h2>Design Goal</h2>
-
-<p>With the above concept, it is evident that Beebeta is all about polling the public with questions. We are going to implement this by asking users questions and offer pre-determined choices for voting. Users may also add additional choices if they like. Here are a few design goals i&rsquo;ve charted out:</p>
-
-<ul>
-<li>Questions are the prime content of the website</li>
-<li>All visual elements should contribute to better contents</li>
-<li>User&rsquo;s Call To Action(CTA) is voting and should be encouraged visually</li>
-<li>Page should be simple and minimalistic</li>
-</ul>
-
-
-<h2>Research and idea generation</h2>
-
-<p>Do some googling to get the creativity juices flowing. These are some of the places i checkout to brainstorm design ideas:</p>
-
-<ul>
-<li><a href="http://pinterest.com">Pinterest</a></li>
-<li><a href="http://smashingmagazine.com">Smashing Magazine</a></li>
-<li><a href="http://quora.com">Quora</a></li>
-<li><a href="http://createivebloq.com">Creative Bloq</a></li>
-</ul>
-
-
-<p>I usually grab a pencil and sketchbook to jot down some of the things such as essential page elements, layout, colors, typefaces and navigation details. Sometimes i feel particularly artistic and try to draw&hellip;</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/EBAE3B09-C994-459F-AEB7-9964CA67A066.jpg" width="300" alt="doodle" /></p>
-
-<p>Ok fine i admit calling it &lsquo;drawing&rsquo; is an overstatement. Very-very crude mockups.</p>
-
-<h2>Design</h2>
-
-<p>All my page designs start from mockups. From grid layout, to box structure and eventually down to individual elements. For each step of this process, i pay attention to how elements in question interacts with each other and establish cohesiveness.</p>
-
-<h3>Grid Layout</h3>
-
-<p>I adopted the 12-grid system for <a href="http://getbootstrap.com/">Bootstrap 3</a>. Boostrap 3 is designed &lsquo;mobile first&rsquo;. It&rsquo;s newly renovated grid system caters to a whole array of digital devices from mobile phone to high resolution desktops. A nice tutorial about the new grid system for Bootstrap is found <a href="http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system">here</a>.</p>
-
-<p>I used the following grid dimensions:</p>
-
-<pre><code>/* 12 col responsive grid */
-
-.row {
-    clear: both;
-    max-width: 1040px;
-    margin: 0 auto;
-}
-
-[class^="col-"]:last-child {
-    margin: 0;
-}
-
-[class^="col-"] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-
-
-.col-xs-1 { width: 4.8076923077% }
-.col-xs-2 { width: 13.4615384615% }
-.col-xs-3 { width: 22.1153846154% }
-.col-xs-4 { width: 30.7692307692% }
-.col-xs-5 { width: 39.4230769231% }
-.col-xs-6 { width: 48.0769230769% }
-.col-xs-7 { width: 56.7307692308% }
-.col-xs-8 { width: 65.3846153846% }
-.col-xs-9 { width: 74.0384615385% }
-.col-xs-10 { width: 82.6923076923% }
-.col-xs-11 { width: 91.3461538462% }
-.col-xs-12 { width: 100%; margin: 0 }
-</code></pre>
-
-<h3>Typeface</h3>
-
-<p>I think typeface of a website determines the longevity and pleasure of browsing its contents. Good typefaces gives readability and allows you to focus on the content. For beebeta, i used <strong>serif</strong> typeface for block headers and <strong>helvetica neue</strong> for body texts. These are generally pretty safe typefaces for websites.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at30154pm.png" alt="beebeta icon" /></p>
-
-<p>The Beebeta typeface in the icon is given to me pre-designed as <strong>OratorStd</strong>.</p>
-
-<h3>Colour</h3>
-
-<p>I used 3 colors as the theme of Beebeta. 2 triad colors, <strong>#4288CA</strong>(Celestial Blue) &amp; <strong>#5CB85C</strong>(Fern) and 1 neutral color <strong>#F0F0F0</strong>(Beige Grey).</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at31235pm.png" width="500" alt="color theme" /></p>
-
-<p><strong>Fern green</strong> is used for navigational contents and Call To Action(CTA) activites users performs.</p>
-
-<p>Netural color <strong>Beige Grey</strong> will make the base color of the site. This effectively allows focus on contents without too much &lsquo;noise&rsquo; from the background.</p>
-
-<p><strong>Celestial Blue</strong> are used as cordoned containers for user details and personal spaces within the site.</p>
-
-<p>Effectively the site is just a mix and match of these 3 simple colours.</p>
-
-<h3>Navigation</h3>
-
-<p>Navigation determines the usability of the site. For our Minimum Viable Product(MVP), which has limited features, i want users to understand the purpose of the website at a glance through navigational bar without having it competing for user attention from the contents. Since posting questions is fundamental to the site. It should have a visual focus primarily, with user utility functions available nearby. Here is how it looks:</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at125833pm.png" width="700" alt="navigation bar" /></p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33130pm.png" width="700" alt="navigation bar 2" /></p>
-
-<h3>Header</h3>
-
-<p>I wanted a simple header without any unnecessary contents. It should be so painfully simple that it looks almost undesigned at all. I think the benefits of a bare-bone header drives clarity. That users don&rsquo;t derive too much assumptions of the contents of the website based on header. It invites users browse to find out more. Here&rsquo;s how it looks like:</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33337pm.png" width="600" alt="header" /></p>
-
-<p>I am experimenting with color-coding of question categories here. Each category is assigned a colour. My aim is to promote category classifications so users sub-consciously associate a colour to a category. I&rsquo;m guessing this will contribute to an easier browsing experience over time.</p>
-
-<h3>Question Card</h3>
-
-<p>Question card is the main content. It is what beebeta is all about. My design concept for questions takes the form of &lsquo;question cards&rsquo;. Each poll question is a unique question card served.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at34610pm.png" width="600" alt="question card" /></p>
-
-<p>In order to synchronise the color-coding category concept earlier, i added a subtle colour border for each question card of its associated category. The question card displays the question text, user uploaded image, uploader&rsquo;s name, number of choices and number of votes received so far.</p>
-
-<h3>Voting</h3>
-
-<p>I adopted the classic reddit style voting which allows users to vote up a choice and provide a visual feedback with updated vote count and fern green arrow up button.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40029pm.png" width="200" alt="voting" /></p>
-
-<h3>Profile page</h3>
-
-<p>As an extension of the &lsquo;question card&rsquo; concept, i gave a similar box style to profile page. Users have 3 profile boxes which is unique to them, namely User Information, Questions and Votes counts.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40212pm.png" width="500" alt="profile page" /></p>
-
-<p>The following tab, My questions, allows users to view and edit his posted questions.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40736pm.png" width="500" alt="my questions" /></p>
-
-<h3>Footer</h3>
-
-<p>I&rsquo;ve choosen flat white for footer, which colour synchronises with the header. Again, i&rsquo;m experimenting with using lighter colours as opposed to heavy colors for headers and footers.</p>
-
-<p><img src="http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40922pm.png" width="700" alt="footer" /></p>
-
-<p>So that&rsquo;s it folks! If you think that this design is really basic, you are right! I do agree that there are alot more to be done with the design of a polling site like Beebeta. I would like to hear your comments and suggestions on how i can improve my design. Peace out! :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beebeta Engineering]]></title>
-    <link href="http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/"/>
-    <updated>2014-03-31T16:19:30Z</updated>
-    <id>http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering</id>
-    <content type="html"><![CDATA[<p><a href="https://www.facebook.com/leeagustiadi">Agus</a> and <a href="https://www.facebook.com/jaielhaevin">Joel</a> conceptualized the Beebeta project sometime ago and invited me to handle the technical aspect of it. I didn&rsquo;t know what Beebeta was then but the moment i heard of the idea, i loved it! We spent our valuable weekends hacking out Beebeta and we are going to release it very soon! <a href="http://www.beebeta.com">Beebeta v1.0</a> is finally out for public thrashing and hating! Ok but please be nice :(</p>
-
-<p>Having architected the Beebeta backend, i thought it would be fun to give an idea of Beebeta from an engineering perspective. This is how we think an online polling system should be built. Feel free to disagree, we would love to hear your opinions :)</p>
-
-<p>In short, Beebeta is a web platform to gather crowdsourced knowledge. It is an online timeless repository of public opinions which is easily accessible through a poll-like web interface.</p>
-
-<h3>Why Beebeta?</h3>
-
-<p>Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&rsquo;s opinions on questions at hand. That&rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks. Which could be questions as trivial as &lsquo;Which restaurant serves the best Ramen?&rsquo; or global issues such as &lsquo;Should gay marriage be allowed?&rsquo;.</p>
-
-<p>Ok so much for pitching, that&rsquo;s not the purpose of this post. We are here for the nerd stuff arn&rsquo;t we?</p>
-
-<h3>Engineering Goal</h3>
-
-<p>Throughout the implementation of Beebeta, we had a few goals in mind:</p>
-
-<ol>
-<li>Don&rsquo;t do unnecessary stuff</li>
-<li>Don&rsquo;t reinvent the wheel</li>
-<li>Be versatile in technology options</li>
-</ol>
-
-
-<h3>OS/Hosting</h3>
-
-<p>Beebeta runs Ubuntu 13.10(Saucy Salamander) on Amazon EC2. We tried Linux AMI(CentOS) on EC2 but find the environment not as usable as Ubuntu, plus the software updates were not consistently updated. Also, stress tests on the CentOS server resulted in unpredictable crashes. Since Beebeta is a small project, we ruled out self-hosting as an option. We definitely don&rsquo;t want to waste time setting up servers ourselves.</p>
-
-<h3>Load Balancing</h3>
-
-<p>All server requests goes through our load balancers. We use Amazon&rsquo;s Elastic Load Balancer(ELB) with 2 Nginx instances behind it. I admit now may be abit too early to devote load balancing resources but in case of unexpected traffic spikes, it will be good to pick up from here and scale instead of getting caught off-guard. I skipped using anything to handle the DNS though. But i may revisit the issue with Amazon&rsquo;s Route53 in future.</p>
-
-<h3>Application Server</h3>
-
-<p><a href="https://www.python.org/download/releases/2.7.5/">Python 2.7.5</a> and <a href="https://www.djangoproject.com/">Django 1.6.2</a> was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used <a href="http://www.virtualenv.org">virtualenv</a> to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.</p>
-
-<p>Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&rsquo;m exploring the possibility of shifting to <a href="http://gunicorn.org">Gunicorn</a> in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.</p>
-
-<h3>Data storage</h3>
-
-<p>Meta-data&rsquo;s such as tags, url strings etc lives in MySql table rows.</p>
-
-<p>Our BLOB data lives in Amazon&rsquo;s S3 standard storage. I thought of using glacier storage for original files and standard storage for rendered files but unfortunately S3 does not provide glacier storage in Singapore region yet. I forsee using glacier storage would cut costs by about 30% for every 10GB of data. Will keep in view for future changes, once glacier storage is opened up in Singapore. Content Distribution wise, we use <a href="http://aws.amazon.com/cloudfront">Amazon CloudFront</a>, which helps with page load times from users at different parts of the world.</p>
-
-<p>Caching wise, we use memcached and currently have 1 memcached instance, which is connected to using pylibmc &amp; libmemcached. I&rsquo;m aware there&rsquo;s <a href="http://aws.amazon.com/elasticache/">Amazon&rsquo;s Elastic Cache</a> service for this, but i havent got around to reading up on that yet.</p>
-
-<h3>Django apps</h3>
-
-<p>As part of our goal not to reinvent the wheel. we used quite a few out-of-the-box django apps to facilitate building of Beebeta platform.</p>
-
-<p><a href="http://boto.readthedocs.org/en/latest/ref/s3.html">S3Boto</a> is used to connect the server scripts with different Amazon web services seamlessly.</p>
-
-<p><a href="http://pythonhosted.org/django-analytical/services/mixpanel.html">Django-analytical</a> is used to track various site metrics on the application itself.</p>
-
-<p><a href="https://pypi.python.org/pypi/django-debug-toolbar">Django-debug-toolbar</a>(my favourite debugging tool!) is used on development environments for almost all debugging tasks.</p>
-
-<p><a href="https://pypi.python.org/pypi/django-pagination">Django-pagination</a> is used to paginate database querysets into proper pages.</p>
-
-<p><a href="http://south.readthedocs.org/en/latest/">Django-south</a> is used to easily perform database migration tasks between ORM and the database itself.</p>
-
-<p><a href="https://bitbucket.org/ubernostrum/django-registration/">Django-registration</a> is used to handle user registration/login/logout issues.</p>
-
-<h3>Monitoring</h3>
-
-<p>We are using <a href="https://mixpanel.com">Mixpanel</a> to track user activites on the site. These tracking statistics are filtered up to 2 timeless campaigns. First campaign to track site traffic activites such as page traffic, user sign ups etc. Second campaign to track question and choices interactions of all questions on the site. At any one time we will know which questions are most popular or which group of users are most active at different times of the day.</p>
-
-<p>For backend monitoring, we are using <a href="http://newrelic.com">New Relic</a> to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.</p>
-
-<p>For Python error reporting, we use <a href="http://sentry.readthedocs.org/en/latest/">Sentry</a>, an open-source Django app written by the <a href="http://disqus.com">Disqus</a> folks. We can closely monitor error messages at real-time relatively easy with this handy tool.</p>
-
-<h3>What&rsquo;s your stack?</h3>
-
-<p>That&rsquo;s so much for Beebeta stack. Feel free to leave your comments below if you think we&rsquo;ve made a terrible mistake. Otherwise, I&rsquo;d love to hear how you implement your stacks!</p>
-
-<p>Lastly, i&rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)</p>
-
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/c_H3MWVx6JU?color=white&theme=light"></iframe></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to learn Javascript]]></title>
-    <link href="http://blog.hguochen.com/web%20development/2014/03/15/How-to-learn-Javascript/"/>
-    <updated>2014-03-15T15:35:12Z</updated>
-    <id>http://blog.hguochen.com/web%20development/2014/03/15/How-to-learn-Javascript</id>
-    <content type="html"><![CDATA[<p>One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&rsquo;t alot of experiences dealing with javascript before so i&rsquo;ve no choice but to start from the base language.</p>
-
-<p>Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.</p>
-
-<h3>0. Read up on fundamentals of Javascript</h3>
-
-<blockquote><p>Javascript is the language of the browser.</p></blockquote>
-
-<p>Javascript used to be a client-side programming language running client web scripts. It&rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with <a href="http://nodejs.org/%E2%80%8E">Node.js</a> being the new kid in town.</p>
-
-<p><a href="http://eloquentjavascript.net/index.html">Eloquent Javascript</a> by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &ldquo;eloquent&rdquo; isn&rsquo;t an overstatement.</p>
-
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">A Re-introduction to JavaScript</a>. This introduction is on the Mozilla Developers Network, and it&rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.</p>
-
-<h3>1. Go through the Javascript course at Codecademy.com</h3>
-
-<p><a href="www.codecademy.com">Codecademy</a> revamped its courses to learning javascript and touted itself as &ldquo;the easiest way to learn how to code&rdquo;. There are currently two courses on JS: &ldquo;Getting started with Programming&rdquo; and &ldquo;Javascript Quick Start Guide&rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.</p>
-
-<p>If you are already familiar with other programming languages, you can start with &ldquo;Javascript Quick Start Guide&rdquo;. If you are fresh to programming, &ldquo;Getting started with programming&rdquo; is tailored for you. Codecademy is free, but sign up is required.</p>
-
-<h3>2. Screencast tutorials at TheNewBoston</h3>
-
-<p><a href="http://thenewboston.org/list.php?cat=10">The New Boston</a> for javascript has an awesome set of screencast tutorials geared for beginners. It&rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&rsquo;s easier to follow than written scripts.</p>
-
-<h3>3. Install and Learn Firebug(or Chrome Developer Tools)</h3>
-
-<p><a href="http://getfirebug.com/">Firebug</a> is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer <a href="www.google.com/chrome/">Google Chrome</a> or <a href="https://www.apple.com/sg/safari/%E2%80%8E">Safari</a>, check out the built-in developer tools.</p>
-
-<blockquote><p>Open developer tools panel by press <code>Option + Cmd +I</code> on mac, or <code>Ctrl+Shift+I</code> on the PC.</p></blockquote>
-
-<p>Check out some of the useful guides on using both of these tools:</p>
-
-<ul>
-<li>Firebug
-
-<ul>
-<li><a href="http://css-tricks.com/video-screencasts/15-introduction-to-firebug/">Introduction to Firebug</a> on <a href="http://css-tricks.com/">CSS-Tricks</a></li>
-<li><a href="http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/">10 Reasons Why You Should Be Using Firebug</a></li>
-</ul>
-</li>
-<li>Developer Tools
-
-<ul>
-<li><a href="http://code.google.com/chrome/devtools/">Developer Tools Website</a></li>
-<li><a href="http://www.youtube.com/watch?v=nOEw9iiopwI&amp;feature=player_embedded">Google Chrome Developer Tools: 12 Tricks to Develop Quicker</a> by Paul Irish</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>4. Begin Learning a JavaScript Library &ndash; jQuery</h3>
-
-<p>The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but <a href="http://jquery.com/">jQuery</a> is probably the most popular and widely used library. For a start, read through the <a href="http://learn.jquery.com/about-jquery/">jQuery Documentations</a> to get an idea of the ease of using javascript libraries as opposed to javascript raw language.</p>
-
-<h3>5. Work through the tutorial at Try jQuery</h3>
-
-<p><a href="http://try.jquery.com/">Try jQuery</a> is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to <a href="http://api.jquery.com">jQuery API</a> while going through the tutorial.</p>
-
-<h3>6. Screencast jQuery tutorials at TheNewBoston</h3>
-
-<p>Again, <a href="http://thenewboston.org/list.php?cat=32">The New Boston</a> for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.</p>
-
-<p>So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!</p>
 ]]></content>
   </entry>
   

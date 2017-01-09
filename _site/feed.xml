@@ -7,6 +7,591 @@
                 <atom:link href="http://blog.hguochen.com/feed.xml" rel="self" type="application/rss+xml" />
                 
                         <item>
+                                <title>Hello 2015</title>
+                                <description>&lt;p&gt;So 3 quarters of 2015 just flew by and i&amp;rsquo;ve almost spent a year in the silicon valley as a software engineer already. Alot of things happened, some things i&amp;rsquo;m extremely thankful for and some not so much. Here are some of the things that defined my 2015, mainly for self-reflection but if this piece helped you in some way, i&amp;rsquo;d love to hear from you.&lt;/p&gt;
+
+&lt;h3&gt;1. Hardwork pays off&lt;/h3&gt;
+
+&lt;p&gt;I worked really hard and learnt a whole bunch of stuff this year. When i first came over to the silicon valley, i never saw myself as a software engineer much. More of a web developer. I wanted to change that, so i grabbed every opportunity to learn. My job requires working python, django knowledge and i think i did that fairly well. But deep down i never really understood the intracies of software development and under-the-hood details. So i dug into the core of my company&amp;rsquo;s technology stack and went through every single bit of details and familiarized myself with tools like Vagrant, Salt, Celery, Redis, Nginx, AWS services along the way. The more i read about these tools, the more curious i am on how other companies built their technology stacks.&lt;/p&gt;
+</description>
+                                <pubDate>Fri, 16 Oct 2015 06:43:35 -0700</pubDate>
+                                <link>http://blog.hguochen.com//random/2015/10/16/Hello-2015/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2015/10/16/Hello-2015/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Django South incorrectly parsing python keywords</title>
+                                <description>&lt;p&gt;Code base below is an expert from a production level &lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt; stack using &lt;a href=&quot;https://south.readthedocs.org/en/latest/&quot;&gt;Django South 0.8.4&lt;/a&gt; as a database migration tool.&lt;/p&gt;
+
+&lt;p&gt;Came across a bloc of code on Django Models looking like this earlier:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26095115.png&quot; alt=&quot;django_models&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The category class inherits the django model class and extends a field called &amp;lsquo;type&amp;rsquo; as a varchar field in SQL database.&lt;/p&gt;
+
+&lt;p&gt;See the problem? The variable &lt;strong&gt;type&lt;/strong&gt; is a python keyword and should never be declared as a variable field in a python module. I would expect a SyntaxError be thrown when South parses the &lt;code&gt;models.py&lt;/code&gt; file for migration but it does not. As it turns out, the migration file is actually parsed correctly as &amp;lsquo;intended&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102117.png&quot; alt=&quot;migration_file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I went to dig up the south documentation API that handles this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1218.photobucket.com/albums/dd420/hguochen/Screenshot2014-11-26102443.png&quot; height=&quot;350&quot; alt=&quot;south_doc_api&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As seen, South simply parses the field_name as a string without performing any form of python keyword checking on the input. This is not right and should be changed. Not only does it confuse the developer but could potentially corrupt the database. With the current implementation, we could potentially have field names like &amp;lsquo;&lt;em&gt;-&lt;/em&gt;&amp;mdash;____&amp;rsquo;, &amp;lsquo;%*@#^&amp;rsquo; or even &amp;lsquo;:)&amp;rsquo;. Imagine the kind of SQL statments you have to write to retrieve those fields :D.&lt;/p&gt;
+
+&lt;p&gt;Until South do something about this, we should consciously avoid using python keywords even if it works for the migration. As a quick hack, run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python &amp;lt;filename&amp;gt;.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to quickly check for any SyntaxErrors in the file before further actions.&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 26 Nov 2014 01:48:29 -0800</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/11/26/Django-South-parsing-python-keywords/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/11/26/Django-South-parsing-python-keywords/</guid>
+                        </item>
+                
+                        <item>
+                                <title>My H1B1 experience</title>
+                                <description>&lt;p&gt;I would like to share my H1B1(US work visa) application experience now that i&amp;rsquo;ve landed myself a work visa in California as a software engineer. I&amp;rsquo;m a Singapore citizen and have not previously been to USA except for a prior business/vacation trip in May 2014. The entire application, from the point i signed the employment offer letter to my flight departure, took about 1 month in total. Which is a pretty fast process.&lt;/p&gt;
+
+&lt;p&gt;During my application, &lt;a href=&quot;http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself&quot;&gt;Christina&amp;rsquo;s quora post&lt;/a&gt; on filing for H1B1 visa yourself helped me alot and i would strongly recommend anyone with a interest in H1B1 to take a look. Otherwise, the &lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-typeh1b1.asp&quot;&gt;official visa application website&lt;/a&gt; helps as well, just not as structured.&lt;/p&gt;
+
+&lt;h3&gt;1. Employer files for LCA&lt;/h3&gt;
+
+&lt;p&gt;Right after i signed the employment letter. I was asked to submit the following documents to the company:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;softcopy of passport&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;graduation certificate&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;education transcript&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;It took about 7 days before the company got back to me with an approved Labour Condition Certification(LCA), aka, ETA 9035 or 9035E. For employers, you can file for the LCA via the &lt;a href=&quot;http://icert.doleta.gov/&quot;&gt;iCERT portal&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;2. Visa fee payment&lt;/h3&gt;
+
+&lt;p&gt;Right after getting the LCA certification, i went about making payments for the visa fee. You can check your visa application fee &lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-visafeeinfo.asp&quot;&gt;here&lt;/a&gt;, H1B1 is 247SGD(190 USD).&lt;/p&gt;
+
+&lt;p&gt;As i didn&amp;rsquo;t have a standard chartered bank account, which is required for online transaction, i have to make a trip to one of its branches and pay by cash. After payment at the counter, you will receive a receipt stating a receipt number. This receipt number will be required for applying DS-160. Here&amp;rsquo;s a sample:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-paymentinfo.asp#schedule&quot;&gt;receipt_number&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you made your payment online, take note that your receipt number is the UID of the receipt and NOT the Bill account number.&lt;/p&gt;
+
+&lt;h3&gt;3. Application for non-immigrant visa, DS-160&lt;/h3&gt;
+
+&lt;p&gt;With the LCA approval form. i started applying for the non-immigrant visa, &lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-ds160info.asp&quot;&gt;DS-160&lt;/a&gt;. You must complete the &lt;a href=&quot;https://ceac.state.gov/GenNIV/Default.aspx&quot;&gt;DS-160 form&lt;/a&gt; either by yourself or an US attorney representing you. The entire form takes me about 1 hour to fill up. I finished the application in one sitting but you are allowed to save your progress and resume later on the site. Once submitted. You will have to register an account with the &lt;a href=&quot;https://cgifederal.secure.force.com/?language=English&amp;amp;country=Singapore&quot;&gt;visa application system&lt;/a&gt; in order to book an interview appointment. I was lucky enough to be able to book an appointment just 1 day before the interview itself. I chose the 9.15am slot on friday. I was told the average waiting time for a visa interview is 1 week. By this time, 2 weeks has gone by since i started my application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As of nov 2014, the &lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-ds160info.asp&quot;&gt;DS-160&lt;/a&gt; has an outdated field: &lt;Receipt Number&gt; under the PETITIONER column.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1218.photobucket.com/albums/dd420/hguochen/11005615_803360356424930_450363261_n.jpg&quot; alt=&quot;receipt_number&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This field no longer works and you can just fill in an arbitrary number such as &lt;code&gt;ABC1234567890&lt;/code&gt;. Any value input in this field will NOT affect the outcome of your application. Thanks to Ajay Gopal for pointing this out!&lt;/p&gt;
+
+&lt;h3&gt;4. Visa interview&lt;/h3&gt;
+
+&lt;p&gt;I arrived at the US embassy at 8.45am on friday, 30 minutes before the scheduled time. Note that the scheduled time is the time to arrival at the embassy gate, NOT your actual interview time.&lt;/p&gt;
+
+&lt;p&gt;I brought the folllowing documents for the interview:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Passport(very important. will be retained by embassy and mailed back if your application is successful)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;LCA approval form&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DS-160 confirmation form&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Resume&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Graduation certificate and transcript&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Signed employment offer letter from employer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bank statement&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Both parent&amp;rsquo;s photocopy of IC&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Passport sized photograph&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Visa payment receipt&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;The security check at the embassy gate will pretty much confiscate anything electronic and issue you a number for retrieval later. It&amp;rsquo;s best to put all your documents in a large envelope and go to embassy with that only.&lt;/p&gt;
+
+&lt;p&gt;Once inside the embassy, you are to get a queue number with the visa application office and wait for your turn. There will be 3 steps in total, which means you number will be called 3 times. Note that numbers may not be called in sequence.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;At first call, you are to submit your DS-160 form, passport and passport photo over the counter. I had to retake a passport picture there as they rejected my original photo saying it&amp;rsquo;s not recent. Taking a passport photo there itself costs 10SGD.&lt;/li&gt;
+&lt;li&gt;Second call to the counter will have all your fingerprints scanned and a phamplet will be given to you detailing your rights as a foreign employee in US. Basically it says you will have equality rights enjoyed by americans and you should report any mistreatment/exploitation etc.&lt;/li&gt;
+&lt;li&gt;Lastly, the interview itself. The immigration officer looked through my documents and asked 3 questions in total: What does the company do? What is your role in the company? Where are you staying in the US?&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;They didn&amp;rsquo;t even ask questions pertaining immigration intents. I guess the above documents i prepared was comprehensive enough for the officer to form an opinion of me.&lt;/p&gt;
+
+&lt;p&gt;The whole interview took about 5minutes. At the end of the interview, he told me my visa is approved and they will take and mail back my passport in 3 working days.&lt;/p&gt;
+
+&lt;h3&gt;5. Flight booking&lt;/h3&gt;
+
+&lt;p&gt;Right after the interview, i informed my to-be-employer of visa success status and decided on a flight departure date. They were very nice to sponsor my flight booked it for me so i didn&amp;rsquo;t have to care much about it.&lt;/p&gt;
+
+&lt;h3&gt;6. NS exit permit&lt;/h3&gt;
+
+&lt;p&gt;I served fulltime national service in Singapore and am required to attend Reservist training every year. In order to leave the country, all Singaporean NSmen must apply for an exit permit before their departure. You can apply for an exit permit &lt;a href=&quot;https://www.ns.sg/nsp/web/esvcs/common/eep/apply?_afrLoop=612071552714999&amp;amp;_afrWindowMode=0&amp;amp;_afrWindowId=2j8z4lluh_1&quot;&gt;here&lt;/a&gt;. The approval is instant so you don&amp;rsquo;t have to wait. But in some cases they will need you to submit supporting documents like your employment offer letter, visa application and flight details.&lt;/p&gt;
+
+&lt;h3&gt;7. Departure Preparations&lt;/h3&gt;
+
+&lt;p&gt;I was previously from the &lt;a href=&quot;http://www.overseas.nus.edu.sg/&quot;&gt;NUS Overseas College(NOC) programme&lt;/a&gt; and they have this programme in california as well. The alumnis of the college in silicon valley actively maintains &lt;a href=&quot;https://ncsv.hackpad.com/README-Welcome-to-SV-Jhkc4Zstjd6&quot;&gt;a set of guide&lt;/a&gt; on what to do post arrival. I find it very informative and answered alot of questions i have with regards to settling down in US.&lt;/p&gt;
+
+&lt;p&gt;In general, i would say my application process was pretty smooth. Thanks to Eric Koh, Christina Ng, Fiona Tay, Susan Aung, Lloyd D&#39;Silva, Elisha Ong, Steven Cheng and many others who have helped me along the way and answered my questions of all sorts.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a list of resources i readup on before and during my visa application:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ustraveldocs.com/sg/sg-niv-visaapply.asp&quot;&gt;http://www.ustraveldocs.com/sg/sg-niv-visaapply.asp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself&quot;&gt;http://christinang89.quora.com/5-steps-to-file-for-H-1B1-Singapore-Visa-yourself&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ceac.state.gov/GenNIV/Default.aspx&quot;&gt;https://ceac.state.gov/GenNIV/Default.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.h1b1.com/practices/h-1b1-visa-for-chileans-singaporeans/&quot;&gt;http://www.h1b1.com/practices/h-1b1-visa-for-chileans-singaporeans/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jasonong.tumblr.com/post/22111385043/us-visa-options-and-my-h1b1-experience&quot;&gt;http://jasonong.tumblr.com/post/22111385043/us-visa-options-and-my-h1b1-experience&lt;/a&gt;&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 22 Nov 2014 11:04:39 -0800</pubDate>
+                                <link>http://blog.hguochen.com//guide/2014/11/22/My-H1B1-experience/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//guide/2014/11/22/My-H1B1-experience/</guid>
+                        </item>
+                
+                        <item>
+                                <title>New macbook</title>
+                                <description>&lt;p&gt;Just got a new macbook pro retina 13 inch! Otherwise i&amp;rsquo;m just testing my blog workflow here.&lt;/p&gt;
+
+&lt;p&gt;Move along now.&lt;/p&gt;
+
+&lt;p&gt;PS. Apple always has a way to make you hoard useless device boxes, just because they look gorgeous.&lt;/p&gt;
+</description>
+                                <pubDate>Sun, 19 Oct 2014 17:40:58 -0700</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/10/19/New-macbook/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/10/19/New-macbook/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Could this be the most discriminatory Job Description ever?</title>
+                                <description>&lt;p&gt;So i just chanced upon what i think is the most discriminatory Job Description(JD) ever. Either the company is trying too hard to be hip or they are simply jerks.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&quot;http://careers.wewantsugar.com/jobs/4413-lead-software-engineer-technical-sugar-singapore&quot;&gt;brain numbing JD&lt;/a&gt; by a Singapore startup called &lt;a href=&quot;http://www.wewantsugar.com&quot;&gt;wewantsugar&lt;/a&gt;. Don&amp;rsquo;t be fooled by its name, there&amp;rsquo;s no sweetness whatsoever as far as i can see. Let&amp;rsquo;s go through what&amp;rsquo;s wrong with this piece of golden nugget.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Here&amp;rsquo;s what they want:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screen_Shot_2014-09-24_at_2_50_00_pm.png&quot; width=&quot;600&quot; alt=&quot;paragraph 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;First of all you sidelined majority of Singaporeans whose life inadvertently goes down the path of having kids, buying flat, cars and awaiting CPF withdrawal. So are you implying none of your employees would ever take this path? I&amp;rsquo;d imagine that would be a really scary company to work with.&lt;/p&gt;
+
+&lt;p&gt;Next. The notion of working till midnight is a circumstance of situation, NOT a default choice. We developers never starts off a day telling ourselves &amp;ldquo;damn i&amp;rsquo;m gona make sure i work late into the night.&amp;rdquo; When we do, it&amp;rsquo;s because we are passionate for what we do and we feel responsible enough to finish what we started. How come you never mentioned anything about productivity? What&amp;rsquo;s your reason for wanting someone who willingly want to work late into the night? So that you can work-torture the poor dude and slap a &amp;lsquo;he likes it anyway&amp;rsquo; statement to justify your abuse? That&amp;rsquo;s a really cruel employer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Feeling good yet? Here&amp;rsquo;s who they don&amp;rsquo;t want:&lt;/strong&gt;
+&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screen_Shot_2014-09-24_at_3_22_59_pm.png&quot; width=&quot;600&quot; alt=&quot;paragraph 2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just what&amp;rsquo;s with shaming of the corporates by calling them &amp;lsquo;shallow social climber&amp;rsquo;? How does wanting to work for prestigious companies like Goldman Sachs make them shallow? The very organisations you marginalise gave you your bank account, connected your cellphone to your loved ones and makes sure there&amp;rsquo;s food to be bought when you visit NTUCs. Your every statement tells me you despise people who doesn&amp;rsquo;t share your beliefs and dreams while being painfully oblivious to what&amp;rsquo;s around you. Speaking of shallow, this company seems to fit the bill quite well.&lt;/p&gt;
+
+&lt;p&gt;Oh and you don&amp;rsquo;t want social misfits? You don&amp;rsquo;t want people who were always the last to get picked? Sounds like you are the big bad bully in school whom everyone hated. You know what? Some of the most successful technology companies are where they are today because the misfits envisioned something others didn&amp;rsquo;t and built products that made everyone else&amp;rsquo;s life better. But i&amp;rsquo;m glad you didn&amp;rsquo;t see that. Least you ruin the opportunity cost of another genius in the making. By the way, your advice, &amp;lsquo;go seek help from a mental health professional&amp;rsquo; is totally misguided and only goes to show how ugly you are as a person. Misfits do not have a mental condition, this company&amp;rsquo;s management does.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Still Convinced you are perfect for this job? Here&amp;rsquo;s their requirements:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-24at31630pm.png&quot; width=&quot;400&quot; alt=&quot;paragraph 3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Holy shit! That&amp;rsquo;s even longer than my mum&amp;rsquo;s monthly shopping list. You must be looking to hire &lt;a href=&quot;https://en.wikipedia.org/wiki/Elon_Musk&quot;&gt;Elon Musk&lt;/a&gt; and ready to pay shitloads of salary compensation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Screen_Shot_2014-09-24_at_3_19_11_pm.png&quot; width=&quot;600&quot; alt=&quot;paragraph 4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Did you know that in &lt;a href=&quot;http://www.mom.gov.sg/employment-practices/fair-employment/Pages/fair-employment.aspx&quot;&gt;Singapore&amp;rsquo;s Ministry of Manpower Employment Act&lt;/a&gt;, it is forbidden to ask potential employees for photographs as a factor of employment considerations? Look like either you need to do more homework or you chose to disregard the employment act totally. Either ways, how can employees even start to trust that you will take care of them?&lt;/p&gt;
+
+&lt;p&gt;Oh look, for a Lead Software Engineer position and all that essential attributes and requirements, you are paying SGD4,000 - 5,000? It&amp;rsquo;s like asking for whales and paying peanuts.&lt;/p&gt;
+
+&lt;p&gt;Those are two full pages of prejudices, discriminatory remarks and statements that shows how ugly this employer can get. I am a software engineer and i would NEVER work for this company ever. I would strongly advise every software engineer to stay clear of your company as well.&lt;/p&gt;
+
+&lt;p&gt;Again, here&amp;rsquo;s the &lt;a href=&quot;http://careers.wewantsugar.com/jobs/4413-lead-software-engineer-technical-sugar-singapore&quot;&gt;brain numbing JD&lt;/a&gt;. Just why isn&amp;rsquo;t there some sort of ethics or personality test before someone is allowed to incorporate a company?&lt;/p&gt;
+</description>
+                                <pubDate>Wed, 24 Sep 2014 07:13:17 -0700</pubDate>
+                                <link>http://blog.hguochen.com//random/2014/09/24/Could-this-be-the-most-discriminatory-Job-Description-ever%3F/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//random/2014/09/24/Could-this-be-the-most-discriminatory-Job-Description-ever%3F/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Redesigning marathonsingapore.com</title>
+                                <description>&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/marathonsingapore_redesign.jpg&quot; width=&quot;600&quot; alt=&quot;marathonsingapore redesigned&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;The Situation&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/screencapture-www-marathonsingapore-com.png&quot; width=&quot;400&quot; alt=&quot;Marathonsingapore.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://www.marathonsingapore.com&quot;&gt;Standard Chartered Marathon Singapore&lt;/a&gt; has been around for years and has always been hailed as the golden running event of Singapore. However, for an event with such fame and recognition, its website &lt;a href=&quot;http://www.marathonsingapore.com&quot;&gt;www.marathonsingapore.com&lt;/a&gt; is just really ugly and site navigation is nothing less than complete frustration. The frontpage looks cluttered without any form of information hierarchy. Contents are hidden among a sphagetti of flashy colours. On searching for information, i have to actually resort to googling about the site instead of navigating the site itself. I consider that a failure in content design.&lt;/p&gt;
+
+&lt;p&gt;Ok let&amp;rsquo;s be systematic about its shortcomings. Here are the problems i have identified on the current site design:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Page styles that can be rendered with HTML/CSS are instead done with raw jpg images. Looks like optimization concerns was thrown right out the building from the start.&lt;/li&gt;
+&lt;li&gt;A simple inspect element reveals a total of 8 colors used for the frontpage. Some of these colors are neither analogous nor complementary to each other. The resulting visual distraction is appalling.&lt;/li&gt;
+&lt;li&gt;Call to Action(CTA) buttons are hidden among less relevant contents.&lt;/li&gt;
+&lt;li&gt;Content flow on page are non-hierarchical.&lt;/li&gt;
+&lt;li&gt;Site navigation bar are cluttered and information meta-data is a mess.&lt;/li&gt;
+&lt;li&gt;Date, Time &amp;amp; Place(DTP) are non obvious at a glance.&lt;/li&gt;
+&lt;li&gt;Lack of sitemap to aid user navigation.&lt;/li&gt;
+&lt;li&gt;Teaser box contents are prefixed with useless meta-info such as Images, Videos, Highlights etc.&lt;/li&gt;
+&lt;li&gt;For a running event, statistics banner information are totally irrelevant. Would the public seriously care about how many bananas or amount of water consumed in a race held last year? Since i&amp;rsquo;m not your logistics officer, i would be more interested in learning how many runners participated in each category don&amp;rsquo;t you think?&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at44030pm.png&quot; width=&quot;600&quot; alt=&quot;statistics banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;My Task&lt;/h2&gt;
+
+&lt;p&gt;With the problems identified, my job scope is pretty clear from now on. Here are my design objectives:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Re-introduce a color theme to the site such that it puts the focus on the content.&lt;/li&gt;
+&lt;li&gt;Organize the navigation bar that correctly depicts the meta-datas.&lt;/li&gt;
+&lt;li&gt;Collate a sitemap to be appended to the footer for easier site navigation.&lt;/li&gt;
+&lt;li&gt;Use visual cues to bring out the importance of CTAs.&lt;/li&gt;
+&lt;li&gt;Redesign teaser boxes as an entry point to the site&amp;rsquo;s content.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Action&lt;/h2&gt;
+
+&lt;h4&gt;Logo and navigation bar&lt;/h4&gt;
+
+&lt;p&gt;Race date, time and venue are probably the 3 most important piece of information for a running event. So we are going to place them right where visitors first sees when visiting our page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at50832pm.png&quot; width=&quot;600&quot; alt=&quot;top banner&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since there are many race categories for Standard Chartered Marathon, the start times for different races are staggered. In this case, to prevent confusion, we obscure time information from the banner and present them in the event schedule instead.&lt;/p&gt;
+
+&lt;p&gt;Navigation bar is restructured and renamed to correctly identify relevant meta-datas. Some of the less relevant information such as &amp;lsquo;2013 results&amp;rsquo; are demoted from this piece of expensive real estate.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51610pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at51738pm.png&quot; width=&quot;600&quot; alt=&quot;navigation bar after&quot; /&gt;&lt;/p&gt;
+
+&lt;h4&gt;Carousel section&lt;/h4&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52122pm.png&quot; width=&quot;600&quot; alt=&quot;carousel section before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at52134pm.png&quot; width=&quot;600&quot; alt=&quot;carousel section after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The current carousel section had a bad choice of picture. This contributes to obscuring the importance of CTAs. Instead of choosing pictures, we are going to completely remove pictures as part of carousel theme and introduce a reasonable tagline to supplement the website&amp;rsquo;s agenda.&lt;/p&gt;
+
+&lt;p&gt;Clear CTAs sits just below the tagline to guide users on the appropriate course of action.&lt;/p&gt;
+
+&lt;p&gt;The countdown to race day is a pretty good idea, but it was previously obscured in the right corner of the page. I redesigned and moved the countdown timer to dead center.&lt;/p&gt;
+
+&lt;h4&gt;Teaser boxes&lt;/h4&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53842pm.png&quot; width=&quot;400&quot; alt=&quot;teaser box before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at53817pm.png&quot; width=&quot;400&quot; alt=&quot;teaser box after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The existing teaser section didn&amp;rsquo;t make sense to me. What does &amp;lsquo;IMAGES&amp;rsquo; and &amp;lsquo;VIDEOS&amp;rsquo; section header tell you? I re-worked this section completely to reflect the content groupings of the website. These teasers will serve as entry point to its respective array of contents.&lt;/p&gt;
+
+&lt;h4&gt;Footer and sitemap&lt;/h4&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54535pm.png&quot; width=&quot;600&quot; alt=&quot;footer before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-09-11at54543pm.png&quot; width=&quot;600&quot; alt=&quot;footer after&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For easier site navigation, i&amp;rsquo;ve added a simple footer that allows users to view the content headers at a glance.&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/screencapture-rawgit-com-hguochen-marathon_singapore-master-index-html.png&quot; width=&quot;600&quot; alt=&quot;redesigned marathonsingapore.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The static page is hosted &lt;a href=&quot;https://rawgit.com/hguochen/marathon_singapore/master/index.html&quot;&gt;HERE&lt;/a&gt; if you would like to inspect elements and dabble with my design. Otherwise, for the geeks out there, this project also sits on my &lt;a href=&quot;https://github.com/hguochen/marathon_singapore.git&quot;&gt;github repository&lt;/a&gt;. Let me know what you think about my redesign and leave in the comments below!&lt;/p&gt;
+</description>
+                                <pubDate>Thu, 11 Sep 2014 06:19:34 -0700</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/design/frontend/2014/09/11/Redesigning-marathonsingapore.com/</guid>
+                        </item>
+                
+                        <item>
+                                <title>Django environment optimal setup</title>
+                                <description>&lt;p&gt;&lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt; is a great web framework based on MVC architecture that allows you to quickly and correctly build and deploy web projects. However, staring a new Django project can be a little daunting and often the wrong setup can lead to long term problems for your project. Here i&amp;rsquo;m sharing with you my preferred workflow on starting a new Django project. A small bit of planning goes a long way towards making life easier!&lt;/p&gt;
+
+&lt;h3&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;A working knowledge of python language and Django framework is assumed. You will also have to know &lt;a href=&quot;http://git-scm.com&quot;&gt;git&lt;/a&gt; for version control.&lt;/p&gt;
+
+&lt;h3&gt;Install Python&lt;/h3&gt;
+
+&lt;p&gt;Head over to &lt;a href=&quot;http://python.org&quot;&gt;python.org&lt;/a&gt; and find the install instructions for your specific OS. For my development environment, i&amp;rsquo;m running MAC OSX Mavericks.&lt;/p&gt;
+
+&lt;p&gt;To check you have installed python correctly, type&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;into terminal command line and you should get the following output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Python 2.7.5 (default, Mar  9 2014, 22:15:05) 
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Install pip&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pip.readthedocs.org/en/latest/index.html&quot;&gt;Pip&lt;/a&gt; is a great tool for installing and managing python packages. We are going to use pip to install all third party packages to supplement our project.&lt;/p&gt;
+
+&lt;p&gt;The easy way to install pip is to first download &lt;a href=&quot;https://bootstrap.pypa.io/get-pip.py&quot;&gt;get-pip.py&lt;/a&gt;. Then run the following command in the folder with the downloaded file on your terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python get-pip.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And you are done installing! You can test pip installed correctly with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip -V
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which shows the version of your pip.&lt;/p&gt;
+
+&lt;h3&gt;Install virtualenv&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://virtualenv.readthedocs.org/en/latest/&quot;&gt;Virutalenv&lt;/a&gt; is a great tool to sandbox your development environments so you don&amp;rsquo;t have to switch back and forth between different versions of softwares. What&amp;rsquo;s more, the excellent extension &lt;a href=&quot;http://virtualenvwrapper.readthedocs.org/en/latest/&quot;&gt;virtualenvwrapper&lt;/a&gt; makes using virtualenv alot easier. This is common, recommend practice among python, Django users alike.&lt;/p&gt;
+
+&lt;p&gt;We are also going to use &lt;a href=&quot;https://pypi.python.org/pypi&quot;&gt;pip&lt;/a&gt; to install packages.&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s install virtualenv. Note that you can get both virtualenv and virtualenvwrapp install just by install ing virtualenvwrapper.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After it&amp;rsquo;s installed, add following lines to your .bashrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/directory-you-do-development-in
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then type the following command to &amp;lsquo;activate&amp;rsquo; your modified .bashrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ source .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Creating new environment&lt;/h3&gt;
+
+&lt;p&gt;To create a new virtual environment, type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkvirtualenv django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where django_project is whatever name your project is. You should see your shell is now prepended by (django_project).&lt;/p&gt;
+
+&lt;p&gt;The django_project prepending is a reminder that you are using virtualenv instal of your system&amp;rsquo;s Python installation. To exit, the virtual environment, simple type deactivate. When you want to resume work on your project, it&amp;rsquo;s as easy as typing&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ workon django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where you run the command doesn&amp;rsquo;t matter.&lt;/p&gt;
+
+&lt;h3&gt;Install Django&lt;/h3&gt;
+
+&lt;p&gt;Since we are working in virtualenv, we have to install Django into this virtual environment. This makes sure that the version of Django we use for this project is not confused with other versions used by the system or other virtual environments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This should give you the latest version of Django which will be installed in your virtualenv area. You can confirm this by doing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ which django-admin.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which should point to your $HOME/.virtualenvs/django_project/bin/django-admin.py.&lt;/p&gt;
+
+&lt;h3&gt;Setup project folder&lt;/h3&gt;
+
+&lt;p&gt;Now we can create our project directory. I highly recommend using &lt;a href=&quot;https://github.com/twoscoops/django-twoscoops-project&quot;&gt;two scoops Django&lt;/a&gt; project template for all Django projects. If you are new to two scoops django, it is actually a compilation of some of the best practices for developing Django projects. You can purchase a copy of this amazing book &lt;a href=&quot;http://twoscoopspress.org/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now go ahead and setup the project with this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that this command creates a django_project directory with the two scoops django template. I&amp;rsquo;ll leave you to read more about &lt;a href=&quot;https://github.com/twoscoops/django-twoscoops-project&quot;&gt;two scoops django template&lt;/a&gt; yourself.&lt;/p&gt;
+
+&lt;h3&gt;Source control&lt;/h3&gt;
+
+&lt;p&gt;Git is automatically installed in your virtual environment when you created it with virtualenvwrapper earlier.&lt;/p&gt;
+
+&lt;p&gt;Since our folder and file structure is up now, let&amp;rsquo;s commit them to source control right from the start. Here&amp;rsquo;s how to do that in git:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Creates a git repository in the current directory. Now let&amp;rsquo;s stage all of our files to git to be commited.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git add django_project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we commit them to our new repository:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit -m &quot;Initial commit of django_project&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s add the remote repository in &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git remote add origin &amp;lt;remote repository URL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, let&amp;rsquo;s push our changes!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;South for database migrations&lt;/h3&gt;
+
+&lt;p&gt;South is a great tool that detects changes to your models layer and automatically sync the changes to your database without you having to dabble with the database itself. This is done through a migration file that South creates. This lets you both migrate the database forward for new change and backward to undo a change or series of changes.&lt;/p&gt;
+
+&lt;p&gt;In our virtualenv, install south using pip:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install south
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then setup south with the project by adding it to our INSTALLED_APPS in settings/base.py file for the project.
+After which, run the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# python manage.py syncdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to sync the changes and south will be registered along with the project. South will also automatically setup the database with the tables it needs.&lt;/p&gt;
+
+&lt;p&gt;Before we commit, we will want tot rack our install Python packages. We want to track the name and version of the python packages we are using so we can recreate our environment easily in the production area. There&amp;rsquo;s a pip command that does this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip freeze &amp;gt; requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I pushed the output of pip freeze to a file called requirements.txt which we will add to source control so we always have an updated list of packages being used.&lt;/p&gt;
+
+&lt;p&gt;As before, we commit the changes to git and push to remote repository.&lt;/p&gt;
+
+&lt;h3&gt;Install Fabric&lt;/h3&gt;
+
+&lt;p&gt;To easily deploy a Django application, we use &lt;a href=&quot;http://fabric.readthedocs.org/en/1.3.3/api/contrib/django.html&quot;&gt;Fabric&lt;/a&gt;. Fabric has a number of purposes but it really helps in quick deployments. Install Fabric with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install fabric
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Fabric expects a fabfile.py which defines all of the actions we can take. Let&amp;rsquo;s create that file and put the following in fabfile.py in your project&amp;rsquo;s root directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import local
+
+def prepare_deployment(branch_name):
+local(&#39;python manage.py test django_project&#39;)
+local(&#39;git add -p &amp;amp;&amp;amp; git commit&#39;) # or local(&#39;hg add &amp;amp;&amp;amp; hg commit&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will run the test and commit your changes only if your tests pass. A simple &amp;ldquo;pull&amp;rdquo; in your production area becomes your deployment. Let&amp;rsquo;s add the following code to fabfile.py to actually deploy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import lcd, local
+
+def deploy():
+with lcd(&#39;/path/to/my/prod/area/&#39;):
+
+    # With git...
+    local(&#39;git pull /my/path/to/dev/area/&#39;)
+
+    # With Mercurial...
+    local(&#39;hg pull /my/path/to/dev/area/&#39;)
+    local(&#39;hg update&#39;)
+
+    # With both
+    local(&#39;python manage.py migrate myapp&#39;)
+    local(&#39;python manage.py test myapp&#39;)
+    local(&#39;/my/command/to/restart/webserver&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will pull your changes from the development master branch, run any migrations you&amp;rsquo;ve made, run tests, and restart your web server.&lt;/p&gt;
+
+&lt;p&gt;To use this file, we simply type the following in production environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ fab prepare_deployment
+$ fab deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So that&amp;rsquo;s it! The skeleton for an optimal django environment is setup and ready to be developed! Remember, commit often, test everything. Let me know if i&amp;rsquo;ve missed out something! Rock on folks!&lt;/p&gt;
+
+&lt;p&gt;P/S: For your convenience, i have setup a &lt;a href=&quot;https://github.com/hguochen/django_template&quot;&gt;django_template&lt;/a&gt; on github based on the above instructions. You may wish to fork it for your own use!&lt;/p&gt;
+
+&lt;p&gt;EDIT: Thanks to Chng Nai Yun, i&amp;rsquo;ve corrected a silly error which incorrectly states that git is installed when you install virtualenvwrapper. In reality, git is only installed when you setup the virtualenv environment.&lt;/p&gt;
+</description>
+                                <pubDate>Tue, 22 Jul 2014 10:08:54 -0700</pubDate>
+                                <link>http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/07/22/Django-environment-optimal-setup/</guid>
+                        </item>
+                
+                        <item>
+                                <title>[Tip] Python class debugging tools</title>
+                                <description>&lt;p&gt;It can be tough trying to debug classes, inherited classes, class methods etc in general. Here&amp;rsquo;s 2 useful debugging utility functions i love to use to sort through the mess.&lt;/p&gt;
+
+&lt;h3&gt;1. Printing attributes and values&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def print_attr(obj):
+    &quot;&quot;&quot;
+    Traverses the items in the object&#39;s dictionary and prints each attribute name and its corresponding value.
+    &quot;&quot;&quot;
+    for attr in obj.__dict__:
+        print attr, getattr(obj, attr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As explained in docstring, function print_attr() takes in an object and spits out each of its attributes and its corresponding value.&lt;/p&gt;
+
+&lt;p&gt;The built-in function getattr() takes an object and an attribute name(as string) and returns the attribute&amp;rsquo;s value.&lt;/p&gt;
+
+&lt;h3&gt;2. Find defining class&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;def find_defining_class(obj, method_name):
+&quot;&quot;&quot;
+Uses method resolution method(MRO) to get the list of class objects(types) that will be searched for methods.
+Return the class to which the method &#39;method_name&#39; belong to.
+&quot;&quot;&quot;
+for origin in type(obj).mro():
+    if method_name in origin.__dict__:
+        return origin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Useful if your class belongs to a long chain of super classes and you are trying to find out which class does a particular method belong to. This method works because of &lt;a href=&quot;https://www.python.org/download/releases/2.3/mro/&quot;&gt;Method Resolution Order&lt;/a&gt; rule in python.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; hand = Hand()
+&amp;gt;&amp;gt;&amp;gt; print find_defining_class(hand, &#39;shuffle)
+&amp;lt;class &#39;Card.Deck&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So the shuffle method for this Hang object is the one in Deck.&lt;/p&gt;
+
+&lt;p&gt;Hope this 2 utility debugging functions can save you time traversing those pesky bugs. Please share your secret debugging functions too!&lt;/p&gt;
+
+&lt;p&gt;Happy debugging! Ok fine, that&amp;rsquo;s a fallacy&amp;hellip;Don&amp;rsquo;t die debugging!&lt;/p&gt;
+</description>
+                                <pubDate>Sat, 21 Jun 2014 10:59:42 -0700</pubDate>
+                                <link>http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/python/2014/06/21/%5BTip%5D-Python-class-debugging-tools/</guid>
+                        </item>
+                
+                        <item>
                                 <title>Prim&#39;s Algorithm</title>
                                 <description>&lt;p&gt;Given six cities and the costs(in millions of dollars) of rebuilding roads between them. The road commission has decided to rebuild enough roads so that each pair of cities will be connected, either directly or by going through other cities, by rebuilt roads. Find a minimum cost set of roads meeting its criterion.&lt;/p&gt;
 
@@ -268,9 +853,9 @@ update_row(vertex, weight, ..)  O(n)
 
 &lt;p&gt;Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/prim.py&quot;&gt;full implementation&lt;/a&gt;. I would love to hear suggestions on how to improve the time complexity or anything in general. Cheers :)&lt;/p&gt;
 </description>
-                                <pubDate>Tue, 17 Jun 2014 16:29:39 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim%27s-Algorithm/</guid>
+                                <pubDate>Tue, 17 Jun 2014 09:29:39 -0700</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim's-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Prim's-Algorithm/</guid>
                         </item>
                 
                         <item>
@@ -444,770 +1029,9 @@ def print_graph(self):
 
 &lt;p&gt;Kruskal&amp;rsquo;s algorithm is a optimal implementation of greedy algorithm. Here&amp;rsquo;s my &lt;a href=&quot;https://github.com/hguochen/algorithms/blob/master/python/kruskal.py&quot;&gt;full implementation&lt;/a&gt;.&lt;/p&gt;
 </description>
-                                <pubDate>Tue, 17 Jun 2014 00:02:54 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/17/Kruskal%27s-Algorithm/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Steps to solving programming problems</title>
-                                <description>&lt;p&gt;If you are looking for a systematic approach to solving programming problems, i have one for you here. This is my variation from the &lt;a href=&quot;http://www.coursehero.com/file/7263502/Programing-with-the-problem-Analysis-Coding-Execution-Cycle/&quot;&gt;Problem analysis coding execution cycle&lt;/a&gt; that typical computer science class will teach. Hope it will be of use to you!&lt;/p&gt;
-
-&lt;h2&gt;Problem analysis coding execution cycle&lt;/h2&gt;
-
-&lt;h3&gt;1. Analyse the problem&lt;/h3&gt;
-
-&lt;h5&gt;a. Problem specification&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;What is the problem asking for?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;b. Requirements&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;What are the constraints and requirements?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;c. Assumptions&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;What are the underlying assumptions on the question?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Is there any assumptions which could be challenged?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;d. Sample test cases&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Identify at least 1 sample test case.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;How many test cases should there be minimally?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;e. Determine input &amp;amp; output&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Determine the input and output and their corresponding data types&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;f. Identify input boundary cases&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;List out all boundary cases for inputs and logic flows.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3&gt;2. Implement the algorithm&lt;/h3&gt;
-
-&lt;h5&gt;a. Algorithm structure&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;What is the best data structure and data types for this problem?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;b. Design Algorithm&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Write algorithm in plain english or pseudo code.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Identify repeated patterns if any.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;c. Testing algorithm correctness&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Verbally run through the algrithm with pre-defined test cases&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;d. Write code&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Write code incrementally with adequete tests at each step.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;e. Test code correctness&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Run the code with sample inputs to test for desired outputs.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;f. Testing boundary cases&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Run the code with boundary cases and lookout for unexpected behaviors.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;d. Verify program correctness&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Re-visit the question and and lookout for inconsistencies  and redundancies.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3&gt;3. Program maintenance&lt;/h3&gt;
-
-&lt;h5&gt;a. Determine time complexity&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;What is the average case complexity?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;What is the worst case complexity?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;b. Determine space complexity&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Are there redundant or unused variables?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;c. Refactoring&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Can the code be refactored to improve readability?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Can the algorithm be redesigned to improve efficiency?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h5&gt;d. Documentation&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Leave comments where the abstraction logic is unclear.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Are there any trivial comments?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Write formal documentations if the program is expected to be used by people.&lt;/em&gt;&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 04 Jun 2014 16:07:39 +0000</pubDate>
-                                <link>http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//programming/web%20development/2014/06/04/Steps-to-solving-programming-problems/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Culture in the Silicon Valley</title>
-                                <description>&lt;p&gt;In a recent visit to California, i visited a number of famous companies in the Silicon Valley such as Google, Facebook, Evernote, Quora, Airbnb etc. These are all the &amp;lsquo;cool&amp;rsquo; companies with great cultures that many would die to get in. But what really does it mean to have a great culture? Sure the oversized bean bags, foosball tables, free meals and modern-looking workspaces forms part of it. But as i learnt from the many visits, great culture is more than materialistic satisfactions and cool company perks.&lt;/p&gt;
-
-&lt;p&gt;The key, is that everyone in the company thinks alike. What does it mean? It means a collective group of people come together to live and breathe on the same set of problems, every single day. They believe that a company is greater than the sum of its parts. They sweat the mission and vision of their greater entity.&lt;/p&gt;
-
-&lt;p&gt;At Facebook, everyone wants to build things that makes people stay connected. It doesn&amp;rsquo;t matter if their role isn&amp;rsquo;t engineering. The company hired people who care about being social no matter what discipline they are in so this trait integrates into their daily work. They ruthlessly scrutinize their work in order to produce the best products that makes millions of people say &amp;lsquo;hello&amp;rsquo; each day. It is this shared camaraderie the eliminates frustrations when a better design is shot down by an engineering manager who just wants to fix bugs.&lt;/p&gt;
-
-&lt;p&gt;Airbnb wants to unlock unique spaces worldwide. This vision tickles down to every single one of its employees. In order for that, the company built an environment where you can spend time building a global reach instead of having to fight for time to do your laundry, or get frustrated over expensive lunches. All mundane things are taken care of, so you can focus on what really matters.&lt;/p&gt;
-
-&lt;p&gt;All these, brings the idea that executing a company vision needs to be everyone&amp;rsquo;s job. Is everybody sharing the company&amp;rsquo;s delights and sorrows? Does everyone talk about user&amp;rsquo;s problems or talk about their own problems? I think a big reason why these companies consistently hit the top of &amp;lsquo;Dream company to work for&amp;rsquo; list is that they&amp;rsquo;ve figured out how to solve its employee&amp;rsquo;s little problems, in return for these talents helping to solve company&amp;rsquo;s big problems. It is also this realization that differentiates between a good company and a great company.&lt;/p&gt;
-
-&lt;p&gt;When you walk into your office tomorrow, start listening to what your employees are saying. If you can&amp;rsquo;t help them solve their daily problems, don&amp;rsquo;t expect them to solve yours.&lt;/p&gt;
-</description>
-                                <pubDate>Thu, 29 May 2014 23:12:51 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/05/29/Culture-in-the-Silicon-Valley/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Reverse a singly linked list</title>
-                                <description>&lt;p&gt;I came across this interesting programming question today and decided to give it a go. Given a singly linked list, with reference to the head node, reverse the linked list so the head node becomes the last node and vice versa.&lt;/p&gt;
-
-&lt;p&gt;This is my iterative solution:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public Node reverse(Node head) {
-    if (head == null || head.next == null) { // Linked list is empty or only has 1 node
-        return;
-    }
-    Node current = new Node();
-    Node next = new Node();
-    Node prev = null;
-
-    current = head; // current node starts at the first node, which is referenced by head. keep in mind that head acts like a pointer here instead of a real node
-    while(current != null) { //run loop as long as current node is not the last node
-        next = current.next; // stores a reference of the next node so we can manipulate current.next reference
-        current.next = prev; // point the current.next to the new reference position -which is in reverse order
-        prev = current; // prev has done its job of referencing the previous node, it now moves on to reference the subsequent node
-        current = next; // current has referenced in the new order, move current pointer to the next node - which is referenced by next pointer.
-    }
-    head = prev; // the last node is now the new first node in the linked list, so we reference head to prev, which points to the node itself
-    return head
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s try the recursive solution:&lt;/p&gt;
-
-&lt;h3&gt;Identify base case&lt;/h3&gt;
-
-&lt;p&gt;The base case occurs when we reach the last node of the linked list. We identify this case by verifying that current.next is NULL.&lt;/p&gt;
-
-&lt;h3&gt;Base case operation&lt;/h3&gt;
-
-&lt;p&gt;In the base case, we need to set the head pointer to the very last node, which will in turn become the first node in the result.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my recursive answer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public Node reverse(Node current) {
-    if (current == null) { //check for empty list
-        return;
-    }
-
-    if (current.next == null) { // at tail node, this is recursive base case
-        head = current; // set head to point to the last node in original list
-        return;
-    }
-
-    reverse(current.next);
-    current.next.next = current; // set the subsequent node as the current node
-    current.next = null; // set the previous node to null. which eventually means the older next pointer is used and null
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This little devil took me quite awhile to figure out as it&amp;rsquo;s very confusing between the reference pointers and the current nodes in question. But in practicality, i just can&amp;rsquo;t imagine a scenario where i&amp;rsquo;ll need to reverse a singly linked list. Can you? Whatever, this also proves that as a norm, we should just use a double linked list in the rare case we need to do a reversal like this. Time complexity of both of the solutions are O(n).&lt;/p&gt;
-
-&lt;p&gt;Edit: On a side note, we can also do a shallow copy of the linked list to an array-like data structure, use a reverse() function and push into a fresh linked list. Horrible on the space complexity, but alot easier to understand.&lt;/p&gt;
-</description>
-                                <pubDate>Mon, 26 May 2014 21:01:58 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/05/26/Reverse-a-linked-list/</guid>
-                        </item>
-                
-                        <item>
-                                <title>What i got from tweeting Evernote&#39;s CEO</title>
-                                <description>&lt;p&gt;In 4 day&amp;rsquo;s time, i&amp;rsquo;ll be visiting California-US for the first time in my life. Being &lt;a href=&quot;http://hguochen.com&quot;&gt;a startup guy&lt;/a&gt; myself, this is a big deal for me. I&amp;rsquo;m really excited to see what the biggest startup ecosystem in the world is like. I wanted to make this trip a really memorable one but i didn&amp;rsquo;t have enough contacts there. So i shamelessly cold-emailed some of my favourite tech companies in California asking for an impromptu visit to their offices/campus. Some of these companies accepted my request(thank you so much!). But 1 of which just blew me away. Here&amp;rsquo;s what happened.&lt;/p&gt;
-
-&lt;p&gt;I have always been a big fan of &lt;a href=&quot;http://evernote.com&quot;&gt;Evernote&lt;/a&gt;. After several failed attempts to link up with evernote staff through friend introductions, i resorted to cold-emailing its CEO, Phil Libin on linkedin&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/email_phil_libin.jpg&quot; width=&quot;500&quot; alt=&quot;Email Phil Libin&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok i admit, its kinda cheesy. But hey, i wasn&amp;rsquo;t expecting a reply.&lt;/p&gt;
-
-&lt;p&gt;And so i didn&amp;rsquo;t. Then i tried to ping the CEO on twitter, and i got a reply! Well, not Phil Libin himself, but still a reply :)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/08915870-515D-4157-83DE-FD8EAB45C3C1.png&quot; width=&quot;250&quot; alt=&quot;Tweeting Phil Libin&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Things are looking good! So i followed the instructions and the following conversations ensue:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/6734508A-2E9D-4FD7-AC1E-9637083A4991.png&quot; width=&quot;250&quot; alt=&quot;evernote support 1&quot; /&gt;
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/05DA55F4-D808-4BB6-AF8D-4B360307A636.png&quot; width=&quot;250&quot; alt=&quot;evernote support 2&quot; /&gt;
-&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/9ECCB770-E4ED-4566-B3CA-7E9C0F8F1A8D.png&quot; width=&quot;250&quot; alt=&quot;evernote support 3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A few days later, this email from Evernote&amp;rsquo;s marketing manager came:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/evernote_email.png&quot; width=&quot;1050&quot; alt=&quot;evernote email&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;How excited was i to read this? Let&amp;rsquo;s just say that my laptop keyboard now comes coffee-flavoured. Thank you Evernote, you&amp;rsquo;ve just made a fan very very happy :)&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll be giving a full recount of my visit to Evernote HQ sometime later. In the meantime, please leave in the comments below if you have a request for me on visiting Evernote :)&lt;/p&gt;
-</description>
-                                <pubDate>Wed, 23 Apr 2014 02:24:07 +0000</pubDate>
-                                <link>http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//random/startup/2014/04/23/What-i-got-from-tweeting-evernote%27s-CEO/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Designing Beebeta</title>
-                                <description>&lt;p&gt;A recent side project of mine, Beebeta, is about to launch its MVP. I was involved in both the frontend and backend engineering of Beebeta. Check out Beebeta&amp;rsquo;s stack at &lt;a href=&quot;http://blog.hguochen.com/web%20development/2014/03/31/Beebeta-Engineering/&quot;&gt;Beebeta Engineering&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Being new to the world of frontend designing, i&amp;rsquo;m not sure if my design would be used eventually. But still, i would like to share my frontend design experience and concepts in this post. Partly to document my design journey but more importantly, encourage other programmers(like me) to pick up web designing in their free time.&lt;/p&gt;
-
-&lt;h2&gt;What is Beebeta?&lt;/h2&gt;
-
-&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks about an issue. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
-
-&lt;h2&gt;Design Goal&lt;/h2&gt;
-
-&lt;p&gt;With the above concept, it is evident that Beebeta is all about polling the public with questions. We are going to implement this by asking users questions and offer pre-determined choices for voting. Users may also add additional choices if they like. Here are a few design goals i&amp;rsquo;ve charted out:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Questions are the prime content of the website&lt;/li&gt;
-&lt;li&gt;All visual elements should contribute to better contents&lt;/li&gt;
-&lt;li&gt;User&amp;rsquo;s Call To Action(CTA) is voting and should be encouraged visually&lt;/li&gt;
-&lt;li&gt;Page should be simple and minimalistic&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Research and idea generation&lt;/h2&gt;
-
-&lt;p&gt;Do some googling to get the creativity juices flowing. These are some of the places i checkout to brainstorm design ideas:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://quora.com&quot;&gt;Quora&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://createivebloq.com&quot;&gt;Creative Bloq&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;I usually grab a pencil and sketchbook to jot down some of the things such as essential page elements, layout, colors, typefaces and navigation details. Sometimes i feel particularly artistic and try to draw&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/EBAE3B09-C994-459F-AEB7-9964CA67A066.jpg&quot; width=&quot;300&quot; alt=&quot;doodle&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok fine i admit calling it &amp;lsquo;drawing&amp;rsquo; is an overstatement. Very-very crude mockups.&lt;/p&gt;
-
-&lt;h2&gt;Design&lt;/h2&gt;
-
-&lt;p&gt;All my page designs start from mockups. From grid layout, to box structure and eventually down to individual elements. For each step of this process, i pay attention to how elements in question interacts with each other and establish cohesiveness.&lt;/p&gt;
-
-&lt;h3&gt;Grid Layout&lt;/h3&gt;
-
-&lt;p&gt;I adopted the 12-grid system for &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap 3&lt;/a&gt;. Boostrap 3 is designed &amp;lsquo;mobile first&amp;rsquo;. It&amp;rsquo;s newly renovated grid system caters to a whole array of digital devices from mobile phone to high resolution desktops. A nice tutorial about the new grid system for Bootstrap is found &lt;a href=&quot;http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I used the following grid dimensions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
-
-.row {
-    clear: both;
-    max-width: 1040px;
-    margin: 0 auto;
-}
-
-[class^=&quot;col-&quot;]:last-child {
-    margin: 0;
-}
-
-[class^=&quot;col-&quot;] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-
-
-.col-xs-1 { width: 4.8076923077% }
-.col-xs-2 { width: 13.4615384615% }
-.col-xs-3 { width: 22.1153846154% }
-.col-xs-4 { width: 30.7692307692% }
-.col-xs-5 { width: 39.4230769231% }
-.col-xs-6 { width: 48.0769230769% }
-.col-xs-7 { width: 56.7307692308% }
-.col-xs-8 { width: 65.3846153846% }
-.col-xs-9 { width: 74.0384615385% }
-.col-xs-10 { width: 82.6923076923% }
-.col-xs-11 { width: 91.3461538462% }
-.col-xs-12 { width: 100%; margin: 0 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Typeface&lt;/h3&gt;
-
-&lt;p&gt;I think typeface of a website determines the longevity and pleasure of browsing its contents. Good typefaces gives readability and allows you to focus on the content. For beebeta, i used &lt;strong&gt;serif&lt;/strong&gt; typeface for block headers and &lt;strong&gt;helvetica neue&lt;/strong&gt; for body texts. These are generally pretty safe typefaces for websites.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at30154pm.png&quot; alt=&quot;beebeta icon&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The Beebeta typeface in the icon is given to me pre-designed as &lt;strong&gt;OratorStd&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Colour&lt;/h3&gt;
-
-&lt;p&gt;I used 3 colors as the theme of Beebeta. 2 triad colors, &lt;strong&gt;#4288CA&lt;/strong&gt;(Celestial Blue) &amp;amp; &lt;strong&gt;#5CB85C&lt;/strong&gt;(Fern) and 1 neutral color &lt;strong&gt;#F0F0F0&lt;/strong&gt;(Beige Grey).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at31235pm.png&quot; width=&quot;500&quot; alt=&quot;color theme&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fern green&lt;/strong&gt; is used for navigational contents and Call To Action(CTA) activites users performs.&lt;/p&gt;
-
-&lt;p&gt;Netural color &lt;strong&gt;Beige Grey&lt;/strong&gt; will make the base color of the site. This effectively allows focus on contents without too much &amp;lsquo;noise&amp;rsquo; from the background.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Celestial Blue&lt;/strong&gt; are used as cordoned containers for user details and personal spaces within the site.&lt;/p&gt;
-
-&lt;p&gt;Effectively the site is just a mix and match of these 3 simple colours.&lt;/p&gt;
-
-&lt;h3&gt;Navigation&lt;/h3&gt;
-
-&lt;p&gt;Navigation determines the usability of the site. For our Minimum Viable Product(MVP), which has limited features, i want users to understand the purpose of the website at a glance through navigational bar without having it competing for user attention from the contents. Since posting questions is fundamental to the site. It should have a visual focus primarily, with user utility functions available nearby. Here is how it looks:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at125833pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33130pm.png&quot; width=&quot;700&quot; alt=&quot;navigation bar 2&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Header&lt;/h3&gt;
-
-&lt;p&gt;I wanted a simple header without any unnecessary contents. It should be so painfully simple that it looks almost undesigned at all. I think the benefits of a bare-bone header drives clarity. That users don&amp;rsquo;t derive too much assumptions of the contents of the website based on header. It invites users browse to find out more. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at33337pm.png&quot; width=&quot;600&quot; alt=&quot;header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I am experimenting with color-coding of question categories here. Each category is assigned a colour. My aim is to promote category classifications so users sub-consciously associate a colour to a category. I&amp;rsquo;m guessing this will contribute to an easier browsing experience over time.&lt;/p&gt;
-
-&lt;h3&gt;Question Card&lt;/h3&gt;
-
-&lt;p&gt;Question card is the main content. It is what beebeta is all about. My design concept for questions takes the form of &amp;lsquo;question cards&amp;rsquo;. Each poll question is a unique question card served.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at34610pm.png&quot; width=&quot;600&quot; alt=&quot;question card&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In order to synchronise the color-coding category concept earlier, i added a subtle colour border for each question card of its associated category. The question card displays the question text, user uploaded image, uploader&amp;rsquo;s name, number of choices and number of votes received so far.&lt;/p&gt;
-
-&lt;h3&gt;Voting&lt;/h3&gt;
-
-&lt;p&gt;I adopted the classic reddit style voting which allows users to vote up a choice and provide a visual feedback with updated vote count and fern green arrow up button.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40029pm.png&quot; width=&quot;200&quot; alt=&quot;voting&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Profile page&lt;/h3&gt;
-
-&lt;p&gt;As an extension of the &amp;lsquo;question card&amp;rsquo; concept, i gave a similar box style to profile page. Users have 3 profile boxes which is unique to them, namely User Information, Questions and Votes counts.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40212pm.png&quot; width=&quot;500&quot; alt=&quot;profile page&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The following tab, My questions, allows users to view and edit his posted questions.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40736pm.png&quot; width=&quot;500&quot; alt=&quot;my questions&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Footer&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;ve choosen flat white for footer, which colour synchronises with the header. Again, i&amp;rsquo;m experimenting with using lighter colours as opposed to heavy colors for headers and footers.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-31at40922pm.png&quot; width=&quot;700&quot; alt=&quot;footer&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So that&amp;rsquo;s it folks! If you think that this design is really basic, you are right! I do agree that there are alot more to be done with the design of a polling site like Beebeta. I would like to hear your comments and suggestions on how i can improve my design. Peace out! :)&lt;/p&gt;
-</description>
-                                <pubDate>Tue, 01 Apr 2014 11:48:00 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/web%20development/2014/04/01/Designing-Beebeta/</guid>
-                        </item>
-                
-                        <item>
-                                <title>Beebeta Engineering</title>
-                                <description>&lt;p&gt;&lt;a href=&quot;https://www.facebook.com/leeagustiadi&quot;&gt;Agus&lt;/a&gt; and &lt;a href=&quot;https://www.facebook.com/jaielhaevin&quot;&gt;Joel&lt;/a&gt; conceptualized the Beebeta project sometime ago and invited me to handle the technical aspect of it. I didn&amp;rsquo;t know what Beebeta was then but the moment i heard of the idea, i loved it! We spent our valuable weekends hacking out Beebeta and we are going to release it very soon! &lt;a href=&quot;http://www.beebeta.com&quot;&gt;Beebeta v1.0&lt;/a&gt; is finally out for public thrashing and hating! Ok but please be nice :(&lt;/p&gt;
-
-&lt;p&gt;Having architected the Beebeta backend, i thought it would be fun to give an idea of Beebeta from an engineering perspective. This is how we think an online polling system should be built. Feel free to disagree, we would love to hear your opinions :)&lt;/p&gt;
-
-&lt;p&gt;In short, Beebeta is a web platform to gather crowdsourced knowledge. It is an online timeless repository of public opinions which is easily accessible through a poll-like web interface.&lt;/p&gt;
-
-&lt;h3&gt;Why Beebeta?&lt;/h3&gt;
-
-&lt;p&gt;Search engines are vast, and non-targeted. While you will definitely be able to find valuable facts and informations on topics, it is not built to reflect the public&amp;rsquo;s opinions on questions at hand. That&amp;rsquo;s what Beebeta is for. It gives you insights to what the crowd thinks. Which could be questions as trivial as &amp;lsquo;Which restaurant serves the best Ramen?&amp;rsquo; or global issues such as &amp;lsquo;Should gay marriage be allowed?&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;Ok so much for pitching, that&amp;rsquo;s not the purpose of this post. We are here for the nerd stuff arn&amp;rsquo;t we?&lt;/p&gt;
-
-&lt;h3&gt;Engineering Goal&lt;/h3&gt;
-
-&lt;p&gt;Throughout the implementation of Beebeta, we had a few goals in mind:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Don&amp;rsquo;t do unnecessary stuff&lt;/li&gt;
-&lt;li&gt;Don&amp;rsquo;t reinvent the wheel&lt;/li&gt;
-&lt;li&gt;Be versatile in technology options&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3&gt;OS/Hosting&lt;/h3&gt;
-
-&lt;p&gt;Beebeta runs Ubuntu 13.10(Saucy Salamander) on Amazon EC2. We tried Linux AMI(CentOS) on EC2 but find the environment not as usable as Ubuntu, plus the software updates were not consistently updated. Also, stress tests on the CentOS server resulted in unpredictable crashes. Since Beebeta is a small project, we ruled out self-hosting as an option. We definitely don&amp;rsquo;t want to waste time setting up servers ourselves.&lt;/p&gt;
-
-&lt;h3&gt;Load Balancing&lt;/h3&gt;
-
-&lt;p&gt;All server requests goes through our load balancers. We use Amazon&amp;rsquo;s Elastic Load Balancer(ELB) with 2 Nginx instances behind it. I admit now may be abit too early to devote load balancing resources but in case of unexpected traffic spikes, it will be good to pick up from here and scale instead of getting caught off-guard. I skipped using anything to handle the DNS though. But i may revisit the issue with Amazon&amp;rsquo;s Route53 in future.&lt;/p&gt;
-
-&lt;h3&gt;Application Server&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.python.org/download/releases/2.7.5/&quot;&gt;Python 2.7.5&lt;/a&gt; and &lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django 1.6.2&lt;/a&gt; was used on Amazon micro-instance machines. To encourage decoupling with the machine itself, we used &lt;a href=&quot;http://www.virtualenv.org&quot;&gt;virtualenv&lt;/a&gt; to sandbox the development environment. As such, the machines become stateless and we can easily spring up more instances and deploy direct when it comes to scaling up. Dedicated IP is also allocated to the instance. I&amp;rsquo;m guessing that most of the requests would be CPU-intensive than memory-intensive, so at the moment, a micro-instance would suffice.&lt;/p&gt;
-
-&lt;p&gt;Mod_wsgi is used as our WSGI server, together with Apache and Mysql. A typical LAMP stack. I&amp;rsquo;m exploring the possibility of shifting to &lt;a href=&quot;http://gunicorn.org&quot;&gt;Gunicorn&lt;/a&gt; in future. I read some tutorials on gunicorn and found it easier to configure. But the standard mod_wsgi is good for now.&lt;/p&gt;
-
-&lt;h3&gt;Data storage&lt;/h3&gt;
-
-&lt;p&gt;Meta-data&amp;rsquo;s such as tags, url strings etc lives in MySql table rows.&lt;/p&gt;
-
-&lt;p&gt;Our BLOB data lives in Amazon&amp;rsquo;s S3 standard storage. I thought of using glacier storage for original files and standard storage for rendered files but unfortunately S3 does not provide glacier storage in Singapore region yet. I forsee using glacier storage would cut costs by about 30% for every 10GB of data. Will keep in view for future changes, once glacier storage is opened up in Singapore. Content Distribution wise, we use &lt;a href=&quot;http://aws.amazon.com/cloudfront&quot;&gt;Amazon CloudFront&lt;/a&gt;, which helps with page load times from users at different parts of the world.&lt;/p&gt;
-
-&lt;p&gt;Caching wise, we use memcached and currently have 1 memcached instance, which is connected to using pylibmc &amp;amp; libmemcached. I&amp;rsquo;m aware there&amp;rsquo;s &lt;a href=&quot;http://aws.amazon.com/elasticache/&quot;&gt;Amazon&amp;rsquo;s Elastic Cache&lt;/a&gt; service for this, but i havent got around to reading up on that yet.&lt;/p&gt;
-
-&lt;h3&gt;Django apps&lt;/h3&gt;
-
-&lt;p&gt;As part of our goal not to reinvent the wheel. we used quite a few out-of-the-box django apps to facilitate building of Beebeta platform.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://boto.readthedocs.org/en/latest/ref/s3.html&quot;&gt;S3Boto&lt;/a&gt; is used to connect the server scripts with different Amazon web services seamlessly.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://pythonhosted.org/django-analytical/services/mixpanel.html&quot;&gt;Django-analytical&lt;/a&gt; is used to track various site metrics on the application itself.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-debug-toolbar&quot;&gt;Django-debug-toolbar&lt;/a&gt;(my favourite debugging tool!) is used on development environments for almost all debugging tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/django-pagination&quot;&gt;Django-pagination&lt;/a&gt; is used to paginate database querysets into proper pages.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://south.readthedocs.org/en/latest/&quot;&gt;Django-south&lt;/a&gt; is used to easily perform database migration tasks between ORM and the database itself.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/ubernostrum/django-registration/&quot;&gt;Django-registration&lt;/a&gt; is used to handle user registration/login/logout issues.&lt;/p&gt;
-
-&lt;h3&gt;Monitoring&lt;/h3&gt;
-
-&lt;p&gt;We are using &lt;a href=&quot;https://mixpanel.com&quot;&gt;Mixpanel&lt;/a&gt; to track user activites on the site. These tracking statistics are filtered up to 2 timeless campaigns. First campaign to track site traffic activites such as page traffic, user sign ups etc. Second campaign to track question and choices interactions of all questions on the site. At any one time we will know which questions are most popular or which group of users are most active at different times of the day.&lt;/p&gt;
-
-&lt;p&gt;For backend monitoring, we are using &lt;a href=&quot;http://newrelic.com&quot;&gt;New Relic&lt;/a&gt; to track application performance and server performance. We establish a certain threshold for performance issues on both of these assets and issue warning emails to administrators when the threshold is almost reaching.&lt;/p&gt;
-
-&lt;p&gt;For Python error reporting, we use &lt;a href=&quot;http://sentry.readthedocs.org/en/latest/&quot;&gt;Sentry&lt;/a&gt;, an open-source Django app written by the &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt; folks. We can closely monitor error messages at real-time relatively easy with this handy tool.&lt;/p&gt;
-
-&lt;h3&gt;What&amp;rsquo;s your stack?&lt;/h3&gt;
-
-&lt;p&gt;That&amp;rsquo;s so much for Beebeta stack. Feel free to leave your comments below if you think we&amp;rsquo;ve made a terrible mistake. Otherwise, I&amp;rsquo;d love to hear how you implement your stacks!&lt;/p&gt;
-
-&lt;p&gt;Lastly, i&amp;rsquo;ve been playing this song on repeats all day in my coding time. It just energizes me for the tasks at hand. Hope you like it too! :)&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;420&quot; src=&quot;http://www.youtube.com/embed/c_H3MWVx6JU?color=white&amp;theme=light&quot;&gt;&lt;/iframe&gt;
-
-</description>
-                                <pubDate>Mon, 31 Mar 2014 16:19:30 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/31/Beebeta-Engineering/</guid>
-                        </item>
-                
-                        <item>
-                                <title>How to design your blog</title>
-                                <description>&lt;p&gt;Recently i redesigned my &lt;a href=&quot;http://blog.hguochen.com&quot;&gt;blog&lt;/a&gt;. It was an enjoyable experience as i try to apply my new-acquired &lt;a href=&quot;http://design.tutsplus.com/articles/50-totally-free-lessons-in-graphic-design-theory--psd-2916&quot;&gt;design theories&lt;/a&gt; learnt from &lt;a href=&quot;http://design.tutsplus.com&quot;&gt;tutsplus.com&lt;/a&gt;. My goal was to create an &lt;strong&gt;elegant&lt;/strong&gt; and &lt;strong&gt;easy-to-read&lt;/strong&gt; blog that represents myself both visually and content-wise. In this post, i will bring you through some of my design considerations for my blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at63512pm.png&quot; width=&quot;500&quot; alt=&quot;hguochen blog&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;A look behind the scene of my blog redesign&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt;Define your brief&lt;/h2&gt;
-
-&lt;p&gt;As with any projects, it&amp;rsquo;s important to figure what exactly you want to achieve and jot it down clearly. This can be a constant reminder as you progress through the design stages. At this point, we just need to figure out our ultimate goal without being worried about the details.&lt;/p&gt;
-
-&lt;p&gt;I wanted to design a blog that is &lt;strong&gt;simple to navigate&lt;/strong&gt; on index page and contains &lt;strong&gt;easy-to-read&lt;/strong&gt; blogposts across different devices. All of these pages should clearly define me and my thoughts.&lt;/p&gt;
-
-&lt;h2&gt;Research and idea generation&lt;/h2&gt;
-
-&lt;p&gt;Do some googling to get the creativity flowing. Inspirations can come from anywhere. Some of the best places i recommend to check out are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot;&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.smashingmagazine.com&quot;&gt;Smashing Magazine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://wordpress.org/themes/&quot;&gt;Wordpress Themes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;As you go through these websites, grab a pen and sketchbook to jot down some of the things such as positions of blog elements, layout, colours, typefaces and navigation details commonly used. This will give you a basic idea of the contents to cover in designing your blog.&lt;/p&gt;
-
-&lt;h2&gt;Design considerations&lt;/h2&gt;
-
-&lt;p&gt;I wanted users to easily browse through my blog and focus on what i&amp;rsquo;ve written, so i&amp;rsquo;m not going to have too many &amp;lsquo;content&amp;rsquo; pages such as about me, work, contact me etc. These side dishes are more for a portfolio page rather than a blog. In fact, i&amp;rsquo;m only going to have 2 main pages:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Index page&lt;/li&gt;
-&lt;li&gt;Content page&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Based on my these ideas, it seems that i will need total control of designing my blog. I can&amp;rsquo;t afford to use ready made templates such as from &lt;a href=&quot;http://wordpress.com&quot;&gt;Wordpress&lt;/a&gt;. Instead, i&amp;rsquo;m using a blog engine called &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; where i have the freedom to configure every element of my blog.&lt;/p&gt;
-
-&lt;h3&gt;Index page&lt;/h3&gt;
-
-&lt;p&gt;This will be the main page of the blog, which is also what greets users when they type in my blog url. Considering a typical user has a short attention-span of only 5 seconds on a webpage, i will need to present the entirety of my blog in that timeframe. Its good to give a short introduction of myself and the genre of this blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at72040pm.png&quot; width=&quot;500&quot; alt=&quot;blog intro&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Next i need a way to quickly tell visitor what kind of topics i write about, and there&amp;rsquo;s no better way than allowing them to glance through my blog topics in a short scroll. Many blogs present their latest blogposts at the top. I think this is a bad practice as your latest blogpost might not necessarily be of visitors&#39; interest. Sieving through your entire post to look at your other blogposts is just too much of a pain to get to know you. I&amp;rsquo;d advise against irritating your visitors.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at73003pm.png&quot; width=&quot;500&quot; alt=&quot;blog index browsing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With the year-annotated scrolling, my visitors will be able to quickly scroll through my list of blogposts and look for interests. We are providing a &amp;lsquo;simple to navigate&amp;rsquo; index page, as part of our objective listed above.&lt;/p&gt;
-
-&lt;h3&gt;Content page&lt;/h3&gt;
-
-&lt;p&gt;This is the meat of the blog. In fact, most visitors will be entering your blog through a blogspot than index page itself. It is important to establish some form of coherence between the content page and the index page. I chose to do it subtlely by appending my blog thumbnail picture at the top of the page. Followed by the date of the blogpost and topic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Footer of the blogpost should be dedicated to interactivity. If visitors has taken the time to read to the bottom, he/she most probably have enjoyed the post. It is good to elicit further action by either allowing the visitor to share on social domains or provide a comment for further discussion.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74945pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost footer&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;On Measure&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/measure_1.gif&quot; alt=&quot;measure&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Measure, is the name given to the width of a body of type. There are several units of measurement used for defining the measure&amp;rsquo;s width. Three basic units are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;One point = 1/72 of an inch&lt;/li&gt;
-&lt;li&gt;One pic = 12 points&lt;/li&gt;
-&lt;li&gt;One em = Distance horizontally equal to the type of size, in points. you are using. Eg. 1em of 12pt type is 12pt.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For a full width monitor, the optimum measure for reading is between &lt;strong&gt;66-72 words&lt;/strong&gt; a line. If you scale that down to a mobile screen, measure would come down to about &lt;strong&gt;8-13 words&lt;/strong&gt; a line.&lt;/p&gt;
-
-&lt;h3&gt;On font-size&lt;/h3&gt;
-
-&lt;p&gt;Appropriate font size will greatly enhance the readability of texts. I shall not go into detail here but some tried and tested font sizes for blog contents adopts the following pixel sizes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;16px &amp;ndash; Body copy and leading&lt;/li&gt;
-&lt;li&gt;24px &amp;ndash; Main heading &amp;amp; section headings&lt;/li&gt;
-&lt;li&gt;18px &amp;ndash; Subheadings&lt;/li&gt;
-&lt;li&gt;13px &amp;ndash; All other headed elements&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;This will give the following styles visually:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.markboulton.co.uk/images/uploads/typo4_headings.gif&quot; width=&quot;300&quot; alt=&quot;font sizes&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;For the frontend designers, your CSS could look like this with the specifications above:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;body {
-    font: 16px/1.5em &quot;Lucida Grande&quot;;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: helvetica, arial, verdana, sans-serif;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 218%;
-}
-
-h2 {
-    font-size: 164%;
-}
-
-h3 {
-    font-size: 145%;
-}
-
-h4 {
-    font-size: 118%;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;On typefaces&lt;/h3&gt;
-
-&lt;p&gt;We read most easily with what we are most familiar with. This would mean the traditional serif family of typefaces. But even in the serif family, there are countless kinds of typefaces to choose from. On choosing a typeface, i&amp;rsquo;ve had a long trial and error on this. Here are 3 different serif types i&amp;rsquo;ve experimented with using on the same content:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82316pm.png&quot; width=&quot;400&quot; alt=&quot;helvetica_neue&quot; /&gt;
-&lt;strong&gt;helvetica neue&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Helvetica is a great font for texts, but it is not such a great typeface for continuous smooth reading. It lacks the &amp;lsquo;legs&amp;rsquo; seen on other typefaces which provides the smooth gliding feel when reading on a screen.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82347pm.png&quot; width=&quot;400&quot; alt=&quot;sans-serif&quot; /&gt;
-&lt;strong&gt;sans-serif&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Serif is a safe font. Generally you won&amp;rsquo;t go wrong with this font. However, since i prefer a lighter shade of texts, i have to reduce the font-weight from normal 300 to 200. This didn&amp;rsquo;t fare well with serif typeface and words appear to thin to read properly.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at82121pm.png&quot; width=&quot;400&quot; alt=&quot;georgia&quot; /&gt;
-&lt;strong&gt;georgia&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Part of the serif typeface family, georgia has always been a strong choice for continous texts. Some of the most popular web such as &lt;a href=&quot;http://medium.com&quot;&gt;Medium&lt;/a&gt; and &lt;a href=&quot;http://www.nytimes.com&quot;&gt;NyTimes&lt;/a&gt; uses georgia to render their texts. An additional advantage of georgia typeface is that it&amp;rsquo;s distinctive enough that font colors normally won&amp;rsquo;t erode its readability.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;After weighing the considerations, i&amp;rsquo;ve decided to use &amp;lsquo;Helvetica Neue&amp;rsquo; for headings and &amp;lsquo;georgia&amp;rsquo; for paragraph texts. Here&amp;rsquo;s how it looks like:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at74802pm.png&quot; width=&quot;500&quot; alt=&quot;blogpost header&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;On font color&lt;/h3&gt;
-
-&lt;p&gt;Black text on white background offers the best readability. However, prolonged exposure on black contrasted texts could be painful to our eyes since modern screen brightness are getting better and better. As such, i&amp;rsquo;ve decided to reduce the contrast of texts by changing paragraph texts to a &amp;lsquo;greyier&amp;rsquo; color while not compromising readability. After some trial and error, the color i&amp;rsquo;ve chosen is a grey with hexcode: #333332.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.colorhexa.com/333332.png&quot; height=&quot;150&quot; width=&quot;200&quot; alt=&quot;333332&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Responsive Design&lt;/h2&gt;
-
-&lt;p&gt;The last of my consideration is to make sure my blog is readable on both mobile and desktop devices alike.&lt;/p&gt;
-
-&lt;p&gt;I like to use a grid because it provides a structural foundation, whiel making the development process easier and more efficient. Using a flexible grid enables a website to sclae dynamically to fit any device width. Below is the CSS for my responsive grid, which is my variations from &lt;a href=&quot;http://getbootstrap.com&quot;&gt;bootstrap&lt;/a&gt;&amp;rsquo;s responsive grid.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/* 12 col responsive grid */
-
-.row {
-    clear: both;
-    max-width: 1040px;
-    margin: 0 auto;
-}
-
-[class^=&quot;col-&quot;]:last-child {
-    margin: 0;
-}
-
-[class^=&quot;col-&quot;] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-
-
-.col-xs-1 { width: 4.8076923077% }
-.col-xs-2 { width: 13.4615384615% }
-.col-xs-3 { width: 22.1153846154% }
-.col-xs-4 { width: 30.7692307692% }
-.col-xs-5 { width: 39.4230769231% }
-.col-xs-6 { width: 48.0769230769% }
-.col-xs-7 { width: 56.7307692308% }
-.col-xs-8 { width: 65.3846153846% }
-.col-xs-9 { width: 74.0384615385% }
-.col-xs-10 { width: 82.6923076923% }
-.col-xs-11 { width: 91.3461538462% }
-.col-xs-12 { width: 100%; margin: 0 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My breakpoints for my responsive blog are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;360px max-width for mobile&lt;/li&gt;
-&lt;li&gt;768px max-width for tablets&lt;/li&gt;
-&lt;li&gt;1024px max-width for desktops&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Keep in mind that with a growing array of devices, there is no longer a &amp;lsquo;common&amp;rsquo; width concepts. It is best to optimize for whichever devices you intend to serve.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s my blog&amp;rsquo;s responsive layout on a few devices:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/Mobile%20Uploads/E88F66B9-1921-4E9E-8F48-FB5AF6571F4B.png&quot; width=&quot;150&quot; alt=&quot;iPhone&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;iPhone 5&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/photo.png&quot; width=&quot;300&quot; alt=&quot;ipad&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;iPad Mini&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i1113.photobucket.com/albums/k508/houguochen/ScreenShot2014-03-23at85832pm.png&quot; width=&quot;500&quot; alt=&quot;desktop&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Desktop&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So, i&amp;rsquo;ve designed and tested out my new blog layout. It is my first time designing a blog from scratch and i&amp;rsquo;ve really learnt alot in the process! Designing is like a constant war between your left brain and right brain while still trying to grip on to established design principles. ROAR! But still, it is fun :) Hopefully my experience has provided you with a guideline to designing blogs. I&amp;rsquo;d love to hear about your experiences in designing your own blog!&lt;/p&gt;
-</description>
-                                <pubDate>Sun, 23 Mar 2014 18:18:25 +0000</pubDate>
-                                <link>http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//design/development/2014/03/23/How-to-design-your-blog/</guid>
-                        </item>
-                
-                        <item>
-                                <title>How to learn Javascript</title>
-                                <description>&lt;p&gt;One of my side projects required the use of jQuery and AJAX to add interactivity to the website. What is jQuery and AJAX? They are both frameworks built on top of its base language, javascript.I haven&amp;rsquo;t alot of experiences dealing with javascript before so i&amp;rsquo;ve no choice but to start from the base language.&lt;/p&gt;
-
-&lt;p&gt;Regardless of prior programming experiences, i would still recommend learning a new programming language the proper way. Grasping the correct syntax and coding conventions could help a long way. I took about 4 days going through a series of web resources to learning javascript and shortlisted some of the best tutorials. Just follow through step by step.&lt;/p&gt;
-
-&lt;h3&gt;0. Read up on fundamentals of Javascript&lt;/h3&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Javascript is the language of the browser.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Javascript used to be a client-side programming language running client web scripts. It&amp;rsquo;s primary purpose is to add interactivity to an otherwise static page. Javascript is normally used in conjunction with HTML &amp;amp; CSS to enrich your web contents. However, it has become more popular as a server scripting language in recent years, with &lt;a href=&quot;http://nodejs.org/%E2%80%8E&quot;&gt;Node.js&lt;/a&gt; being the new kid in town.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://eloquentjavascript.net/index.html&quot;&gt;Eloquent Javascript&lt;/a&gt; by Marjin Haverbeke, is available freely online. Besides introduction to the language in depth, it also covers coding style and using javascript in the browser. &amp;ldquo;eloquent&amp;rdquo; isn&amp;rsquo;t an overstatement.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript&quot;&gt;A Re-introduction to JavaScript&lt;/a&gt;. This introduction is on the Mozilla Developers Network, and it&amp;rsquo;s pretty dense in contents with many code examples. It would recommend quickly reading through to get a first impression of the language.&lt;/p&gt;
-
-&lt;h3&gt;1. Go through the Javascript course at Codecademy.com&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;www.codecademy.com&quot;&gt;Codecademy&lt;/a&gt; revamped its courses to learning javascript and touted itself as &amp;ldquo;the easiest way to learn how to code&amp;rdquo;. There are currently two courses on JS: &amp;ldquo;Getting started with Programming&amp;rdquo; and &amp;ldquo;Javascript Quick Start Guide&amp;rdquo; Both of these courses are awesome way to dip into the JS pool and get a feel of the syntax of the language.&lt;/p&gt;
-
-&lt;p&gt;If you are already familiar with other programming languages, you can start with &amp;ldquo;Javascript Quick Start Guide&amp;rdquo;. If you are fresh to programming, &amp;ldquo;Getting started with programming&amp;rdquo; is tailored for you. Codecademy is free, but sign up is required.&lt;/p&gt;
-
-&lt;h3&gt;2. Screencast tutorials at TheNewBoston&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://thenewboston.org/list.php?cat=10&quot;&gt;The New Boston&lt;/a&gt; for javascript has an awesome set of screencast tutorials geared for beginners. It&amp;rsquo;s a good way for beginners to follow and get a feel of how javascript programs are structured. I generally like screencast tutorials alot more because it&amp;rsquo;s easier to follow than written scripts.&lt;/p&gt;
-
-&lt;h3&gt;3. Install and Learn Firebug(or Chrome Developer Tools)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://getfirebug.com/&quot;&gt;Firebug&lt;/a&gt; is a plugin for Firefox browser that assists you in building and debugging web pages. If you prefer &lt;a href=&quot;www.google.com/chrome/&quot;&gt;Google Chrome&lt;/a&gt; or &lt;a href=&quot;https://www.apple.com/sg/safari/%E2%80%8E&quot;&gt;Safari&lt;/a&gt;, check out the built-in developer tools.&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Open developer tools panel by press &lt;code&gt;Option + Cmd +I&lt;/code&gt; on mac, or &lt;code&gt;Ctrl+Shift+I&lt;/code&gt; on the PC.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Check out some of the useful guides on using both of these tools:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Firebug
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://css-tricks.com/video-screencasts/15-introduction-to-firebug/&quot;&gt;Introduction to Firebug&lt;/a&gt; on &lt;a href=&quot;http://css-tricks.com/&quot;&gt;CSS-Tricks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/other/10-reasons-why-you-should-be-using-firebug/&quot;&gt;10 Reasons Why You Should Be Using Firebug&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Developer Tools
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://code.google.com/chrome/devtools/&quot;&gt;Developer Tools Website&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=nOEw9iiopwI&amp;amp;feature=player_embedded&quot;&gt;Google Chrome Developer Tools: 12 Tricks to Develop Quicker&lt;/a&gt; by Paul Irish&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;4. Begin Learning a JavaScript Library &amp;ndash; jQuery&lt;/h3&gt;
-
-&lt;p&gt;The point of a javascript library is to sugar down the painful stuff, which could mean extensive amounts of coding just to achieve simple functionalities. There are quite a number of javascript libraries available for free over the web but &lt;a href=&quot;http://jquery.com/&quot;&gt;jQuery&lt;/a&gt; is probably the most popular and widely used library. For a start, read through the &lt;a href=&quot;http://learn.jquery.com/about-jquery/&quot;&gt;jQuery Documentations&lt;/a&gt; to get an idea of the ease of using javascript libraries as opposed to javascript raw language.&lt;/p&gt;
-
-&lt;h3&gt;5. Work through the tutorial at Try jQuery&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://try.jquery.com/&quot;&gt;Try jQuery&lt;/a&gt; is just like codecademy which offers hands on tutorial to learning jQuery. I find it most beneficial by constantly referring back to &lt;a href=&quot;http://api.jquery.com&quot;&gt;jQuery API&lt;/a&gt; while going through the tutorial.&lt;/p&gt;
-
-&lt;h3&gt;6. Screencast jQuery tutorials at TheNewBoston&lt;/h3&gt;
-
-&lt;p&gt;Again, &lt;a href=&quot;http://thenewboston.org/list.php?cat=32&quot;&gt;The New Boston&lt;/a&gt; for jQuery is a pretty good goto place to quickly get on hand with using jQuery optimally and see how professional use the library.&lt;/p&gt;
-
-&lt;p&gt;So the above pretty much summed up my 4 day adventure into javascript. I hope this plan can help you become good at javascript and build wonderful websites! If you have any other good javascript tutorials to recommend, please leave them in the comments below!&lt;/p&gt;
-</description>
-                                <pubDate>Sat, 15 Mar 2014 15:35:12 +0000</pubDate>
-                                <link>http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</link>
-                                <guid isPermaLink="true">http://blog.hguochen.com//web%20development/2014/03/15/How-to-learn-Javascript/</guid>
+                                <pubDate>Mon, 16 Jun 2014 17:02:54 -0700</pubDate>
+                                <link>http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/16/Kruskal's-Algorithm/</link>
+                                <guid isPermaLink="true">http://blog.hguochen.com//programming/greedy%20algorithm/2014/06/16/Kruskal's-Algorithm/</guid>
                         </item>
                 
         </channel>
